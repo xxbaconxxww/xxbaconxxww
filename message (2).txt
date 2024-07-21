@@ -1,0 +1,206 @@
+-- // GUI TO LUA \\ --
+
+-- // INSTANCES: 15 | SCRIPTS: 1 | MODULES: 0 \\ --
+
+local UI = {}
+
+-- // StarterGui.WASD \\ --
+UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+UI["1"]["Name"] = [[WASD]]
+UI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+
+-- // StarterGui.WASD.L \\ --
+UI["2"] = Instance.new("TextButton", UI["1"])
+UI["2"]["TextWrapped"] = true
+UI["2"]["TextTransparency"] = 1
+UI["2"]["TextSize"] = 14
+UI["2"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["2"]["TextScaled"] = true
+UI["2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["2"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["2"]["Size"] = UDim2.new(0, 3, 0, 28)
+UI["2"]["BackgroundTransparency"] = 1
+UI["2"]["LayoutOrder"] = 2
+UI["2"]["Name"] = [[L]]
+UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["2"]["Text"] = [[LMB]]
+UI["2"]["Position"] = UDim2.new(0.9413, 0, 0.78956, 0)
+
+-- // StarterGui.WASD.L.UICorner \\ --
+UI["3"] = Instance.new("UICorner", UI["2"])
+UI["3"]["CornerRadius"] = UDim.new(0, 13)
+
+-- // StarterGui.WASD.Left \\ --
+UI["4"] = Instance.new("TextButton", UI["1"])
+UI["4"]["TextWrapped"] = true
+UI["4"]["TextSize"] = 14
+UI["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["4"]["TextScaled"] = true
+UI["4"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["4"]["Size"] = UDim2.new(0, 200, 0, 50)
+UI["4"]["BackgroundTransparency"] = 0.5
+UI["4"]["LayoutOrder"] = 4
+UI["4"]["Name"] = [[Left]]
+UI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4"]["Text"] = [[A]]
+
+-- // StarterGui.WASD.Left.UICorner \\ --
+UI["5"] = Instance.new("UICorner", UI["4"])
+UI["5"]["CornerRadius"] = UDim.new(0, 13)
+
+-- // StarterGui.WASD.Backward \\ --
+UI["6"] = Instance.new("TextButton", UI["1"])
+UI["6"]["TextWrapped"] = true
+UI["6"]["TextSize"] = 14
+UI["6"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["6"]["TextScaled"] = true
+UI["6"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["6"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["6"]["Size"] = UDim2.new(0, 200, 0, 50)
+UI["6"]["BackgroundTransparency"] = 0.5
+UI["6"]["LayoutOrder"] = 5
+UI["6"]["Name"] = [[Backward]]
+UI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["6"]["Text"] = [[S]]
+
+-- // StarterGui.WASD.Backward.UICorner \\ --
+UI["7"] = Instance.new("UICorner", UI["6"])
+UI["7"]["CornerRadius"] = UDim.new(0, 13)
+
+-- // StarterGui.WASD.Right \\ --
+UI["8"] = Instance.new("TextButton", UI["1"])
+UI["8"]["TextWrapped"] = true
+UI["8"]["TextSize"] = 14
+UI["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["8"]["TextScaled"] = true
+UI["8"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["8"]["Size"] = UDim2.new(0, 50, 0, 50)
+UI["8"]["BackgroundTransparency"] = 0.5
+UI["8"]["LayoutOrder"] = 6
+UI["8"]["Name"] = [[Right]]
+UI["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["8"]["Text"] = [[D]]
+UI["8"]["Position"] = UDim2.new(0.87391, 0, 0.72785, 0)
+
+-- // StarterGui.WASD.Right.UICorner \\ --
+UI["9"] = Instance.new("UICorner", UI["8"])
+UI["9"]["CornerRadius"] = UDim.new(0, 13)
+
+-- // StarterGui.WASD.UIGridLayout \\ --
+UI["a"] = Instance.new("UIGridLayout", UI["1"])
+UI["a"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Right
+UI["a"]["CellSize"] = UDim2.new(0, 60, 0, 60)
+UI["a"]["FillDirectionMaxCells"] = 3
+UI["a"]["VerticalAlignment"] = Enum.VerticalAlignment.Bottom
+UI["a"]["SortOrder"] = Enum.SortOrder.LayoutOrder
+UI["a"]["CellPadding"] = UDim2.new(0, 3, 0, 2)
+
+-- // StarterGui.WASD.Forward \\ --
+UI["b"] = Instance.new("TextButton", UI["1"])
+UI["b"]["TextWrapped"] = true
+UI["b"]["TextSize"] = 14
+UI["b"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["b"]["TextScaled"] = true
+UI["b"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["b"]["Size"] = UDim2.new(0, 3, 0, 28)
+UI["b"]["BackgroundTransparency"] = 0.5
+UI["b"]["LayoutOrder"] = 2
+UI["b"]["Name"] = [[Forward]]
+UI["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["b"]["Text"] = [[W]]
+UI["b"]["Position"] = UDim2.new(0.9413, 0, 0.78956, 0)
+
+-- // StarterGui.WASD.Forward.UICorner \\ --
+UI["c"] = Instance.new("UICorner", UI["b"])
+UI["c"]["CornerRadius"] = UDim.new(0, 13)
+
+-- // StarterGui.WASD.Forward.guiscript \\ --
+UI["d"] = Instance.new("LocalScript", UI["b"])
+UI["d"]["Name"] = [[guiscript]]
+
+-- // StarterGui.WASD.R \\ --
+UI["e"] = Instance.new("TextButton", UI["1"])
+UI["e"]["TextWrapped"] = true
+UI["e"]["TextTransparency"] = 1
+UI["e"]["TextSize"] = 14
+UI["e"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["e"]["TextScaled"] = true
+UI["e"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["e"]["Size"] = UDim2.new(0, 3, 0, 28)
+UI["e"]["BackgroundTransparency"] = 1
+UI["e"]["LayoutOrder"] = 3
+UI["e"]["Name"] = [[R]]
+UI["e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["e"]["Text"] = [[RMB]]
+UI["e"]["Position"] = UDim2.new(0.9413, 0, 0.78956, 0)
+
+-- // StarterGui.WASD.R.UICorner \\ --
+UI["f"] = Instance.new("UICorner", UI["e"])
+UI["f"]["CornerRadius"] = UDim.new(0, 13)
+
+-- // StarterGui.WASD.Forward.guiscript \\ --
+local function SCRIPT_d()
+local script = UI["d"]
+	local NPC = workspace.modelforcar.ForwardNPC
+	local Humanoid = NPC.Humanoid
+	wait(2.5)
+	local Forward = game.Players.LocalPlayer.PlayerGui.WASD.Forward
+	
+	local isButtonDown = false
+	local speed = 16
+	local acceleration = 2
+	local speedLimit = 80
+	local deceleration = 5
+	
+	local decelerating = false
+	
+	local function decelerate()
+		while Humanoid.WalkSpeed > 0 do
+			Humanoid.WalkSpeed = math.max(0, Humanoid.WalkSpeed - deceleration)
+			wait(0.1) -- Deceleration interval
+		end
+		decelerating = false
+	end
+	
+	Forward.MouseButton1Down:Connect(function()
+		isButtonDown = true
+		_G.npcforward = true
+		decelerating = false
+		while isButtonDown do
+			if Humanoid and Humanoid:IsA("Humanoid") then
+				Humanoid.WalkSpeed = math.min(Humanoid.WalkSpeed + acceleration, speedLimit)
+			end
+			wait(0.1)
+		end
+	end)
+	
+	Forward.MouseButton1Up:Connect(function()
+		isButtonDown = false
+		if Humanoid and Humanoid:IsA("Humanoid") then
+			if not decelerating then
+				decelerating = true
+				decelerate()
+			end
+		end
+	end)
+	
+	game:GetService("UserInputService").InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 then
+			isButtonDown = false
+			_G.npcforward = false
+			if Humanoid and Humanoid:IsA("Humanoid") then
+				if not decelerating then
+					decelerating = true
+					decelerate()
+				end
+			end
+		end
+	end)
+end
+task.spawn(SCRIPT_d)
+
+return UI["1"], require;
