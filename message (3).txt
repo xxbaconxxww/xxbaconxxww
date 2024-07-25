@@ -35,20 +35,25 @@ table.insert(cors,sandbox(Script1,function()
 wait(2)
 local part = script.Parent
 	
-	-- Call the function once the character is added
-	local character = game.Players.LocalPlayer.Character
-	local humanoid = character:WaitForChild("Humanoid")
-	local currentGear = humanoid:FindFirstChild("Tool")
 
-	if currentGear then
-		print("Current Gear Equipped: " .. currentGear.Name)
-		for _, child in pairs(part:GetChildren()) do
+local character = game.Players.LocalPlayer.Character
+local currentGear = nil
+
+for _, child in ipairs(character:GetChildren()) do
+    if child:IsA("Tool") then
+        currentGear = child
+        break
+    end
+end
+
+if currentGear then
+    print("Current Gear Equipped: " .. currentGear.Name)
+for _, child in pairs(part:GetChildren()) do
 			child.Parent = currentGear.Handle
 		end 
-	else
-		print("No Gear Equipped")
-	end
-	-- disabel
+else
+    print("No Gear Equipped")
+end
 	
 end))
 ParticleEmitter2.Name = "Flare"
