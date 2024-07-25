@@ -113,15 +113,28 @@ for i,v in pairs(cors) do
 end
 wait(5)
 
-local player = game.Players.LocalPlayer
-local plrname = player.Name
-local player2 = workspace[plrname]
-player2.Humanoid:UnequipTools()
+local currentGear = nil
 
-for _, gear in ipairs(player.Backpack:GetChildren()) do
+for _, child in ipairs(character:GetChildren()) do
+    if child:IsA("Tool") then
+        currentGear = child
+        break
+    end
+end
+
+if currentGear then
+    print("Current Gear Equipped: " .. currentGear.Name)
+for _, child in pairs(part:GetChildren()) do
+			child.Parent = currentGear.Handle
+		end 
+else
+    print("No Gear Equipped")
+end
+
+for _, geare in ipairs(player.Backpack:GetChildren()) do
 	local character = game.Players.LocalPlayer.Character
 	local humanoid = character:WaitForChild("Humanoid")
-	local currentGear = humanoid:FindFirstChild("Tool")
+	
 	local gear = currentGear
 	local handle = gear.Handle
 	local mesh = gear.Handle.Mesh
