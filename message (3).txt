@@ -125,9 +125,6 @@ end
 
 if currentGear then
     print("Current Gear Equipped: " .. currentGear.Name)
-for _, child in pairs(part:GetChildren()) do
-			child.Parent = currentGear.Handle
-		end 
 else
     print("No Gear Equipped")
 end
