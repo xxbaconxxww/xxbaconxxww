@@ -114,11 +114,7 @@ for i,v in pairs(cors) do
 		pcall(v)
 	end)
 end
-
-print("Start")
-local loopGripPos = false
-wait(3)
-MESH = nil
+wait(5)
 local part = script.Parent
 local children = part:GetChildren()
 local player = game.Players.LocalPlayer
@@ -131,22 +127,31 @@ for _, gear in ipairs(player.Backpack:GetChildren()) do
 	local mesh = gear.Handle.Mesh
 	mesh:Destroy()
 	print("Destroyed")
-	
-	-- ENTER SCRIPT HERE
 
+	-- ENTER SCRIPT HERE
+	local mesh = Instance.new("SpecialMesh")
+
+	mesh.Parent = handle
+	handle.Parent.GripPos = Vector3.new(0, 0, -2)
+	local lastposition = handle.Parent.GripPos
+	handle.Material = Enum.Material.Neon
+	mesh.MeshId = "http://www.roblox.com/asset/?id=77403584"
+	mesh.TextureId= "http://www.roblox.com/asset/?id=77403631"
+	mesh.Scale = Vector3.new(0.75, 0.75, 0.75)
+	print("final ending")
 
 	--ENTER SCRIPT HERE ^
 
-local mesh = Instance.new("SpecialMesh")
 
-mesh.Parent = handle
-handle.Parent.GripPos = Vector3.new(0, 0, -2)
-local lastposition = handle.Parent.GripPos
-handle.Material = Enum.Material.Neon
-mesh.MeshId = "http://www.roblox.com/asset/?id=77403584"
-mesh.TextureId= "http://www.roblox.com/asset/?id=77403631"
-mesh.Scale = Vector3.new(0.75, 0.75, 0.75)
-	print("final ending")
+
+
+
+print("Start")
+local loopGripPos = false
+wait(3)
+MESH = nil
+
+
 repeat
 	if handle.Parent.GripPos ~= lastposition then
 		handle.Parent.GripPos = Vector3.new(0, 0, -2)
