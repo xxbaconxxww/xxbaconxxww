@@ -114,6 +114,7 @@ end
 wait(5)
 
 local currentGear = nil
+local character = game.Players.LocalPlayer.Character
 
 for _, child in ipairs(character:GetChildren()) do
     if child:IsA("Tool") then
