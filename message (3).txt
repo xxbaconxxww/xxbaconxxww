@@ -1,0 +1,157 @@
+
+--Converted with ttyyuu12345's model to script plugin v4
+function sandbox(var,func)
+	local env = getfenv(func)
+	local newenv = setmetatable({},{
+		__index = function(self,k)
+			if k=="script" then
+				return var
+			else
+				return env[k]
+			end
+		end,
+	})
+	setfenv(func,newenv)
+	return func
+end
+cors = {}
+mas = Instance.new("Model",game:GetService("Lighting"))
+Part0 = Instance.new("Part")
+Part0.Anchored = true
+Script1 = Instance.new("Script")
+ParticleEmitter2 = Instance.new("ParticleEmitter")
+Beam3 = Instance.new("Beam")
+Beam4 = Instance.new("Beam")
+PointLight5 = Instance.new("PointLight")
+ParticleEmitter6 = Instance.new("ParticleEmitter")
+Part0.Parent = mas
+Part0.CFrame = CFrame.new(-8.5, 0.5, -8.70001221, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Part0.Position = Vector3.new(-8.5, 0.5, -8.70001220703125)
+Part0.Size = Vector3.new(4, 1, 2)
+Part0.BottomSurface = Enum.SurfaceType.Smooth
+Part0.TopSurface = Enum.SurfaceType.Smooth
+Script1.Parent = Part0
+table.insert(cors,sandbox(Script1,function()
+wait(2)
+local part = script.Parent
+	
+	-- Call the function once the character is added
+	local character = game.Players.LocalPlayer.Character
+	local humanoid = character:WaitForChild("Humanoid")
+	local currentGear = humanoid:FindFirstChild("Tool")
+
+	if currentGear then
+		print("Current Gear Equipped: " .. currentGear.Name)
+		for _, child in pairs(part:GetChildren()) do
+			child.Parent = currentGear.Handle
+		end 
+	else
+		print("No Gear Equipped")
+	end
+	-- disabel
+	
+end))
+ParticleEmitter2.Name = "Flare"
+ParticleEmitter2.Parent = mas
+ParticleEmitter2.Speed = NumberRange.new(4, 4)
+ParticleEmitter2.Color = ColorSequence.new(Color3.new(0.972549, 0.972549, 0.972549),Color3.new(1, 1, 0.498039))
+ParticleEmitter2.LightEmission = 1
+ParticleEmitter2.Texture = "rbxassetid://284205403"
+ParticleEmitter2.Transparency = NumberSequence.new(1,0.5,0.5,1)
+ParticleEmitter2.ZOffset = -1
+ParticleEmitter2.Size = NumberSequence.new(0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5)
+ParticleEmitter2.EmissionDirection = Enum.NormalId.Back
+ParticleEmitter2.Lifetime = NumberRange.new(1, 1)
+ParticleEmitter2.LockedToPart = true
+ParticleEmitter2.Rate = 35
+Beam3.Name = "Light"
+Beam3.Parent = Part0
+Beam3.Attachment0 = nil
+Beam3.Attachment1 = nil
+Beam3.FaceCamera = true
+Beam3.LightEmission = 1
+Beam3.Segments = 2
+Beam3.Texture = "rbxassetid://502107146"
+Beam3.TextureLength = 100
+Beam3.TextureMode = Enum.TextureMode.Static
+Beam3.Transparency = NumberSequence.new(1,0.5,0.5,1)
+Beam3.Width0 = 1.5
+Beam3.Width1 = 0
+Beam3.ZOffset = 0.10000000149011612
+Beam4.Name = "Light2"
+Beam4.Parent = Part0
+Beam4.Attachment0 = nil
+Beam4.Attachment1 = nil
+Beam4.FaceCamera = true
+Beam4.LightEmission = 1
+Beam4.Segments = 2
+Beam4.Texture = "rbxassetid://502107146"
+Beam4.TextureLength = 100
+Beam4.TextureMode = Enum.TextureMode.Static
+Beam4.Transparency = NumberSequence.new(1,0.5,0.5,1)
+Beam4.Width0 = 2
+Beam4.Width1 = 0
+Beam4.ZOffset = 0.10000000149011612
+PointLight5.Parent = Part0
+PointLight5.Range = 10
+PointLight5.Brightness = 10
+
+for i,v in pairs(mas:GetChildren()) do
+	v.Parent = workspace
+	pcall(function() v:MakeJoints() end)
+end
+mas:Destroy()
+for i,v in pairs(cors) do
+	spawn(function()
+		pcall(v)
+	end)
+end
+wait(5)
+
+local player = game.Players.LocalPlayer
+local plrname = player.Name
+local player2 = workspace[plrname]
+player2.Humanoid:UnequipTools()
+
+for _, gear in ipairs(player.Backpack:GetChildren()) do
+	local character = game.Players.LocalPlayer.Character
+	local humanoid = character:WaitForChild("Humanoid")
+	local currentGear = humanoid:FindFirstChild("Tool")
+	local gear = currentGear
+	local handle = gear.Handle
+	local mesh = gear.Handle.Mesh
+	mesh:Destroy()
+	print("Destroyed")
+
+	-- ENTER SCRIPT HERE
+	local mesh = Instance.new("SpecialMesh")
+
+	mesh.Parent = handle
+	handle.Parent.GripPos = Vector3.new(0, 0, -2)
+	local lastposition = handle.Parent.GripPos
+	handle.Material = Enum.Material.Neon
+	mesh.MeshId = "http://www.roblox.com/asset/?id=77403584"
+	mesh.TextureId= "http://www.roblox.com/asset/?id=77403631"
+	mesh.Scale = Vector3.new(0.75, 0.75, 0.75)
+	print("final ending")
+
+	--ENTER SCRIPT HERE ^
+
+
+
+
+
+print("Start")
+local loopGripPos = false
+wait(3)
+MESH = nil
+
+
+repeat
+	if handle.Parent.GripPos ~= lastposition then
+		handle.Parent.GripPos = Vector3.new(0, 0, -2)
+		print("allow")
+	end
+	wait(0.05)
+	until loopGripPos == true
+end
