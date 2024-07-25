@@ -31,19 +31,20 @@ Part0.BottomSurface = Enum.SurfaceType.Smooth
 Part0.TopSurface = Enum.SurfaceType.Smooth
 Script1.Parent = Part0
 table.insert(cors,sandbox(Script1,function()
-wait(3.5)
-local part = script.Parent
-local children = part:GetChildren()
-local player = game.Players.LocalPlayer
+		
+	local part = script.Parent
+	local player = game.Players.LocalPlayer
 
-for _, child in pairs(children) do
-	for _, gear in ipairs(player.Backpack:GetChildren()) do
-		if gear:IsA("Tool") then
-				child.Parent = gear.Handle
+	player.CharacterAdded:Connect(function(character)
+		local gear = player.Character:WaitForChild("Humanoid"):GetPlayingTools()
+
+		for _, child in pairs(part:GetChildren()) do
+			for _, tool in ipairs(gear) do
+				child.Parent = tool.Handle
 				print(child.Parent)
-		end	
-	end
-end	
+			end	
+		end
+	end)
 end))
 ParticleEmitter2.Name = "Flare"
 ParticleEmitter2.Parent = mas
