@@ -115,8 +115,7 @@ for i,v in pairs(cors) do
 	end)
 end
 wait(5)
-local part = script.Parent
-local children = part:GetChildren()
+
 local player = game.Players.LocalPlayer
 local plrname = player.Name
 local player2 = workspace[plrname]
