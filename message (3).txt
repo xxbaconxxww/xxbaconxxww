@@ -129,7 +129,7 @@ else
     print("No Gear Equipped")
 end
 
-for _, geare in ipairs(player.Backpack:GetChildren()) do
+
 	local character = game.Players.LocalPlayer.Character
 	local humanoid = character:WaitForChild("Humanoid")
 	
