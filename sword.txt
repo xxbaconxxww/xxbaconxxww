@@ -99,7 +99,7 @@ Beam4.Width0 = 2
 Beam4.Width1 = 0
 Beam4.ZOffset = 0.10000000149011612
 PointLight5.Parent = Part0
-PointLight5.Range = size / 2
+PointLight5.Range = size/2
 PointLight5.Brightness = brightness
 
 
