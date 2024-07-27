@@ -1,6 +1,6 @@
 
 brightness = 10
-size = 20
+size = 60
 multiply = false
 
 
@@ -173,3 +173,10 @@ else
 --	ball.Parent = handle
 --	ball.Adornee = handle
 end
+
+repeat
+wait(0.1)
+handle.Size = Vector3.new(0.1,0.1,0.1)
+wait(0.1)
+handle.Size = Vector3.new(size,size,size)
+until false
