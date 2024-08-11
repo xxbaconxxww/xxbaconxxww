@@ -1,0 +1,166 @@
+local CollectionService = game:GetService("CollectionService")
+local cooldown = false
+
+local function PartScript(Part)
+
+	print(Part)
+
+	Part.Touched:Connect(function(Touched)
+
+		local humanoid = Touched.Parent:FindFirstChild("Humanoid")
+		if humanoid and not cooldown then
+
+			-- print humanoid displayname
+			print(humanoid.DisplayName)
+			-- wait for cooldown
+			cooldown = true
+			wait(5)
+			cooldown = false
+
+		end
+	end)
+end
+
+-- // GUI TO LUA \\ --
+
+-- // INSTANCES: 10 | SCRIPTS: 3 | MODULES: 0 \\ --
+
+local UI = {}
+
+-- // StarterGui.ScreenGui \\ --
+UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+UI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+
+-- // StarterGui.ScreenGui.gui \\ --
+UI["2"] = Instance.new("ScreenGui", UI["1"])
+UI["2"]["Name"] = [[gui]]
+UI["2"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+
+-- // StarterGui.ScreenGui.gui.toggle \\ --
+UI["3"] = Instance.new("TextButton", UI["2"])
+UI["3"]["BorderSizePixel"] = 2
+UI["3"]["TextSize"] = 14
+UI["3"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["3"]["BackgroundColor3"] = Color3.fromRGB(39, 39, 39)
+UI["3"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["3"]["Size"] = UDim2.new(0.07456, 0, 0.11913, 0)
+UI["3"]["Name"] = [[toggle]]
+UI["3"]["BorderColor3"] = Color3.fromRGB(255, 255, 255)
+UI["3"]["Text"] = [[Close]]
+UI["3"]["Position"] = UDim2.new(-0.00021, 0, 0.37133, 0)
+
+-- // StarterGui.ScreenGui.gui.toggle.togglescript \\ --
+UI["4"] = Instance.new("LocalScript", UI["3"])
+UI["4"]["Name"] = [[togglescript]]
+
+-- // StarterGui.ScreenGui.selectgui \\ --
+UI["5"] = Instance.new("ScreenGui", UI["1"])
+UI["5"]["Name"] = [[selectgui]]
+
+-- // StarterGui.ScreenGui.selectgui.LocalScript \\ --
+UI["6"] = Instance.new("LocalScript", UI["5"])
+
+
+-- // StarterGui.ScreenGui.selectgui.bg \\ --
+UI["7"] = Instance.new("Frame", UI["5"])
+UI["7"]["ZIndex"] = 0
+UI["7"]["BorderSizePixel"] = 0
+UI["7"]["BackgroundColor3"] = Color3.fromRGB(71, 71, 71)
+UI["7"]["Size"] = UDim2.new(0.237, 0, 0.141, 0)
+UI["7"]["Position"] = UDim2.new(0.74232, 0, 0.8255, 0)
+UI["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["7"]["Name"] = [[bg]]
+
+-- // StarterGui.ScreenGui.selectgui.top \\ --
+UI["8"] = Instance.new("TextLabel", UI["5"])
+UI["8"]["BorderSizePixel"] = 0
+UI["8"]["BackgroundColor3"] = Color3.fromRGB(39, 39, 39)
+UI["8"]["TextSize"] = 14
+UI["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["8"]["Size"] = UDim2.new(0.23684, 0, 0.03356, 0)
+UI["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["8"]["Text"] = [[Select Part]]
+UI["8"]["Name"] = [[top]]
+UI["8"]["Position"] = UDim2.new(0.74232, 0, 0.8255, 0)
+
+-- // StarterGui.ScreenGui.selectgui.Select \\ --
+UI["9"] = Instance.new("TextButton", UI["5"])
+UI["9"]["BorderSizePixel"] = 2
+UI["9"]["TextSize"] = 14
+UI["9"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["9"]["BackgroundColor3"] = Color3.fromRGB(39, 39, 39)
+UI["9"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["9"]["Size"] = UDim2.new(0.20614, 0, 0.05369, 0)
+UI["9"]["Name"] = [[Select]]
+UI["9"]["BorderColor3"] = Color3.fromRGB(255, 255, 255)
+UI["9"]["Text"] = [[Select]]
+UI["9"]["Position"] = UDim2.new(0.75767, 0, 0.88611, 0)
+
+-- // StarterGui.ScreenGui.selectgui.Select.selectscript \\ --
+UI["a"] = Instance.new("LocalScript", UI["9"])
+UI["a"]["Name"] = [[selectscript]]
+
+-- // StarterGui.ScreenGui.gui.toggle.togglescript \\ --
+local function SCRIPT_4()
+local script = UI["4"]
+	local close = script.Parent
+	local selectgui = script.Parent.Parent.Parent.selectgui
+	local highlight = game.Workspace:WaitForChild("selectpart")
+	script.Parent.MouseButton1Down:Connect(function()
+		if selectgui.Enabled then
+			close.Text = "Open"
+			selectgui.Enabled = false
+			highlight.Transparency = 1 
+		else
+			close.Text = "Close"
+			selectgui.Enabled = true
+			highlight.Transparency = 0
+		end
+	end)
+end
+task.spawn(SCRIPT_4)
+-- // StarterGui.ScreenGui.selectgui.LocalScript \\ --
+local function SCRIPT_6()
+local script = UI["6"]
+	print("Hello world!")
+	
+end
+task.spawn(SCRIPT_6)
+-- // StarterGui.ScreenGui.selectgui.Select.selectscript \\ --
+local function SCRIPT_a()
+local script = UI["a"]
+	local CollectionService = game:GetService("CollectionService")
+	local cooldown = false
+	
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local highlight = Instance.new("Highlight")
+	local selectionbox = Instance.new("SelectionBox")
+	highlight.Parent = game.ReplicatedStorage
+	selectionbox.Name = "selectpart"
+	selectionbox.Parent = workspace
+	selectionbox.Color3 = Color3.new(2, 2, 2)
+	
+	script.Parent.Destroying:Connect(function()
+		highlight:Destroy()
+	end)
+	
+	mouse.Button1Down:Connect(function()
+		selectionbox.Adornee = mouse.Target
+	end)
+	
+	script.Parent.MouseButton1Down:Connect(function()
+		local highlight2 = highlight:Clone()
+		highlight2.Parent = selectionbox.Adornee
+		local Part = highlight2.Parent
+		CollectionService:AddTag(Part, "highlighted")
+		PartScript(Part)
+	end)
+	
+	
+	
+end
+task.spawn(SCRIPT_a)
+
+return UI["1"], require;
