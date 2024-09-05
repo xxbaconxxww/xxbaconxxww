@@ -4,7 +4,7 @@ local cooldown = false
 local function PartScript(Part)
 
 	print(Part)
-
+Part:Destroy()
 	Part.Touched:Connect(function(Touched)
 
 		local humanoid = Touched.Parent:FindFirstChild("Humanoid")
