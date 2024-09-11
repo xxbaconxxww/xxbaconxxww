@@ -1,6 +1,7 @@
 local clone = false
 local values = Instance.new("NumberValue", workspace)
 game.Players.PlayerAdded:Connect(function(plr)
+wait(5)
 	local hum = plr.Character.Humanoid
 	if hum.DisplayName == "Allergy" then
 		
