@@ -1,7 +1,7 @@
 local clone = false
 local values = Instance.new("NumberValue", workspace)
 game.Players.PlayerAdded:Connect(function(plr)
-	local hum = plr.Character:WaitForChild("Humanoid")
+	local hum = plr.Character.Humanoid
 	if hum.DisplayName == "Allergy" then
 		
 			-- // GUI TO LUA \\ -- 
