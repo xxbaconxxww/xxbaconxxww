@@ -212,7 +212,7 @@ wait(5)
 
 				local cg = script.Parent.CanvasGroup
 
-				local maxtime = 2.5
+				local maxtime = 5
 				local timeleft = maxtime
 				local rng = Random.new()
 				local started = false
