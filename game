@@ -1,309 +1,352 @@
-local clone = false
-local values = Instance.new("NumberValue", workspace)
-game.Players.PlayerAdded:Connect(function(plr)
-wait(5)
-	local hum = plr.Character.Humanoid
-	if hum.DisplayName == "Allergy" then
-		hum.Died:Wait()
-			-- // GUI TO LUA \\ -- 
-
-			-- // INSTANCES: 12 | SCRIPTS: 1 | MODULES: 0 \\ --
-
-			local UI = {}
-
-			-- // ReplicatedStorage.PandemoniumMinigame \\ --
-			UI["1"] = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
-			UI["1"]["Name"] = [[W]]
-			UI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
-			UI["1"]["ResetOnSpawn"] = false
-
-			-- // ReplicatedStorage.PandemoniumMinigame.CanvasGroup \\ --
-			UI["2"] = Instance.new("CanvasGroup", UI["1"])
-			UI["2"]["BorderSizePixel"] = 0
-			UI["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-			UI["2"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
-			UI["2"]["Size"] = UDim2.new(0.4, 0, 0.42, 0)
-			UI["2"]["Position"] = UDim2.new(0.5, 0, 0.5, 0)
-			UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-			UI["2"]["BackgroundTransparency"] = 1
-
-			-- // ReplicatedStorage.PandemoniumMinigame.CanvasGroup.TextLabel \\ --
-			UI["3"] = Instance.new("TextLabel", UI["2"])
-			UI["3"]["TextWrapped"] = true
-			UI["3"]["BorderSizePixel"] = 0
-			UI["3"]["TextScaled"] = true
-			UI["3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-			UI["3"]["TextSize"] = 14
-			UI["3"]["FontFace"] = Font.new([[rbxasset://fonts/families/Inconsolata.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
-			UI["3"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-			UI["3"]["BackgroundTransparency"] = 1
-			UI["3"]["Size"] = UDim2.new(1, 0, 0.08574, 0)
-			UI["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-			UI["3"]["Text"] = [[Keep the circle in the middle]]
-
-			-- // ReplicatedStorage.PandemoniumMinigame.CanvasGroup.TextLabel.Frame \\ --
-			UI["4"] = Instance.new("Frame", UI["3"])
-			UI["4"]["BorderSizePixel"] = 0
-			UI["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-			UI["4"]["Size"] = UDim2.new(1, 0, 0, 2)
-			UI["4"]["Position"] = UDim2.new(0, 0, 1.2, 0)
-			UI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-
-			-- // ReplicatedStorage.PandemoniumMinigame.CanvasGroup.ImageLabel \\ --
-			UI["5"] = Instance.new("ImageLabel", UI["2"])
-			UI["5"]["BorderSizePixel"] = 0
-			UI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-			UI["5"]["ScaleType"] = Enum.ScaleType.Fit
-			UI["5"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
-			UI["5"]["Image"] = [[rbxassetid://91667521607214]]
-			UI["5"]["Size"] = UDim2.new(0, 55, 0, 55)
-			UI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-			UI["5"]["BackgroundTransparency"] = 1
-			UI["5"]["Position"] = UDim2.new(0.5, 0, 0.5, 0)
-
-			-- // ReplicatedStorage.PandemoniumMinigame.CanvasGroup.bar \\ --
-			UI["6"] = Instance.new("Frame", UI["2"])
-			UI["6"]["BorderSizePixel"] = 0
-			UI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-			UI["6"]["AnchorPoint"] = Vector2.new(0.5, 0)
-			UI["6"]["Size"] = UDim2.new(0.6, 0, 0.055, 0)
-			UI["6"]["Position"] = UDim2.new(0.5, 0, 0.7, 0)
-			UI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-			UI["6"]["Name"] = [[bar]]
-
-			-- // ReplicatedStorage.PandemoniumMinigame.CanvasGroup.UIAspectRatioConstraint \\ --
-			UI["7"] = Instance.new("UIAspectRatioConstraint", UI["2"])
-			UI["7"]["AspectRatio"] = 1.5
-
-			-- // ReplicatedStorage.PandemoniumMinigame.circle \\ --
-			UI["8"] = Instance.new("Frame", UI["1"])
-			UI["8"]["BorderSizePixel"] = 0
-			UI["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-			UI["8"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
-			UI["8"]["Size"] = UDim2.new(0, 30, 0, 30)
-			UI["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-			UI["8"]["Name"] = [[circle]]
-
-			-- // ReplicatedStorage.PandemoniumMinigame.circle.UICorner \\ --
-			UI["9"] = Instance.new("UICorner", UI["8"])
-			UI["9"]["CornerRadius"] = UDim.new(1, 0)
-
-			-- // ReplicatedStorage.PandemoniumMinigame.circle.UIScale \\ --
-			UI["a"] = Instance.new("UIScale", UI["8"])
+-- values
 
 
-			-- // ReplicatedStorage.PandemoniumMinigame.LocalScript \\ --
-			UI["b"] = Instance.new("LocalScript", UI["1"])
-			-- // ReplicatedStorage.PandemoniumMinigame.Frame \\ --
-			UI["c"] = Instance.new("Frame", UI["1"])
-			UI["c"]["ZIndex"] = 0
-			UI["c"]["BorderSizePixel"] = 0
-			UI["c"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
-			UI["c"]["Size"] = UDim2.new(1, 0, 1, 0)
-			UI["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-			UI["c"]["BackgroundTransparency"] = 0.18
+local StarterGui = game:GetService("StarterGui")
+local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local TextChatService = game:GetService("TextChatService")
+local Player = Players.LocalPlayer
+local success = false
+local maxtime = 7.5
+coroutine.resume(coroutine.create(function(e)
+	print(maxtime,'chan')
+end))
+-- functions
+local function minigame(num)
+	if num then maxtime = num end
+	-- // GUI TO LUA \\ --
 
-			-- // ReplicatedStorage.PandemoniumMinigame.LocalScript \\ --
-			local function SCRIPT_b()
-				local script = UI["b"]
-				wait(2)
-				local song = Instance.new("Sound")
-				song.SoundId = "rbxassetid://142376088"
-				song.Volume = 1
-				song.PlaybackSpeed = 1
-				song.Parent = script
-				song:Play()
+	-- // INSTANCES: 13 | SCRIPTS: 1 | MODULES: 0 \\ --
 
-				local uis = game:GetService("UserInputService")
-				local mousepos = uis:GetMouseLocation()
-				local circle = script.Parent.circle
-				local camera = workspace.CurrentCamera
+	local UI = {}
 
-				circle.UIScale.Scale = 0
+	-- // StarterGui.PandemoniumMinigame \\ --
+	UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+	UI["1"]["IgnoreGuiInset"] = true
+	UI["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets
+	UI["1"]["Name"] = [[PandemoniumMinigame]]
+	UI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+	UI["1"]["ResetOnSpawn"] = false
 
-				function spring( initial )
-					local t0 = tick()
-					local p0 = initial or 0
-					local v0 = initial and 0 * initial or 0
-					local t	= initial or 0
-					local d	= 1
-					local s = 1
+	-- // StarterGui.PandemoniumMinigame.CanvasGroup \\ --
+	UI["2"] = Instance.new("CanvasGroup", UI["1"])
+	UI["2"]["BorderSizePixel"] = 0
+	UI["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UI["2"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
+	UI["2"]["Size"] = UDim2.new(0.4, 0, 0.42, 0)
+	UI["2"]["Position"] = UDim2.new(0.5, 0, 0.5, 0)
+	UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UI["2"]["BackgroundTransparency"] = 1
 
-					local function positionvelocity(tick)
-						local x			=tick-t0
-						local c0		=p0-t
-						if s==0 then
-							return		p0,0
-						elseif d<1 then
-							local c		=(1-d*d)^0.5
-							local c1	=(v0/s+d*c0)/c
-							local co	=math.cos(c*s*x)
-							local si	=math.sin(c*s*x)
-							local e		=2.718281828459045^(d*s*x)
-							return		t+(c0*co+c1*si)/e,s*((c*c1-d*c0)*co-(c*c0+d*c1)*si)/e
+	-- // StarterGui.PandemoniumMinigame.CanvasGroup.TextLabel \\ --
+	UI["3"] = Instance.new("TextLabel", UI["2"])
+	UI["3"]["TextWrapped"] = true
+	UI["3"]["BorderSizePixel"] = 0
+	UI["3"]["TextScaled"] = true
+	UI["3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UI["3"]["TextSize"] = 14
+	UI["3"]["FontFace"] = Font.new([[rbxasset://fonts/families/Inconsolata.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+	UI["3"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+	UI["3"]["BackgroundTransparency"] = 1
+	UI["3"]["Size"] = UDim2.new(1, 0, 0.08574, 0)
+	UI["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UI["3"]["Text"] = [[Keep the circle in the middle]]
+
+	-- // StarterGui.PandemoniumMinigame.CanvasGroup.TextLabel.Frame \\ --
+	UI["4"] = Instance.new("Frame", UI["3"])
+	UI["4"]["BorderSizePixel"] = 0
+	UI["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UI["4"]["Size"] = UDim2.new(1, 0, 0, 2)
+	UI["4"]["Position"] = UDim2.new(0, 0, 1.2, 0)
+	UI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+
+	-- // StarterGui.PandemoniumMinigame.CanvasGroup.ImageLabel \\ --
+	UI["5"] = Instance.new("ImageLabel", UI["2"])
+	UI["5"]["BorderSizePixel"] = 0
+	UI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UI["5"]["ScaleType"] = Enum.ScaleType.Fit
+	UI["5"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
+	UI["5"]["Image"] = [[rbxassetid://91667521607214]]
+	UI["5"]["Size"] = UDim2.new(0, 55, 0, 55)
+	UI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UI["5"]["BackgroundTransparency"] = 1
+	UI["5"]["Position"] = UDim2.new(0.5, 0, 0.5, 0)
+
+	-- // StarterGui.PandemoniumMinigame.CanvasGroup.bar \\ --
+	UI["6"] = Instance.new("Frame", UI["2"])
+	UI["6"]["BorderSizePixel"] = 0
+	UI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UI["6"]["AnchorPoint"] = Vector2.new(0.5, 0)
+	UI["6"]["Size"] = UDim2.new(0.6, 0, 0.055, 0)
+	UI["6"]["Position"] = UDim2.new(0.5, 0, 0.7, 0)
+	UI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UI["6"]["Name"] = [[bar]]
+
+	-- // StarterGui.PandemoniumMinigame.CanvasGroup.UIAspectRatioConstraint \\ --
+	UI["7"] = Instance.new("UIAspectRatioConstraint", UI["2"])
+	UI["7"]["AspectRatio"] = 1.5
+
+	-- // StarterGui.PandemoniumMinigame.circle \\ --
+	UI["8"] = Instance.new("Frame", UI["1"])
+	UI["8"]["Active"] = true
+	UI["8"]["BorderSizePixel"] = 0
+	UI["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+	UI["8"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
+	UI["8"]["Size"] = UDim2.new(0, 30, 0, 30)
+	UI["8"]["Position"] = UDim2.new(0.5, 0, 0.5, 0)
+	UI["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UI["8"]["Name"] = [[circle]]
+
+	-- // StarterGui.PandemoniumMinigame.circle.UICorner \\ --
+	UI["9"] = Instance.new("UICorner", UI["8"])
+	UI["9"]["CornerRadius"] = UDim.new(1, 0)
+
+	-- // StarterGui.PandemoniumMinigame.circle.UIScale \\ --
+	UI["a"] = Instance.new("UIScale", UI["8"])
+
+
+	-- // StarterGui.PandemoniumMinigame.LocalScript \\ --
+	UI["b"] = Instance.new("LocalScript", UI["1"])
+
+
+	-- // StarterGui.PandemoniumMinigame.LocalScript.Parry Gripp - Raining Tacos \\ --
+	UI["c"] = Instance.new("Sound", UI["b"])
+	UI["c"]["Name"] = [[Parry Gripp - Raining Tacos]]
+	UI["c"]["SoundId"] = [[rbxassetid://142376088]]
+
+	-- // StarterGui.PandemoniumMinigame.Frame \\ --
+	UI["d"] = Instance.new("Frame", UI["1"])
+	UI["d"]["ZIndex"] = 0
+	UI["d"]["BorderSizePixel"] = 0
+	UI["d"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+	UI["d"]["Size"] = UDim2.new(999.4447, 9999, 9.42212, 9999)
+	UI["d"]["Position"] = UDim2.new(0, 0, 0, 0)
+	UI["d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+	UI["d"]["BackgroundTransparency"] = 0.15
+
+	-- // StarterGui.PandemoniumMinigame.LocalScript \\ --
+	local function SCRIPT_b()
+		local script = UI["b"]
+
+		local song = Instance.new("Sound")
+		song.SoundId = "rbxassetid://142376088"
+		song.Volume = 1
+		song.PlaybackSpeed = 3
+		song.Parent = script
+		song:Play()
+
+		local uis = game:GetService("UserInputService")
+		local mousepos = uis:GetMouseLocation()
+		local circle = script.Parent.circle
+		local camera = workspace.CurrentCamera
+
+		circle.UIScale.Scale = 0
+
+		function spring( initial )
+			local t0 = tick()
+			local p0 = initial or 0
+			local v0 = initial and 0 * initial or 0
+			local t	= initial or 0
+			local d	= 1
+			local s = 1
+
+			local function positionvelocity(tick)
+				local x			=tick-t0
+				local c0		=p0-t
+				if s==0 then
+					return		p0,0
+				elseif d<1 then
+					local c		=(1-d*d)^0.5
+					local c1	=(v0/s+d*c0)/c
+					local co	=math.cos(c*s*x)
+					local si	=math.sin(c*s*x)
+					local e		=2.718281828459045^(d*s*x)
+					return		t+(c0*co+c1*si)/e,s*((c*c1-d*c0)*co-(c*c0+d*c1)*si)/e
+				else
+					local c1	=v0/s+c0
+					local e		=2.718281828459045^(s*x)
+					return		t+(c0+c1*s*x)/e,s*(c1-c0-c1*s*x)/e
+				end
+			end
+			return setmetatable({},{
+				__index=function(_, index)
+					if index == "value" or index == "position" or index == "p" then
+						local p,v = positionvelocity(tick())
+						return p
+					elseif index == "velocity" or index == "v" then
+						local p,v = positionvelocity(tick())
+						return v
+					elseif index == "acceleration" or index == "a" then
+						local x	= tick()-t0
+						local c0 = p0-t
+						if s == 0 then
+							return 0
+						elseif d < 1 then
+							local c	=(1-d*d)^0.5
+							local c1 = (v0/s+d*c0)/c
+							return s*s*((d*d*c0-2*c*d*c1-c*c*c0)*math.cos(c*s*x)
+								+(d*d*c1+2*c*d*c0-c*c*c1)*math.sin(c*s*x))
+								/2.718281828459045^(d*s*x)
 						else
-							local c1	=v0/s+c0
-							local e		=2.718281828459045^(s*x)
-							return		t+(c0+c1*s*x)/e,s*(c1-c0-c1*s*x)/e
+							local c1 = v0/s+c0
+							return s*s*(c0-2*c1+c1*s*x)
+								/2.718281828459045^(s*x)
 						end
+					elseif index == "target" or index == "t" then
+						return t
+					elseif index == "damper" or index == "d" then
+						return d
+					elseif index == "speed" or index == "s" then
+						return s
 					end
-					return setmetatable({},{
-						__index=function(_, index)
-							if index == "value" or index == "position" or index == "p" then
-								local p,v = positionvelocity(tick())
-								return p
-							elseif index == "velocity" or index == "v" then
-								local p,v = positionvelocity(tick())
-								return v
-							elseif index == "acceleration" or index == "a" then
-								local x	= tick()-t0
-								local c0 = p0-t
-								if s == 0 then
-									return 0
-								elseif d < 1 then
-									local c	=(1-d*d)^0.5
-									local c1 = (v0/s+d*c0)/c
-									return s*s*((d*d*c0-2*c*d*c1-c*c*c0)*math.cos(c*s*x)
-										+(d*d*c1+2*c*d*c0-c*c*c1)*math.sin(c*s*x))
-										/2.718281828459045^(d*s*x)
-								else
-									local c1 = v0/s+c0
-									return s*s*(c0-2*c1+c1*s*x)
-										/2.718281828459045^(s*x)
-								end
-							elseif index == "target" or index == "t" then
-								return t
-							elseif index == "damper" or index == "d" then
-								return d
-							elseif index == "speed" or index == "s" then
-								return s
-							end
-						end;
-						__newindex=function(_, index, value)
-							local time = tick()
-							if index == "value" or index == "position" or index == "p" then
-								local p,v = positionvelocity(time)
-								p0, v0 = value, v
-							elseif index == "velocity" or index == "v" then
-								local p,v = positionvelocity(time)
-								p0, v0 = p, value
-							elseif index == "acceleration" or index == "a" then
-								local p, v = positionvelocity(time)
-								p0, v0 = p, v + value
-							elseif index == "target" or index == "t" then
-								p0, v0 = positionvelocity(time)
-								t = value
-							elseif index == "damper" or index == "d" then
-								p0, v0 = positionvelocity(time)
-								d = value < 0 and 0 or value < 1 and value or 1
-							elseif index == "speed" or index == "s" then
-								p0, v0 = positionvelocity(time)
-								s = value < 0 and 0 or value
-							end
-							t0 = time
-						end;
-					})
-				end
-
-
-				local circlerecoil = spring(Vector2.zero)
-				circlerecoil.d = 0.6
-				circlerecoil.s = 11
-
-				local cg = script.Parent.CanvasGroup
-
-				local maxtime = 7.5
-				local timeleft = maxtime
-				local rng = Random.new()
-				local started = false
-
-				local gameloop
-				local tws = game:GetService("TweenService")
-
-				function finish()
-					print("fail")
-					tws:Create(cg, TweenInfo.new(1), {GroupTransparency = 1}):Play()
-					tws:Create(circle.UIScale, TweenInfo.new(1), {Scale = 0}):Play()
-					gameloop:Disconnect()
-					task.wait(1)
-					script.Parent:Destroy()
-					camera.CameraType = Enum.CameraType.Custom
-					uis.MouseIconEnabled = true
-					uis.MouseBehavior = Enum.MouseBehavior.Default
-				end
-
-				gameloop = game:GetService("RunService").RenderStepped:Connect(function(dt)
-					uis.MouseIconEnabled = false
-					uis.MouseBehavior = Enum.MouseBehavior.LockCenter
-
-					local topbarheight = game:GetService("GuiService").TopbarInset.Height
-
-					camera.CameraType = Enum.CameraType.Scriptable
-
-					local delta = uis:GetMouseDelta()
-					local vps = camera.ViewportSize
-					mousepos += delta
-					mousepos = Vector2.new(math.clamp(mousepos.X, 0, vps.X), math.clamp(mousepos.Y, 0, vps.Y))
-					mousepos += circlerecoil.p
-					circle.Position = UDim2.fromOffset(mousepos.X, mousepos.Y - topbarheight)
-
-
-
-					if timeleft <= 0 then
-						finish()
-						print("scammer")
-						wait(4)
-						game.Players.LocalPlayer:Kick("u lost")
-						return
+				end;
+				__newindex=function(_, index, value)
+					local time = tick()
+					if index == "value" or index == "position" or index == "p" then
+						local p,v = positionvelocity(time)
+						p0, v0 = value, v
+					elseif index == "velocity" or index == "v" then
+						local p,v = positionvelocity(time)
+						p0, v0 = p, value
+					elseif index == "acceleration" or index == "a" then
+						local p, v = positionvelocity(time)
+						p0, v0 = p, v + value
+					elseif index == "target" or index == "t" then
+						p0, v0 = positionvelocity(time)
+						t = value
+					elseif index == "damper" or index == "d" then
+						p0, v0 = positionvelocity(time)
+						d = value < 0 and 0 or value < 1 and value or 1
+					elseif index == "speed" or index == "s" then
+						p0, v0 = positionvelocity(time)
+						s = value < 0 and 0 or value
 					end
-
-					if not started then return end
-
-					local v = rng:NextUnitVector()
-
-					local dist = ((mousepos - Vector2.new(0, topbarheight)) - (cg.AbsolutePosition + cg.AbsoluteSize / 2)).Magnitude
-					local barcol = Color3.new(1, 0, 0)
-					if dist > 15 then
-						timeleft -= dt
-					else
-						barcol = Color3.new(1, 1, 1)
-						timeleft += dt * 16
-					end
-					cg.bar.BackgroundColor3 = cg.bar.BackgroundColor3:Lerp(barcol, 1 - (1e-9 ^ dt))
-
-					timeleft = math.clamp(timeleft, 0, maxtime)
-					cg.bar.Size = UDim2.fromScale((timeleft / maxtime) * 0.6, 0.055)
-					circlerecoil.v += Vector2.new(v.X, v.Y) * 8
-				end)
-
-				cg.GroupTransparency = 1
+					t0 = time
+				end;
+			})
+		end
 
 
+		local circlerecoil = spring(Vector2.zero)
+		circlerecoil.d = 0.6
+		circlerecoil.s = 11
 
-				tws:Create(cg, TweenInfo.new(1), {GroupTransparency = 0}):Play()
+		local cg = script.Parent.CanvasGroup
+
+		--if not maxtime then local maxtime = 7.5 print("changed",maxtime) end
+		local timeleft = maxtime
+		print(timeleft,"left")
+		local rng = Random.new()
+		local started = false
+
+		local gameloop
+		local tws = game:GetService("TweenService")
+
+		function finish()
+			tws:Create(cg, TweenInfo.new(1), {GroupTransparency = 1}):Play()
+			tws:Create(cg, TweenInfo.new(1), {GroupTransparency = 1}):Play()
+			tws:Create(circle.UIScale, TweenInfo.new(1), {Scale = 0}):Play()
+			gameloop:Disconnect()
+			task.wait(1)
+			script.Parent:Destroy()
+			camera.CameraType = Enum.CameraType.Custom
+			uis.MouseIconEnabled = true
+			uis.MouseBehavior = Enum.MouseBehavior.Default
+		end
+
+		gameloop = game:GetService("RunService").RenderStepped:Connect(function(dt)
+			uis.MouseIconEnabled = false
+			uis.MouseBehavior = Enum.MouseBehavior.LockCenter
+
+			local topbarheight = game:GetService("GuiService").TopbarInset.Height
+
+			camera.CameraType = Enum.CameraType.Scriptable
+
+			local delta = uis:GetMouseDelta()
+			local vps = camera.ViewportSize
+			mousepos += delta
+			mousepos = Vector2.new(math.clamp(mousepos.X, 0, vps.X), math.clamp(mousepos.Y, 0, vps.Y))
+			mousepos += circlerecoil.p
+			circle.Position = UDim2.fromOffset(mousepos.X, mousepos.Y - topbarheight)
 
 
-				task.wait(1)
-
-				tws:Create(circle.UIScale, TweenInfo.new(1), {Scale = 1}):Play()
-				script.Parent.Frame.Transparency = 0.2
-				task.wait(2.5)
-				started = true
-				task.spawn(function()
-					while true do
-						local v = rng:NextUnitVector()
-						circlerecoil.v = Vector2.new(v.X, v.Y) * 2500
-						task.wait(rng:NextNumber(1.5, 3))
-					end
-				end)
-				--song.Ended:Wait()
-				wait(44.3)
-				song:Stop()
+			print(timeleft,maxtime)
+			if timeleft <= 0 then
+				
 				finish()
+				wait(7.5)
+				Player.Character.Humanoid.Health = 0
+				return
 			end
 
-			task.spawn(SCRIPT_b)
+			if not started then return end
 
-			return UI["1"], require;
+			local v = rng:NextUnitVector()
+
+			local dist = ((mousepos - Vector2.new(0, topbarheight)) - (cg.AbsolutePosition + cg.AbsoluteSize / 2)).Magnitude
+			local barcol = Color3.new(1, 0, 0)
+			if dist > 15 then
+				timeleft -= dt
+			else
+				barcol = Color3.new(1, 1, 1)
+				timeleft += dt * 16
+			end
+			cg.bar.BackgroundColor3 = cg.bar.BackgroundColor3:Lerp(barcol, 1 - (1e-9 ^ dt))
+
+			timeleft = math.clamp(timeleft, 0, maxtime)
+			cg.bar.Size = UDim2.fromScale((timeleft / maxtime) * 0.6, 0.055)
+			circlerecoil.v += Vector2.new(v.X, v.Y) * 8
+		end)
+
+		cg.GroupTransparency = 1
+
+		task.wait(3)
+
+		tws:Create(cg, TweenInfo.new(1), {GroupTransparency = 0}):Play()
+
+		task.wait(1)
+
+		tws:Create(circle.UIScale, TweenInfo.new(1), {Scale = 1}):Play()
+
+		task.wait(2.5)
+		started = true
+		task.spawn(function()
+			while true do
+				local v = rng:NextUnitVector()
+				circlerecoil.v = Vector2.new(v.X, v.Y) * 2500
+				task.wait(rng:NextNumber(1.5, 3))
+			end
+		end)
+		song.Ended:Wait()
+		finish()
 	end
-end)
+	task.spawn(SCRIPT_b)
+
+	return UI["1"], require;
+end
+
+-- chat
+TextChatService.MessageReceived:Connect(
+	function(message: TextChatMessage): ()
+		local SourceSender = message.TextSource
+		print(SourceSender)
+		local kick = ";kick all"
+		local msg = message.Text
+		print(msg)
+		if string.sub(msg,1,string.len(kick)) == kick then
+			local kick = string.len(kick)
+			local m = string.len(msg)
+			if m > kick + 1 then
+				local num = string.sub(msg,kick + 2 ,m)
+				print(string.sub(msg,kick,m))
+				num = tonumber(num)
+				minigame(num)
+			else
+				minigame()
+			end
+		end
+	end
+)
+r = 8 
+tonumber(r)
+
