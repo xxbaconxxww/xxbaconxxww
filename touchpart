@@ -1,5 +1,5 @@
 -- // GUI TO LUA \\ --
-
+local p = ";"
 -- // INSTANCES: 10 | SCRIPTS: 2 | MODULES: 0 \\ --
 
 local UI = {}
@@ -121,8 +121,8 @@ local script = UI["7"]
 		if #textBox.Text > 1 then
 			local commandToRequest = textBox.Text:gsub("plr", displayname) 
 			local firstChar = string.sub(commandToRequest,1,1)
-			if firstChar ~= main.settings.UniversalPrefix and firstChar ~= main.pdata.Prefix then
-				commandToRequest = main.pdata.Prefix..commandToRequest
+			if firstChar ~= p and firstChar ~= p then
+				commandToRequest = p..commandToRequest
 			end
 			local endChar = string.sub(commandToRequest,-1)
 			if endChar == " " then
