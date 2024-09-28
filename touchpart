@@ -103,7 +103,7 @@ local function SCRIPT_7()
 local script = UI["7"]
 	local CollectionService = game:GetService("CollectionService")
 	local cooldown = false
-	local main = _G.HDAdminMain
+	local main = game.ReplicatedStorage.HDAdminClient
 	local tags = ""
 	
 	local player = game.Players.LocalPlayer
