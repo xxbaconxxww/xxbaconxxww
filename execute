@@ -6,7 +6,7 @@ local UI = {}
 
 -- // StarterGui.ScreenGui \\ --
 UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
-
+UI["1"].ResetOnSpawn = false
 
 -- // StarterGui.ScreenGui.Frame \\ --
 UI["2"] = Instance.new("Frame", UI["1"])
@@ -91,7 +91,7 @@ wait(cooldown)
 				commandToRequest = string.sub(commandToRequest,1,-1)
 			end
 			print(commandToRequest)
-			main.Signals.RequestCommand:InvokeServer(";discord"..commandToRequest)
+			main.Signals.RequestCommand:InvokeServer(";radio discord"..commandToRequest)
 		end
 end)
 end
