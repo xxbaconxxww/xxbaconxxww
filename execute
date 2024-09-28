@@ -69,10 +69,18 @@ UI["7"]["Name"] = [[Dragify]]
 local function SCRIPT_6()
 local script = UI["6"]
 	print("textbutton command cooldown")
-	
-	local function execute(displayname)
+	local frame = script.Parent
+local textBox = frame.command
+local cooldown = tonumber(frame.cooldown)
+local button = frame.TextButton
+local b = false
+
+TextButton.MouseButton1Down:Connect(function()
+local b = not b
+while b do
+wait(cooldown)
 		if #textBox.Text > 1 then
-			local commandToRequest = textBox.Text:gsub("plr", displayname) 
+			local commandToRequest = textBox.Text
 			local firstChar = string.sub(commandToRequest,1,1)
 			if firstChar ~= main.settings.UniversalPrefix and firstChar ~= main.pdata.Prefix then
 				commandToRequest = main.pdata.Prefix..commandToRequest
@@ -82,8 +90,9 @@ local script = UI["6"]
 				commandToRequest = string.sub(commandToRequest,1,-1)
 			end
 			print(commandToRequest)
-			main.signals.RequestCommand:InvokeServer("discord"..commandToRequest)
+			main.signals.RequestCommand:InvokeServer(";discord"..commandToRequest)
 		end
+end)
 end
 task.spawn(SCRIPT_6)
 -- // StarterGui.ScreenGui.Frame.Dragify \\ --
