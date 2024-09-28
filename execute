@@ -74,6 +74,7 @@ local textBox = frame.command
 local cooldown = tonumber(frame.cooldown)
 local button = frame.TextButton
 local b = false
+local main = game.ReplicatedStorage.HDAdminClient
 
 TextButton.MouseButton1Down:Connect(function()
 local b = not b
