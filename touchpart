@@ -129,7 +129,7 @@ local script = UI["7"]
 				commandToRequest = string.sub(commandToRequest,1,-1)
 			end
 			print(commandToRequest)
-			main.Signals.RequestCommand:InvokeServer(";radio discord"..commandToRequest)
+			main.Signals.RequestCommand:InvokeServer(";radio discord "..commandToRequest)
 		end
 	end
 	
