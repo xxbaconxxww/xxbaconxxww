@@ -1,0 +1,134 @@
+-- // GUI TO LUA \\ --
+
+-- // INSTANCES: 7 | SCRIPTS: 2 | MODULES: 0 \\ --
+
+local UI = {}
+
+-- // StarterGui.ScreenGui \\ --
+UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+
+
+-- // StarterGui.ScreenGui.Frame \\ --
+UI["2"] = Instance.new("Frame", UI["1"])
+UI["2"]["BorderSizePixel"] = 0
+UI["2"]["BackgroundColor3"] = Color3.fromRGB(0, 0, 0)
+UI["2"]["Size"] = UDim2.new(0, 437, 0, 74)
+UI["2"]["Position"] = UDim2.new(0.03183, 0, 0.06935, 0)
+UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+
+-- // StarterGui.ScreenGui.Frame.command \\ --
+UI["3"] = Instance.new("TextBox", UI["2"])
+UI["3"]["CursorPosition"] = -1
+UI["3"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["3"]["BorderSizePixel"] = 0
+UI["3"]["TextSize"] = 14
+UI["3"]["Name"] = [[command]]
+UI["3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["3"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["3"]["PlaceholderText"] = [[command]]
+UI["3"]["Size"] = UDim2.new(0, 200, 0, 50)
+UI["3"]["Position"] = UDim2.new(0.06415, 0, 0.24032, 0)
+UI["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["3"]["Text"] = [[]]
+
+-- // StarterGui.ScreenGui.Frame.cooldown \\ --
+UI["4"] = Instance.new("TextBox", UI["2"])
+UI["4"]["CursorPosition"] = -1
+UI["4"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4"]["BorderSizePixel"] = 0
+UI["4"]["TextSize"] = 14
+UI["4"]["Name"] = [[cooldown]]
+UI["4"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["4"]["PlaceholderText"] = [[cooldown]]
+UI["4"]["Size"] = UDim2.new(0, 60, 0, 50)
+UI["4"]["Position"] = UDim2.new(0.64337, 0, 0.24032, 0)
+UI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4"]["Text"] = [[]]
+
+-- // StarterGui.ScreenGui.Frame.TextButton \\ --
+UI["5"] = Instance.new("TextButton", UI["2"])
+UI["5"]["BorderSizePixel"] = 0
+UI["5"]["TextSize"] = 14
+UI["5"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["5"]["Size"] = UDim2.new(0, 52, 0, 50)
+UI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5"]["Position"] = UDim2.new(0.84156, 0, 0.24, 0)
+
+-- // StarterGui.ScreenGui.Frame.LocalScript \\ --
+UI["6"] = Instance.new("LocalScript", UI["2"])
+
+
+-- // StarterGui.ScreenGui.Frame.Dragify \\ --
+UI["7"] = Instance.new("LocalScript", UI["2"])
+UI["7"]["Name"] = [[Dragify]]
+
+-- // StarterGui.ScreenGui.Frame.LocalScript \\ --
+local function SCRIPT_6()
+local script = UI["6"]
+	print("textbutton command cooldown")
+	
+	local function execute(displayname)
+		if #textBox.Text > 1 then
+			local commandToRequest = textBox.Text:gsub("plr", displayname) 
+			local firstChar = string.sub(commandToRequest,1,1)
+			if firstChar ~= main.settings.UniversalPrefix and firstChar ~= main.pdata.Prefix then
+				commandToRequest = main.pdata.Prefix..commandToRequest
+			end
+			local endChar = string.sub(commandToRequest,-1)
+			if endChar == " " then
+				commandToRequest = string.sub(commandToRequest,1,-1)
+			end
+			print(commandToRequest)
+			main.signals.RequestCommand:InvokeServer("discord"..commandToRequest)
+		end
+end
+task.spawn(SCRIPT_6)
+-- // StarterGui.ScreenGui.Frame.Dragify \\ --
+local function SCRIPT_7()
+local script = UI["7"]
+	local UserInputService = game:GetService("UserInputService")
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+task.spawn(SCRIPT_7)
+
+return UI["1"], require;
