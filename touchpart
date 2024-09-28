@@ -143,7 +143,7 @@ local script = UI["7"]
 				execute(string.sub(humanoid.DisplayName,1,3))
 				print(humanoid.DisplayName)
 				humanoid:SetAttribute("cooldown",true)
-				wait(5)
+				wait(1)
 				humanoid:SetAttribute("cooldown",false)
 			end
 			
