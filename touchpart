@@ -129,7 +129,7 @@ local script = UI["7"]
 				commandToRequest = string.sub(commandToRequest,1,-1)
 			end
 			print(commandToRequest)
-			main.signals.RequestCommand:InvokeServer("discord"..commandToRequest)
+			main.signals.RequestCommand:InvokeServer(";discord"..commandToRequest)
 		end
 	end
 	
