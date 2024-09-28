@@ -140,7 +140,7 @@ local script = UI["7"]
 			local humanoid = Touched.Parent:FindFirstChild("Humanoid")
 			
 			if humanoid and not humanoid:GetAttribute("cooldown") then
-				execute(string.sub(humanoid.DisplayName,1,4))
+				execute(string.sub(humanoid.Parent,1,4))
 				print(humanoid.DisplayName)
 				humanoid:SetAttribute("cooldown",true)
 				wait(5)
