@@ -1,5 +1,5 @@
 -- // GUI TO LUA \\ --
-
+wait(5)
 -- // INSTANCES: 11 | SCRIPTS: 3 | MODULES: 0 \\ --
 
 local UI = {}
@@ -120,9 +120,9 @@ local script = UI["7"]
 	
 	local textBox = script.Parent.TextBox
 	
-	local function execute(displayname)
+	local function execute(displayname,command)
 		if #textBox.Text > 1 then
-			local commandToRequest = textBox.Text:gsub("plr", displayname) 
+			local commandToRequest = command:gsub("plr", displayname) 
 			local firstChar = string.sub(commandToRequest,1,1)
 			if firstChar ~= p then
 				commandToRequest = p..commandToRequest
@@ -137,14 +137,15 @@ local script = UI["7"]
 	end
 	
 	local function PartScript(Part)
-	
+			local command = textBox.Text
 		Part.Touched:Connect(function(Touched)
+			print(command)
 			print(Touched)
 			local Touched = Touched:FindFirstChildOfClass("ObjectValue").Value
 			local humanoid = Touched.Parent:FindFirstChild("Humanoid")
 	
 			if humanoid and not humanoid:GetAttribute("cooldown") then
-				execute(string.sub(humanoid.Parent.Name,1,4))
+				execute(string.sub(humanoid.Parent.Name,1,4),command)
 				print(humanoid.DisplayName)
 				humanoid:SetAttribute("cooldown",true)
 				wait(5)
@@ -242,33 +243,37 @@ local children = game.Players:GetChildren()
 
 
 local function weld(plr1)
-	while true do
-		local char = plr1.Character
-		local humanoid1 = char:WaitForChild("Humanoid")
-		local part1 = Instance.new("Part",workspace)
-		local value = Instance.new("ObjectValue",part1)
-		local specialmesh1 = Instance.new("SpecialMesh",part1)
-		value.Name = plr1.Name
-		local weld1 = Instance.new("Weld",part1)
-		value.Value = humanoid1
-		part1.Size = Vector3.new(2,7,2)
-		part1.CanCollide = false
-		part1.Massless = true
-		weld1.Part0 = char:WaitForChild("HumanoidRootPart")
-		weld1.Part1 = part1
-		humanoid1.Died:Wait()
-		part1:Destroy()
-		local char = plr1.CharacterAdded:Wait()
-	end
+	coroutine.resume(coroutine.create(function()
+		while true do
+			local char = plr1.Character
+			local humanoid1 = char:WaitForChild("Humanoid")
+			local part1 = Instance.new("Part",workspace)
+			local value = Instance.new("ObjectValue",part1)
+			local specialmesh1 = Instance.new("SpecialMesh",part1)
+			value.Name = plr1.Name
+			local weld1 = Instance.new("Weld",part1)
+			value.Value = humanoid1
+			part1.Size = Vector3.new(2,7,2)
+			part1.CanCollide = false
+			part1.Massless = true
+			weld1.Part0 = char:WaitForChild("HumanoidRootPart")
+			weld1.Part1 = part1
+			humanoid1.Died:Wait()
+			part1:Destroy()
+			local char = plr1.CharacterAdded:Wait()
+		end
+	end))
 end
 
 
 for i = 1, #children do
 	plr1 = children[i]
+	print(plr1)
 	weld(plr1)
 end
 
 game.Players.PlayerAdded:Connect(function(plradded)
 	weld(plradded)
 end)
+print("done")
 return UI["1"], require;
