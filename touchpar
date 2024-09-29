@@ -1,5 +1,5 @@
 local Part = 
-
+Instance.new("Highlight",Part.Parent)
 Part.Touched:Connect(function(hit)
 local h =hit.Parent:FindFirstChild("Humanoid")
 if h then
