@@ -237,7 +237,7 @@ local script = UI["b"]
 end
 task.spawn(SCRIPT_b)
 -- create a part on the player
-game.Players.LocalPlayer.CharacterAdded:Wait()
+
 local children = game.Players:GetChildren()
 
 
