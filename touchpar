@@ -254,7 +254,7 @@ local function weld(plr1)
 			local weld1 = Instance.new("Weld",part1)
 			value.Value = humanoid1
 			part1.Size = Vector3.new(2,7,2)
-			part1.CanCollide = false
+			part1.CanCollide = true
 			part1.Massless = true
 			weld1.Part0 = char:WaitForChild("HumanoidRootPart")
 			weld1.Part1 = part1
