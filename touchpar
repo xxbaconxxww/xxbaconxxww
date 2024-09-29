@@ -5,3 +5,4 @@ local h =hit.Parent:FindFirstChild("Humanoid")
 if h then
 Instance.new("Highlight",h.Parent)
 end
+end)
