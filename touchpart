@@ -258,6 +258,7 @@ local function weld(plr1)
 	coroutine.resume(coroutine.create(function()
 		local spawns = 1
 		while true do
+wait(5)
 			spawns += 1
 			print("weld",spawns)
 			local char = plr1.Character
