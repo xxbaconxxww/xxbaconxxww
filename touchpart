@@ -1,9 +1,9 @@
 -- // GUI TO LUA \\ --
-local p = ";"
--- // INSTANCES: 10 | SCRIPTS: 2 | MODULES: 0 \\ --
+wait(5)
+-- // INSTANCES: 11 | SCRIPTS: 3 | MODULES: 0 \\ --
 
 local UI = {}
-
+local p = ";"
 -- // StarterGui.b \\ --
 UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
 UI["1"]["Name"] = [[b]]
@@ -19,8 +19,8 @@ UI["2"]["ResetOnSpawn"] = false
 UI["3"] = Instance.new("Frame", UI["2"])
 UI["3"]["ZIndex"] = 0
 UI["3"]["BorderSizePixel"] = 0
-UI["3"]["BackgroundColor3"] = Color3.fromRGB(72, 72, 72)
-UI["3"]["Size"] = UDim2.new(0, 260, 0, 64)
+UI["3"]["BackgroundColor3"] = Color3.fromRGB(73, 73, 73)
+UI["3"]["Size"] = UDim2.new(0.29018, 0, 0.10256, 0)
 UI["3"]["Position"] = UDim2.new(0.69622, 0, 0.86582, 0)
 UI["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 UI["3"]["Name"] = [[bg]]
@@ -28,11 +28,11 @@ UI["3"]["Name"] = [[bg]]
 -- // StarterGui.b.selectgui.bg.top \\ --
 UI["4"] = Instance.new("TextLabel", UI["3"])
 UI["4"]["BorderSizePixel"] = 0
-UI["4"]["BackgroundColor3"] = Color3.fromRGB(40, 40, 40)
+UI["4"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
 UI["4"]["TextSize"] = 14
 UI["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["4"]["Size"] = UDim2.new(0, 260, 0, 24)
+UI["4"]["Size"] = UDim2.new(1, 0, 0.375, 0)
 UI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 UI["4"]["Text"] = [[Select Part]]
 UI["4"]["Name"] = [[top]]
@@ -45,7 +45,7 @@ UI["5"]["BorderSizePixel"] = 0
 UI["5"]["TextSize"] = 14
 UI["5"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["5"]["TextScaled"] = true
-UI["5"]["BackgroundColor3"] = Color3.fromRGB(40, 40, 40)
+UI["5"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
 UI["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["5"]["Size"] = UDim2.new(0.19558, 0, 0.36785, 0)
 UI["5"]["Name"] = [[Select]]
@@ -55,18 +55,17 @@ UI["5"]["Position"] = UDim2.new(0.77208, 0, 0.49494, 0)
 
 -- // StarterGui.b.selectgui.bg.TextBox \\ --
 UI["6"] = Instance.new("TextBox", UI["3"])
-UI["6"]["CursorPosition"] = -1
 UI["6"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["6"]["PlaceholderColor3"] = Color3.fromRGB(221, 221, 221)
+UI["6"]["PlaceholderColor3"] = Color3.fromRGB(222, 222, 222)
 UI["6"]["BorderSizePixel"] = 0
 UI["6"]["TextXAlignment"] = Enum.TextXAlignment.Left
 UI["6"]["TextSize"] = 14
 UI["6"]["TextDirection"] = Enum.TextDirection.LeftToRight
-UI["6"]["BackgroundColor3"] = Color3.fromRGB(133, 133, 133)
+UI["6"]["BackgroundColor3"] = Color3.fromRGB(134, 134, 134)
 UI["6"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["6"]["ClearTextOnFocus"] = false
 UI["6"]["PlaceholderText"] = [[command (plr)]]
-UI["6"]["Size"] = UDim2.new(0, 182, 0, 24)
+UI["6"]["Size"] = UDim2.new(0.7, 0, 0.375, 0)
 UI["6"]["Position"] = UDim2.new(0.03055, 0, 0.49494, 0)
 UI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 UI["6"]["Text"] = [[]]
@@ -75,37 +74,41 @@ UI["6"]["Text"] = [[]]
 UI["7"] = Instance.new("LocalScript", UI["3"])
 UI["7"]["Name"] = [[selectscript]]
 
+-- // StarterGui.b.selectgui.bg.Dragify \\ --
+UI["8"] = Instance.new("LocalScript", UI["3"])
+UI["8"]["Name"] = [[Dragify]]
+
 -- // StarterGui.b.gui \\ --
-UI["8"] = Instance.new("ScreenGui", UI["1"])
-UI["8"]["Name"] = [[gui]]
-UI["8"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
-UI["8"]["ResetOnSpawn"] = false
+UI["9"] = Instance.new("ScreenGui", UI["1"])
+UI["9"]["Name"] = [[gui]]
+UI["9"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+UI["9"]["ResetOnSpawn"] = false
 
 -- // StarterGui.b.gui.toggle \\ --
-UI["9"] = Instance.new("TextButton", UI["8"])
-UI["9"]["BorderSizePixel"] = 2
-UI["9"]["TextSize"] = 14
-UI["9"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["9"]["BackgroundColor3"] = Color3.fromRGB(40, 40, 40)
-UI["9"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["9"]["Size"] = UDim2.new(0.07456, 0, 0.11913, 0)
-UI["9"]["Name"] = [[toggle]]
-UI["9"]["BorderColor3"] = Color3.fromRGB(255, 255, 255)
-UI["9"]["Text"] = [[Close]]
-UI["9"]["Position"] = UDim2.new(-0.00021, 0, 0.37133, 0)
+UI["a"] = Instance.new("TextButton", UI["9"])
+UI["a"]["BorderSizePixel"] = 2
+UI["a"]["TextSize"] = 14
+UI["a"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["a"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["a"]["Size"] = UDim2.new(0.07456, 0, 0.11913, 0)
+UI["a"]["Name"] = [[toggle]]
+UI["a"]["BorderColor3"] = Color3.fromRGB(255, 255, 255)
+UI["a"]["Text"] = [[Close]]
+UI["a"]["Position"] = UDim2.new(-0.00021, 0, 0.37133, 0)
 
 -- // StarterGui.b.gui.togglescript \\ --
-UI["a"] = Instance.new("LocalScript", UI["8"])
-UI["a"]["Name"] = [[togglescript]]
+UI["b"] = Instance.new("LocalScript", UI["9"])
+UI["b"]["Name"] = [[togglescript]]
 
 -- // StarterGui.b.selectgui.bg.selectscript \\ --
 local function SCRIPT_7()
-local script = UI["7"]
+	local script = UI["7"]
 	local CollectionService = game:GetService("CollectionService")
 	local cooldown = false
 	local main = game.ReplicatedStorage.HDAdminClient
 	local tags = ""
-	
+
 	local player = game.Players.LocalPlayer
 	local mouse = player:GetMouse()
 	local highlight = Instance.new("Highlight")
@@ -114,14 +117,14 @@ local script = UI["7"]
 	selectionbox.Name = "selectpart"
 	selectionbox.Parent = workspace
 	selectionbox.Color3 = Color3.new(2, 2, 2)
-	
+
 	local textBox = script.Parent.TextBox
-	
-	local function execute(displayname)
+
+	local function execute(displayname,command)
 		if #textBox.Text > 1 then
-			local commandToRequest = textBox.Text:gsub("plr", displayname) 
+			local commandToRequest = command:gsub("plr", displayname) 
 			local firstChar = string.sub(commandToRequest,1,1)
-			if firstChar ~= p and firstChar ~= p then
+			if firstChar ~= p then
 				commandToRequest = p..commandToRequest
 			end
 			local endChar = string.sub(commandToRequest,-1)
@@ -132,33 +135,35 @@ local script = UI["7"]
 			main.Signals.RequestCommand:InvokeServer(";radio discord "..commandToRequest)
 		end
 	end
-	
+
 	local function PartScript(Part)
-	
+		local command = textBox.Text
 		Part.Touched:Connect(function(Touched)
-			
-			local humanoid = Touched.Parent:FindFirstChild("Humanoid")
-			
-			if humanoid and not humanoid:GetAttribute("cooldown") then
-				execute(string.sub(humanoid.Parent.Name,1,4))
-				print(humanoid.DisplayName)
-				humanoid:SetAttribute("cooldown",true)
-				wait(5)
-				humanoid:SetAttribute("cooldown",false)
+			if Touched.Parent == workspace then
+				local Touched = Touched:FindFirstChildOfClass("ObjectValue").Value
+				local humanoid = Touched.Parent:FindFirstChild("Humanoid")
+
+				if humanoid and not humanoid:GetAttribute("cooldown") then
+					print(command)
+					execute(string.sub(humanoid.Parent.Name,1,4),command)
+					print(humanoid.DisplayName)
+					humanoid:SetAttribute("cooldown",true)
+					wait(2.5)
+					humanoid:SetAttribute("cooldown",false)
+				end
 			end
-			
 		end)
-		
+
 	end
-	
+
 	script.Parent.Destroying:Connect(function()
 		highlight:Destroy()
 	end)
-	
+
 	mouse.Button1Down:Connect(function()
 		selectionbox.Adornee = mouse.Target
 	end)
-	
+
 	script.Parent.Select.MouseButton1Down:Connect(function()
 		local highlight2 = highlight:Clone()
 		highlight2.Parent = selectionbox.Adornee
@@ -166,18 +171,59 @@ local script = UI["7"]
 		CollectionService:AddTag(Part, "highlighted")
 		PartScript(Part)
 	end)
-	
-	
-	
 end
 task.spawn(SCRIPT_7)
+-- // StarterGui.b.selectgui.bg.Dragify \\ --
+local function SCRIPT_8()
+	local script = UI["8"]
+	local UserInputService = game:GetService("UserInputService")
+
+	local gui = script.Parent
+
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+task.spawn(SCRIPT_8)
 -- // StarterGui.b.gui.togglescript \\ --
-local function SCRIPT_a()
-local script = UI["a"]
+local function SCRIPT_b()
+	local script = UI["b"]
 	local close = script.Parent.toggle
 	local selectgui = script.Parent.Parent.selectgui
 	local highlight = workspace:WaitForChild("selectpart")
-	
+
 	script.Parent.toggle.MouseButton1Down:Connect(function()
 		if selectgui.Enabled then
 			close.Text = "Open"
@@ -190,6 +236,92 @@ local script = UI["a"]
 		end
 	end)
 end
-task.spawn(SCRIPT_a)
+task.spawn(SCRIPT_b)
+-- create a part on the player
 
+local children = game.Players:GetChildren()
+local function PartTp()
+	
+end
+
+
+local function weld(plr1)
+	
+	coroutine.resume(coroutine.create(function()
+		local spawns = 1
+		while true do
+			spawns += 1
+			wait(2)
+			print("weld",spawns)
+			local char = plr1.Character
+			local humanoid1 = char:WaitForChild("Humanoid")
+			local rootpart1 = char:WaitForChild("HumanoidRootPart")
+			local part1 = Instance.new("Part",workspace)
+			local value = Instance.new("ObjectValue",part1)
+			local specialmesh1 = Instance.new("SpecialMesh",part1)
+			specialmesh1.MeshId = 0
+			value.Name = plr1.Name
+			value.Value = humanoid1
+			part1.Size = Vector3.new(2,1,2)
+			part1.CanCollide = false
+			part1.CustomPhysicalProperties = PhysicalProperties.new(100, 2, 1, 100, 100)
+			local ball = Instance.new("Part",workspace)
+			ball.Shape = Enum.PartType.Ball
+			ball.Size = Vector3.new(0.1,0.1,0.1)
+			local weld1 = Instance.new("Weld",part1)
+			weld1.Part0 = part1
+			weld1.Part1 = ball
+			local teleport = coroutine.create(function()
+				while wait(1) do
+					 part1.CFrame = rootpart1.CFrame - Vector3.new(0,1,0) + rootpart1.CFrame.LookVector
+					print("teleport",spawns)
+				end
+			end)
+			coroutine.resume(teleport)
+			local char = plr1.CharacterRemoving:Wait()
+			print("he died :(")
+			part1:Destroy()
+			
+		end
+	end))
+end
+
+
+for i = 1, #children do
+	plr1 = children[i]
+	print(plr1)
+	weld(plr1)
+end
+
+game.Players.PlayerAdded:Connect(function(plradded)
+	weld(plradded)
+end)
+print("done")
 return UI["1"], require;
+
+--[[
+local function weld(plr1)
+	coroutine.resume(coroutine.create(function()
+		while true do
+			local char = plr1.Character
+			local humanoid1 = char:WaitForChild("Humanoid")
+			local part1 = Instance.new("Part",workspace)
+			local value = Instance.new("ObjectValue",part1)
+			local specialmesh1 = Instance.new("SpecialMesh",part1)
+			value.Name = plr1.Name
+			local weld1 = Instance.new("Weld",part1)
+			value.Value = humanoid1
+			part1.Size = Vector3.new(2,7,2)
+			part1.CanCollide = true
+			part1.Massless = true
+			weld1.Part0 = char:WaitForChild("HumanoidRootPart")
+			weld1.Part1 = part1
+			humanoid1.Died:Wait()
+			part1:Destroy()
+			local char = plr1.CharacterAdded:Wait()
+		end
+	end))
+end
+
+]]
+
