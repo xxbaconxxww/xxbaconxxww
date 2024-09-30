@@ -266,7 +266,7 @@ local function weld(plr1)
 			local part1 = Instance.new("Part",workspace)
 			local value = Instance.new("ObjectValue",part1)
 			local specialmesh1 = Instance.new("SpecialMesh",part1)
-			specialmesh1.MeshId = 0
+		
 			value.Name = plr1.Name
 			value.Value = humanoid1
 			part1.Size = Vector3.new(2,1,2)
