@@ -280,7 +280,7 @@ local function weld(plr1)
 			weld1.Part1 = ball
 			local teleport = coroutine.create(function()
 				while wait(1) do
-					if rootpart1.CFrame.Y <= -499 then
+					if rootpart1.CFrame.Y >= -499 then
 					 part1.CFrame = rootpart1.CFrame - Vector3.new(0,1,0) + rootpart1.CFrame.LookVector
 					end
 				end
