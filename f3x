@@ -145,13 +145,14 @@ local script = UI["4"]
 	end
 	part = ""
 	function Clone(part)
-		local args = {
-		[1] = "Clone",
-		[2] = part,
-		[3] = workspace
+local args = {
+			[1] = "Clone",
+			[2] = part,
+			[3] = workspace
 		}
-		_(args)
+_(args)
 	end
+
 	
 	function CreatePart(cf,parent)
 		local args = {
