@@ -641,13 +641,13 @@ local script = UI["4"]
 		print("unlocked")
 	end)
 	
-	
-	for i,v in game.ReplicatedStorage:GetDescendants() do
-		if string.lower(v.Name) == "SyncAPI" then
-			tool = v.Parent
+	script.Parent.Clone.MouseButton1Down:Connect(function()
+	for i,v in game.Workspace:GetDescendants() do
+		if string.lower(v.Name) == string.lower(TextBox.Text) then
+			Clone(v)
 		end
 	end
-	
+	end)
 	
 	
 end
