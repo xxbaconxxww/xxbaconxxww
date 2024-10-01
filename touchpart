@@ -1,6 +1,7 @@
 -- // GUI TO LUA \\ --
 wait(3)
-workspace.FallenPartsDestroyHeight = -50000
+game:GetService("InsertService")
+--workspace.FallenPartsDestroyHeight = -50000
 part2 = Instance.new("Part",workspace)
 part2.Position = Vector3.new(0,-10000,0)
 part2.Size = Vector3.new(4000,1,4000)
@@ -140,7 +141,7 @@ local function SCRIPT_7()
 				commandToRequest = string.sub(commandToRequest,1,-1)
 			end
 			print(commandToRequest)
-			main.Signals.RequestCommand:InvokeServer(";radio discord "..commandToRequest)
+			main.Signals.RequestCommand:InvokeServer(commandToRequest)
 		end
 	end
 
@@ -249,25 +250,36 @@ task.spawn(SCRIPT_b)
 
 local children = game.Players:GetChildren()
 local function PartTp()
-	
+
 end
 
 
 local function weld(plr1)
-	
+
 	coroutine.resume(coroutine.create(function()
 		local spawns = 1
 		while true do
-wait(5)
+			
+			-- turn off collision
+			
+			wait(5)
 			spawns += 1
 			print("weld",spawns)
 			local char = plr1.Character
+			local descendants = char:GetDescendants()
+			for _, descendant in pairs(descendants) do
+				if descendant:IsA("BasePart") then
+					descendant.CanCollide = false
+				end
+			end
+			
+			
 			local humanoid1 = char:WaitForChild("Humanoid")
 			local rootpart1 = char:WaitForChild("HumanoidRootPart")
 			local part1 = Instance.new("Part",workspace)
 			local value = Instance.new("ObjectValue",part1)
-			local specialmesh1 = Instance.new("SpecialMesh",part1)
-		
+			--local specialmesh1 = Instance.new("SpecialMesh",part1)
+
 			value.Name = plr1.Name
 			value.Value = humanoid1
 			part1.Size = Vector3.new(2,1,2)
@@ -275,22 +287,23 @@ wait(5)
 			part1.CustomPhysicalProperties = PhysicalProperties.new(100, 2, 1, 100, 100)
 			local ball = Instance.new("Part",workspace)
 			ball.Shape = Enum.PartType.Ball
-			ball.Size = Vector3.new(0.1,0.1,0.1)
+			ball.Size = Vector3.new(0.01,0.01,0.01)
 			local weld1 = Instance.new("Weld",part1)
 			weld1.Part0 = part1
 			weld1.Part1 = ball
 			local teleport = coroutine.create(function()
-				while wait(1) do
+				while task.wait(0.1) do
 					if rootpart1.CFrame.Y >= -499 then
-					 part1.CFrame = rootpart1.CFrame - Vector3.new(0,1,0) + rootpart1.CFrame.LookVector
+						part1.CFrame = rootpart1.CFrame -- Vector3.new(0,1,0) + rootpart1.CFrame.LookVector
 					end
 				end
 			end)
 			coroutine.resume(teleport)
 			local char = plr1.CharacterRemoving:Wait()
+			coroutine.close(teleport)
 			print("he died :(")
 			part1:Destroy()
-			
+
 		end
 	end))
 end
@@ -333,4 +346,3 @@ local function weld(plr1)
 end
 
 ]]
-
