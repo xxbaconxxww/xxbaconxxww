@@ -190,7 +190,6 @@ task.spawn(SCRIPT_7)
 -- // StarterGui.Btools.Frame.LocalScript \\ --
 local function SCRIPT_d()
 local script = UI["d"]
-	game.TextChatService.TextChannels.RBXSystem:DisplaySystemMessage("Started")
 	local TextBox = script.Parent.TextBox
 	local TextBox1 = script.Parent.TextBox1
 	local player = game.Players.LocalPlayer
