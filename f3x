@@ -255,7 +255,7 @@ if tool.Parent then return end
 			end
 		end
 	end)
-
+end
 
 
 
