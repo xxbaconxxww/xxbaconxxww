@@ -261,14 +261,6 @@ if tool.Parent then return end
 
 
 	function _(args)
-if not tool.Parent then
-hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
-wait(2)
-for i,v in player.Backpack:GetDescendants() do
-		if v.Name == "SyncAPI" then
-			tool = v.Parent
-		end
-end
 		remote = tool.SyncAPI.ServerEndpoint
 		remote:InvokeServer(unpack(args))
 	end
