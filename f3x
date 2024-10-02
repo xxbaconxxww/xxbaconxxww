@@ -216,7 +216,7 @@ local script = UI["d"]
 	local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
 	
 Instance.new("Highlight",tool)
-game.TextChatService.TextChannels.RBXSystem:DisplaySystemMessage("Tool = "..tool.Name)	tool:GetPropertyChangedSignal("Parent"):Connect(function()
+game.TextChatService.TextChannels.RBXSystem:DisplaySystemMessage("Tool = "..tostring(tool))	tool:GetPropertyChangedSignal("Parent"):Connect(function()
 		if hdadminclient then
 	wait(3)		hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
 		end
