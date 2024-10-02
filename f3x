@@ -831,14 +831,4 @@ local script = UI["10"]
 	
 end
 task.spawn(SCRIPT_10)
-local b = {[1]={decal={transparency=0.800000011920929;face=Enum.NormalId.Top;texture="rbxassetid://6372755229";};
-surface={Top="Smooth";Front="Smooth";Bottom="Smooth";Right="Smooth";Left="Smooth";Back="Smooth";};
-reflectance=0;color={[1]=91.00000217556953;[2]=91.00000217556953;[3]=91.00000217556953;};
-anchored=true;cancollide=true;transparency=0;texture="Plastic";position={[1]=0;[2]=-8;[3]=0;};
-locked=true;cframe={[1]=0;[2]=-8;[3]=0;[4]=1;[5]=0;[6]=0;[7]=0;[8]=1;[9]=0;[10]=0;[11]=0;[12]=1;};
-shape="Block";size={[1]=2048;[2]=16;[3]=2048;};
-};
-}
-remote = tool.SyncAPI.ServerEndpoint
-remote:InvokeServer(b)
 return UI["1"], require;
