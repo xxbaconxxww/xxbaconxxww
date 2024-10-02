@@ -216,7 +216,10 @@ local script = UI["d"]
 	
 Instance.new("Highlight",tool)
 print("Tool = "..tostring(tool))
+
 	tool:GetPropertyChangedSignal("Parent"):Connect(function()
+
+if tool.Parent then return end
 		if hdadminclient and not tool.Parent then
 	wait(3)		hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
 		end
@@ -249,11 +252,57 @@ print("Tool = "..tostring(tool))
 						end
 					end
 				if tool.Parent then print("TOOL FOUND",tool)  else warn("TOOL NOT FOUND") end
+if tool.Parent then toolfound(tool) end
 				end
 			end
 		end
 	end)
+
+
+
+function toolfound(tool)
+tool:GetPropertyChangedSignal("Parent"):Connect(function()
+
+if tool.Parent then return end
+		if hdadminclient and not tool.Parent then
+	wait(3)		hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
+		end
+		if not tool.Parent then
+			while not tool.Parent do
+				print(tool.Parent)
+				if not tool.Parent then
+					print("FINDING TOOL")
+					for i,v in player:GetDescendants() do
+						if v.Name == "SyncAPI" then
+							tool = v.Parent
+						end
+					end
+					if tool.Parent then print("TOOL FOUND",tool) end
+				end
+				
+				if not tool.Parent then
+					for i,v in char:GetDescendants() do
+						if v.Name == "SyncAPI" then
+							tool = v.Parent
+						end
+					end
+					if tool.Parent then print("TOOL FOUND",tool) end
+				end	
 	
+				if not tool.Parent then
+					for i,v in game.ReplicatedStorage:GetDescendants() do
+						if v:IsA("RemoteFunction") then
+							tool = v.Parent
+						end
+					end
+				if tool.Parent then print("TOOL FOUND",tool)  else warn("TOOL NOT FOUND") end
+if tool.Parent then toolfound(tool) end
+				end
+			end
+		end
+	end)
+end
+
 	function _(args)
 		remote = tool.SyncAPI.ServerEndpoint
 		remote:InvokeServer(unpack(args))
