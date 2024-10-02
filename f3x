@@ -795,7 +795,7 @@ print("Tool = "..tostring(tool))	tool:GetPropertyChangedSignal("Parent"):Connect
 				poor = v
 			end
 		end
-		game.TextChatService.TextChannels.RBXSystem:DisplaySystemMessage("Locked "..tostring(poor.Locked))
+		print("Locked "..tostring(poor.Locked))
 	end)
 	script.Parent.UnlockAll.MouseButton1Down:Connect(function()
 		for i,v in game.Workspace:GetDescendants() do
@@ -804,9 +804,8 @@ print("Tool = "..tostring(tool))	tool:GetPropertyChangedSignal("Parent"):Connect
 				poor = v
 			end
 		end
-		game.TextChatService.TextChannels.RBXSystem:DisplaySystemMessage("Unlocked "..tostring(not poor.Locked))
+		print("Unlocked "..tostring(not poor.Locked))
 	end)
-	local toilet = workspace.Skeleton
 	script.Parent.CButton.MouseButton1Down:Connect(function()
 		local mods = {}
 	local toilet = workspace:FindFirstChild(TextBox1.Text)
