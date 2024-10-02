@@ -1,6 +1,4 @@
--- // GUI TO LUA \\ --
-
--- // INSTANCES: 18 | SCRIPTS: 3 | MODULES: 0 \\ --
+print("gg")
 
 local UI = {}
 
