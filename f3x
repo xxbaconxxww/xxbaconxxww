@@ -1,88 +1,203 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 8 | SCRIPTS: 2 | MODULES: 0 \\ --
+-- // INSTANCES: 18 | SCRIPTS: 3 | MODULES: 0 \\ --
 
 local UI = {}
 
--- // StarterGui.ScreenGui \\ --
+-- // StarterGui.Btools \\ --
 UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+UI["1"]["Name"] = [[Btools]]
 UI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
 UI["1"]["ResetOnSpawn"] = false
 
--- // StarterGui.ScreenGui.Frame \\ --
+-- // StarterGui.Btools.Frame \\ --
 UI["2"] = Instance.new("Frame", UI["1"])
 UI["2"]["BorderSizePixel"] = 0
-UI["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["2"]["Size"] = UDim2.new(-0.35618, 0, 0.16827, 0)
-UI["2"]["Position"] = UDim2.new(0.55281, 0, 0.07853, 0)
+UI["2"]["BackgroundColor3"] = Color3.fromRGB(51, 51, 51)
+UI["2"]["Size"] = UDim2.new(0.35208, 0, 0.4984, 0)
+UI["2"]["Position"] = UDim2.new(0.47919, 0, 0.22436, 0)
 UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["2"]["BackgroundTransparency"] = 0.25
 
--- // StarterGui.ScreenGui.Frame.LockAll \\ --
+-- // StarterGui.Btools.Frame.CButton \\ --
 UI["3"] = Instance.new("TextButton", UI["2"])
-UI["3"]["BorderSizePixel"] = 5
-UI["3"]["TextSize"] = 14
-UI["3"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["3"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["3"]["BorderSizePixel"] = 0
+UI["3"]["TextSize"] = 30
+UI["3"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["3"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
 UI["3"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["3"]["Size"] = UDim2.new(0.35898, 0, 0.23793, 0)
-UI["3"]["Name"] = [[LockAll]]
+UI["3"]["Size"] = UDim2.new(0.33546, 0, 0.13183, 0)
+UI["3"]["BackgroundTransparency"] = 0.25
+UI["3"]["Name"] = [[CButton]]
 UI["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["3"]["Text"] = [[lock all]]
-UI["3"]["Position"] = UDim2.new(0.60277, 0, 0.29262, 0)
+UI["3"]["Text"] = [[Clone]]
+UI["3"]["Position"] = UDim2.new(0.03104, 0, 0.10442, 0)
 
--- // StarterGui.ScreenGui.Frame.LocalScript \\ --
-UI["4"] = Instance.new("LocalScript", UI["2"])
+-- // StarterGui.Btools.Frame.CButton.UICorner \\ --
+UI["4"] = Instance.new("UICorner", UI["3"])
 
 
--- // StarterGui.ScreenGui.Frame.UnlockAll \\ --
-UI["5"] = Instance.new("TextButton", UI["2"])
-UI["5"]["BorderSizePixel"] = 5
-UI["5"]["TextSize"] = 14
+-- // StarterGui.Btools.Frame.TextBox1 \\ --
+UI["5"] = Instance.new("TextBox", UI["2"])
+UI["5"]["CursorPosition"] = -1
 UI["5"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5"]["PlaceholderColor3"] = Color3.fromRGB(179, 179, 179)
+UI["5"]["BorderSizePixel"] = 0
+UI["5"]["TextSize"] = 30
+UI["5"]["Name"] = [[TextBox1]]
 UI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
 UI["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["5"]["Size"] = UDim2.new(0.35898, 0, 0.23793, 0)
-UI["5"]["Name"] = [[UnlockAll]]
+UI["5"]["PlaceholderText"] = [[Instance]]
+UI["5"]["Size"] = UDim2.new(0.33546, 0, 0.13183, 0)
+UI["5"]["Position"] = UDim2.new(0.41133, 0, 0.10442, 0)
 UI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["5"]["Text"] = [[unlock all]]
-UI["5"]["Position"] = UDim2.new(0.60277, 0, 0.62595, 0)
+UI["5"]["Text"] = [[]]
+UI["5"]["BackgroundTransparency"] = 0.25
 
--- // StarterGui.ScreenGui.Frame.Dragify \\ --
-UI["6"] = Instance.new("LocalScript", UI["2"])
-UI["6"]["Name"] = [[Dragify]]
+-- // StarterGui.Btools.Frame.TextBox1.UICorner \\ --
+UI["6"] = Instance.new("UICorner", UI["5"])
 
--- // StarterGui.ScreenGui.Frame.TextBox \\ --
-UI["7"] = Instance.new("TextBox", UI["2"])
-UI["7"]["CursorPosition"] = -1
-UI["7"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["7"]["BorderSizePixel"] = 4
-UI["7"]["TextSize"] = 14
-UI["7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["7"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["7"]["Size"] = UDim2.new(0, 167, 0, 40)
-UI["7"]["Position"] = UDim2.new(0.04101, 0, 0.14286, 0)
-UI["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["7"]["Text"] = [[]]
 
--- // StarterGui.ScreenGui.Frame.Clone \\ --
+-- // StarterGui.Btools.Frame.Dragify \\ --
+UI["7"] = Instance.new("LocalScript", UI["2"])
+UI["7"]["Name"] = [[Dragify]]
+
+-- // StarterGui.Btools.Frame.LockAll \\ --
 UI["8"] = Instance.new("TextButton", UI["2"])
-UI["8"]["BorderSizePixel"] = 4
-UI["8"]["TextSize"] = 14
-UI["8"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["8"]["BorderSizePixel"] = 0
+UI["8"]["TextSize"] = 30
+UI["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["8"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
 UI["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["8"]["Size"] = UDim2.new(0, 180, 0, 34)
-UI["8"]["Name"] = [[Clone]]
+UI["8"]["Size"] = UDim2.new(0.33546, 0, 0.13183, 0)
+UI["8"]["BackgroundTransparency"] = 0.25
+UI["8"]["Name"] = [[LockAll]]
 UI["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["8"]["Position"] = UDim2.new(0.01893, 0, 0.58095, 0)
+UI["8"]["Text"] = [[LockAll]]
+UI["8"]["Position"] = UDim2.new(0.03104, 0, 0.29092, 0)
 
--- // StarterGui.ScreenGui.Frame.LocalScript \\ --
-local function SCRIPT_4()
-local script = UI["4"]
+-- // StarterGui.Btools.Frame.LockAll.UICorner \\ --
+UI["9"] = Instance.new("UICorner", UI["8"])
+
+
+-- // StarterGui.Btools.Frame.UnlockAll \\ --
+UI["a"] = Instance.new("TextButton", UI["2"])
+UI["a"]["BorderSizePixel"] = 0
+UI["a"]["TextSize"] = 30
+UI["a"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["a"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["a"]["Size"] = UDim2.new(0.33546, 0, 0.13183, 0)
+UI["a"]["BackgroundTransparency"] = 0.25
+UI["a"]["Name"] = [[UnlockAll]]
+UI["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["a"]["Text"] = [[UnlockAll]]
+UI["a"]["Position"] = UDim2.new(0.41318, 0, 0.29092, 0)
+
+-- // StarterGui.Btools.Frame.UnlockAll.UICorner \\ --
+UI["b"] = Instance.new("UICorner", UI["a"])
+
+
+-- // StarterGui.Btools.Frame.UICorner \\ --
+UI["c"] = Instance.new("UICorner", UI["2"])
+
+
+-- // StarterGui.Btools.Frame.LocalScript \\ --
+UI["d"] = Instance.new("LocalScript", UI["2"])
+
+
+-- // StarterGui.Btools.Frame.TextBox \\ --
+UI["e"] = Instance.new("TextBox", UI["2"])
+UI["e"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["e"]["BorderSizePixel"] = 0
+UI["e"]["TextSize"] = 30
+UI["e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["e"]["PlaceholderText"] = [[Num]]
+UI["e"]["Size"] = UDim2.new(0.17572, 0, 0.13183, 0)
+UI["e"]["Position"] = UDim2.new(0.79791, 0, 0.10121, 0)
+UI["e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["e"]["Text"] = [[]]
+UI["e"]["BackgroundTransparency"] = 0.25
+
+-- // StarterGui.Btools.Frame.TextBox.UICorner \\ --
+UI["f"] = Instance.new("UICorner", UI["e"])
+
+
+-- // StarterGui.Btools.LocalScript \\ --
+UI["10"] = Instance.new("LocalScript", UI["1"])
+
+
+-- // StarterGui.Btools.TextButton \\ --
+UI["11"] = Instance.new("TextButton", UI["1"])
+UI["11"]["BorderSizePixel"] = 0
+UI["11"]["TextSize"] = 14
+UI["11"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["11"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["11"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["11"]["Size"] = UDim2.new(0.07199, 0, 0.09615, 0)
+UI["11"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["11"]["Position"] = UDim2.new(0.02025, 0, 0.27083, 0)
+
+-- // StarterGui.Btools.TextButton.UICorner \\ --
+UI["12"] = Instance.new("UICorner", UI["11"])
+
+
+-- // StarterGui.Btools.Frame.Dragify \\ --
+local function SCRIPT_7()
+local script = UI["7"]
+	local UserInputService = game:GetService("UserInputService")
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+task.spawn(SCRIPT_7)
+-- // StarterGui.Btools.Frame.LocalScript \\ --
+local function SCRIPT_d()
+local script = UI["d"]
+	game.TextChatService.TextChannels.RBXSystem:DisplaySystemMessage("Started")
+	local TextBox = script.Parent.TextBox
+	local TextBox1 = script.Parent.TextBox1
 	local player = game.Players.LocalPlayer
 	local char = player.Character
 	local u = game:GetService("UserInputService")
 	local tool
+	
 	for i,v in player:GetDescendants() do
 		if v.Name == "SyncAPI" then
 			tool = v.Parent
@@ -93,28 +208,52 @@ local script = UI["4"]
 			tool = v.Parent
 		end
 	end
-	--craaa
+	for i,v in player:GetDescendants() do
+		if v.Name == "SyncAPI" then
+			tool = v.Parent
+		end
+	end
+	local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
 	
-	function _(args)
-		
+	tool:GetPropertyChangedSignal("Parent"):Connect(function()
+		if hdadminclient then
+			hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
+		end
 		if not tool.Parent then
-			for i,v in player:GetDescendants() do
-				if v.Name == "SyncAPI" then
-					tool = v.Parent
+			while not tool.Parent do
+				print(tool.Parent)
+				if not tool.Parent then
+					print("FINDING TOOL")
+					for i,v in player:GetDescendants() do
+						if v.Name == "SyncAPI" then
+							tool = v.Parent
+						end
+					end
+					if tool.Parent then print("TOOL FOUND",tool) end
 				end
-			end
-			for i,v in game.ReplicatedStorage:GetDescendants() do
-				if v.Name == "SyncAPI" then
-					tool = v.Parent
-				end
-			end
-			for i,v in char:GetDescendants() do
-				if v.Name == "SyncAPI" then
-					tool = v.Parent
+				
+				if not tool.Parent then
+					for i,v in char:GetDescendants() do
+						if v.Name == "SyncAPI" then
+							tool = v.Parent
+						end
+					end
+					if tool.Parent then print("TOOL FOUND",tool) end
+				end	
+	
+				if not tool.Parent then
+					for i,v in game.ReplicatedStorage:GetDescendants() do
+						if v.Name == "SyncAPI" then
+							tool = v.Parent
+						end
+					end
+				if tool.Parent then print("TOOL FOUND",tool)  else warn("TOOL NOT FOUND") end
 				end
 			end
 		end
-		if not tool.Parent then warn("tool not found") end
+	end)
+	
+	function _(args)
 		remote = tool.SyncAPI.ServerEndpoint
 		remote:InvokeServer(unpack(args))
 	end
@@ -143,16 +282,17 @@ local script = UI["4"]
 		}
 		_(args)
 	end
-	part = ""
-	function Clone(part)
-local args = {
+	
+	function AddClone(part,mods)
+		local args = {
 			[1] = "Clone",
-			[2] = part,
+			[2] = {
+				["Part"] = part
+			},
 			[3] = workspace
 		}
-_(args)
+		_(args)
 	end
-
 	
 	function CreatePart(cf,parent)
 		local args = {
@@ -395,10 +535,7 @@ _(args)
 		end
 	end
 	--craaa
-	remote = tool.SyncAPI.ServerEndpoint
-	function _(args)
-		remote:InvokeServer(unpack(args))
-	end
+	
 	function SetCollision(part,boolean)
 		local args = {
 			[1] = "SyncCollision",
@@ -537,16 +674,7 @@ _(args)
 		_(args)
 	
 	end
-	function SetLocked(part,boolean)
-		local args = {
-			[1] = "SetLocked",
-			[2] = {
-				[1] = part
-			},
-			[3] = boolean
-		}
-		_(args)
-	end
+	
 	function SetTrans(part,int)
 		local args = {
 			[1] = "SyncMaterial",
@@ -625,77 +753,83 @@ _(args)
 		}
 		_(args)
 	end
+	
+	function AddClone2(PartTable)
+		local args = {
+			[1] = "Clone",
+			[2] = PartTable,
+			[3] = workspace
+		}
+		_(args)
+	end
+	
+	
+	--[[
+	function AddClone(part,mods)
+		local args = {
+			[1] = "Clone",
+			[2] = {
+				["Part"] = part
+			},
+			[3] = workspace
+		}
+		_(args)
+	end
+	--]]
+	function SetLocked2(part,boolean)
+		local args = {
+			[1] = "SetLocked",
+			[2] = {
+				part
+			},
+			[3] = boolean
+		}
+		_(args)
+	end
+	
+	poor = ""
 	script.Parent.LockAll.MouseButton1Down:Connect(function()
 		for i,v in game.Workspace:GetDescendants() do
 			if v:IsA("BasePart") then
 				SetLocked(v,true)
+				poor = v
 			end
 		end
-		print("locked")
+		game.TextChatService.TextChannels.RBXSystem:DisplaySystemMessage("Locked "..tostring(poor.Locked))
 	end)
 	script.Parent.UnlockAll.MouseButton1Down:Connect(function()
 		for i,v in game.Workspace:GetDescendants() do
 			if v:IsA("BasePart") then
 				SetLocked(v,false)
+				poor = v
 			end
 		end
-		print("unlocked")
+		game.TextChatService.TextChannels.RBXSystem:DisplaySystemMessage("Unlocked "..tostring(not poor.Locked))
 	end)
-	
-	script.Parent.Clone.MouseButton1Down:Connect(function()
-	for i,v in game.Workspace:GetDescendants() do
-		if string.lower(v.Name) == string.lower(TextBox.Text) then
-			Clone(v)
+	local toilet = workspace.Skeleton
+	script.Parent.CButton.MouseButton1Down:Connect(function()
+		local mods = {}
+	local toilet = workspace:FindFirstChild(TextBox1.Text)
+		for i = 1, tonumber(TextBox.Text) or 1 do
+			table.insert(mods,toilet)
 		end
-	end
+		AddClone2(mods)
 	end)
-	
 	
 end
-task.spawn(SCRIPT_4)
--- // StarterGui.ScreenGui.Frame.Dragify \\ --
-local function SCRIPT_6()
-local script = UI["6"]
-	local UserInputService = game:GetService("UserInputService")
-	
-	local gui = script.Parent
-	
-	local dragging
-	local dragInput
-	local dragStart
-	local startPos
-	
-	local function update(input)
-		local delta = input.Position - dragStart
-		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-	end
-	
-	gui.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
-			dragStart = input.Position
-			startPos = gui.Position
-	
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
-				end
-			end)
-		end
+task.spawn(SCRIPT_d)
+-- // StarterGui.Btools.LocalScript \\ --
+local function SCRIPT_10()
+local script = UI["10"]
+	script.Parent.TextButton.MouseButton1Down:Connect(function()
+		script.Parent.Frame.Visible = not script.Parent.Frame.Visible
+	end)
+	local TextBox = script.Parent.Frame.TextBox
+	TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+		TextBox.Text = TextBox.Text:gsub('%D+', '');
 	end)
 	
-	gui.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			dragInput = input
-		end
-	end)
-	
-	UserInputService.InputChanged:Connect(function(input)
-		if input == dragInput and dragging then
-			update(input)
-		end
-	end)
 end
-task.spawn(SCRIPT_6)
+task.spawn(SCRIPT_10)
 
 return UI["1"], require;
