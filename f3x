@@ -215,8 +215,9 @@ local script = UI["d"]
 	local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
 	
 Instance.new("Highlight",tool)
-print("Tool = "..tostring(tool))	tool:GetPropertyChangedSignal("Parent"):Connect(function()
-		if hdadminclient then
+print("Tool = "..tostring(tool))
+	tool:GetPropertyChangedSignal("Parent"):Connect(function()
+		if hdadminclient and not tool.Parent then
 	wait(3)		hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
 		end
 		if not tool.Parent then
