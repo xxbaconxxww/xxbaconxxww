@@ -160,7 +160,7 @@ UI["12"]["BackgroundTransparency"] = 0.25
 UI["13"] = Instance.new("UICorner", UI["12"])
 
 
--- // StarterGui.Btools.Frame.place \\ --
+-- // Baseplate \\ --
 UI["14"] = Instance.new("TextButton", UI["2"])
 UI["14"]["BorderSizePixel"] = 0
 UI["14"]["TextSize"] = 30
@@ -169,9 +169,9 @@ UI["14"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
 UI["14"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["14"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
 UI["14"]["BackgroundTransparency"] = 0.25
-UI["14"]["Name"] = [[place]]
+UI["14"]["Name"] = [[Baseplate]]
 UI["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["14"]["Text"] = [[UnlockAll]]
+UI["14"]["Text"] = [[Baseplate]]
 UI["14"]["Position"] = UDim2.new(0.02953, 0, 0.55772, 0)
 
 -- // StarterGui.Btools.Frame.place.UICorner \\ --
@@ -610,7 +610,7 @@ local script = UI["b"]
 	function CreatePart(cf,parent)
 		local args = {
 			[1] = "CreatePart",
-			[2] = "Normal",
+			[2] = "Studs",
 			[3] = cf,
 			[4] = parent
 		}
@@ -1134,7 +1134,7 @@ local script = UI["b"]
 		be.Changed:Wait()
 		Resize(be.Value,Vector3.new(2048, 16, 2048),be.Value.CFrame)
 		SetLocked(be.Value,true)
-		Color(be.Value,Color3.fromRGB(91,91,91))
+		Color(be.Value,Color3.fromRGB(41,171,71))
 	print("hi baseplate")
 		
 	end
