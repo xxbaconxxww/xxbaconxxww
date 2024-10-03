@@ -480,6 +480,7 @@ local function SCRIPT_b()
 local script = UI["b"]
 	wait(5)
 	local toilet
+local baseplate = script.Parent.Baseplate
 	local parentbox = script.Parent.parentbox
 	local TextBox = script.Parent.TextBox
 	local TextBox1 = script.Parent.TextBox1
@@ -1129,16 +1130,21 @@ local script = UI["b"]
 	workspace.ChildAdded:Connect(function(r)
 		be.Value = r
 	end)
-	while wait(1) do
+plate=false
+baseplate.MouseButton1Down:Connect(function()
+if not plate then
+plate = true
 		CreatePart(CFrame.new(0, -8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),workspace)
 		be.Changed:Wait()
 		Resize(be.Value,Vector3.new(2048, 16, 2048),be.Value.CFrame)
 		SetLocked(be.Value,true)
 		Color(be.Value,Color3.fromRGB(41,171,71))
 	print("hi baseplate")
-		
+hdadminclient.Signals.RequestCommand:InvokeServer(";savemap")
+plate = false
+
 	end
-	
+	end)
 end
 task.spawn(SCRIPT_b)
 -- // StarterGui.Btools.LocalScript \\ --
