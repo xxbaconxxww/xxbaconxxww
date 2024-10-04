@@ -1011,9 +1011,6 @@ local script = UI["a"]
 	
 	deb = false
 	BaseplateBtn.MouseButton1Down:Connect(function()
-		if deb then return end
-		print("bruh")
-		deb = true
 		CreatePart(CFrame.new(0, -8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),workspace)
 		local be = be.Changed:Wait()
 		Resize(be,Vector3.new(2048, 16, 2048),be.CFrame)
@@ -1022,7 +1019,6 @@ local script = UI["a"]
 		AddTexture(be,"Top","Texture")
 		SyncTexture(be,"6372755229","Top",0.8,8,8)
 		SetName(be,"Baseplate")
-		deb = false
 	print("hi baseplate")
 	end)
 	
