@@ -422,7 +422,7 @@ until tool
 while wait(5) do
 print(tool.Parent:FindFirstChild(tool.Name))
 end
-end)
+end))
 	
 	local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
 	if hdadminclient then
