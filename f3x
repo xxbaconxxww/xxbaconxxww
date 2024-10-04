@@ -415,10 +415,18 @@ local script = UI["a"]
 	end)
 	print("hi5")
 	
+coroutine.resume(coroutine.create(function()
+repeat
+wait(1)
+until tool
+while wait(5) do
+print(tool.Parent:FindFirstChild(tool.Name))
+end
+end)
 	
 	local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
 	if hdadminclient then
-		if not tool.Parent then
+		if not tool or not tool.Parent then
 		hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
 		btool = player.Backpack.ChildAdded:Wait()
 		btool = btool:FindFirstChild("SyncAPI")
