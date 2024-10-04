@@ -301,7 +301,7 @@ task.spawn(SCRIPT_2)
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 local function SCRIPT_a()
 local script = UI["a"]
-	script.Parent.Parent.TextButton.MouseButton1Down:Connect(function()
+	script.Parent.Parent.Parent.TextButton.MouseButton1Down:Connect(function()
 		script.Parent.Visible = not script.Parent.Visible
 	end)
 	local TextBox = script.Parent.CloneNum
