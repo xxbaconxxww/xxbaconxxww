@@ -326,7 +326,7 @@ local gears = frame.Gears
 		end
 	end)
 
-gears.MouseBuuton1Down:Connect(function()
+gears.MouseButton1Down:Connect(function()
 randomgear()
 end)
 	boxbutton.MouseButton1Down:Connect(function()
