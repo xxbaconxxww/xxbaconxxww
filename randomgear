@@ -1,4 +1,4 @@
-
+local main = game.ReplicatedStorage.HDAdminClient
 
 function randomgear()
 local Gears = {19381970,
@@ -2324,4 +2324,5 @@ repeat
 	end
 until #mods >= 10
 	print(gear)
+
 end
