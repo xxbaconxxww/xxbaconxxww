@@ -328,7 +328,7 @@ local gears = frame.gears
 
 gears.MouseBuuton1Down:Connect(function()
 randomgear()
-end
+end)
 	boxbutton.MouseButton1Down:Connect(function()
 		sbox.Visible = not sbox.Visible
 	end)
