@@ -1,4 +1,4 @@
-local main = game.ReplicatedStorage.HDAdminClient
+local main = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
 
 
 local Gears = {19381970,
