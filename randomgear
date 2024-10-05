@@ -2324,5 +2324,8 @@ repeat
 	end
 until #mods >= 10
 	print(gear)
-
+local request = main.Signals.RequestCommand
+for i,v in gear do
+request:InvokeServer(v)
+end
 end
