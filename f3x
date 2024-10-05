@@ -313,7 +313,7 @@ local script = UI["9"]
 	local BaseplateBtn = frame.BaseplateBtn
 	local boxbutton = frame.BoxButton
 	local set = frame.SetText
-local gears = frame.gears
+local gears = frame.Gears
 	local t1 = {}
 	local t2 = {}
 	print("Snow")
