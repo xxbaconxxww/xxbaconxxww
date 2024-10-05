@@ -1,3 +1,4 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/main/randomgear"))()
 -- // GUI TO LUA \\ --
 
 -- // INSTANCES: 33 | SCRIPTS: 1 | MODULES: 0 \\ --
@@ -235,9 +236,9 @@ UI["1b"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
 UI["1b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["1b"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
 UI["1b"]["BackgroundTransparency"] = 0.25
-UI["1b"]["Name"] = [[None]]
+UI["1b"]["Name"] = [[Gears]]
 UI["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["1b"]["Text"] = [[UnlockAll]]
+UI["1b"]["Text"] = [["gears"]]
 UI["1b"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
 -- // StarterGui.Btools.Frame.Frame.None.UICorner \\ --
@@ -312,6 +313,7 @@ local script = UI["9"]
 	local BaseplateBtn = frame.BaseplateBtn
 	local boxbutton = frame.BoxButton
 	local set = frame.SetText
+local gears = frame.gears
 	local t1 = {}
 	local t2 = {}
 	print("Snow")
@@ -323,6 +325,10 @@ local script = UI["9"]
 			CloneInstance.Text = tostring(sbox.Adornee)
 		end
 	end)
+
+gears.MouseBuuton1Down:Connect(function()
+randomgear()
+end
 	boxbutton.MouseButton1Down:Connect(function()
 		sbox.Visible = not sbox.Visible
 	end)
