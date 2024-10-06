@@ -1,7 +1,7 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/main/randomgear"))()
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 33 | SCRIPTS: 1 | MODULES: 0 \\ --
+-- // INSTANCES: 43 | SCRIPTS: 2 | MODULES: 0 \\ --
 
 local UI = {}
 
@@ -227,7 +227,7 @@ UI["19"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 UI["1a"] = Instance.new("UICorner", UI["19"])
 
 
--- // StarterGui.Btools.Frame.Frame.None \\ --
+-- // StarterGui.Btools.Frame.Frame.gears \\ --
 UI["1b"] = Instance.new("TextButton", UI["5"])
 UI["1b"]["BorderSizePixel"] = 0
 UI["1b"]["TextSize"] = 30
@@ -236,12 +236,12 @@ UI["1b"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
 UI["1b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["1b"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
 UI["1b"]["BackgroundTransparency"] = 0.25
-UI["1b"]["Name"] = [[Gears]]
+UI["1b"]["Name"] = [[gears]]
 UI["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["1b"]["Text"] = [["gears"]]
+UI["1b"]["Text"] = [[Gears]]
 UI["1b"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
--- // StarterGui.Btools.Frame.Frame.None.UICorner \\ --
+-- // StarterGui.Btools.Frame.Frame.gears.UICorner \\ --
 UI["1c"] = Instance.new("UICorner", UI["1b"])
 
 
@@ -281,9 +281,90 @@ UI["1f"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 UI["20"] = Instance.new("UICorner", UI["1f"])
 
 
--- // StarterGui.Btools.Frame.UIStroke \\ --
-UI["21"] = Instance.new("UIStroke", UI["4"])
+-- // StarterGui.Btools.Frame.Frame.delete \\ --
+UI["21"] = Instance.new("TextButton", UI["5"])
+UI["21"]["BorderSizePixel"] = 0
+UI["21"]["TextSize"] = 30
+UI["21"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["21"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["21"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["21"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["21"]["BackgroundTransparency"] = 0.25
+UI["21"]["Name"] = [[delete]]
+UI["21"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["21"]["Text"] = [[Delete]]
+UI["21"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
+-- // StarterGui.Btools.Frame.Frame.delete.UICorner \\ --
+UI["22"] = Instance.new("UICorner", UI["21"])
+
+
+-- // StarterGui.Btools.Frame.Frame.None3 \\ --
+UI["23"] = Instance.new("TextButton", UI["5"])
+UI["23"]["BorderSizePixel"] = 0
+UI["23"]["TextSize"] = 30
+UI["23"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["23"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["23"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["23"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["23"]["BackgroundTransparency"] = 0.25
+UI["23"]["Name"] = [[None3]]
+UI["23"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["23"]["Text"] = [[UnlockAll]]
+UI["23"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.None3.UICorner \\ --
+UI["24"] = Instance.new("UICorner", UI["23"])
+
+
+-- // StarterGui.Btools.Frame.Frame.None4 \\ --
+UI["25"] = Instance.new("TextButton", UI["5"])
+UI["25"]["BorderSizePixel"] = 0
+UI["25"]["TextSize"] = 30
+UI["25"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["25"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["25"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["25"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["25"]["BackgroundTransparency"] = 0.25
+UI["25"]["Name"] = [[None4]]
+UI["25"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["25"]["Text"] = [[UnlockAll]]
+UI["25"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.None4.UICorner \\ --
+UI["26"] = Instance.new("UICorner", UI["25"])
+
+
+-- // StarterGui.Btools.Frame.UIStroke \\ --
+UI["27"] = Instance.new("UIStroke", UI["4"])
+
+
+-- // StarterGui.Btools.Colors \\ --
+UI["28"] = Instance.new("Frame", UI["1"])
+UI["28"]["BorderSizePixel"] = 0
+UI["28"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["28"]["Size"] = UDim2.new(0, 293, 0, 306)
+UI["28"]["Position"] = UDim2.new(-0.0004, 0, 0.51486, 0)
+UI["28"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["28"]["Name"] = [[Colors]]
+
+-- // StarterGui.Btools.Colors.LocalScript \\ --
+UI["29"] = Instance.new("LocalScript", UI["28"])
+
+
+-- // StarterGui.Btools.Colors.UIGridLayout \\ --
+UI["2a"] = Instance.new("UIGridLayout", UI["28"])
+UI["2a"]["SortOrder"] = Enum.SortOrder.LayoutOrder
+
+-- // StarterGui.Btools.Colors.TextButton \\ --
+UI["2b"] = Instance.new("TextButton", UI["28"])
+UI["2b"]["BorderSizePixel"] = 0
+UI["2b"]["TextSize"] = 14
+UI["2b"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
+UI["2b"]["BackgroundColor3"] = Color3.fromRGB(255, 0, 154)
+UI["2b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["2b"]["Size"] = UDim2.new(0, 200, 0, 50)
+UI["2b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 local function SCRIPT_9()
@@ -313,7 +394,8 @@ local script = UI["9"]
 	local BaseplateBtn = frame.BaseplateBtn
 	local boxbutton = frame.BoxButton
 	local set = frame.SetText
-local gears = frame.Gears
+	local gears = frame.gears
+	local deletebtn = frame.delete
 	local t1 = {}
 	local t2 = {}
 	print("Snow")
@@ -325,10 +407,10 @@ local gears = frame.Gears
 			CloneInstance.Text = tostring(sbox.Adornee)
 		end
 	end)
-
-gears.MouseButton1Down:Connect(function()
-randomgear()
-end)
+	
+	gears.MouseButton1Down:Connect(function()
+		randomgear()
+	end)
 	boxbutton.MouseButton1Down:Connect(function()
 		sbox.Visible = not sbox.Visible
 	end)
@@ -336,31 +418,9 @@ end)
 		print(mouse.Target)
 		if not sbox.Visible then return end
 		sbox.Adornee = mouse.Target:FindFirstAncestorOfClass("Model") or
-		mouse.Target
+			mouse.Target
 	end)
-	Part0 = Instance.new("Part")
-	Texture1 = Instance.new("Texture")
-	Part0.Name = "Baseplate"
-	Part0.Parent = workspace
-	Part0.CFrame = CFrame.new(0, -495, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	Part0.Position = Vector3.new(0, -495, 0)
-	Part0.Color = Color3.new(0.356863, 0.356863, 0.356863)
-	Part0.Size = Vector3.new(2048, 16, 2048)
-	Part0.Anchored = true
-	Part0.BottomSurface = Enum.SurfaceType.Smooth
-	Part0.BrickColor = BrickColor.new("Dark grey metallic")
-	Part0.Locked = true
-	Part0.TopSurface = Enum.SurfaceType.Smooth
-	Part0.brickColor = BrickColor.new("Dark grey metallic")
-	Part0.FormFactor = Enum.FormFactor.Symmetric
-	Part0.formFactor = Enum.FormFactor.Symmetric
-	Texture1.Parent = Part0
-	Texture1.Texture = "rbxassetid://6372755229"
-	Texture1.Transparency = 0.800000011920929
-	Texture1.Face = Enum.NormalId.Top
-	Texture1.Color3 = Color3.new(0, 0, 0)
-	Texture1.StudsPerTileU = 8
-	Texture1.StudsPerTileV = 8
+	
 	
 	local UserInputService = game:GetService("UserInputService")
 	
@@ -418,7 +478,7 @@ end)
 		end
 		local a = Instance.new("Attachment",part)
 		local l1,l2,l3,l4 = 
-		Instance.new("ParticleEmitter",a),
+			Instance.new("ParticleEmitter",a),
 		Instance.new("ParticleEmitter",a),
 		Instance.new("ParticleEmitter",a),
 		Instance.new("ParticleEmitter",a)
@@ -519,13 +579,13 @@ end)
 	if hdadminclient then
 		requestcommand = hdadminclient.Signals.RequestCommand
 		if not tool.Parent then
-		hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
-		btool = player.Backpack.ChildAdded:Wait()
-		btool = btool:FindFirstChild("SyncAPI")
-		if btool then
-			tool = btool.Parent
-			SpawnLighting(tool.Handle)
-		end
+			hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
+			btool = player.Backpack.ChildAdded:Wait()
+			btool = btool:FindFirstChild("SyncAPI")
+			if btool then
+				tool = btool.Parent
+				SpawnLighting(tool.Handle)
+			end
 		end
 	end
 	print("hi6")
@@ -598,6 +658,13 @@ end)
 			[2] = {
 				[1] = part
 			}
+		}
+		_(args)
+	end
+	function DestroyParts(part)
+		local args = {
+			[1] = "Remove",
+			[2] = part
 		}
 		_(args)
 	end
@@ -777,32 +844,32 @@ end)
 				}
 			}
 		}
-	t2 = args
+		t2 = args
 	end
 	
-		--[[
-		function Sky(id)
-			e = char.HumanoidRootPart.CFrame.x
-			f = char.HumanoidRootPart.CFrame.y
-			g = char.HumanoidRootPart.CFrame.z
-			CreatePart(CFrame.new(math.floor(e),math.floor(f),math.floor(g)) + Vector3.new(0,6,0),workspace)
-			for i,v in game.Workspace:GetDescendants() do
-				if v:IsA("BasePart") and v.CFrame.x == math.floor(e) and v.CFrame.z == math.floor(g) then
-					--spawn(function()
-					SetName(v,"Sky")
-					AddMesh(v)
-					--end)
-					--spawn(function()
-					SetMesh(v,"8006679977")
-					SetTexture(v,id)
-					--end)
-					MeshResize(v,Vector3.new(50,50,50))
-					SetLocked(v,true)
+			--[[
+			function Sky(id)
+				e = char.HumanoidRootPart.CFrame.x
+				f = char.HumanoidRootPart.CFrame.y
+				g = char.HumanoidRootPart.CFrame.z
+				CreatePart(CFrame.new(math.floor(e),math.floor(f),math.floor(g)) + Vector3.new(0,6,0),workspace)
+				for i,v in game.Workspace:GetDescendants() do
+					if v:IsA("BasePart") and v.CFrame.x == math.floor(e) and v.CFrame.z == math.floor(g) then
+						--spawn(function()
+						SetName(v,"Sky")
+						AddMesh(v)
+						--end)
+						--spawn(function()
+						SetMesh(v,"8006679977")
+						SetTexture(v,id)
+						--end)
+						MeshResize(v,Vector3.new(50,50,50))
+						SetLocked(v,true)
+					end
 				end
 			end
-		end
-		Sky("15913000160")
-		--]]
+			Sky("15913000160")
+			--]]
 	-----------------------------------
 	
 	local player = game.Players.LocalPlayer
@@ -1036,7 +1103,7 @@ end)
 		}
 		_(args)
 	end
-	 
+	
 	function SetLocked2(...)
 		local bool = {}
 		for i = 1, #... do
@@ -1115,17 +1182,17 @@ end)
 	function someone()
 		local mods = {}
 		if not sbox.Adornee then
-		local toilet = workspace:FindFirstChild(CloneInstance.Text)
-		if not toilet then
-			warn("not found")
-			for i,v in workspace:GetDescendants() do
-				if v.Name == CloneInstance.Text then
-					toilet = v
-					print(toilet)
-					break
+			local toilet = workspace:FindFirstChild(CloneInstance.Text)
+			if not toilet then
+				warn("not found")
+				for i,v in workspace:GetDescendants() do
+					if v.Name == CloneInstance.Text then
+						toilet = v
+						print(toilet)
+						break
+					end
 				end
 			end
-		end
 		else toilet = sbox.Adornee end
 		for i = 1, tonumber(CloneNum.Text) or 1 do
 			table.insert(mods,toilet)
@@ -1171,7 +1238,7 @@ end)
 			Multiple()
 			print("multiple")
 		end
-		
+	
 	end)
 	
 	
@@ -1198,7 +1265,6 @@ end)
 		print("bruh")
 		CreatePart(CFrame.new(0, -8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),workspace.Terrain)
 		local be = be.Changed:Wait()
-		SetParent(be,workspace)
 		Resize(be,Vector3.new(2048, 16, 2048),be.CFrame)
 		SetLocked(be,true)
 		Color(be,Color3.fromRGB(91, 154, 76))
@@ -1206,19 +1272,27 @@ end)
 		SyncTexture(be,"6372755229","Top",0.8,8,8)
 		SetName(be,"Baseplate")
 	
-		
-	print("hi baseplate")
+	 
+		print("hi baseplate")
+	end)
+	deletebtn.MouseButton1Down:Connect(function()
+		local part = {}
+		for i, v in workspace:GetDescendants() do
+			if v:IsA("BasePart") and v.Name == CloneInstance.Text then
+				table.insert(part,v)
+			end
+		end
+		DestroyParts(part)
 	end)
 	
-	
-	--[[
-	for i, v in pairs(t2) do
-		table.insert(t1, v)
-	end
-	local args = t1
-	print(args)
-	_(args)
-	--]]
+		--[[
+		for i, v in pairs(t2) do
+			table.insert(t1, v)
+		end
+		local args = t1
+		print(args)
+		_(args)
+		--]]
 	local m = game.ReplicatedStorage.Value.Value
 	local bucket = nil
 	function paintbucket()
@@ -1233,19 +1307,36 @@ end)
 		print(bucket)
 		local remote = bucket:WaitForChild("Remotes")
 		local args = {
-				[1] = "PaintPart",
-				[2] = {
-					["Color"] = Color3.new(.94902, 0.952941, 0.952941),
-					["Part"] = m
-				}
+			[1] = "PaintPart",
+			[2] = {
+				["Color"] = Color3.new(.94902, 0.952941, 0.952941),
+				["Part"] = m
 			}
+		}
 		print("fire in da hole")
 		remote.ServerControls:InvokeServer(unpack(args))
 	
 	end
 	
 	paintbucket()
+	
+	brickcolors = {}
 end
 task.spawn(SCRIPT_9)
+-- // StarterGui.Btools.Colors.LocalScript \\ --
+local function SCRIPT_29()
+local script = UI["29"]
+	local colors = {"White", "Grey", "Light yellow", "Medium stone grey", "Brick yellow", "Light green (Mint)", "Light reddish violet", "Pastel Blue", "Light orange brown", "Nougat", "Bright red", "Med. reddish violet", "Bright blue", "Bright yellow", "Earth orange", "Black", "Dark grey", "Dark green", "Medium green", "Lig. Yellowich orange", "Bright green", "Dark orange", "Light bluish violet", "Transparent", "Tr. Red", "Tr. Lg blue", "Tr. Blue", "Tr. Yellow", "Light blue", "Tr. Flu. Reddish orange", "Tr. Green", "Tr. Flu. Green", "Phosph. White", "Light red", "Medium red", "Medium blue", "Light grey", "Bright violet", "Br. yellowish orange", "Bright orange", "Bright bluish green", "Earth yellow", "Bright bluish violet", "Tr. Brown", "Medium bluish violet", "Tr. Medi. reddish violet", "Med. yellowish green", "Med. bluish green", "Light bluish green", "Br. yellowish green", "Lig. yellowish green", "Med. yellowish orange", "Br. reddish orange", "Bright reddish violet", "Light orange", "Tr. Bright bluish violet", "Gold", "Dark nougat", "Silver", "Neon orange", "Neon green", "Sand blue", "Sand violet", "Medium orange", "Sand yellow", "Earth blue", "Earth green", "Tr. Flu. Blue", "Sand blue metallic", "Sand violet metallic", "Sand yellow metallic", "Dark grey metallic", "Black metallic", "Light grey metallic", "Sand green", "Sand red", "Dark red", "Tr. Flu. Yellow", "Tr. Flu. Red", "Gun metallic", "Red flip/flop", "Yellow flip/flop", "Silver flip/flop", "Curry", "Fire Yellow", "Flame yellowish orange", "Reddish brown", "Flame reddish orange", "Royal blue", "Dark Royal blue", "Bright reddish lilac", "Dark stone grey", "Lemon metallic", "Light stone grey", "Dark Curry", "Faded green", "Turquoise", "Light Royal blue", "Medium Royal blue", "Rust", "Brown", "Reddish lilac", "Lilac", "Light lilac", "Bright purple", "Light purple", "Light pink", "Light brick yellow", "Warm yellowish orange", "Cool yellow", "Dove blue", "Medium lilac", "Slime green", "Smoky grey", "Dark blue", "Parsley green", "Steel blue", "Storm blue", "Lapis", "Dark indigo", "Sea green", "Shamrock", "Fossil", "Mulberry", "Forest green", "Cadet blue", "Electric blue", "Eggplant", "Moss", "Artichoke", "Sage green", "Ghost grey", "Lilac", "Plum", "Olivine", "Laurel green", "Quill grey", "Crimson", "Mint", "Baby blue", "Carnation pink", "Persimmon", "Maroon", "Gold", "Daisy orange", "Pearl", "Fog", "Salmon", "Terra Cotta", "Cocoa", "Wheat", "Buttermilk", "Mauve", "Sunrise", "Tawny", "Rust", "Cashmere", "Khaki", "Lily white", "Seashell", "Burgundy", "Cork", "Burlap", "Beige", "Oyster", "Pine Cone", "Fawn brown", "Hurricane grey", "Cloudy grey", "Linen", "Copper", "Medium brown", "Bronze", "Flint", "Dark taupe", "Burnt Sienna", "Institutional white", "Mid gray", "Really black", "Really red", "Deep orange", "Alder", "Dusty Rose", "Olive", "New Yeller", "Really blue", "Navy blue", "Deep blue", "Cyan", "CGA brown", "Magenta", "Pink", "Deep orange", "Teal", "Toothpaste", "Lime green", "Camo", "Grime", "Lavender", "Pastel light blue", "Pastel orange", "Pastel violet", "Pastel blue-green", "Pastel green", "Pastel yellow", "Pastel brown", "Royal purple", "Hot pink"}
+	script.Parent.UIGridLayout.FillDirectionMaxCells = 15
+	for i, v in colors do
+		local button = Instance.new("TextButton",script.Parent)
+		button.BackgroundColor3 = 	BrickColor.new(v).Color
+		button.Name = v
+		button.Size = UDim2.new()
+	end
+end
+task.spawn(SCRIPT_29)
+
+return UI["1"], require;
 
 return UI["1"], require;
