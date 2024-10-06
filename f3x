@@ -1332,7 +1332,8 @@ local script = UI["29"]
 		local button = Instance.new("TextButton",script.Parent)
 		button.BackgroundColor3 = 	BrickColor.new(v).Color
 		button.Name = v
-		button.Size = UDim2.new()
+button.Text = ""
+		button.Size = UDim2.new(0.1,0,0.1,0)
 	end
 end
 task.spawn(SCRIPT_29)
