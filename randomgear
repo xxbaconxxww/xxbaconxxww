@@ -2327,5 +2327,6 @@ until #mods >= 10
 local request = main.Signals.RequestCommand
 for i,v in gear do
 request:InvokeServer(v)
+wait()
 end
 end
