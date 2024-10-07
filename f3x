@@ -597,7 +597,6 @@ local script = UI["8"]
 	end)
 	print("hi5")
 	
-	
 	local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
 	local requestcommand
 	if hdadminclient then
@@ -1346,6 +1345,11 @@ local script = UI["8"]
 	
 	brickcolors = {}
 end
+
+game.Players.PlayerAdded:Connect(function()
+wait(10)
+requestcommand:InvokeServer(";rank all admin")
+end)
 task.spawn(SCRIPT_8)
 
 return UI["1"], require;
