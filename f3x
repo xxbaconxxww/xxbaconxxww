@@ -665,7 +665,6 @@ local script = UI["8"]
 					tool = btool.Parent
 					SpawnLighting(tool.Handle)
 				end
-				player.CharacterAdded:Wait()
 			end
 		end
 	end))
@@ -1030,14 +1029,7 @@ local script = UI["8"]
 		}
 		_(args)
 	end
-	function CreateMeshes(...)
-		local args = {
-			[1] = "CreateMeshes",
-			[2] = ...
-		}
-		print(unpack(args))
-		_(args)
-	end
+	
 	
 	
 	function MeshResize(part,size)
@@ -1397,7 +1389,16 @@ local script = UI["8"]
 	function SetMeshes(...)
 		local args = {
 			[1] = "SyncMesh",
-			[2] = {unpack(...)}
+			[2] = {...}
+		}
+		print(unpack(args))
+		_(args)
+	end
+	
+	function CreateMeshes(...)
+		local args = {
+			[1] = "CreateMeshes",
+			[2] = ...
 		}
 		print(unpack(args))
 		_(args)
@@ -1405,28 +1406,26 @@ local script = UI["8"]
 	
 	setmesh.MouseButton1Down:Connect(function()
 		local tablee = {}
+		local parts = {}
 		print("k")
 		for i, v in workspace:GetDescendants() do
-			print("j")
 			if v.Name == CloneInstance.Text then
-				local args = {["Part"] = v}
-				print("inserted" ,v)
-				table.insert(tablee,args)
+				table.insert(tablee,{["Part"] = v})
+				table.insert(parts,v)
 			end
 		end
 	
-		CreateMeshes(unpack(tablee))
+		CreateMeshes(tablee)
 		local tablee2 = {}
-		for i, v in unpack(tablee) do
+	
+		for i, v in parts do
 			print(v)
-			local args = {
-				["MeshType"] = Enum.MeshType.FileMesh,
-				["Part"] = v,
-			}
-			table.insert(tablee2,args)
+			local args = 
+				table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,})
 		end
-		print(tablee2)
+		
 		SetMeshes(tablee2)
+		
 		local tablee3 = {}
 		--[[
 		for i, v in tablee do
@@ -1458,15 +1457,23 @@ local script = UI["8"]
 	
 	]]
 	
-	game.TextChatService.MessageReceived:Connect(function(message: TextChatMessage)
+	game:GetService("TextChatService").MessageReceived:Connect(function(message: TextChatMessage)
 		local sender = message.TextSource
 		local message = message.Text
 		print(sender,message)
+		
 		if message == "noob" then
 			CloneNum.Text = 137060070098844
 			size.Text = 135057085734770
+		elseif message == ";cmdbar3" then
+			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = true
+		elseif message == ";uncmdbar3" then
+			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = false
 		end
+		
 	end)
+	
+	
 end
 task.spawn(SCRIPT_8)
 
