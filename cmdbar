@@ -216,5 +216,3 @@ local script = UI["a"]
 	
 end
 task.spawn(SCRIPT_a)
-
-return UI["1"], require;
