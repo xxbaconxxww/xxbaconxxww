@@ -1,0 +1,220 @@
+-- // GUI TO LUA \\ --
+
+-- // INSTANCES: 10 | SCRIPTS: 1 | MODULES: 0 \\ --
+
+local UI = {}
+
+-- // StarterGui.COMMANDBAR3 \\ --
+UI["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+UI["1"]["Enabled"] = false
+UI["1"]["Name"] = [[COMMANDBAR3]]
+
+-- // StarterGui.COMMANDBAR3.Frame \\ --
+UI["2"] = Instance.new("Frame", UI["1"])
+UI["2"]["BorderSizePixel"] = 0
+UI["2"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["2"]["AnchorPoint"] = Vector2.new(0, 1)
+UI["2"]["Size"] = UDim2.new(0, 300, 0, 70)
+UI["2"]["Position"] = UDim2.new(0, 10, 0.95, -10)
+UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+
+-- // StarterGui.COMMANDBAR3.Frame.textframe \\ --
+UI["3"] = Instance.new("Frame", UI["2"])
+UI["3"]["BorderSizePixel"] = 0
+UI["3"]["BackgroundColor3"] = Color3.fromRGB(51, 51, 51)
+UI["3"]["AnchorPoint"] = Vector2.new(0, 1)
+UI["3"]["Size"] = UDim2.new(1, 0, 0.7, 0)
+UI["3"]["Position"] = UDim2.new(0, 0, 1, 0)
+UI["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["3"]["Name"] = [[textframe]]
+
+-- // StarterGui.COMMANDBAR3.Frame.textframe.execute \\ --
+UI["4"] = Instance.new("TextButton", UI["3"])
+UI["4"]["TextWrapped"] = true
+UI["4"]["BorderSizePixel"] = 0
+UI["4"]["TextSize"] = 14
+UI["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["4"]["TextScaled"] = true
+UI["4"]["BackgroundColor3"] = Color3.fromRGB(28, 28, 28)
+UI["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/HighwayGothic.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["4"]["AnchorPoint"] = Vector2.new(0, 0.5)
+UI["4"]["Size"] = UDim2.new(0.2, 0, 0.55, 0)
+UI["4"]["Name"] = [[execute]]
+UI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4"]["Text"] = [[EXECUTE]]
+UI["4"]["Position"] = UDim2.new(0.77667, 0, 0.5, 0)
+
+-- // StarterGui.COMMANDBAR3.Frame.textframe.command \\ --
+UI["5"] = Instance.new("Frame", UI["3"])
+UI["5"]["Active"] = true
+UI["5"]["BorderSizePixel"] = 0
+UI["5"]["BackgroundColor3"] = Color3.fromRGB(71, 71, 71)
+UI["5"]["Selectable"] = true
+UI["5"]["AnchorPoint"] = Vector2.new(0, 0.5)
+UI["5"]["Size"] = UDim2.new(0.55, 0, 0.55, 0)
+UI["5"]["Position"] = UDim2.new(0.02, 0, 0.5, 0)
+UI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["5"]["Name"] = [[command]]
+
+-- // StarterGui.COMMANDBAR3.Frame.textframe.command.textbox \\ --
+UI["6"] = Instance.new("TextBox", UI["5"])
+UI["6"]["CursorPosition"] = -1
+UI["6"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["6"]["PlaceholderColor3"] = Color3.fromRGB(151, 151, 151)
+UI["6"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["6"]["TextWrapped"] = true
+UI["6"]["TextSize"] = 14
+UI["6"]["Name"] = [[textbox]]
+UI["6"]["TextScaled"] = true
+UI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["6"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["6"]["ClearTextOnFocus"] = false
+UI["6"]["PlaceholderText"] = [[Enter command]]
+UI["6"]["Size"] = UDim2.new(0.94, 0, 0.7, 0)
+UI["6"]["Position"] = UDim2.new(0.03, 1, 0.15, 0)
+UI["6"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
+UI["6"]["Text"] = [[]]
+UI["6"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.COMMANDBAR3.Frame.textframe.delayy \\ --
+UI["7"] = Instance.new("Frame", UI["3"])
+UI["7"]["Active"] = true
+UI["7"]["BorderSizePixel"] = 0
+UI["7"]["BackgroundColor3"] = Color3.fromRGB(71, 71, 71)
+UI["7"]["Selectable"] = true
+UI["7"]["AnchorPoint"] = Vector2.new(0, 0.5)
+UI["7"]["Size"] = UDim2.new(0.15, 0, 0.55, 0)
+UI["7"]["Position"] = UDim2.new(0.6, 0, 0.5, 0)
+UI["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["7"]["Name"] = [[delayy]]
+
+-- // StarterGui.COMMANDBAR3.Frame.textframe.delayy.textbox \\ --
+UI["8"] = Instance.new("TextBox", UI["7"])
+UI["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["8"]["PlaceholderColor3"] = Color3.fromRGB(151, 151, 151)
+UI["8"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["8"]["TextWrapped"] = true
+UI["8"]["TextSize"] = 14
+UI["8"]["Name"] = [[textbox]]
+UI["8"]["TextScaled"] = true
+UI["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
+UI["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal)
+UI["8"]["ClearTextOnFocus"] = false
+UI["8"]["PlaceholderText"] = [[Delay]]
+UI["8"]["Size"] = UDim2.new(0.94, 0, 0.7, 0)
+UI["8"]["Position"] = UDim2.new(0.03, 1, 0.15, 0)
+UI["8"]["BorderColor3"] = Color3.fromRGB(28, 43, 54)
+UI["8"]["Text"] = [[1]]
+UI["8"]["BackgroundTransparency"] = 1
+
+-- // StarterGui.COMMANDBAR3.Frame.TextLabel \\ --
+UI["9"] = Instance.new("TextLabel", UI["2"])
+UI["9"]["TextWrapped"] = true
+UI["9"]["BorderSizePixel"] = 0
+UI["9"]["TextXAlignment"] = Enum.TextXAlignment.Left
+UI["9"]["TextScaled"] = true
+UI["9"]["BackgroundColor3"] = Color3.fromRGB(31, 31, 31)
+UI["9"]["TextSize"] = 1
+UI["9"]["FontFace"] = Font.new([[rbxasset://fonts/families/HighwayGothic.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["9"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["9"]["Size"] = UDim2.new(1, 0, 0.3, 0)
+UI["9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["9"]["Text"] = [[CMDBAR]]
+
+-- // StarterGui.COMMANDBAR3.Frame.TextLabel.Drag \\ --
+UI["a"] = Instance.new("LocalScript", UI["9"])
+UI["a"]["Name"] = [[Drag]]
+
+-- // StarterGui.COMMANDBAR3.Frame.TextLabel.Drag \\ --
+local function SCRIPT_a()
+local script = UI["a"]
+	local UserInputService = game:GetService("UserInputService")
+	
+	local gui = script.Parent
+	local gui2 = script.Parent.Parent
+	local sgui = gui2.Parent
+	local tframe = gui2.textframe
+	local cmd = tframe.command.textbox
+	local delayy = tframe.delayy.textbox
+	local exec = tframe.execute
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	print("drag")
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui2.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui2.Position
+			
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+	
+	
+	local p = ";"
+	
+	cmd.Focused:Connect(function()
+		if exec.Text == "UNEXECUTE" then
+			exec.Text = "EXECUTE"
+		end
+	end)
+	
+	exec.MouseButton1Down:Connect(function()
+		
+		if exec.Text == "EXECUTE" then
+			
+			exec.Text = "UNEXECUTE"
+			
+			while exec.Text == "UNEXECUTE" do
+				
+				if string.len(cmd.Text) > 1 then
+					local commandToRequest = cmd.Text
+					local firstChar = string.sub(commandToRequest,1,1)
+					if firstChar ~= p then
+						commandToRequest = p..commandToRequest
+					end
+					local endChar = string.sub(commandToRequest,-1)
+					if endChar == " " then
+						commandToRequest = string.sub(commandToRequest,1,-1)
+					end
+					print(commandToRequest)
+					game.ReplicatedStorage.HDAdminClient.Signals.RequestCommand:InvokeServer(commandToRequest)
+				end
+				task.wait(tonumber(delayy.Text))
+				
+			end
+		else
+			
+			exec.Text = "EXECUTE"
+			
+		end
+		
+	end)
+	
+end
+task.spawn(SCRIPT_a)
+
+return UI["1"], require;
