@@ -1,4 +1,5 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/main/randomgear"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/refs/heads/main/cmdbar"))()
 -- // GUI TO LUA \\ --
 
 -- // INSTANCES: 45 | SCRIPTS: 1 | MODULES: 0 \\ --
