@@ -1513,9 +1513,10 @@ local script = UI["8"]
 		print(j)
 		return j
 	end
-	
+	local de = false
 	function msgsent(sender,message)
-	
+if de then return end
+	de = true
 		Quote(sender,message)
 	
 	
@@ -1530,7 +1531,7 @@ local script = UI["8"]
 		elseif message == ";uncmdbar3" then
 			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = false
 		end
-		
+		de = false
 	end
 	
 	
