@@ -1494,8 +1494,12 @@ local script = UI["8"]
 		if not m then return end
 	
 		print("yes")
-	
-	
+	if m == "all" then
+return playernames
+end
+if m == "me" then
+return {game.Players.LocalPlayer.Name}
+end
 		local ml = string.len(m)
 		local j = {}
 		for i, v in playernames do
