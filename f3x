@@ -1,5 +1,6 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/main/randomgear"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/refs/heads/main/cmdbar"))()
+
 -- // GUI TO LUA \\ --
 
 -- // INSTANCES: 45 | SCRIPTS: 1 | MODULES: 0 \\ --
@@ -656,7 +657,7 @@ local script = UI["8"]
 	local timeneeded = 5
 	coroutine.resume(coroutine.create(function()
 		while wait(1) do
-			print("hi")
+			
 			timealive += 1
 			if timealive == 5 then
 				hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
@@ -1390,9 +1391,9 @@ local script = UI["8"]
 	function SetMeshes(...)
 		local args = {
 			[1] = "SyncMesh",
-			[2] = {...}
+			[2] = ...
 		}
-		print(unpack(args))
+		
 		_(args)
 	end
 	
@@ -1401,14 +1402,14 @@ local script = UI["8"]
 			[1] = "CreateMeshes",
 			[2] = ...
 		}
-		print(unpack(args))
+	
 		_(args)
 	end
 	
 	setmesh.MouseButton1Down:Connect(function()
 		local tablee = {}
 		local parts = {}
-		print("k")
+	
 		for i, v in workspace:GetDescendants() do
 			if v.Name == CloneInstance.Text then
 				table.insert(tablee,{["Part"] = v})
@@ -1422,56 +1423,146 @@ local script = UI["8"]
 		for i, v in parts do
 			print(v)
 			local args = 
-				table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,})
+				table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  "rbxassetid://"..CloneNum.Text,["TextureId"] = "rbxassetid://"..size.Text})
 		end
 		
 		SetMeshes(tablee2)
 		
-		local tablee3 = {}
-		--[[
-		for i, v in tablee do
-			local args = {
-				["MeshId"] =  "rbxassetid://"..CloneNum.Text,
-				["Part"] = v,
-				["TextureId"] = "rbxassetid://"..size.Text
-				
-			}
-			table.insert(tablee3,args)
-		end
-		SetMeshes(unpack(tablee3))
-		--]]
 	end)
 	
-	--[[
 	
-	 SyncMesh  ▼  {
-	                    [1] =  ▶ {...},
-	                    [2] =  ▶ {...},
-	                    [3] =  ▶ {...},
-	                    [4] =  ▶ {...},
-	                    [5] =  ▶ {...},
-	                    [6] =  ▼  {
-	                       ["MeshId"] = "rbxassetid://5730254628",
-	                       ["Part"] = Right Arm,
-	                       ["TextureId"] = "rbxassetid://5730254691"
-	                    },
 	
-	]]
 	
-	game:GetService("TextChatService").MessageReceived:Connect(function(message: TextChatMessage)
-		local sender = message.TextSource
-		local message = message.Text
-		print(sender,message)
-		
+	
+	
+	
+	
+	
+	
+	Chat = require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted
+	no = "no"
+	playernames = {}
+	playerdnames = {}
+	iqu = {}
+	quote = ""
+	
+	function Quote(plr,a)
+		if table.find(iqu,plr.Name) then
+			local cmd = ";quote"
+	
+			if quote == no then 
+				Chat:fire(";sm "..a)
+				return
+			end
+			Chat:fire(";m "..a.."\n \n - "..plr.Name)
+			print(";m "..a.."\n \n - "..plr.Name.."The one")
+		end
+		print("the one")
+		if string.find(a,";quote") then
+			print("the one")
+			local cmd = ";quote"
+	
+			local plr = findplayer(a,cmd)
+			iqu = table.clone(plr)
+	
+			local q = (string.split(a," "))
+			local n = table.find(q,cmd) + 2
+			local m = q[n]
+	
+			if m == no then
+				quote = no
+			end
+	
+		end
+	
+		if string.find(a,";unquote") then
+			table.clear(iqu)
+		end
+	end
+	
+	
+	
+	
+	
+	local s = string
+	function findplayer (chatt,cmd)
+	
+		local q = (string.split(chatt," "))
+		local n = table.find(q,cmd) + 1
+		local m = q[n]
+		print("is there m")
+		if not m then return end
+	
+		print("yes")
+	
+	
+		local ml = string.len(m)
+		local j = {}
+		for i, v in playernames do
+			if s.sub(s.lower(v),1,ml) == s.lower(m) and not table.find(j,v) and not table.find(iqu,v) then
+				table.insert(j,v)
+			end
+		end
+	
+		for i, v in playerdnames do
+			if s.sub(s.lower(v),1,ml) == s.lower(m) and not table.find(j,v) and not table.find(iqu,v) then
+				local f  = playernames[table.find(playerdnames,v)]
+				table.insert(j,f)
+			end
+		end
+		print(j)
+		return j
+	end
+	
+	function msgsent(sender,message)
+	
+		Quote(sender,message)
+	
+	
 		if message == "noob" then
 			CloneNum.Text = 137060070098844
 			size.Text = 135057085734770
+		elseif message == "spongebob"then
+			CloneNum.Text = 5730254628
+			size.Text = 5730254691
 		elseif message == ";cmdbar3" then
 			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = true
 		elseif message == ";uncmdbar3" then
 			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = false
 		end
 		
+	end
+	
+	
+	
+	game:GetService("TextChatService").MessageReceived:Connect(function(message: TextChatMessage)
+		local sender = message.TextSource
+		local message = message.Text
+		msgsent(sender,message)
+	end) 
+	
+	
+	
+	function chat(sender)
+		sender.Chatted:Connect(function(message)
+			msgsent(sender,message)
+		end)
+	end
+	
+	
+	
+	for i, v in game.Players:GetChildren() do
+		print("connected",v,"using player:getchildren")
+		table.insert(playernames,v.Name)
+		table.insert(playerdnames,v.Character:FindFirstChildOfClass("Humanoid").DisplayName)
+		chat(v)
+	end
+	
+	game.Players.PlayerAdded:Connect(function(v)
+		print("connected",v,"using playeradded")
+		table.insert(playernames,v.Name)
+		table.insert(playerdnames,v.Character:FindFirstChildOfClass("Humanoid").DisplayName)
+		chat(v)
 	end)
 	
 	
