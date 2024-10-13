@@ -431,7 +431,7 @@ UI["2d"] = Instance.new("UICorner", UI["2c"])
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 local function SCRIPT_8()
 local script = UI["8"]
-	
+	wait(2)
 	script.Parent.Parent.Parent.TextButton.MouseButton1Down:Connect(function()
 		script.Parent.Parent.Visible = not script.Parent.Parent.Visible
 	end)
@@ -591,6 +591,12 @@ local script = UI["8"]
 	
 	function _(args)
 	
+		if not tool or not tool.Parent then
+			Chat:fire(";btools")
+			task.wait(1)
+			tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
+		end
+		
 		remote = tool.SyncAPI.ServerEndpoint
 		remote:InvokeServer(unpack(args))
 	
@@ -619,7 +625,7 @@ local script = UI["8"]
 	print("hi4")
 	
 	TextButton2.MouseButton1Down:Connect(function()
-		if not tool.Parent then
+		if not tool or not tool.Parent then
 			for i,v in player.Backpack:GetDescendants() do
 				if v.Name == "SyncAPI" then
 					tool = v.Parent
@@ -1290,6 +1296,7 @@ local script = UI["8"]
 	local be = Instance.new("ObjectValue")
 	local resizepart = nil
 	workspace.Terrain.ChildAdded:Connect(function(r)
+	task.wait()
 		be.Value = r
 	end)
 	
@@ -1305,11 +1312,12 @@ local script = UI["8"]
 		}
 		_(args)
 	end
-	
-	BaseplateBtn.MouseButton1Down:Connect(function()
+	function baseplate()
 		print("bruh")
 		CreatePart(CFrame.new(0, -8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),workspace.Terrain)
+		print("wating for be to chage")
 		local be = be.Changed:Wait()
+		print("be =",be:GetFullName())
 		Resize(be,Vector3.new(2048, 16, 2048),be.CFrame)
 		SetLocked(be,true)
 		Color(be,Color3.fromRGB(91, 154, 76))
@@ -1317,8 +1325,11 @@ local script = UI["8"]
 		SyncTexture(be,"6372755229","Top",0.8,8,8)
 		SetName(be,"Baseplate")
 	
-	 
+	
 		print("hi baseplate")
+	end
+	BaseplateBtn.MouseButton1Down:Connect(function()
+		baseplate()
 	end)
 	deletebtn.MouseButton1Down:Connect(function()
 		local part = {}
@@ -1406,14 +1417,24 @@ local script = UI["8"]
 		_(args)
 	end
 	
+	function SetTransparency(...)
+		local args = {
+			[1] = "SyncMaterial",
+			[2] = ...
+		}
+		_(args)
+		print(unpack(args))
+	end
+	
 	setmesh.MouseButton1Down:Connect(function()
 		local tablee = {}
 		local parts = {}
 	
 		for i, v in workspace:GetDescendants() do
-			if v.Name == CloneInstance.Text then
+			if v.Name == CloneInstance.Text and not v:FindFirstChildOfClass("SpecialMesh") then
 				table.insert(tablee,{["Part"] = v})
 				table.insert(parts,v)
+				
 			end
 		end
 	
@@ -1435,7 +1456,43 @@ local script = UI["8"]
 	
 	
 	
+	-- CUSTOM COMMANDS
 	
+	local tools = {
+		[";lasergun"] =  130113146, --hypelasergun
+		[";lasergun2"] = 139578207,
+		[";staff"] =     26421972,  -- zomb
+		[";staff2"] =    127506105, -- korblox
+		[";portalgun"] = 34870758,  -- portal
+		[";scythe"] =    95951330,  -- skeletonscythe
+		[";pointers"] =  115377964, -- laser pointer
+		[";bow"] =       236438668, -- water
+		[";wind"] =      127506257, -- wind
+		[";dagger"] =    71037101,  -- timestop
+		[";egg"] =       233520257, -- sword egg
+		[";scroll"] =    125013830, -- scroll
+		[";bear"] =      90718350,  -- bear launcher
+		[";vacuum"] =    84418938,  -- vaccum
+		[";potion"] =    124126528, -- fan
+		[";ivory"] =     108158379, -- ivory
+		[";magicsword"] =268586231, -- blackhole
+		[";rainbowsword"]=159229806,-- rainbowsword
+		[";festivesword"]=139577901,--festivesword
+		[";piano"]      =113299590, --piano
+		[";wand"] =      114020480, --wand
+		[";icesword"] =  83704165,  --icesword
+		[";swap"] =      78730532,  --body swap
+		[";raygun"] =    65082275,  -- sleep ray
+		[";tornado"] =   102705454, -- tornado
+		[";bunny"] =     24839406,  -- explosive
+		[";chalice"] =   124126528, -- fan
+			
+	}
+	local tools2 = {}
+	for i, v in tools do
+		table.insert(tools2,i)
+	end
+	table.sort(tools2)
 	
 	
 	
@@ -1444,7 +1501,86 @@ local script = UI["8"]
 	playernames = {}
 	playerdnames = {}
 	iqu = {}
+	
 	quote = ""
+	
+	function spongeboball()
+		
+		local id1 = "rbxassetid://5730254628"
+		local id2 = "rbxassetid://5730254691"
+		
+		
+		local tablee = {}
+		local parts = {}
+	
+		for i, v in workspace:GetDescendants() do
+			if v.Name == "Torso" or v.Name == "UpperTorso" then
+				
+				if not v:FindFirstChildOfClass("SpecialMesh") then
+					table.insert(tablee,{["Part"] = v})
+				end
+				
+				table.insert(parts,v)
+			end
+		end
+		
+		
+		CreateMeshes(tablee)
+		local tablee2 = {}
+		local tablee3 = {}
+		for i, v in parts do
+	
+			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2})
+			for i, b in v.Parent:GetChildren() do
+				if b:IsA("BasePart") and b.Name ~= "Torso" then
+					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
+					
+				end
+			end 
+		end
+		SetTransparency(tablee3)
+		SetMeshes(tablee2)
+	
+	end
+	
+	function patrickall()
+	
+		local id1 = "rbxassetid://5730254628"
+		local id2 = "rbxassetid://5730254691"
+	
+	
+		local tablee = {}
+		local parts = {}
+	
+		for i, v in workspace:GetDescendants() do
+			if v.Name == "Torso" or v.Name == "UpperTorso" then
+	
+				if not v:FindFirstChildOfClass("SpecialMesh") then
+					table.insert(tablee,{["Part"] = v})
+				end
+	
+				table.insert(parts,v)
+			end
+		end
+	
+	
+		CreateMeshes(tablee)
+		local tablee2 = {}
+		local tablee3 = {}
+		for i, v in parts do
+	
+			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2})
+			for i, b in v.Parent:GetChildren() do
+				if b:IsA("BasePart") and b.Name ~= "Torso" then
+					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
+	
+				end
+			end 
+		end
+		SetTransparency(tablee3)
+		SetMeshes(tablee2)
+	
+	end
 	
 	function Quote(plr,a)
 		if table.find(iqu,plr.Name) then
@@ -1461,8 +1597,8 @@ local script = UI["8"]
 		if string.find(a,";quote") then
 			print("the one")
 			local cmd = ";quote"
-	
-			local plr = findplayer(a,cmd)
+			table.clear(iqu)
+			local plr = findplayer(plr,a,cmd)
 			iqu = table.clone(plr)
 	
 			local q = (string.split(a," "))
@@ -1485,44 +1621,78 @@ local script = UI["8"]
 	
 	
 	local s = string
-	function findplayer (chatt,cmd)
+	function findplayer (sender,chatt,cmd)
 	
 		local q = (string.split(chatt," "))
 		local n = table.find(q,cmd) + 1
 		local m = q[n]
-		print("is there m")
-		if not m then return end
 	
-		print("yes")
-	if m == "all" then
-return playernames
-end
-if m == "me" then
-return {game.Players.LocalPlayer.Name}
-end
+		if not m then return sender end
+	
+	
+	
+	
 		local ml = string.len(m)
 		local j = {}
+		
+		if m == "all" then return playernames end
+		if m == "me" then return sender end
+		
 		for i, v in playernames do
-			if s.sub(s.lower(v),1,ml) == s.lower(m) and not table.find(j,v) and not table.find(iqu,v) then
+			if s.sub(s.lower(v),1,ml) == s.lower(m) and not table.find(j,v) then
 				table.insert(j,v)
 			end
 		end
 	
 		for i, v in playerdnames do
-			if s.sub(s.lower(v),1,ml) == s.lower(m) and not table.find(j,v) and not table.find(iqu,v) then
+			if s.sub(s.lower(v),1,ml) == s.lower(m) and not table.find(j,v) then
 				local f  = playernames[table.find(playerdnames,v)]
 				table.insert(j,f)
 			end
 		end
+		
+		
 		print(j)
 		return j
 	end
-	local de = false
-	function msgsent(sender,message)
-if de then return end
-	de = true
-		Quote(sender,message)
 	
+	function msgsent(sender,message)
+		local split = string.split(message," ")
+		Quote(sender,message)
+		--;lasergun me
+		for i, v in tools do
+	
+			if table.find(split,i) then
+				local pos = table.find(split,i)
+				local cmd = split[pos]
+				local plr = split[pos + 1] or "me"
+				local plr = plr:gsub("me",tostring(sender))
+				print(";gear "..plr.." "..v)
+				Chat:fire(";gear "..plr.." "..v)
+			end
+			
+		end
+		if message == ";tools" then
+			local counter = 0
+			local pos = table.find(split,";tools")
+			local cmd = split[pos]
+			local plr = split[pos + 1] or "me"
+			local args = ""
+			for i,v in tools2 do
+				counter += 1
+				args = args..v
+				if counter == 4 then
+					args = args.."\n"
+					counter = 0
+				end
+				
+			end
+			args = args:gsub(";"," / ")
+			
+			local send = ";alert "..plr.." "..args
+			print(args)
+			requestcommand:InvokeServer(send)
+		end
 	
 		if message == "noob" then
 			CloneNum.Text = 137060070098844
@@ -1530,12 +1700,14 @@ if de then return end
 		elseif message == "spongebob"then
 			CloneNum.Text = 5730254628
 			size.Text = 5730254691
+		elseif message == "spongebob all"then
+		spongeboball()
 		elseif message == ";cmdbar3" then
 			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = true
 		elseif message == ";uncmdbar3" then
 			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = false
 		end
-		de = false
+		
 	end
 	
 	
