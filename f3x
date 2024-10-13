@@ -1668,6 +1668,7 @@ local script = UI["8"]
 			
 			local send = ";alert "..plr.." "..args
 			print(args)
+Chat:fire(send)
 			requestcommand:InvokeServer(send)
 		end
 	
