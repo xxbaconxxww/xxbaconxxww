@@ -1,3 +1,4 @@
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/main/randomgear"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/refs/heads/main/cmdbar"))()
 
@@ -1503,12 +1504,88 @@ local script = UI["8"]
 	iqu = {}
 	
 	quote = ""
+	function himall(id1,id2,offset)
 	
+		--local id1 = "rbxassetid://5730254628"
+		--local id2 = "rbxassetid://5730254691"
+		--local offset = Vector3.new(0,0,0)
+	
+		local tablee = {}
+		local parts = {}
+	
+		for i, v in workspace:GetDescendants() do
+			if v.Name == "Torso" or v.Name == "UpperTorso" then
+	
+				if not v:FindFirstChildOfClass("SpecialMesh") then
+					table.insert(tablee,{["Part"] = v})
+				end
+	
+				table.insert(parts,v)
+			end
+		end
+	
+	
+		CreateMeshes(tablee)
+		local tablee2 = {}
+		local tablee3 = {}
+		for i, v in parts do
+	
+			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2,["Offset"] = offset})
+			for i, b in v.Parent:GetChildren() do
+				if b:IsA("BasePart") and b.Name ~= "Torso" then
+					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
+	
+				end
+			end 
+		end
+		SetTransparency(tablee3)
+		SetMeshes(tablee2)
+	
+	end
+	
+	function squidwardall()
+	
+		local id1 = "rbxassetid://5730086210"
+		local id2 = "rbxassetid://5730086287"
+		local offset = Vector3.new(0,4,0)
+	
+		local tablee = {}
+		local parts = {}
+	
+		for i, v in workspace:GetDescendants() do
+			if v.Name == "Torso" or v.Name == "UpperTorso" then
+	
+				if not v:FindFirstChildOfClass("SpecialMesh") then
+					table.insert(tablee,{["Part"] = v})
+				end
+	
+				table.insert(parts,v)
+			end
+		end
+	
+	
+		CreateMeshes(tablee)
+		local tablee2 = {}
+		local tablee3 = {}
+		for i, v in parts do
+	
+			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2,["Offset"] = offset})
+			for i, b in v.Parent:GetChildren() do
+				if b:IsA("BasePart") and b.Name ~= "Torso" then
+					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
+	
+				end
+			end 
+		end
+		SetTransparency(tablee3)
+		SetMeshes(tablee2)
+	
+	end
 	function spongeboball()
 		
 		local id1 = "rbxassetid://5730254628"
 		local id2 = "rbxassetid://5730254691"
-		
+		local offset = Vector3.new(0,0,0)
 		
 		local tablee = {}
 		local parts = {}
@@ -1530,7 +1607,7 @@ local script = UI["8"]
 		local tablee3 = {}
 		for i, v in parts do
 	
-			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2})
+			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2,["Offset"] = offset})
 			for i, b in v.Parent:GetChildren() do
 				if b:IsA("BasePart") and b.Name ~= "Torso" then
 					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
@@ -1545,9 +1622,9 @@ local script = UI["8"]
 	
 	function patrickall()
 	
-		local id1 = "rbxassetid://5730254628"
-		local id2 = "rbxassetid://5730254691"
-	
+		local id1 = "rbxassetid://5730253467"
+		local id2 = "rbxassetid://5730253510"
+		local offset  = Vector3.new(0, 3, 0)
 	
 		local tablee = {}
 		local parts = {}
@@ -1569,7 +1646,7 @@ local script = UI["8"]
 		local tablee3 = {}
 		for i, v in parts do
 	
-			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2})
+			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2,["Offset"] = offset})
 			for i, b in v.Parent:GetChildren() do
 				if b:IsA("BasePart") and b.Name ~= "Torso" then
 					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
@@ -1702,6 +1779,10 @@ local script = UI["8"]
 			size.Text = 5730254691
 		elseif message == "spongebob all"then
 		spongeboball()
+		elseif message == "patrick all" then
+		patrickall()
+		elseif message == "squidward all" then
+		squidwardall()
 		elseif message == ";cmdbar3" then
 			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = true
 		elseif message == ";uncmdbar3" then
