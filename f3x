@@ -1719,7 +1719,7 @@ local script = UI["8"]
 	game.Players.PlayerAdded:Connect(function(v)
 		print("connected",v,"using childadded")
 		table.insert(playernames,v.Name)
-		table.insert(playerdnames,v.Character:FindFirstChildOfClass("Humanoid").DisplayName)
+		table.insert(playerdnames,v.Character:WaitForChild("Humanoid").DisplayName)
 		chat(v)
 	end)
 	
