@@ -1,4 +1,3 @@
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/main/randomgear"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/refs/heads/main/cmdbar"))()
 
@@ -432,7 +431,9 @@ UI["2d"] = Instance.new("UICorner", UI["2c"])
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 local function SCRIPT_8()
 local script = UI["8"]
+	print("loading script")
 	wait(2)
+	Chat = require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted
 	script.Parent.Parent.Parent.TextButton.MouseButton1Down:Connect(function()
 		script.Parent.Parent.Visible = not script.Parent.Parent.Visible
 	end)
@@ -465,7 +466,7 @@ local script = UI["8"]
 	local setmesh = frame.setmesh
 	local t1 = {}
 	local t2 = {}
-	print("Snow")
+	
 	sbox = Instance.new("SelectionBox",script.Parent)
 	sbox.Visible = false
 	sbox.Adornee = nil
@@ -488,7 +489,6 @@ local script = UI["8"]
 		sbox.Visible = not sbox.Visible
 	end)
 	mouse.Button1Down:Connect(function()
-		print(mouse.Target)
 		if not sbox.Visible then return end
 		sbox.Adornee = mouse.Target:FindFirstAncestorOfClass("Model") or
 			mouse.Target
@@ -544,7 +544,6 @@ local script = UI["8"]
 		sb.SurfaceTransparency = 0.5
 		local particles = {}
 		local function set(property,...)
-			print(particles,property,...)
 			for i,v in particles do
 				v[property] = ...
 			end
@@ -623,7 +622,7 @@ local script = UI["8"]
 			SpawnLighting(tool.Handle)
 		end
 	end
-	print("hi4")
+	
 	
 	TextButton2.MouseButton1Down:Connect(function()
 		if not tool or not tool.Parent then
@@ -650,7 +649,7 @@ local script = UI["8"]
 			end
 		end
 	end)
-	print("hi5")
+	
 	
 	
 	local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
@@ -659,7 +658,7 @@ local script = UI["8"]
 		requestcommand = hdadminclient.Signals.RequestCommand
 	
 	end
-	print("hi6")
+	
 	local timealive = 0
 	local timeneeded = 5
 	coroutine.resume(coroutine.create(function()
@@ -698,7 +697,7 @@ local script = UI["8"]
 	
 	end)
 	
-	print("hi7")
+	
 	
 	
 	
@@ -1166,7 +1165,6 @@ local script = UI["8"]
 			[2] = ...,
 			[3] = bool
 		}
-		print(unpack(args))
 		_(args)
 	end
 	function SetUnlocked(...)
@@ -1179,7 +1177,6 @@ local script = UI["8"]
 			[2] = ...,
 			[3] = bool
 		}
-		print(unpack(args))
 		_(args)
 	end
 	function AddTexture2(part,side,texture)
@@ -1313,12 +1310,10 @@ local script = UI["8"]
 		}
 		_(args)
 	end
+	
 	function baseplate()
-		print("bruh")
 		CreatePart(CFrame.new(0, -8, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),workspace.Terrain)
-		print("wating for be to chage")
 		local be = be.Changed:Wait()
-		print("be =",be:GetFullName())
 		Resize(be,Vector3.new(2048, 16, 2048),be.CFrame)
 		SetLocked(be,true)
 		Color(be,Color3.fromRGB(91, 154, 76))
@@ -1326,8 +1321,6 @@ local script = UI["8"]
 		SyncTexture(be,"6372755229","Top",0.8,8,8)
 		SetName(be,"Baseplate")
 	
-	
-		print("hi baseplate")
 	end
 	BaseplateBtn.MouseButton1Down:Connect(function()
 		baseplate()
@@ -1350,7 +1343,6 @@ local script = UI["8"]
 			end
 		end	
 		local name = parentbox.Text
-		print(parts,name)
 		SetName(parts,name)
 	end)
 	
@@ -1424,7 +1416,6 @@ local script = UI["8"]
 			[2] = ...
 		}
 		_(args)
-		print(unpack(args))
 	end
 	
 	setmesh.MouseButton1Down:Connect(function()
@@ -1443,7 +1434,6 @@ local script = UI["8"]
 		local tablee2 = {}
 	
 		for i, v in parts do
-			print(v)
 			local args = 
 				table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  "rbxassetid://"..CloneNum.Text,["TextureId"] = "rbxassetid://"..size.Text})
 		end
@@ -1497,7 +1487,7 @@ local script = UI["8"]
 	
 	
 	
-	Chat = require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted
+	
 	no = "no"
 	playernames = {}
 	playerdnames = {}
@@ -1547,76 +1537,18 @@ local script = UI["8"]
 	
 		local id1 = "rbxassetid://5730086210"
 		local id2 = "rbxassetid://5730086287"
-		local offset = Vector3.new(0,4,0)
+		local offset = Vector3.new(0,6.5,0)
 	
-		local tablee = {}
-		local parts = {}
-	
-		for i, v in workspace:GetDescendants() do
-			if v.Name == "Torso" or v.Name == "UpperTorso" then
-	
-				if not v:FindFirstChildOfClass("SpecialMesh") then
-					table.insert(tablee,{["Part"] = v})
-				end
-	
-				table.insert(parts,v)
-			end
-		end
-	
-	
-		CreateMeshes(tablee)
-		local tablee2 = {}
-		local tablee3 = {}
-		for i, v in parts do
-	
-			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2,["Offset"] = offset})
-			for i, b in v.Parent:GetChildren() do
-				if b:IsA("BasePart") and b.Name ~= "Torso" then
-					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
-	
-				end
-			end 
-		end
-		SetTransparency(tablee3)
-		SetMeshes(tablee2)
+		himall(id1,id2,offset)
 	
 	end
 	function spongeboball()
 		
 		local id1 = "rbxassetid://5730254628"
 		local id2 = "rbxassetid://5730254691"
-		local offset = Vector3.new(0,0,0)
+		local offset = Vector3.new(0,2,0)
 		
-		local tablee = {}
-		local parts = {}
-	
-		for i, v in workspace:GetDescendants() do
-			if v.Name == "Torso" or v.Name == "UpperTorso" then
-				
-				if not v:FindFirstChildOfClass("SpecialMesh") then
-					table.insert(tablee,{["Part"] = v})
-				end
-				
-				table.insert(parts,v)
-			end
-		end
-		
-		
-		CreateMeshes(tablee)
-		local tablee2 = {}
-		local tablee3 = {}
-		for i, v in parts do
-	
-			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2,["Offset"] = offset})
-			for i, b in v.Parent:GetChildren() do
-				if b:IsA("BasePart") and b.Name ~= "Torso" then
-					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
-					
-				end
-			end 
-		end
-		SetTransparency(tablee3)
-		SetMeshes(tablee2)
+		himall(id1,id2,offset)
 	
 	end
 	
@@ -1624,39 +1556,10 @@ local script = UI["8"]
 	
 		local id1 = "rbxassetid://5730253467"
 		local id2 = "rbxassetid://5730253510"
-		local offset  = Vector3.new(0, 3, 0)
-	
-		local tablee = {}
-		local parts = {}
-	
-		for i, v in workspace:GetDescendants() do
-			if v.Name == "Torso" or v.Name == "UpperTorso" then
-	
-				if not v:FindFirstChildOfClass("SpecialMesh") then
-					table.insert(tablee,{["Part"] = v})
-				end
-	
-				table.insert(parts,v)
-			end
-		end
-	
-	
-		CreateMeshes(tablee)
-		local tablee2 = {}
-		local tablee3 = {}
-		for i, v in parts do
-	
-			table.insert(tablee2,{["MeshType"] = Enum.MeshType.FileMesh,["Part"] = v,["MeshId"] =  id1,["TextureId"] = id2,["Offset"] = offset})
-			for i, b in v.Parent:GetChildren() do
-				if b:IsA("BasePart") and b.Name ~= "Torso" then
-					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
-	
-				end
-			end 
-		end
-		SetTransparency(tablee3)
-		SetMeshes(tablee2)
-	
+		local offset  = Vector3.new(0, 4, 0)
+		
+		himall(id1,id2,offset)
+		
 	end
 	
 	function Quote(plr,a)
@@ -1668,11 +1571,10 @@ local script = UI["8"]
 				return
 			end
 			Chat:fire(";m "..a.."\n \n - "..plr.Name)
-			print(";m "..a.."\n \n - "..plr.Name.."The one")
 		end
-		print("the one")
+		
 		if string.find(a,";quote") then
-			print("the one")
+	
 			local cmd = ";quote"
 			table.clear(iqu)
 			local plr = findplayer(plr,a,cmd)
@@ -1728,8 +1630,6 @@ local script = UI["8"]
 			end
 		end
 		
-		
-		print(j)
 		return j
 	end
 	
@@ -1817,11 +1717,16 @@ local script = UI["8"]
 	end
 	
 	game.Players.PlayerAdded:Connect(function(v)
-		print("connected",v,"using playeradded")
+		print("connected",v,"using childadded")
 		table.insert(playernames,v.Name)
 		table.insert(playerdnames,v.Character:FindFirstChildOfClass("Humanoid").DisplayName)
 		chat(v)
 	end)
+	
+	print("finished")
+	
+	
+	
 	
 	
 end
