@@ -1811,7 +1811,7 @@ local script = UI["8"]
 		
 		local lava = workspace:FindFirstChild("stud lava")
 		local lsize = Vector3.new(22.5, 14.001, 50.469)
-		local lcframe = CFrame.new(-187.684204, 5.00333023, 7.16548538, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+		local lcframe = CFrame.new(-176, 5.00299978, 7.16499996, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		
 		if lava then
 			AddClone(lava,workspace.Terrain)
