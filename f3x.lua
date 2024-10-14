@@ -12,6 +12,7 @@ UI["1"]["ResetOnSpawn"] = false
 
 -- // StarterGui.Btools.Frame \\ --
 UI["2"] = Instance.new("Frame", UI["1"])
+UI["2"]["Visible"] = false
 UI["2"]["BorderSizePixel"] = 0
 UI["2"]["BackgroundColor3"] = Color3.fromRGB(51, 51, 51)
 UI["2"]["Size"] = UDim2.new(0.43101, 0, 0.49512, 0)
@@ -429,7 +430,6 @@ UI["2d"] = Instance.new("UICorner", UI["2c"])
 local function SCRIPT_8()
 local script = UI["8"]
 	
-	
 	print("loading script")
 	wait(2)
 	Chat = require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted
@@ -441,7 +441,7 @@ local script = UI["8"]
 		TextBox.Text = TextBox.Text:gsub('%D+', '');
 	end)
 	local size = script.Parent.size
-	
+	local adminpads = true
 	local frame = script.Parent
 	local toilet
 	local parentbox = frame.parentbox
@@ -590,7 +590,7 @@ local script = UI["8"]
 	
 	function _(args)
 	
-		if not tool or not tool.Parent then
+		if not tool or not tool.Parent or tool.Parent == workspace then
 			Chat:fire(";btools")
 			task.wait(1)
 			tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
@@ -624,7 +624,7 @@ local script = UI["8"]
 	
 	
 	TextButton2.MouseButton1Down:Connect(function()
-		if not tool or not tool.Parent then
+		if not tool or not tool.Parent or tool.Parent == workspace then
 			for i,v in player.Backpack:GetDescendants() do
 				if v.Name == "SyncAPI" then
 					tool = v.Parent
@@ -728,13 +728,13 @@ local script = UI["8"]
 		_(args)
 	end
 	
-	function AddClone(part,mods)
+	function AddClone(part,parent)
 		local args = {
 			[1] = "Clone",
 			[2] = {
 				["Part"] = part
 			},
-			[3] = workspace
+			[3] = parent
 		}
 		_(args)
 	end
@@ -815,6 +815,15 @@ local script = UI["8"]
 		local args = {
 			[1] = "SetName",
 			[2] = part,
+			[3] = stringg
+		}
+	
+		_(args)
+	end
+	function SetName2(part, stringg)
+		local args = {
+			[1] = "SetName",
+			[2] = {part},
 			[3] = stringg
 		}
 	
@@ -1297,6 +1306,12 @@ local script = UI["8"]
 		be.Value = r
 	end)
 	
+	local be2 = Instance.new("ObjectValue")
+	workspace.Terrain.DescendantAdded:Connect(function(r)
+		task.wait()
+		be2.Value = r
+	end)
+	
 	function SetParent(part,parent)
 		local args = {
 			[1] = "SetParent",
@@ -1318,7 +1333,7 @@ local script = UI["8"]
 		Color(be,Color3.fromRGB(91, 154, 76))
 		AddTexture(be,"Top","Texture")
 		SyncTexture(be,"6372755229","Top",0.8,8,8)
-		SetName(be,"Baseplate")
+		SetName2(be,"{Baseplate")
 	
 	end
 	BaseplateBtn.MouseButton1Down:Connect(function()
@@ -1417,6 +1432,15 @@ local script = UI["8"]
 		_(args)
 	end
 	
+	function SyncMaterial(...)
+		local args = {
+			[1] = "SyncMaterial",
+			[2] = ...
+		}
+		print(unpack(args))
+		_(args)
+	end
+	
 	setmesh.MouseButton1Down:Connect(function()
 		local tablee = {}
 		local parts = {}
@@ -1442,7 +1466,15 @@ local script = UI["8"]
 	end)
 	
 	
-	
+	function CreateFolder(parent)
+		local args ={
+			[1] = "CreateGroup",
+			[2] = "Folder",
+			[3] = parent,
+			[4] = {}
+		}
+		_(args)
+	end
 	
 	
 	
@@ -1529,7 +1561,7 @@ local script = UI["8"]
 				end
 			end 
 		end
-		SetTransparency(tablee3)
+		SyncMaterial(tablee3)
 		SetMeshes(tablee2)
 	
 	end
@@ -1601,6 +1633,8 @@ local script = UI["8"]
 	
 	
 	local s = string
+	
+	
 	function findplayer (sender,chatt,cmd)
 	
 		local q = (string.split(chatt," "))
@@ -1670,14 +1704,14 @@ local script = UI["8"]
 		requestcommand:InvokeServer(";gear "..plr.." "..v)
 	end
 	
-	
+	local mainfolder = game.ReplicatedStorage.Barrier
 	-- 
 	
 	function msgsent(sender,message)
 		local split = string.split(message," ")
 		Quote(sender,message)
 		warn("["..tostring(sender).."]:"..message)
-		
+		local send = tostring(sender)
 		
 		
 		for i, v in tools do
@@ -1706,8 +1740,15 @@ local script = UI["8"]
 			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = true
 		elseif message == ";uncmdbar3" then
 			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = false
+		elseif message == "no pad" then
+			lavagiver()
+		elseif message == pf.."border" then
+			spawnborder()
+		elseif message == pf.."unborder" then
+			DestroyPart(workspace.Terrain:FindFirstChild(mainfolder.Name))
 		end
 		
+	
 	
 	end
 	
@@ -1759,10 +1800,96 @@ local script = UI["8"]
 		print("connected",v,"using childadded")
 		table.insert(playernames,v.Name)
 		task.wait(3)	table.insert(playerdnames,v.Character:WaitForChild("Humanoid").DisplayName)
+		if adminpads == false then
+			requestcommand:InvokeServer(";rank all admin")
+		end
 		chat(v)
 	end)
 	
+	
+	function lavagiver()
+		
+		local lava = workspace:FindFirstChild("stud lava")
+		local lsize = Vector3.new(22.5, 14.001, 50.469)
+		local lcframe = CFrame.new(-187.684204, 5.00333023, 7.16548538, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+		
+		if lava then
+			AddClone(lava,workspace.Terrain)
+			local lava = be2.Changed:Wait()
+			Resize(lava,lsize,lcframe)
+			SetLocked(lava,true)
+			adminpads = false
+		end
+		
+	end
+	
+	function lavaspawner(part,parent)
+		local lava = workspace:FindFirstChild("stud lava")
+	
+		local lsize =  part.Size
+		local lcframe = part.CFrame
+		local lname = part.Name
+		local lcolor = part.Color
+		local ltrans = part.Transparency
+		local lmat = part.Material
+		local lcc = part.CanCollide
+		if lava then
+			AddClone(lava,parent)
+			local lava = be2.Changed:Wait()
+			Color(lava,lcolor)
+			SetCollision(lava,lcc)
+			SetLocked(lava,true)
+			SetName2(lava,lname)
+			SyncMaterial({{["Part"] = lava,["Transparency"] = ltrans,["Material"] = lmat}})
+			Resize(lava,lsize,lcframe)
+		end
+		
+	end
+	
+	function partspawner(part,parent)
+		CreatePart(CFrame.new(0,0,0),parent)
+		
+		local part2 = be2.Changed:Wait()
+		print("I WILL HAVE ORDER")
+		
+		local size =  part.Size
+		local cframe = part.CFrame
+		local name = part.Name
+		local color = part.Color
+		local trans = part.Transparency
+		local mat = part.Material
+		local cc = part.CanCollide
+		
+			SetName2(part2,name)
+			Color(part2,color)
+			SetCollision(part2,cc)
+			SetLocked(part2,true)
+			SyncMaterial({{["Part"] = part2,["Transparency"] = trans,["Material"] = mat}})
+			Resize(part2,size,cframe)
+	
+	end
+	
+	function spawnborder()
+		
+		CreateFolder(workspace.Terrain)
+		local folder = be.Changed:Wait()
+		SetName2(folder,mainfolder.Name)
+		for i,v in mainfolder:GetDescendants() do
+			if v:IsA("BasePart") then
+				if v.Parent.Name == "KillBrick" then
+					lavaspawner(v,folder)
+				else
+					partspawner(v,folder)
+				end
+			end
+		end
+	end
+	
+	
+	
 	print("finished")
+	
+	
 end
 task.spawn(SCRIPT_8)
 
