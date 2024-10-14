@@ -1,0 +1,184 @@
+
+--Converted with ttyyuu12345's model to script plugin v4
+function sandbox(var,func)
+	local env = getfenv(func)
+	local newenv = setmetatable({},{
+		__index = function(self,k)
+			if k=="script" then
+				return var
+			else
+				return env[k]
+			end
+		end,
+	})
+	setfenv(func,newenv)
+	return func
+end
+cors = {}
+mas = Instance.new("Model",game:GetService("Lighting"))
+Folder0 = Instance.new("Folder")
+Folder1 = Instance.new("Folder")
+Part2 = Instance.new("Part")
+Part3 = Instance.new("Part")
+Part4 = Instance.new("Part")
+Part5 = Instance.new("Part")
+Folder6 = Instance.new("Folder")
+Part7 = Instance.new("Part")
+Part8 = Instance.new("Part")
+Part9 = Instance.new("Part")
+Part10 = Instance.new("Part")
+Part11 = Instance.new("Part")
+Folder0.Name = "Barrier"
+Folder0.Parent = mas
+Folder1.Name = "BarrierWall"
+Folder1.Parent = Folder0
+Part2.Name = "Right"
+Part2.Parent = Folder1
+Part2.CFrame = CFrame.new(-40.6000214, 6.80001926, -182.375031, 0, 0, 1, 0, 1, 0, -1, 0, 0)
+Part2.Orientation = Vector3.new(0, 90, 0)
+Part2.Position = Vector3.new(-40.60002136230469, 6.800019264221191, -182.37503051757812)
+Part2.Rotation = Vector3.new(0, 90, 0)
+Part2.Color = Color3.new(0.239216, 0.0823529, 0.521569)
+Part2.Transparency = 1
+Part2.Size = Vector3.new(0.05000002309679985, 14.39996337890625, 445.20001220703125)
+Part2.Anchored = true
+Part2.BottomSurface = Enum.SurfaceType.Smooth
+Part2.BrickColor = BrickColor.new("Dark indigo")
+Part2.Material = Enum.Material.Glass
+Part2.Reflectance = 1
+Part2.TopSurface = Enum.SurfaceType.Smooth
+Part2.brickColor = BrickColor.new("Dark indigo")
+Part3.Name = "Left"
+Part3.Parent = Folder1
+Part3.CFrame = CFrame.new(-40.6000214, 7.20001888, 260.774963, 0, 0, 1, 0, 1, 0, -1, 0, 0)
+Part3.Orientation = Vector3.new(0, 90, 0)
+Part3.Position = Vector3.new(-40.60002136230469, 7.200018882751465, 260.77496337890625)
+Part3.Rotation = Vector3.new(0, 90, 0)
+Part3.Color = Color3.new(0.239216, 0.0823529, 0.521569)
+Part3.Transparency = 1
+Part3.Size = Vector3.new(0.05000019073486328, 14.39996337890625, 445.20001220703125)
+Part3.Anchored = true
+Part3.BottomSurface = Enum.SurfaceType.Smooth
+Part3.BrickColor = BrickColor.new("Dark indigo")
+Part3.Material = Enum.Material.Glass
+Part3.Reflectance = 1
+Part3.TopSurface = Enum.SurfaceType.Smooth
+Part3.brickColor = BrickColor.new("Dark indigo")
+Part4.Name = "Left"
+Part4.Parent = Folder1
+Part4.CFrame = CFrame.new(180.974976, 7.20001888, 39.1999626, -1, 0, -4.37113883e-08, 0, 0.99999994, 0, 4.37113883e-08, 0, -1)
+Part4.Orientation = Vector3.new(0, 180, 0)
+Part4.Position = Vector3.new(180.9749755859375, 7.200018882751465, 39.1999626159668)
+Part4.Rotation = Vector3.new(180, 0, 180)
+Part4.Color = Color3.new(0.239216, 0.0823529, 0.521569)
+Part4.Transparency = 1
+Part4.Size = Vector3.new(0.05000019073486328, 14.39996337890625, 445.20001220703125)
+Part4.Anchored = true
+Part4.BottomSurface = Enum.SurfaceType.Smooth
+Part4.BrickColor = BrickColor.new("Dark indigo")
+Part4.Material = Enum.Material.Glass
+Part4.Reflectance = 1
+Part4.TopSurface = Enum.SurfaceType.Smooth
+Part4.brickColor = BrickColor.new("Dark indigo")
+Part5.Name = "Right"
+Part5.Parent = Folder1
+Part5.CFrame = CFrame.new(-262.175018, 6.80001926, 39.1999855, -1, 0, -4.37113883e-08, 0, 0.99999994, 0, 4.37113883e-08, 0, -1)
+Part5.Orientation = Vector3.new(0, 180, 0)
+Part5.Position = Vector3.new(-262.1750183105469, 6.800019264221191, 39.19998550415039)
+Part5.Rotation = Vector3.new(180, 0, 180)
+Part5.Color = Color3.new(0.239216, 0.0823529, 0.521569)
+Part5.Transparency = 1
+Part5.Size = Vector3.new(0.05000002309679985, 14.39996337890625, 445.20001220703125)
+Part5.Anchored = true
+Part5.BottomSurface = Enum.SurfaceType.Smooth
+Part5.BrickColor = BrickColor.new("Dark indigo")
+Part5.Material = Enum.Material.Glass
+Part5.Reflectance = 1
+Part5.TopSurface = Enum.SurfaceType.Smooth
+Part5.brickColor = BrickColor.new("Dark indigo")
+Folder6.Name = "KillBrick"
+Folder6.Parent = Folder0
+Part7.Name = "Back"
+Part7.Parent = Folder6
+Part7.CFrame = CFrame.new(182, 1020, 39.2000008, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Part7.Position = Vector3.new(182, 1020, 39.20000076293945)
+Part7.Color = Color3.new(0.0705882, 0.933333, 0.831373)
+Part7.Size = Vector3.new(2, 2048, 447.20001220703125)
+Part7.Anchored = true
+Part7.BottomSurface = Enum.SurfaceType.Smooth
+Part7.BrickColor = BrickColor.new("Teal")
+Part7.CanCollide = false
+Part7.Locked = true
+Part7.Material = Enum.Material.ForceField
+Part7.TopSurface = Enum.SurfaceType.Smooth
+Part7.brickColor = BrickColor.new("Teal")
+Part8.Name = "Bottom"
+Part8.Parent = Folder6
+Part8.CFrame = CFrame.new(-40.5999985, -3, 40, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Part8.Position = Vector3.new(-40.599998474121094, -3, 40)
+Part8.Color = Color3.new(0.0705882, 0.933333, 0.831373)
+Part8.Size = Vector3.new(443.20001220703125, 1, 446.39996337890625)
+Part8.Anchored = true
+Part8.BottomSurface = Enum.SurfaceType.Smooth
+Part8.BrickColor = BrickColor.new("Teal")
+Part8.CanCollide = false
+Part8.Locked = true
+Part8.Material = Enum.Material.ForceField
+Part8.TopSurface = Enum.SurfaceType.Smooth
+Part8.brickColor = BrickColor.new("Teal")
+Part9.Name = "Front"
+Part9.Parent = Folder6
+Part9.CFrame = CFrame.new(-263.200012, 1020, 39.2000008, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Part9.Position = Vector3.new(-263.20001220703125, 1020, 39.20000076293945)
+Part9.Color = Color3.new(0.0705882, 0.933333, 0.831373)
+Part9.Size = Vector3.new(2, 2048, 449.20001220703125)
+Part9.Anchored = true
+Part9.BottomSurface = Enum.SurfaceType.Smooth
+Part9.BrickColor = BrickColor.new("Teal")
+Part9.CanCollide = false
+Part9.Locked = true
+Part9.Material = Enum.Material.ForceField
+Part9.TopSurface = Enum.SurfaceType.Smooth
+Part9.brickColor = BrickColor.new("Teal")
+Part10.Name = "Left"
+Part10.Parent = Folder6
+Part10.CFrame = CFrame.new(-40.5999985, 1020, 261.799988, -4.37113883e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113883e-08)
+Part10.Orientation = Vector3.new(0, 90, 0)
+Part10.Position = Vector3.new(-40.599998474121094, 1020, 261.79998779296875)
+Part10.Rotation = Vector3.new(0, 90, 0)
+Part10.Color = Color3.new(0.0705882, 0.933333, 0.831373)
+Part10.Size = Vector3.new(2, 2048, 445.20001220703125)
+Part10.Anchored = true
+Part10.BottomSurface = Enum.SurfaceType.Smooth
+Part10.BrickColor = BrickColor.new("Teal")
+Part10.CanCollide = false
+Part10.Locked = true
+Part10.Material = Enum.Material.ForceField
+Part10.TopSurface = Enum.SurfaceType.Smooth
+Part10.brickColor = BrickColor.new("Teal")
+Part11.Name = "Right"
+Part11.Parent = Folder6
+Part11.CFrame = CFrame.new(-40.25, 1020, -183.399994, -4.37113883e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113883e-08)
+Part11.Orientation = Vector3.new(0, 90, 0)
+Part11.Position = Vector3.new(-40.25, 1020, -183.39999389648438)
+Part11.Rotation = Vector3.new(0, 90, 0)
+Part11.Color = Color3.new(0.0705882, 0.933333, 0.831373)
+Part11.Size = Vector3.new(2, 2047.5, 445.8999938964844)
+Part11.Anchored = true
+Part11.BottomSurface = Enum.SurfaceType.Smooth
+Part11.BrickColor = BrickColor.new("Teal")
+Part11.CanCollide = false
+Part11.Locked = true
+Part11.Material = Enum.Material.ForceField
+Part11.TopSurface = Enum.SurfaceType.Smooth
+Part11.brickColor = BrickColor.new("Teal")
+for i,v in pairs(mas:GetChildren()) do
+	v.Parent = game:GetService("Lighting")
+	pcall(function() v:MakeJoints() end)
+end
+mas:Destroy()
+for i,v in pairs(cors) do
+	spawn(function()
+		pcall(v)
+	end)
+end
