@@ -173,7 +173,7 @@ Part11.Material = Enum.Material.ForceField
 Part11.TopSurface = Enum.SurfaceType.Smooth
 Part11.brickColor = BrickColor.new("Teal")
 for i,v in pairs(mas:GetChildren()) do
-	v.Parent = game:GetService("Lighting")
+	v.Parent = game.ReplicatedStorage
 	pcall(function() v:MakeJoints() end)
 end
 mas:Destroy()
