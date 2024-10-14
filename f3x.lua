@@ -1713,12 +1713,13 @@ local script = UI["8"]
 		warn("["..tostring(sender).."]:"..message)
 		local send = tostring(sender)
 		
+		
 		if string.find(message,pf) then
-		for i, v in tools do
-			if table.find(split,i) then
-				gettool(sender,split,i,v)
+			for i, v in tools do
+				if table.find(split,i) then
+					gettool(sender,split,i,v)
+				end
 			end
-		end
 		end
 		
 		if table.find(split,";tools") then
@@ -1811,7 +1812,7 @@ local script = UI["8"]
 	function lavagiver()
 		
 		local lava = workspace:FindFirstChild("stud lava")
-		local lsize = Vector3.new(22.5, 14.001, 50.469)
+		local lsize = Vector3.new(22.5, 14.001, 60.469)
 		local lcframe = CFrame.new(-176, 5.00299978, 7.16499996, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		
 		if lava then
