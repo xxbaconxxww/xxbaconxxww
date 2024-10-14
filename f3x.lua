@@ -428,7 +428,7 @@ UI["2d"] = Instance.new("UICorner", UI["2c"])
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 local function SCRIPT_8()
 local script = UI["8"]
-	
+	_G.prefix = "@"
 	
 	print("loading script")
 	wait(2)
@@ -1711,22 +1711,39 @@ local script = UI["8"]
 	
 	end
 	
+	re = game.ReplicatedStorage.DefaultChatSystemChatEvents:WaitForChild("OnNewMessage")
 	
+	if re then
 	
-	game:GetService("TextChatService").MessageReceived:Connect(function(message: TextChatMessage)
-		local sender = message.TextSource
-		local message = message.Text
-		msgsent(sender,message)
-	end) 
-	
-	
-	
-	function chat(sender)
-		sender.Chatted:Connect(function(message)
-			msgsent(sender,message)
+		re.OnClientEvent:Connect(function(event)
+			print("["..event.FromSpeaker.."]:",event.Message)
 		end)
-	end
 	
+		function chat(sender)
+			re.OnClientEvent:Connect(function(event)
+				local sender = event.FromSpeaker
+				local message = event.Message
+				msgsent(sender,message)
+			end)
+		end
+		
+	else
+	
+		game:GetService("TextChatService").MessageReceived:Connect(function(message: TextChatMessage)
+			local sender = message.TextSource
+			local message = message.Text
+			msgsent(sender,message)
+		end) 
+	
+	
+	
+		function chat(sender)
+			sender.Chatted:Connect(function(message)
+				msgsent(sender,message)
+			end)
+		end
+	
+	end
 	
 	
 	for i, v in game.Players:GetChildren() do
