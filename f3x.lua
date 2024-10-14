@@ -1713,11 +1713,12 @@ local script = UI["8"]
 		warn("["..tostring(sender).."]:"..message)
 		local send = tostring(sender)
 		
-		
+		if string.find(message,pf) then
 		for i, v in tools do
 			if table.find(split,i) then
 				gettool(sender,split,i,v)
 			end
+		end
 		end
 		
 		if table.find(split,";tools") then
