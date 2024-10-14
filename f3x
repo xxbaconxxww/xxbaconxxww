@@ -1,3 +1,5 @@
+-- credit to script owner for some functions
+
 _G.prefix = "@"
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/main/randomgear"))()
