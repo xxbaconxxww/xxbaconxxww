@@ -1711,7 +1711,7 @@ local script = UI["8"]
 	
 	end
 	
-	re = game.ReplicatedStorage.DefaultChatSystemChatEvents:WaitForChild("OnNewMessage")
+	re = game.ReplicatedStorage.DefaultChatSystemChatEvents:WaitForChild("OnMessageDoneFiltering")
 	lastmsg = 0
 	if re then
 	
