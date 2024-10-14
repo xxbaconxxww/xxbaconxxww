@@ -1636,7 +1636,7 @@ local script = UI["8"]
 	function msgsent(sender,message)
 		local split = string.split(message," ")
 		Quote(sender,message)
-		--;lasergun me
+print(sender..": "..message)
 		for i, v in tools do
 	
 			if table.find(split,i) then
@@ -1646,6 +1646,8 @@ local script = UI["8"]
 				local plr = plr:gsub("me",tostring(sender))
 				print(";gear "..plr.." "..v)
 				Chat:fire(";gear "..plr.." "..v)
+   requestcommand:InvokeServer(";gear "..plr.." "..v)
+		end
 			end
 			
 		end
