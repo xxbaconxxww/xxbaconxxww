@@ -1811,7 +1811,7 @@ local script = UI["8"]
 	
 	function lavagiver()
 		
-		local lava = workspace:FindFirstChild("stud lava")
+		local lava = workspace.archival:FindFirstChild("stud lava") or workspace:FindFirstChild("stud lava")
 		local lsize = Vector3.new(22.5, 14.001, 60.469)
 		local lcframe = CFrame.new(-176, 5.00299978, 7.16499996, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 		
@@ -1826,7 +1826,7 @@ local script = UI["8"]
 	end
 	
 	function lavaspawner(part,parent)
-		local lava = workspace:FindFirstChild("stud lava")
+		local lava = workspace.archival:FindFirstChild("stud lava") or workspace:FindFirstChild("stud lava")
 	
 		local lsize =  part.Size
 		local lcframe = part.CFrame
