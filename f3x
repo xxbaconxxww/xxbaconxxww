@@ -1,5 +1,9 @@
 -- credit to script owner for some functions
 
+if _G.prefix then
+return
+end
+
 _G.prefix = "@"
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/refs/heads/main/Border"))()
