@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 45 | SCRIPTS: 1 | MODULES: 0 \\ --
+-- // INSTANCES: 51 | SCRIPTS: 1 | MODULES: 0 \\ --
 
 local UI = {}
 
@@ -12,7 +12,6 @@ UI["1"]["ResetOnSpawn"] = false
 
 -- // StarterGui.Btools.Frame \\ --
 UI["2"] = Instance.new("Frame", UI["1"])
-UI["2"]["Visible"] = false
 UI["2"]["BorderSizePixel"] = 0
 UI["2"]["BackgroundColor3"] = Color3.fromRGB(51, 51, 51)
 UI["2"]["Size"] = UDim2.new(0.43101, 0, 0.49512, 0)
@@ -409,27 +408,86 @@ UI["2a"]["BackgroundTransparency"] = 0.25
 UI["2b"] = Instance.new("UICorner", UI["2a"])
 
 
--- // StarterGui.Btools.TextButton \\ --
-UI["2c"] = Instance.new("TextButton", UI["1"])
+-- // StarterGui.Btools.Frame.Frame.FindNewPart \\ --
+UI["2c"] = Instance.new("TextButton", UI["4"])
 UI["2c"]["TextWrapped"] = true
 UI["2c"]["BorderSizePixel"] = 0
-UI["2c"]["TextSize"] = 14
+UI["2c"]["TextSize"] = 30
 UI["2c"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["2c"]["TextScaled"] = true
-UI["2c"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
+UI["2c"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
 UI["2c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["2c"]["Size"] = UDim2.new(0.10003, 0, 0.12055, 0)
+UI["2c"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["2c"]["BackgroundTransparency"] = 0.25
+UI["2c"]["Name"] = [[FindNewPart]]
 UI["2c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["2c"]["Position"] = UDim2.new(-0.00045, 0, 0.36658, 0)
+UI["2c"]["Text"] = [[Find Part]]
+UI["2c"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.FindNewPart.UICorner \\ --
+UI["2d"] = Instance.new("UICorner", UI["2c"])
+
+
+-- // StarterGui.Btools.Frame.Frame.ResetFind \\ --
+UI["2e"] = Instance.new("TextButton", UI["4"])
+UI["2e"]["TextWrapped"] = true
+UI["2e"]["BorderSizePixel"] = 0
+UI["2e"]["TextSize"] = 30
+UI["2e"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["2e"]["TextScaled"] = true
+UI["2e"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["2e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["2e"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["2e"]["BackgroundTransparency"] = 0.25
+UI["2e"]["Name"] = [[ResetFind]]
+UI["2e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["2e"]["Text"] = [[Reset Find]]
+UI["2e"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.ResetFind.UICorner \\ --
+UI["2f"] = Instance.new("UICorner", UI["2e"])
+
+
+-- // StarterGui.Btools.Frame.Frame.givetool \\ --
+UI["30"] = Instance.new("TextButton", UI["4"])
+UI["30"]["TextWrapped"] = true
+UI["30"]["BorderSizePixel"] = 0
+UI["30"]["TextSize"] = 30
+UI["30"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["30"]["TextScaled"] = true
+UI["30"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["30"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["30"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["30"]["BackgroundTransparency"] = 0.25
+UI["30"]["Name"] = [[givetool]]
+UI["30"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["30"]["Text"] = [[Give F3X]]
+UI["30"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.givetool.UICorner \\ --
+UI["31"] = Instance.new("UICorner", UI["30"])
+
+
+-- // StarterGui.Btools.TextButton \\ --
+UI["32"] = Instance.new("TextButton", UI["1"])
+UI["32"]["TextWrapped"] = true
+UI["32"]["BorderSizePixel"] = 0
+UI["32"]["TextSize"] = 14
+UI["32"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["32"]["TextScaled"] = true
+UI["32"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
+UI["32"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["32"]["Size"] = UDim2.new(0.10003, 0, 0.12055, 0)
+UI["32"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["32"]["Position"] = UDim2.new(-0.00045, 0, 0.36658, 0)
 
 -- // StarterGui.Btools.TextButton.UICorner \\ --
-UI["2d"] = Instance.new("UICorner", UI["2c"])
+UI["33"] = Instance.new("UICorner", UI["32"])
 
 
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 local function SCRIPT_8()
 local script = UI["8"]
-	
 	print("loading script")
 	wait(2)
 	Chat = require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted
@@ -463,6 +521,8 @@ local script = UI["8"]
 	local setname = frame.SetName
 	local bring = frame.Bring
 	local setmesh = frame.setmesh
+	local fpart = frame.FindNewPart
+	local reset = frame.ResetFind
 	local t1 = {}
 	local t2 = {}
 	
@@ -592,7 +652,8 @@ local script = UI["8"]
 	
 		if not tool or not tool.Parent or tool.Parent == workspace then
 			Chat:fire(";btools")
-			task.wait(1)
+			task.wait(3)
+			SpawnLighting(tool.Handle)
 			tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
 		end
 	
@@ -676,19 +737,19 @@ local script = UI["8"]
 		end
 	end))
 	
-		--[[
-			if not tool or not tool.Parent then
-				hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
-				wait(4)
-				btool = player.Backpack.ChildAdded:ConnectParallel()
-				btool = btool:FindFirstChild("SyncAPI")
-				if btool then
-					tool = btool.Parent
-					SpawnLighting(tool.Handle)
+			--[[
+				if not tool or not tool.Parent then
+					hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
+					wait(4)
+					btool = player.Backpack.ChildAdded:ConnectParallel()
+					btool = btool:FindFirstChild("SyncAPI")
+					if btool then
+						tool = btool.Parent
+						SpawnLighting(tool.Handle)
+					end
 				end
-			end
-		
-		]]
+			
+			]]
 	
 	player.CharacterAdded:Connect(function()
 	
@@ -948,29 +1009,29 @@ local script = UI["8"]
 		t2 = args
 	end
 	
-				--[[
-				function Sky(id)
-					e = char.HumanoidRootPart.CFrame.x
-					f = char.HumanoidRootPart.CFrame.y
-					g = char.HumanoidRootPart.CFrame.z
-					CreatePart(CFrame.new(math.floor(e),math.floor(f),math.floor(g)) + Vector3.new(0,6,0),workspace)
-					for i,v in game.Workspace:GetDescendants() do
-						if v:IsA("BasePart") and v.CFrame.x == math.floor(e) and v.CFrame.z == math.floor(g) then
-							--spawn(function()
-							SetName(v,"Sky")
-							AddMesh(v)
-							--end)
-							--spawn(function()
-							SetMesh(v,"8006679977")
-							SetTexture(v,id)
-							--end)
-							MeshResize(v,Vector3.new(50,50,50))
-							SetLocked(v,true)
+					--[[
+					function Sky(id)
+						e = char.HumanoidRootPart.CFrame.x
+						f = char.HumanoidRootPart.CFrame.y
+						g = char.HumanoidRootPart.CFrame.z
+						CreatePart(CFrame.new(math.floor(e),math.floor(f),math.floor(g)) + Vector3.new(0,6,0),workspace)
+						for i,v in game.Workspace:GetDescendants() do
+							if v:IsA("BasePart") and v.CFrame.x == math.floor(e) and v.CFrame.z == math.floor(g) then
+								--spawn(function()
+								SetName(v,"Sky")
+								AddMesh(v)
+								--end)
+								--spawn(function()
+								SetMesh(v,"8006679977")
+								SetTexture(v,id)
+								--end)
+								MeshResize(v,Vector3.new(50,50,50))
+								SetLocked(v,true)
+							end
 						end
 					end
-				end
-				Sky("15913000160")
-				--]]
+					Sky("15913000160")
+					--]]
 	-----------------------------------
 	
 	local player = game.Players.LocalPlayer
@@ -1476,49 +1537,173 @@ local script = UI["8"]
 		_(args)
 	end
 	
+	function SetParents(part,parent)
+		local args = {
+			[1] = "SetParent",
+			[2] =part,
+			[3] = parent,
+		}
+		print(unpack(args))
+		_(args)
+	end
+	local blk = fpart.BackgroundColor3
+	local ftable = {}
+	local ftable2 = {}
+	local ftable3 = {}
+	fpart.MouseButton1Down:Connect(function()
+		if fpart.BackgroundColor3 == blk then
+			
+			fpart.BackgroundColor3 = Color3.new(0,1,0)
+			
+			workspace.ChildAdded:Connect(function(child)
+				
+				if fpart.BackgroundColor3 == blk then return end
+				table.insert(ftable,child)
+				
+			end)
+			
+			
+		else
+			
+			fpart.BackgroundColor3 = blk
+			
+			
+			for i, v in ftable do
+				
+				if v.Parent then
+				table.insert(ftable2,v)
+				table.insert(ftable3,workspace.Terrain)	
+				end
+				
+			end
+			
+			SetParents(ftable2,ftable3)
+			
+			table.clear(ftable)
+			table.clear(ftable2)
+			table.clear(ftable3)
+			
+		end
+	end)
+	reset.MouseButton1Down:Connect(function()
+		fpart.BackgroundColor3 = blk
+		table.clear(ftable)
+		table.clear(ftable2)
+		table.clear(ftable3)
+	end)
 	
-	
-	-- CUSTOM COMMANDS
+	local hider = [[
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 ]]
+	-- CUSTOM COMMANDS 
 	
 	local pf = _G.prefix
 	
 	local tools = {
-		[pf.."lasergun"] =  130113146, --hypelasergun
-		[pf.."lasergun2"] = 139578207,
-		[pf.."staff"] =     26421972,  -- zomb
-		[pf.."staff2"] =    127506105, -- korblox
-		[pf.."portalgun"] = 34870758,  -- portal
-		[pf.."scythe"] =    95951330,  -- skeletonscythe
-		[pf.."pointers"] =  115377964, -- laser pointer
-		[pf.."bow"] =       236438668, -- water
-		[pf.."wind"] =      127506257, -- wind
-		[pf.."dagger"] =    71037101,  -- timestop
-		[pf.."egg"] =       233520257, -- sword egg
-		[pf.."scroll"] =    125013830, -- scroll
-		[pf.."bear"] =      90718350,  -- bear launcher
-		[pf.."vacuum"] =    84418938,  -- vaccum
-		[pf.."potion"] =    124126528, -- fan
-		[pf.."ivory"] =     108158379, -- ivory
-		[pf.."magicsword"] =268586231, -- blackhole
-		[pf.."rainbowsword"]=159229806,-- rainbowsword
-		[pf.."festivesword"]=139577901,--festivesword
-		[pf.."piano"]      =113299590, --piano
-		[pf.."wand"] =      114020480, --wand
-		[pf.."icesword"] =  83704165,  --icesword
-		[pf.."swap"] =      78730532,  --body swap
-		[pf.."raygun"] =    65082275,  -- sleep ray
-		[pf.."tornado"] =   102705454, -- tornado
-		[pf.."bunny"] =     24839406,  -- explosive
-		[pf.."chalice"] =   124126528, -- fan
+		[pf.."lasergun"] =    130113146, --hypelasergun
+		[pf.."lasergun2"] =   139578207,
+		[pf.."staff"] =       26421972,  -- zomb
+		[pf.."korblox"] =     127506105, -- korblox
+		[pf.."portalgun"] =   34870758,  -- portal
+		[pf.."scythe"] =      95951330,  -- skeletonscythe
+		[pf.."laser"] =       115377964, -- laser pointer
+		[pf.."water"] =       236438668, -- water
+		[pf.."wind"] =        127506257, -- wind
+		[pf.."dagger"] =      71037101,  -- timestop
+		[pf.."egg"] =         233520257, -- sword egg
+		[pf.."scroll"] =      125013830, -- scroll
+		[pf.."bear"] =        90718350,  -- bear launcher
+		[pf.."vacuum"] =      84418938,  -- vaccum
+		[pf.."potion"] =      124126528, -- fan
+		[pf.."ivory"] =       108158379, -- ivory
+		[pf.."darksword"] =   268586231, -- blackhole
+		[pf.."rainbowsword"]= 159229806,-- rainbowsword
+		[pf.."festive"]=      139577901,--festivesword
+		[pf.."piano"]      =  113299590, --piano
+		[pf.."wand"] =        114020480, --wand
+		[pf.."icesword"] =    83704165,  --icesword
+		--[pf.."bodyswap"] =    78730532,  --body swap
+		--[pf.."banana"] =      29100449,  -- 
+		[pf.."tornado"] =     102705454, -- tornado
+		[pf.."bombegg"] =     24839406,  -- explosive
+		[pf.."famous"] =      124126528,
+		[pf.."lightsword"]=   77443461,
+		[pf.."csaw"] =        74385386,
+		[pf.."chicken"] =     105189783,
+		[pf.."taxi"] =        125013849,
+		[pf.."plunger"]=      114690870,
+		[pf.."transform"]=    48596336,
+		[pf.."axe"]=          127506324,
+		[pf.."overseer"]=     156467990,
+		
 	}
 	
+	local tools1 = {}
 	local tools2 = {}
 	for i, v in tools do
-		table.insert(tools2,i)
+		table.insert(tools1,i)
 	end
-	table.sort(tools2)
+	table.sort(tools1)
+	print(tools1)
+	tools2[1] = pf.."roll"
+	tools2[2] = pf.."random"
+	
+	for i, v in tools1 do
+		table.insert(tools2,v)
+	end
 	
 	
+	function getplr(sender,split,cmd)
+		local pos = table.find(split,cmd)
+		local cmd = split[pos]
+		local plr = split[pos + 1] or "me"
+		if plr == "" then plr = "me" end
+		local plr = plr:gsub("me",tostring(sender)) 
+		return plr
+	end
 	
 	
 	no = "no"
@@ -1546,7 +1731,7 @@ local script = UI["8"]
 				table.insert(parts,v)
 			end
 		end
-	
+		
 	
 		CreateMeshes(tablee)
 		local tablee2 = {}
@@ -1557,7 +1742,7 @@ local script = UI["8"]
 			for i, b in v.Parent:GetChildren() do
 				if b:IsA("BasePart") and b.Name ~= "Torso" then
 					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
-	
+					
 				end
 			end 
 		end
@@ -1693,6 +1878,21 @@ local script = UI["8"]
 		requestcommand:InvokeServer(send)
 	end
 	
+	function roll(sender,split,cmd)
+		
+		local plr = getplr(sender,split,cmd)
+		local dice = #tools1 - 5
+		local diceresult = tools1[math.random(1,dice)]
+		local gear = tools[diceresult]
+		local cmd = ";gear me "..gear
+		local result = cmd:gsub("me",hider..plr)
+		print(result," :", diceresult)
+		--local result2 = ";notice"..hider.." me "..plr.." "..diceresult
+		Chat:fire(result)
+		moveToBack(tools1,diceresult)
+		
+	end
+	
 	function gettool(sender,split,i,v)
 		local pos = table.find(split,i)
 		local cmd = split[pos]
@@ -1712,8 +1912,8 @@ local script = UI["8"]
 		Quote(sender,message)
 		warn("["..tostring(sender).."]:"..message)
 		local send = tostring(sender)
-		
-		
+	
+	
 		if string.find(message,pf) then
 			for i, v in tools do
 				if table.find(split,i) then
@@ -1722,11 +1922,16 @@ local script = UI["8"]
 			end
 		end
 		
+		if table.find (split,"@roll") then
+			roll(sender,split,"@roll")
+		end
+		
 		if table.find(split,";tools") then
 			toolscmd(split)
 		end
-		
-		if message == "noob" then
+		if message == "@random" then
+			randomgear(tostring(sender),3)
+		elseif message == "noob" then
 			CloneNum.Text = 137060070098844
 			size.Text = 135057085734770
 		elseif message == "spongebob"then
@@ -1749,7 +1954,7 @@ local script = UI["8"]
 		elseif message == pf.."unborder" then
 			DestroyPart(workspace.Terrain:FindFirstChild(mainfolder.Name))
 		end
-		
+	
 	
 	
 	end
@@ -1763,15 +1968,15 @@ local script = UI["8"]
 		end)
 	
 		function chat(sender)
-			
+	
 		end
-		
+	
 		re.OnClientEvent:Connect(function(event)
 			local sender = event.FromSpeaker
 			local message = event.Message
 			msgsent(sender,message)
 		end)
-		
+	
 	else
 	
 		game:GetService("TextChatService").MessageReceived:Connect(function(message: TextChatMessage)
@@ -1810,11 +2015,19 @@ local script = UI["8"]
 	
 	
 	function lavagiver()
-		
-		local lava = workspace.archival:FindFirstChild("stud lava") or workspace:FindFirstChild("stud lava")
+	
+		local lava = ""
+		local arch = workspace:FindFirstChild("archival")
+	
+		if arch then
+			lava =  arch:FindFirstChild("stud lava")
+		else
+			lava = workspace:FindFirstChild("stud lava")
+		end
+	
 		local lsize = Vector3.new(22.5, 14.001, 60.469)
 		local lcframe = CFrame.new(-176, 5.00299978, 7.16499996, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-		
+	
 		if lava then
 			AddClone(lava,workspace.Terrain)
 			local lava = be2.Changed:Wait()
@@ -1822,12 +2035,19 @@ local script = UI["8"]
 			SetLocked(lava,true)
 			adminpads = false
 		end
-		
+	
 	end
 	
 	function lavaspawner(part,parent)
-		local lava = workspace.archival:FindFirstChild("stud lava") or workspace:FindFirstChild("stud lava")
-	
+		local lava = ""
+		local arch = workspace:FindFirstChild("archival")
+		
+		if arch then
+			lava =  arch:FindFirstChild("stud lava")
+		else
+			lava = workspace:FindFirstChild("stud lava")
+		end
+		
 		local lsize =  part.Size
 		local lcframe = part.CFrame
 		local lname = part.Name
@@ -1845,15 +2065,14 @@ local script = UI["8"]
 			SyncMaterial({{["Part"] = lava,["Transparency"] = ltrans,["Material"] = lmat}})
 			Resize(lava,lsize,lcframe)
 		end
-		
+	
 	end
 	
 	function partspawner(part,parent)
 		CreatePart(CFrame.new(0,0,0),parent)
-		
+	
 		local part2 = be2.Changed:Wait()
-		print("I WILL HAVE ORDER")
-		
+	
 		local size =  part.Size
 		local cframe = part.CFrame
 		local name = part.Name
@@ -1861,18 +2080,18 @@ local script = UI["8"]
 		local trans = part.Transparency
 		local mat = part.Material
 		local cc = part.CanCollide
-		
-			SetName2(part2,name)
-			Color(part2,color)
-			SetCollision(part2,cc)
-			SetLocked(part2,true)
-			SyncMaterial({{["Part"] = part2,["Transparency"] = trans,["Material"] = mat}})
-			Resize(part2,size,cframe)
+	
+		SetName2(part2,name)
+		Color(part2,color)
+		SetCollision(part2,cc)
+		SetLocked(part2,true)
+		SyncMaterial({{["Part"] = part2,["Transparency"] = trans,["Material"] = mat}})
+		Resize(part2,size,cframe)
 	
 	end
 	
 	function spawnborder()
-		
+	
 		CreateFolder(workspace.Terrain)
 		local folder = be.Changed:Wait()
 		SetName2(folder,mainfolder.Name)
@@ -1889,9 +2108,33 @@ local script = UI["8"]
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function moveToBack(tbl, value)
+		-- Find the index of the value
+		for i = 1, #tbl do
+			if tbl[i] == value then
+				-- Remove the value from its current position
+				table.remove(tbl, i)
+				-- Insert it at the end
+				table.insert(tbl, value)
+				break
+			end
+		end
+	end
 	print("finished")
-	
-	
 end
 task.spawn(SCRIPT_8)
 
