@@ -342,7 +342,7 @@ Part25.BottomSurface = Enum.SurfaceType.Smooth
 Part25.Locked = true
 Part25.TopSurface = Enum.SurfaceType.Smooth
 for i,v in pairs(mas:GetChildren()) do
-	v.Parent = game:GetService("Lighting")
+	v.Parent = game:GetService("ReplicatedStorage")
 	pcall(function() v:MakeJoints() end)
 end
 mas:Destroy()
