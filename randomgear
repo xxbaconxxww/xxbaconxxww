@@ -2312,7 +2312,7 @@ local Gears = {19381970,
 	47871597,
 	675323785}
 
-function randomgear()
+function randomgear(plr,am)
 local mods = {}
 local gear = {}
 
@@ -2322,10 +2322,11 @@ repeat
 		table.insert(mods,num)
 			table.insert(gear,";gear all "..tostring(Gears[num]).." ")
 	end
-until #mods >= 10
+until #mods >= am or 10
 	print(gear)
 local request = main.Signals.RequestCommand
 for i,v in gear do
+v = v:gsub("all",plr or "all")
 request:InvokeServer(v)
 wait()
 end
