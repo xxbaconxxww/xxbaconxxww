@@ -1749,7 +1749,6 @@ local script = UI["8"]
 		[pf.."potion"] =      124126528,
 		[pf.."lightsword"]=   77443461,
 		[pf.."taxi"] =        125013849,
-		[pf.."plunger"]=      114690870,
 		
 	}
 	
