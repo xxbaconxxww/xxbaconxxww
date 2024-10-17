@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 52 | SCRIPTS: 1 | MODULES: 0 \\ --
+-- // INSTANCES: 54 | SCRIPTS: 1 | MODULES: 0 \\ --
 
 local UI = {}
 
@@ -484,21 +484,41 @@ UI["31"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 UI["32"] = Instance.new("UICorner", UI["31"])
 
 
--- // StarterGui.Btools.TextButton \\ --
-UI["33"] = Instance.new("TextButton", UI["1"])
+-- // StarterGui.Btools.Frame.Frame.unanchor \\ --
+UI["33"] = Instance.new("TextButton", UI["4"])
 UI["33"]["TextWrapped"] = true
 UI["33"]["BorderSizePixel"] = 0
-UI["33"]["TextSize"] = 14
+UI["33"]["TextSize"] = 30
 UI["33"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["33"]["TextScaled"] = true
-UI["33"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
+UI["33"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
 UI["33"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["33"]["Size"] = UDim2.new(0.10003, 0, 0.12055, 0)
+UI["33"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["33"]["BackgroundTransparency"] = 0.25
+UI["33"]["Name"] = [[unanchor]]
 UI["33"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["33"]["Position"] = UDim2.new(-0.00045, 0, 0.36658, 0)
+UI["33"]["Text"] = [[unanchor]]
+UI["33"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.unanchor.UICorner \\ --
+UI["34"] = Instance.new("UICorner", UI["33"])
+
+
+-- // StarterGui.Btools.TextButton \\ --
+UI["35"] = Instance.new("TextButton", UI["1"])
+UI["35"]["TextWrapped"] = true
+UI["35"]["BorderSizePixel"] = 0
+UI["35"]["TextSize"] = 14
+UI["35"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["35"]["TextScaled"] = true
+UI["35"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
+UI["35"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["35"]["Size"] = UDim2.new(0.10003, 0, 0.12055, 0)
+UI["35"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["35"]["Position"] = UDim2.new(-0.00045, 0, 0.36658, 0)
 
 -- // StarterGui.Btools.TextButton.UICorner \\ --
-UI["34"] = Instance.new("UICorner", UI["33"])
+UI["36"] = Instance.new("UICorner", UI["35"])
 
 
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
@@ -541,10 +561,12 @@ local script = UI["8"]
 	local reset = frame.ResetFind
 	local gt = frame.givetool
 	local gct = frame.givecurtool
+	local uachr = frame.unanchor
 	local t1 = {}
 	local t2 = {}
 	
 	sbox = Instance.new("SelectionBox",script.Parent)
+	sbox.SurfaceTransparency = 0.5
 	sbox.Visible = false
 	sbox.Adornee = nil
 	for i, v in frame:GetChildren() do
@@ -565,12 +587,27 @@ local script = UI["8"]
 	boxbutton.MouseButton1Down:Connect(function()
 		sbox.Visible = not sbox.Visible
 	end)
+	
+	-- Function to find the last ancestor of class "Tool" or "Model"
+	function findmodel(instance)
+		local part = instance
+		while true do
+			
+			local instance = part:FindFirstAncestorOfClass("Tool") or part:FindFirstAncestorOfClass("Model")
+			if instance and not part:IsA("Tool") then
+				part = instance
+			else
+				return part
+			end
+			
+		end
+	end
+	
 	mouse.Button1Down:Connect(function()
 		if not sbox.Visible then return end
-		sbox.Adornee = mouse.Target:FindFirstAncestorOfClass("Model") or
-			mouse.Target
+		local part = findmodel(mouse.Target)
+		sbox.Adornee = part
 	end)
-	
 	
 	local UserInputService = game:GetService("UserInputService")
 	
@@ -666,13 +703,39 @@ local script = UI["8"]
 		set("Acceleration",Vector3.new(0,0,0))
 	end
 	
+	function findf3x()
+		if not tool or not tool.Parent or tool.Parent == workspace then
+			for i,v in player.Backpack:GetDescendants() do
+				if v.Name == "SyncAPI" then
+					tool = v.Parent
+					SpawnLighting(tool.Handle)
+					return
+				end
+			end
+			for i,v in game.ReplicatedStorage:GetDescendants() do
+				if v.Name == "SyncAPI" then
+					tool = v.Parent
+					SpawnLighting(tool.Handle)
+					return
+				end
+			end
+			for i,v in char:GetDescendants() do
+				if v.Name == "SyncAPI" then
+					tool = v.Parent
+					SpawnLighting(tool.Handle)
+					return
+				end
+			end
+		end
+	end
+	
 	function _(args)
 	
 		if not tool or not tool.Parent or tool.Parent == workspace then
 			Chat:fire(";btools")
 			task.wait(3)
-			SpawnLighting(tool.Handle)
 			tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
+			SpawnLighting(tool.Handle)
 		end
 	
 		remote = tool.SyncAPI.ServerEndpoint
@@ -703,29 +766,7 @@ local script = UI["8"]
 	
 	
 	TextButton2.MouseButton1Down:Connect(function()
-		if not tool or not tool.Parent or tool.Parent == workspace then
-			for i,v in player.Backpack:GetDescendants() do
-				if v.Name == "SyncAPI" then
-					tool = v.Parent
-					SpawnLighting(tool.Handle)
-					return
-				end
-			end
-			for i,v in game.ReplicatedStorage:GetDescendants() do
-				if v.Name == "SyncAPI" then
-					tool = v.Parent
-					SpawnLighting(tool.Handle)
-					return
-				end
-			end
-			for i,v in char:GetDescendants() do
-				if v.Name == "SyncAPI" then
-					tool = v.Parent
-					SpawnLighting(tool.Handle)
-					return
-				end
-			end
-		end
+		findf3x()
 	end)
 	
 	
@@ -737,21 +778,31 @@ local script = UI["8"]
 	
 	end
 	
+	
+	
 	local timealive = 0
 	local timeneeded = 5
+	
 	coroutine.resume(coroutine.create(function()
 		while wait(1) do
-	
 			timealive += 1
-			if timealive == 5 then
+			if timealive == 3 then
 				hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
-				btool = player.Backpack.ChildAdded:Wait()
-				btool = btool:FindFirstChild("SyncAPI")
-				if btool then
-					tool = btool.Parent
+				wait(5)
+				tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
+				if tool then
 					SpawnLighting(tool.Handle)
 				end
 			end
+			--[[
+			if timealive % 5 == 0 then
+				if #player.Backpack:GetChildren() == 0 then
+					hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
+					wait(5)
+					findf3x()
+				end
+			end
+			--]]
 		end
 	end))
 	
@@ -1243,6 +1294,17 @@ local script = UI["8"]
 		_(args)
 	end
 	
+	function AddClone3(...)
+	
+		local args = {
+			[1] = "Clone",
+			[2] = ...,
+			[3] = player.Character
+		}
+		print(args)
+		_(args)
+	end
+	
 	function SetLocked2(...)
 		local bool = {}
 		for i = 1, #... do
@@ -1348,9 +1410,12 @@ local script = UI["8"]
 		local mods = {}
 		for i,v in workspace:GetDescendants() do
 			if v.Name == CloneInstance.Text then
-				table.insert(mods,v)
+				for i = 1, tonumber(CloneNum.Text) or 1 do
+					table.insert(mods,v)
+				end
 			end
 		end
+		
 		AddClone2(mods)
 	end
 	function Nearest(part)
@@ -1640,9 +1705,10 @@ local script = UI["8"]
 		
 		if char:FindFirstChildOfClass('Tool') then
 			gctdown = true
-			workspace.ChildAdded:Connect(function(child)
+			player.Character.ChildAdded:Connect(function(child)
 				if not gctdown then return end
 				if child.Name ~= tooltoclone.Name then return end
+				if table.find(cloned,child) then return end
 				table.insert(cloned,child)
 			end)
 			
@@ -1655,9 +1721,9 @@ local script = UI["8"]
 			for i = 1, #target do
 				table.insert(cloning,tooltoclone)
 			end
-			AddClone2(cloning)
+			AddClone3(cloning)
 			
-			wait(1.5)
+			task.wait(1.5)
 			
 			local instance = {}
 			local newparent = {}
@@ -1673,7 +1739,9 @@ local script = UI["8"]
 		end
 		gctdown = false
 	end)
-	
+	uachr.MouseButton1Down:Connect(function()
+		unanchor()
+	end)
 	
 	
 	local hider = [[
@@ -1749,6 +1817,7 @@ local script = UI["8"]
 		[pf.."potion"] =      124126528,
 		[pf.."lightsword"]=   77443461,
 		[pf.."taxi"] =        125013849,
+		[pf.."plunger"]=      114690870,
 		
 	}
 	
@@ -1758,7 +1827,7 @@ local script = UI["8"]
 		table.insert(tools1,i)
 	end
 	table.sort(tools1)
-	print(tools1)
+	
 	tools2[1] = pf.."roll"
 	tools2[2] = pf.."random"
 	
@@ -2206,6 +2275,39 @@ local script = UI["8"]
 		end
 	end
 	print("finished")
+	function unanchor ()
+		local tablee = {}
+		if string.lower(CloneInstance.Text) == "workspace" then
+			for i, v in workspace:GetDescendants() do
+				if v:IsA("BasePart") and v.Anchored == true then
+					table.insert(tablee,{["Part"] = v,["Anchored"] = false})
+				end
+			end
+			SetAnchors(tablee)
+		else
+			for i,b in workspace:GetDescendants() do
+				if string.lower(b.Name) == string.lower(CloneInstance.Text) then
+					if b:IsA("BasePart") and b.Anchored then table.insert(tablee,{["Part"] = b,["Anchored"] = false}) end
+					for i, v in b:GetDescendants() do
+						if v:IsA("BasePart") and v.Anchored == true then
+							table.insert(tablee,{["Part"] = v,["Anchored"] = false})
+						end
+					end
+					
+				end
+			end
+			SetAnchors(tablee)
+		end
+		
+	end
+	
+	function SetAnchors(...)
+		local args = {
+			[1] = "SyncAnchor",
+			[2] = ...
+		}
+		_(args)
+	end
 end
 task.spawn(SCRIPT_8)
 
