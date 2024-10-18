@@ -4,6 +4,10 @@ if _G.prefix then
 return
 end
 
+function chat(msg)
+  game.Players:Chat(msg)
+end
+
 _G.prefix = "@"
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/refs/heads/main/Border"))()
