@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 54 | SCRIPTS: 1 | MODULES: 0 \\ --
+-- // INSTANCES: 60 | SCRIPTS: 1 | MODULES: 0 \\ --
 
 local UI = {}
 
@@ -504,32 +504,118 @@ UI["33"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 UI["34"] = Instance.new("UICorner", UI["33"])
 
 
--- // StarterGui.Btools.TextButton \\ --
-UI["35"] = Instance.new("TextButton", UI["1"])
+-- // StarterGui.Btools.Frame.Frame.Placeholder \\ --
+UI["35"] = Instance.new("TextButton", UI["4"])
 UI["35"]["TextWrapped"] = true
 UI["35"]["BorderSizePixel"] = 0
-UI["35"]["TextSize"] = 14
+UI["35"]["TextSize"] = 30
 UI["35"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["35"]["TextScaled"] = true
-UI["35"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
+UI["35"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
 UI["35"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["35"]["Size"] = UDim2.new(0.10003, 0, 0.12055, 0)
+UI["35"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["35"]["BackgroundTransparency"] = 0.25
+UI["35"]["Name"] = [[Placeholder]]
 UI["35"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["35"]["Position"] = UDim2.new(-0.00045, 0, 0.36658, 0)
+UI["35"]["Text"] = [[Placeholder]]
+UI["35"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.Placeholder.UICorner \\ --
+UI["36"] = Instance.new("UICorner", UI["35"])
+
+
+-- // StarterGui.Btools.Frame.Frame.giveA \\ --
+UI["37"] = Instance.new("TextButton", UI["4"])
+UI["37"]["TextWrapped"] = true
+UI["37"]["BorderSizePixel"] = 0
+UI["37"]["TextSize"] = 30
+UI["37"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["37"]["TextScaled"] = true
+UI["37"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["37"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["37"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["37"]["BackgroundTransparency"] = 0.25
+UI["37"]["Name"] = [[giveA]]
+UI["37"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["37"]["Text"] = [[Give accessories]]
+UI["37"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.giveA.UICorner \\ --
+UI["38"] = Instance.new("UICorner", UI["37"])
+
+
+-- // StarterGui.Btools.Frame.Frame.Placeholder \\ --
+UI["39"] = Instance.new("TextButton", UI["4"])
+UI["39"]["TextWrapped"] = true
+UI["39"]["BorderSizePixel"] = 0
+UI["39"]["TextSize"] = 30
+UI["39"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["39"]["TextScaled"] = true
+UI["39"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["39"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["39"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["39"]["BackgroundTransparency"] = 0.25
+UI["39"]["Name"] = [[Placeholder]]
+UI["39"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["39"]["Text"] = [[Placeholder]]
+UI["39"]["Position"] = UDim2.new(0.02968, 0, 0.23135, 0)
+
+-- // StarterGui.Btools.Frame.Frame.Placeholder.UICorner \\ --
+UI["3a"] = Instance.new("UICorner", UI["39"])
+
+
+-- // StarterGui.Btools.TextButton \\ --
+UI["3b"] = Instance.new("TextButton", UI["1"])
+UI["3b"]["TextWrapped"] = true
+UI["3b"]["BorderSizePixel"] = 0
+UI["3b"]["TextSize"] = 14
+UI["3b"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["3b"]["TextScaled"] = true
+UI["3b"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
+UI["3b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["3b"]["Size"] = UDim2.new(0.10003, 0, 0.12055, 0)
+UI["3b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["3b"]["Position"] = UDim2.new(-0.00045, 0, 0.36658, 0)
 
 -- // StarterGui.Btools.TextButton.UICorner \\ --
-UI["36"] = Instance.new("UICorner", UI["35"])
+UI["3c"] = Instance.new("UICorner", UI["3b"])
 
 
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 local function SCRIPT_8()
 local script = UI["8"]
 	print("loading script")
-	wait(2)
-	Chat = require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted
+	if not _G.real then
+		wait(3)
+	end
+	randg = nil
+	local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
+	local requestcommand
+	if hdadminclient then
+		
+		requestcommand = hdadminclient.Signals.RequestCommand
+		
+		
+	end
+	
+	
+	if not _G.real then
+		function chat(text)
+			requestcommand:InvokeServer(text)
+		end
+		randg = require(script.Parent.Parent.Parent.Parent.ModuleScript)
+	end
+	
+	
+	
+	chatt = game.Players.LocalPlayer.PlayerScripts:FindFirstChild("ChatScript")
+	if chatt then
+		Chat = require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted
+	end
 	script.Parent.Parent.Parent.TextButton.MouseButton1Down:Connect(function()
 		script.Parent.Parent.Visible = not script.Parent.Parent.Visible
 	end)
+	
 	local TextBox = script.Parent.CloneNum
 	TextBox:GetPropertyChangedSignal("Text"):Connect(function()
 		TextBox.Text = TextBox.Text:gsub('%D+', '');
@@ -562,6 +648,7 @@ local script = UI["8"]
 	local gt = frame.givetool
 	local gct = frame.givecurtool
 	local uachr = frame.unanchor
+	local giveA = frame.giveA
 	local t1 = {}
 	local t2 = {}
 	
@@ -582,7 +669,11 @@ local script = UI["8"]
 	end)
 	
 	gears.MouseButton1Down:Connect(function()
-		randomgear()
+		if randg then
+			randg.randomgear(player.Name,10)
+		else
+			randomgear(player.Name,10)
+		end
 	end)
 	boxbutton.MouseButton1Down:Connect(function()
 		sbox.Visible = not sbox.Visible
@@ -732,7 +823,7 @@ local script = UI["8"]
 	function _(args)
 	
 		if not tool or not tool.Parent or tool.Parent == workspace then
-			Chat:fire(";btools")
+			requestcommand:InvokeServer(";btools")
 			task.wait(3)
 			tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
 			SpawnLighting(tool.Handle)
@@ -771,12 +862,7 @@ local script = UI["8"]
 	
 	
 	
-	local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
-	local requestcommand
-	if hdadminclient then
-		requestcommand = hdadminclient.Signals.RequestCommand
 	
-	end
 	
 	
 	
@@ -1791,7 +1877,7 @@ local script = UI["8"]
 	 
 	 ]]
 	-- CUSTOM COMMANDS 
-	
+	game:GetService("LogService")
 	local pf = _G.prefix
 	
 	local tools = {
@@ -1810,15 +1896,12 @@ local script = UI["8"]
 		[pf.."festive"]=      139577901,--festivesword
 		[pf.."wand"] =        114020480, --wand
 		[pf.."icesword"] =    83704165,  --icesword
-		--[pf.."bodyswap"] =    78730532,  --body swap
-		--[pf.."banana"] =      29100449,  -- 
+		[pf.."banana"] =      29100449,  -- banana
 		[pf.."tornado"] =     102705454, -- tornado
 		[pf.."egg"] =         24839406,  -- explosive
 		[pf.."potion"] =      124126528,
 		[pf.."lightsword"]=   77443461,
-		[pf.."taxi"] =        125013849,
-		[pf.."plunger"]=      114690870,
-		
+		[pf.."taxi"] =        125013849,	
 	}
 	
 	local tools1 = {}
@@ -1925,10 +2008,10 @@ local script = UI["8"]
 			local cmd = ";quote"
 	
 			if quote == no then 
-				Chat:fire(";sm "..a)
+				send(";sm "..a)
 				return
 			end
-			Chat:fire(";m "..a.."\n \n - "..plr.Name)
+			send(";m "..a.."\n \n - "..plr.Name)
 		end
 	
 		if string.find(a,";quote") then
@@ -2014,7 +2097,7 @@ local script = UI["8"]
 	
 		local send = ";alert "..plr.." "..args
 		print(args)
-		--Chat:fire(send)
+		--send(send)
 		requestcommand:InvokeServer(send)
 	end
 	
@@ -2027,8 +2110,8 @@ local script = UI["8"]
 		local cmd = ";gear me "..gear
 		local result = cmd:gsub("me",hider..plr)
 		print(result," :", diceresult)
-		--local result2 = ";notice"..hider.." me "..plr.." "..diceresult
-		Chat:fire(result)
+		
+		send(result)
 		moveToBack(tools1,diceresult)
 		
 	end
@@ -2040,7 +2123,7 @@ local script = UI["8"]
 		if plr == "" then plr = "me" end
 		local plr = plr:gsub("me",tostring(sender))
 		print(";gear "..plr.." "..v)
-		--Chat:fire(";gear "..plr.." "..v)
+		--send(";gear "..plr.." "..v)
 		requestcommand:InvokeServer(";gear "..plr.." "..v)
 	end
 	
@@ -2099,9 +2182,10 @@ local script = UI["8"]
 	
 	end
 	
-	re = game.ReplicatedStorage.DefaultChatSystemChatEvents:FindFirstChild("OnMessageDoneFiltering")
+	re = game.ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents")
 	lastmsg = 0
 	if re then
+		re = re:FindFirstChild("OnMessageDoneFiltering")
 	
 		re.OnClientEvent:Connect(function(event)
 			print("["..event.FromSpeaker.."]:",event.Message)
@@ -2148,7 +2232,7 @@ local script = UI["8"]
 		table.insert(playernames,v.Name)
 		task.wait(3)	table.insert(playerdnames,v.Character:WaitForChild("Humanoid").DisplayName)
 		if adminpads == false then
-			requestcommand:InvokeServer(";rank "..tostring(v).." admin")
+			requestcommand:InvokeServer(";rank all admin")
 		end
 		chat(v)
 	end)
