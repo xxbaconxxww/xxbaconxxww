@@ -4,7 +4,7 @@ if _G.prefix then
 return
 end
 
-function chat(msg)
+function send(msg)
   game.Players:Chat(msg)
 end
 
