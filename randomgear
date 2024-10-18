@@ -2328,6 +2328,6 @@ local request = main.Signals.RequestCommand
 for i,v in gear do
 v = v:gsub("all",plr or "all")
 request:InvokeServer(v)
-wait()
+wait(0.12)
 end
 end
