@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 
--- // INSTANCES: 60 | SCRIPTS: 1 | MODULES: 0 \\ --
+-- // INSTANCES: 44 | SCRIPTS: 1 | MODULES: 0 \\ --
 
 local UI = {}
 
@@ -13,577 +13,540 @@ UI["1"]["ResetOnSpawn"] = false
 -- // StarterGui.Btools.Frame \\ --
 UI["2"] = Instance.new("Frame", UI["1"])
 UI["2"]["BorderSizePixel"] = 0
-UI["2"]["BackgroundColor3"] = Color3.fromRGB(51, 51, 51)
-UI["2"]["Size"] = UDim2.new(0.43101, 0, 0.49512, 0)
-UI["2"]["Position"] = UDim2.new(0.49109, 0, 0.17297, 0)
+UI["2"]["BackgroundColor3"] = Color3.fromRGB(26, 26, 26)
+UI["2"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
+UI["2"]["Size"] = UDim2.new(0.43101, 0, 0.53929, 0)
+UI["2"]["Position"] = UDim2.new(0.5, 0, 0.5, 0)
 UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["2"]["BackgroundTransparency"] = 0.3
-
--- // StarterGui.Btools.Frame.UICorner \\ --
-UI["3"] = Instance.new("UICorner", UI["2"])
-
 
 -- // StarterGui.Btools.Frame.Frame \\ --
-UI["4"] = Instance.new("Frame", UI["2"])
-UI["4"]["BorderSizePixel"] = 0
-UI["4"]["BackgroundColor3"] = Color3.fromRGB(51, 51, 51)
-UI["4"]["Size"] = UDim2.new(0.9, 0, 0.88885, 0)
-UI["4"]["Position"] = UDim2.new(0.04989, 0, 0.05071, 0)
-UI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["4"]["BackgroundTransparency"] = 0.2
+UI["3"] = Instance.new("Frame", UI["2"])
+UI["3"]["BorderSizePixel"] = 0
+UI["3"]["BackgroundColor3"] = Color3.fromRGB(29, 29, 29)
+UI["3"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
+UI["3"]["Size"] = UDim2.new(0.9, 0, 0.9, 0)
+UI["3"]["Position"] = UDim2.new(0.5, 0, 0.5, 0)
+UI["3"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["3"]["BackgroundTransparency"] = 1
 
 -- // StarterGui.Btools.Frame.Frame.CButton \\ --
-UI["5"] = Instance.new("TextButton", UI["4"])
-UI["5"]["TextWrapped"] = true
-UI["5"]["BorderSizePixel"] = 0
-UI["5"]["TextSize"] = 30
-UI["5"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["5"]["TextScaled"] = true
-UI["5"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["5"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["5"]["BackgroundTransparency"] = 0.25
-UI["5"]["Name"] = [[CButton]]
-UI["5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["5"]["Text"] = [[Clone]]
-UI["5"]["Position"] = UDim2.new(0.03104, 0, 0.064, 0)
-
--- // StarterGui.Btools.Frame.Frame.CButton.UICorner \\ --
-UI["6"] = Instance.new("UICorner", UI["5"])
-
-
--- // StarterGui.Btools.Frame.Frame.CButton.UIFlexItem \\ --
-UI["7"] = Instance.new("UIFlexItem", UI["5"])
-UI["7"]["GrowRatio"] = 1
-UI["7"]["FlexMode"] = Enum.UIFlexMode.Custom
-UI["7"]["ItemLineAlignment"] = Enum.ItemLineAlignment.Center
+UI["4"] = Instance.new("TextButton", UI["3"])
+UI["4"]["TextWrapped"] = true
+UI["4"]["BorderSizePixel"] = 0
+UI["4"]["TextSize"] = 30
+UI["4"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["4"]["TextScaled"] = true
+UI["4"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["4"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["4"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["4"]["LayoutOrder"] = 1
+UI["4"]["Name"] = [[CButton]]
+UI["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["4"]["Text"] = [[Clone]]
+UI["4"]["Position"] = UDim2.new(0.03104, 0, 0.064, 0)
 
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
-UI["8"] = Instance.new("LocalScript", UI["4"])
-UI["8"]["Name"] = [[ButtonScript]]
+UI["5"] = Instance.new("LocalScript", UI["3"])
+UI["5"]["Name"] = [[ButtonScript]]
 
 -- // StarterGui.Btools.Frame.Frame.UIGridLayout \\ --
-UI["9"] = Instance.new("UIGridLayout", UI["4"])
-UI["9"]["CellSize"] = UDim2.new(0.175, 0, 0.17, 0)
-UI["9"]["FillDirectionMaxCells"] = 8
-UI["9"]["SortOrder"] = Enum.SortOrder.LayoutOrder
-UI["9"]["CellPadding"] = UDim2.new(0.02, 0, 0.02, 0)
+UI["6"] = Instance.new("UIGridLayout", UI["3"])
+UI["6"]["CellSize"] = UDim2.new(0.19, 0, 0.19, 0)
+UI["6"]["SortOrder"] = Enum.SortOrder.LayoutOrder
+UI["6"]["CellPadding"] = UDim2.new(0.012, 0, 0.011, 0)
 
--- // StarterGui.Btools.Frame.Frame.CloneInstance \\ --
-UI["a"] = Instance.new("TextBox", UI["4"])
-UI["a"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["a"]["PlaceholderColor3"] = Color3.fromRGB(179, 179, 179)
-UI["a"]["BorderSizePixel"] = 0
-UI["a"]["TextWrapped"] = true
-UI["a"]["TextSize"] = 30
-UI["a"]["Name"] = [[CloneInstance]]
-UI["a"]["TextDirection"] = Enum.TextDirection.LeftToRight
-UI["a"]["TextScaled"] = true
-UI["a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["a"]["PlaceholderText"] = [[Instance]]
-UI["a"]["Size"] = UDim2.new(0, 0, 0.111, 0)
-UI["a"]["Position"] = UDim2.new(0.13562, 0, 0.17363, 0)
-UI["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["a"]["Text"] = [[Part]]
-UI["a"]["BackgroundTransparency"] = 0.25
+-- // StarterGui.Btools.Frame.Frame.anchor \\ --
+UI["7"] = Instance.new("TextButton", UI["3"])
+UI["7"]["TextWrapped"] = true
+UI["7"]["BorderSizePixel"] = 0
+UI["7"]["TextSize"] = 30
+UI["7"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["7"]["TextScaled"] = true
+UI["7"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["7"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["7"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["7"]["LayoutOrder"] = 27
+UI["7"]["Name"] = [[anchor]]
+UI["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["7"]["Text"] = [[anchor]]
+UI["7"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
--- // StarterGui.Btools.Frame.Frame.CloneInstance.UICorner \\ --
-UI["b"] = Instance.new("UICorner", UI["a"])
+-- // StarterGui.Btools.Frame.Frame.Resize \\ --
+UI["8"] = Instance.new("TextButton", UI["3"])
+UI["8"]["TextWrapped"] = true
+UI["8"]["BorderSizePixel"] = 0
+UI["8"]["TextSize"] = 30
+UI["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["8"]["TextScaled"] = true
+UI["8"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["8"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["8"]["LayoutOrder"] = 28
+UI["8"]["Name"] = [[Resize]]
+UI["8"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["8"]["Text"] = [[Resize]]
+UI["8"]["Position"] = UDim2.new(0.02968, 0, 0.23135, 0)
 
-
--- // StarterGui.Btools.Frame.Frame.CloneNum \\ --
-UI["c"] = Instance.new("TextBox", UI["4"])
-UI["c"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["c"]["BorderSizePixel"] = 0
-UI["c"]["TextWrapped"] = true
-UI["c"]["TextSize"] = 30
-UI["c"]["Name"] = [[CloneNum]]
-UI["c"]["TextDirection"] = Enum.TextDirection.LeftToRight
-UI["c"]["TextScaled"] = true
-UI["c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["c"]["PlaceholderText"] = [[Number/Id]]
-UI["c"]["Size"] = UDim2.new(0, 0, 0.1, 0)
-UI["c"]["Position"] = UDim2.new(0.67527, 0, 0, 0)
-UI["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["c"]["Text"] = [[]]
-UI["c"]["BackgroundTransparency"] = 0.25
-
--- // StarterGui.Btools.Frame.Frame.CloneNum.UICorner \\ --
-UI["d"] = Instance.new("UICorner", UI["c"])
-
-
--- // StarterGui.Btools.Frame.Frame.parentbox \\ --
-UI["e"] = Instance.new("TextBox", UI["4"])
-UI["e"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["e"]["BorderSizePixel"] = 0
-UI["e"]["TextWrapped"] = true
-UI["e"]["TextSize"] = 30
-UI["e"]["Name"] = [[parentbox]]
-UI["e"]["TextDirection"] = Enum.TextDirection.LeftToRight
-UI["e"]["TextScaled"] = true
-UI["e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["e"]["PlaceholderText"] = [[Parent/Name]]
-UI["e"]["Size"] = UDim2.new(0, 0, 0.111, 0)
-UI["e"]["Position"] = UDim2.new(1.14795, 0, 0.22657, 0)
-UI["e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["e"]["Text"] = [[]]
-UI["e"]["BackgroundTransparency"] = 0.25
-
--- // StarterGui.Btools.Frame.Frame.parentbox.UICorner \\ --
-UI["f"] = Instance.new("UICorner", UI["e"])
-
+-- // StarterGui.Btools.Frame.Frame.unanchor2 \\ --
+UI["9"] = Instance.new("TextButton", UI["3"])
+UI["9"]["TextWrapped"] = true
+UI["9"]["BorderSizePixel"] = 0
+UI["9"]["TextSize"] = 30
+UI["9"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["9"]["TextScaled"] = true
+UI["9"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["9"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["9"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["9"]["LayoutOrder"] = 26
+UI["9"]["Name"] = [[unanchor2]]
+UI["9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["9"]["Text"] = [[unanchor2]]
+UI["9"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
 -- // StarterGui.Btools.Frame.Frame.CloneOption \\ --
-UI["10"] = Instance.new("TextButton", UI["4"])
+UI["a"] = Instance.new("TextButton", UI["3"])
+UI["a"]["TextWrapped"] = true
+UI["a"]["BorderSizePixel"] = 0
+UI["a"]["TextSize"] = 30
+UI["a"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["a"]["TextScaled"] = true
+UI["a"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["a"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["a"]["LayoutOrder"] = 7
+UI["a"]["Name"] = [[CloneOption]]
+UI["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["a"]["Text"] = [[One]]
+UI["a"]["Position"] = UDim2.new(0.02968, 0, 0.23135, 0)
+
+-- // StarterGui.Btools.Frame.Frame.UnlockAll \\ --
+UI["b"] = Instance.new("TextButton", UI["3"])
+UI["b"]["TextWrapped"] = true
+UI["b"]["BorderSizePixel"] = 0
+UI["b"]["TextSize"] = 30
+UI["b"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["b"]["TextScaled"] = true
+UI["b"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["b"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["b"]["LayoutOrder"] = 8
+UI["b"]["Name"] = [[UnlockAll]]
+UI["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["b"]["Text"] = [[UnlockAll]]
+UI["b"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.FindTool \\ --
+UI["c"] = Instance.new("TextButton", UI["3"])
+UI["c"]["TextWrapped"] = true
+UI["c"]["BorderSizePixel"] = 0
+UI["c"]["TextSize"] = 30
+UI["c"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["c"]["TextScaled"] = true
+UI["c"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["c"]["Size"] = UDim2.new(0.33546, 0, 0.13183, 0)
+UI["c"]["LayoutOrder"] = 9
+UI["c"]["Name"] = [[FindTool]]
+UI["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["c"]["Text"] = [[Scan F3X]]
+UI["c"]["Position"] = UDim2.new(0.03104, 0, 0.84281, 0)
+
+-- // StarterGui.Btools.Frame.Frame.BaseplateBtn \\ --
+UI["d"] = Instance.new("TextButton", UI["3"])
+UI["d"]["TextWrapped"] = true
+UI["d"]["BorderSizePixel"] = 0
+UI["d"]["TextSize"] = 30
+UI["d"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["d"]["TextScaled"] = true
+UI["d"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["d"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["d"]["LayoutOrder"] = 10
+UI["d"]["Name"] = [[BaseplateBtn]]
+UI["d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["d"]["Text"] = [[Baseplate]]
+UI["d"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.LockAll \\ --
+UI["e"] = Instance.new("TextButton", UI["3"])
+UI["e"]["TextWrapped"] = true
+UI["e"]["BorderSizePixel"] = 0
+UI["e"]["TextSize"] = 30
+UI["e"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["e"]["TextScaled"] = true
+UI["e"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["e"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["e"]["LayoutOrder"] = 11
+UI["e"]["Name"] = [[LockAll]]
+UI["e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["e"]["Text"] = [[LockAll]]
+UI["e"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.Move \\ --
+UI["f"] = Instance.new("TextButton", UI["3"])
+UI["f"]["TextWrapped"] = true
+UI["f"]["BorderSizePixel"] = 0
+UI["f"]["TextSize"] = 30
+UI["f"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["f"]["TextScaled"] = true
+UI["f"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["f"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["f"]["LayoutOrder"] = 12
+UI["f"]["Name"] = [[Move]]
+UI["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["f"]["Text"] = [[MoveAll]]
+UI["f"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+
+-- // StarterGui.Btools.Frame.Frame.BoxButton \\ --
+UI["10"] = Instance.new("TextButton", UI["3"])
 UI["10"]["TextWrapped"] = true
 UI["10"]["BorderSizePixel"] = 0
 UI["10"]["TextSize"] = 30
 UI["10"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["10"]["TextScaled"] = true
-UI["10"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["10"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
 UI["10"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["10"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["10"]["BackgroundTransparency"] = 0.25
-UI["10"]["Name"] = [[CloneOption]]
+UI["10"]["LayoutOrder"] = 13
+UI["10"]["Name"] = [[BoxButton]]
 UI["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["10"]["Text"] = [[One]]
-UI["10"]["Position"] = UDim2.new(0.02968, 0, 0.23135, 0)
+UI["10"]["Text"] = [[SelectBox]]
+UI["10"]["Position"] = UDim2.new(0.5378, 0, 0.522, 0)
 
--- // StarterGui.Btools.Frame.Frame.CloneOption.UICorner \\ --
-UI["11"] = Instance.new("UICorner", UI["10"])
+-- // StarterGui.Btools.Frame.Frame.SetText \\ --
+UI["11"] = Instance.new("TextButton", UI["3"])
+UI["11"]["TextWrapped"] = true
+UI["11"]["BorderSizePixel"] = 0
+UI["11"]["TextSize"] = 30
+UI["11"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["11"]["TextScaled"] = true
+UI["11"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["11"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["11"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["11"]["LayoutOrder"] = 14
+UI["11"]["Name"] = [[SetText]]
+UI["11"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["11"]["Text"] = [[Set Text]]
+UI["11"]["Position"] = UDim2.new(0.68376, 0, 0.53254, 0)
 
-
--- // StarterGui.Btools.Frame.Frame.UnlockAll \\ --
-UI["12"] = Instance.new("TextButton", UI["4"])
+-- // StarterGui.Btools.Frame.Frame.delete \\ --
+UI["12"] = Instance.new("TextButton", UI["3"])
 UI["12"]["TextWrapped"] = true
 UI["12"]["BorderSizePixel"] = 0
 UI["12"]["TextSize"] = 30
 UI["12"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["12"]["TextScaled"] = true
-UI["12"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["12"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
 UI["12"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["12"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["12"]["BackgroundTransparency"] = 0.25
-UI["12"]["Name"] = [[UnlockAll]]
+UI["12"]["LayoutOrder"] = 15
+UI["12"]["Name"] = [[delete]]
 UI["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["12"]["Text"] = [[UnlockAll]]
+UI["12"]["Text"] = [[Delete]]
 UI["12"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
--- // StarterGui.Btools.Frame.Frame.UnlockAll.UICorner \\ --
-UI["13"] = Instance.new("UICorner", UI["12"])
+-- // StarterGui.Btools.Frame.Frame.SetName \\ --
+UI["13"] = Instance.new("TextButton", UI["3"])
+UI["13"]["TextWrapped"] = true
+UI["13"]["BorderSizePixel"] = 0
+UI["13"]["TextSize"] = 30
+UI["13"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["13"]["TextScaled"] = true
+UI["13"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["13"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["13"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["13"]["LayoutOrder"] = 16
+UI["13"]["Name"] = [[SetName]]
+UI["13"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["13"]["Text"] = [[SetName]]
+UI["13"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
-
--- // StarterGui.Btools.Frame.Frame.FindTool \\ --
-UI["14"] = Instance.new("TextButton", UI["4"])
+-- // StarterGui.Btools.Frame.Frame.Bring \\ --
+UI["14"] = Instance.new("TextButton", UI["3"])
 UI["14"]["TextWrapped"] = true
 UI["14"]["BorderSizePixel"] = 0
 UI["14"]["TextSize"] = 30
 UI["14"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["14"]["TextScaled"] = true
-UI["14"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["14"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
 UI["14"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["14"]["Size"] = UDim2.new(0.33546, 0, 0.13183, 0)
-UI["14"]["BackgroundTransparency"] = 0.25
-UI["14"]["Name"] = [[FindTool]]
+UI["14"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["14"]["LayoutOrder"] = 17
+UI["14"]["Name"] = [[Bring]]
 UI["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["14"]["Text"] = [[Scan F3X]]
-UI["14"]["Position"] = UDim2.new(0.03104, 0, 0.84281, 0)
+UI["14"]["Text"] = [[Bring]]
+UI["14"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
--- // StarterGui.Btools.Frame.Frame.FindTool.UICorner \\ --
-UI["15"] = Instance.new("UICorner", UI["14"])
+-- // StarterGui.Btools.Frame.Frame.size \\ --
+UI["15"] = Instance.new("TextBox", UI["3"])
+UI["15"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["15"]["BorderSizePixel"] = 0
+UI["15"]["TextWrapped"] = true
+UI["15"]["TextSize"] = 30
+UI["15"]["Name"] = [[size]]
+UI["15"]["TextDirection"] = Enum.TextDirection.LeftToRight
+UI["15"]["TextScaled"] = true
+UI["15"]["BackgroundColor3"] = Color3.fromRGB(57, 57, 57)
+UI["15"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["15"]["PlaceholderText"] = [[Studs/Id2]]
+UI["15"]["Size"] = UDim2.new(0, 0, 0.111, 0)
+UI["15"]["Position"] = UDim2.new(1.14795, 0, 0.22657, 0)
+UI["15"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["15"]["Text"] = [[]]
+UI["15"]["LayoutOrder"] = 5
 
-
--- // StarterGui.Btools.Frame.Frame.BaseplateBtn \\ --
-UI["16"] = Instance.new("TextButton", UI["4"])
+-- // StarterGui.Btools.Frame.Frame.givecurtool \\ --
+UI["16"] = Instance.new("TextButton", UI["3"])
 UI["16"]["TextWrapped"] = true
 UI["16"]["BorderSizePixel"] = 0
 UI["16"]["TextSize"] = 30
 UI["16"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["16"]["TextScaled"] = true
-UI["16"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["16"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
 UI["16"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["16"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["16"]["BackgroundTransparency"] = 0.25
-UI["16"]["Name"] = [[BaseplateBtn]]
+UI["16"]["LayoutOrder"] = 19
+UI["16"]["Name"] = [[givecurtool]]
 UI["16"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["16"]["Text"] = [[Baseplate]]
-UI["16"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+UI["16"]["Text"] = [[Give tool]]
+UI["16"]["Position"] = UDim2.new(0.02968, 0, 0.23135, 0)
 
--- // StarterGui.Btools.Frame.Frame.BaseplateBtn.UICorner \\ --
-UI["17"] = Instance.new("UICorner", UI["16"])
+-- // StarterGui.Btools.Frame.Frame.setmesh \\ --
+UI["17"] = Instance.new("TextButton", UI["3"])
+UI["17"]["TextWrapped"] = true
+UI["17"]["BorderSizePixel"] = 0
+UI["17"]["TextSize"] = 30
+UI["17"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["17"]["TextScaled"] = true
+UI["17"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["17"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["17"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["17"]["LayoutOrder"] = 20
+UI["17"]["Name"] = [[setmesh]]
+UI["17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["17"]["Text"] = [[SetMesh]]
+UI["17"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
-
--- // StarterGui.Btools.Frame.Frame.LockAll \\ --
-UI["18"] = Instance.new("TextButton", UI["4"])
+-- // StarterGui.Btools.Frame.Frame.unanchor \\ --
+UI["18"] = Instance.new("TextButton", UI["3"])
 UI["18"]["TextWrapped"] = true
 UI["18"]["BorderSizePixel"] = 0
 UI["18"]["TextSize"] = 30
 UI["18"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["18"]["TextScaled"] = true
-UI["18"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["18"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
 UI["18"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["18"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["18"]["BackgroundTransparency"] = 0.25
-UI["18"]["Name"] = [[LockAll]]
+UI["18"]["LayoutOrder"] = 25
+UI["18"]["Name"] = [[unanchor]]
 UI["18"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["18"]["Text"] = [[LockAll]]
+UI["18"]["Text"] = [[unanchor]]
 UI["18"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
--- // StarterGui.Btools.Frame.Frame.LockAll.UICorner \\ --
-UI["19"] = Instance.new("UICorner", UI["18"])
+-- // StarterGui.Btools.Frame.Frame.FindNewPart \\ --
+UI["19"] = Instance.new("TextButton", UI["3"])
+UI["19"]["TextWrapped"] = true
+UI["19"]["BorderSizePixel"] = 0
+UI["19"]["TextSize"] = 30
+UI["19"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["19"]["TextScaled"] = true
+UI["19"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["19"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["19"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["19"]["LayoutOrder"] = 22
+UI["19"]["Name"] = [[FindNewPart]]
+UI["19"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["19"]["Text"] = [[Find Part]]
+UI["19"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
-
--- // StarterGui.Btools.Frame.Frame.gears \\ --
-UI["1a"] = Instance.new("TextButton", UI["4"])
+-- // StarterGui.Btools.Frame.Frame.ResetFind \\ --
+UI["1a"] = Instance.new("TextButton", UI["3"])
 UI["1a"]["TextWrapped"] = true
 UI["1a"]["BorderSizePixel"] = 0
 UI["1a"]["TextSize"] = 30
 UI["1a"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["1a"]["TextScaled"] = true
-UI["1a"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["1a"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
 UI["1a"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 UI["1a"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["1a"]["BackgroundTransparency"] = 0.25
-UI["1a"]["Name"] = [[gears]]
+UI["1a"]["LayoutOrder"] = 23
+UI["1a"]["Name"] = [[ResetFind]]
 UI["1a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["1a"]["Text"] = [[Gears]]
+UI["1a"]["Text"] = [[Reset Find]]
 UI["1a"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
--- // StarterGui.Btools.Frame.Frame.gears.UICorner \\ --
-UI["1b"] = Instance.new("UICorner", UI["1a"])
+-- // StarterGui.Btools.Frame.Frame.givetool \\ --
+UI["1b"] = Instance.new("TextButton", UI["3"])
+UI["1b"]["TextWrapped"] = true
+UI["1b"]["BorderSizePixel"] = 0
+UI["1b"]["TextSize"] = 30
+UI["1b"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1b"]["TextScaled"] = true
+UI["1b"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41)
+UI["1b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["1b"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
+UI["1b"]["LayoutOrder"] = 24
+UI["1b"]["Name"] = [[givetool]]
+UI["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1b"]["Text"] = [[Get F3X]]
+UI["1b"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 
-
--- // StarterGui.Btools.Frame.Frame.BoxButton \\ --
-UI["1c"] = Instance.new("TextButton", UI["4"])
-UI["1c"]["TextWrapped"] = true
-UI["1c"]["BorderSizePixel"] = 0
-UI["1c"]["TextSize"] = 30
+-- // StarterGui.Btools.Frame.Frame.CloneNum \\ --
+UI["1c"] = Instance.new("TextBox", UI["3"])
 UI["1c"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1c"]["BorderSizePixel"] = 0
+UI["1c"]["TextWrapped"] = true
+UI["1c"]["TextSize"] = 30
+UI["1c"]["Name"] = [[CloneNum]]
+UI["1c"]["TextDirection"] = Enum.TextDirection.LeftToRight
 UI["1c"]["TextScaled"] = true
-UI["1c"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["1c"]["BackgroundColor3"] = Color3.fromRGB(57, 57, 57)
 UI["1c"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["1c"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["1c"]["BackgroundTransparency"] = 0.25
-UI["1c"]["Name"] = [[BoxButton]]
+UI["1c"]["PlaceholderText"] = [[Number/Id]]
+UI["1c"]["Size"] = UDim2.new(0, 0, 0.1, 0)
+UI["1c"]["Position"] = UDim2.new(0.67527, 0, 0, 0)
 UI["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["1c"]["Text"] = [[SelectBox]]
-UI["1c"]["Position"] = UDim2.new(0.5378, 0, 0.522, 0)
+UI["1c"]["Text"] = [[]]
+UI["1c"]["LayoutOrder"] = 5
 
--- // StarterGui.Btools.Frame.Frame.BoxButton.UICorner \\ --
+-- // StarterGui.Btools.Frame.Frame.CloneNum.UICorner \\ --
 UI["1d"] = Instance.new("UICorner", UI["1c"])
+UI["1d"]["CornerRadius"] = UDim.new(0, 4)
 
-
--- // StarterGui.Btools.Frame.Frame.SetText \\ --
-UI["1e"] = Instance.new("TextButton", UI["4"])
-UI["1e"]["TextWrapped"] = true
-UI["1e"]["BorderSizePixel"] = 0
-UI["1e"]["TextSize"] = 30
+-- // StarterGui.Btools.Frame.Frame.CloneInstance \\ --
+UI["1e"] = Instance.new("TextBox", UI["3"])
 UI["1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1e"]["PlaceholderColor3"] = Color3.fromRGB(179, 179, 179)
+UI["1e"]["BorderSizePixel"] = 0
+UI["1e"]["TextWrapped"] = true
+UI["1e"]["TextSize"] = 30
+UI["1e"]["Name"] = [[CloneInstance]]
+UI["1e"]["TextDirection"] = Enum.TextDirection.LeftToRight
 UI["1e"]["TextScaled"] = true
-UI["1e"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["1e"]["BackgroundColor3"] = Color3.fromRGB(57, 57, 57)
 UI["1e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["1e"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["1e"]["BackgroundTransparency"] = 0.25
-UI["1e"]["Name"] = [[SetText]]
+UI["1e"]["PlaceholderText"] = [[Instance]]
+UI["1e"]["Size"] = UDim2.new(0, 0, 0.111, 0)
+UI["1e"]["Position"] = UDim2.new(0.13562, 0, 0.17363, 0)
 UI["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["1e"]["Text"] = [[Set Text]]
-UI["1e"]["Position"] = UDim2.new(0.68376, 0, 0.53254, 0)
+UI["1e"]["Text"] = [[]]
+UI["1e"]["LayoutOrder"] = 4
 
--- // StarterGui.Btools.Frame.Frame.SetText.UICorner \\ --
-UI["1f"] = Instance.new("UICorner", UI["1e"])
+-- // StarterGui.Btools.Frame.Frame.parentbox \\ --
+UI["1f"] = Instance.new("TextBox", UI["3"])
+UI["1f"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["1f"]["BorderSizePixel"] = 0
+UI["1f"]["TextWrapped"] = true
+UI["1f"]["TextSize"] = 30
+UI["1f"]["Name"] = [[parentbox]]
+UI["1f"]["TextDirection"] = Enum.TextDirection.LeftToRight
+UI["1f"]["TextScaled"] = true
+UI["1f"]["BackgroundColor3"] = Color3.fromRGB(57, 57, 57)
+UI["1f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["1f"]["PlaceholderText"] = [[Parent/Name]]
+UI["1f"]["Size"] = UDim2.new(0, 0, 0.111, 0)
+UI["1f"]["Position"] = UDim2.new(1.14795, 0, 0.22657, 0)
+UI["1f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["1f"]["Text"] = [[]]
+UI["1f"]["LayoutOrder"] = 6
 
-
--- // StarterGui.Btools.Frame.Frame.delete \\ --
-UI["20"] = Instance.new("TextButton", UI["4"])
-UI["20"]["TextWrapped"] = true
+-- // StarterGui.Btools.Frame.Frame2 \\ --
+UI["20"] = Instance.new("Frame", UI["2"])
+UI["20"]["ZIndex"] = 0
 UI["20"]["BorderSizePixel"] = 0
-UI["20"]["TextSize"] = 30
-UI["20"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["20"]["TextScaled"] = true
-UI["20"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["20"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["20"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["20"]["BackgroundTransparency"] = 0.25
-UI["20"]["Name"] = [[delete]]
+UI["20"]["BackgroundColor3"] = Color3.fromRGB(31, 31, 31)
+UI["20"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
+UI["20"]["Size"] = UDim2.new(0.92, 0, 0.92, 0)
+UI["20"]["Position"] = UDim2.new(0.5, 0, 0.5, 0)
 UI["20"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["20"]["Text"] = [[Delete]]
-UI["20"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+UI["20"]["Name"] = [[Frame2]]
 
--- // StarterGui.Btools.Frame.Frame.delete.UICorner \\ --
+-- // StarterGui.Btools.Frame.Frame2.UICorner \\ --
 UI["21"] = Instance.new("UICorner", UI["20"])
+UI["21"]["CornerRadius"] = UDim.new(0, 4)
+
+-- // StarterGui.Btools.Frame.Frame2.UIStroke \\ --
+UI["22"] = Instance.new("UIStroke", UI["20"])
+UI["22"]["Thickness"] = 2
+UI["22"]["Color"] = Color3.fromRGB(61, 61, 61)
+
+-- // StarterGui.Btools.Frame.UICorner \\ --
+UI["23"] = Instance.new("UICorner", UI["2"])
+UI["23"]["CornerRadius"] = UDim.new(0, 4)
+
+-- // StarterGui.Btools.Frame.UIStroke \\ --
+UI["24"] = Instance.new("UIStroke", UI["2"])
+UI["24"]["Thickness"] = 2
+UI["24"]["Color"] = Color3.fromRGB(61, 61, 61)
+
+-- // StarterGui.Btools.TextButton \\ --
+UI["25"] = Instance.new("TextButton", UI["1"])
+UI["25"]["TextWrapped"] = true
+UI["25"]["BorderSizePixel"] = 0
+UI["25"]["TextSize"] = 14
+UI["25"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["25"]["TextScaled"] = true
+UI["25"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
+UI["25"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["25"]["AnchorPoint"] = Vector2.new(0.5, 0)
+UI["25"]["Size"] = UDim2.new(0.05, 30, 0.05, 30)
+UI["25"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["25"]["Position"] = UDim2.new(0.5, 0, 0.05, 0)
+
+-- // StarterGui.Btools.TextButton.UICorner \\ --
+UI["26"] = Instance.new("UICorner", UI["25"])
 
 
--- // StarterGui.Btools.Frame.Frame.SetName \\ --
-UI["22"] = Instance.new("TextButton", UI["4"])
-UI["22"]["TextWrapped"] = true
-UI["22"]["BorderSizePixel"] = 0
-UI["22"]["TextSize"] = 30
-UI["22"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["22"]["TextScaled"] = true
-UI["22"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["22"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["22"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["22"]["BackgroundTransparency"] = 0.25
-UI["22"]["Name"] = [[SetName]]
-UI["22"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["22"]["Text"] = [[SetName]]
-UI["22"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
-
--- // StarterGui.Btools.Frame.Frame.SetName.UICorner \\ --
-UI["23"] = Instance.new("UICorner", UI["22"])
+-- // StarterGui.Btools.TextButton.UIAspectRatioConstraint \\ --
+UI["27"] = Instance.new("UIAspectRatioConstraint", UI["25"])
 
 
--- // StarterGui.Btools.Frame.Frame.Bring \\ --
-UI["24"] = Instance.new("TextButton", UI["4"])
-UI["24"]["TextWrapped"] = true
-UI["24"]["BorderSizePixel"] = 0
-UI["24"]["TextSize"] = 30
-UI["24"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["24"]["TextScaled"] = true
-UI["24"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["24"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["24"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["24"]["BackgroundTransparency"] = 0.25
-UI["24"]["Name"] = [[Bring]]
-UI["24"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["24"]["Text"] = [[Bring]]
-UI["24"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
-
--- // StarterGui.Btools.Frame.Frame.Bring.UICorner \\ --
-UI["25"] = Instance.new("UICorner", UI["24"])
+-- // StarterGui.Btools.TextButton.UIAspectRatioConstraint \\ --
+UI["28"] = Instance.new("UIAspectRatioConstraint", UI["25"])
 
 
--- // StarterGui.Btools.Frame.Frame.UIStroke \\ --
-UI["26"] = Instance.new("UIStroke", UI["4"])
-UI["26"]["Transparency"] = 0.5
-UI["26"]["Thickness"] = 6.8
-UI["26"]["Color"] = Color3.fromRGB(158, 158, 158)
-
--- // StarterGui.Btools.Frame.Frame.givecurtool \\ --
-UI["27"] = Instance.new("TextButton", UI["4"])
-UI["27"]["TextWrapped"] = true
-UI["27"]["BorderSizePixel"] = 0
-UI["27"]["TextSize"] = 30
-UI["27"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["27"]["TextScaled"] = true
-UI["27"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["27"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["27"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["27"]["BackgroundTransparency"] = 0.25
-UI["27"]["Name"] = [[givecurtool]]
-UI["27"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["27"]["Text"] = [[Give tool]]
-UI["27"]["Position"] = UDim2.new(0.02968, 0, 0.23135, 0)
-
--- // StarterGui.Btools.Frame.Frame.givecurtool.UICorner \\ --
-UI["28"] = Instance.new("UICorner", UI["27"])
-
-
--- // StarterGui.Btools.Frame.Frame.setmesh \\ --
-UI["29"] = Instance.new("TextButton", UI["4"])
+-- // StarterGui.Btools.Drop \\ --
+UI["29"] = Instance.new("TextButton", UI["1"])
 UI["29"]["TextWrapped"] = true
 UI["29"]["BorderSizePixel"] = 0
-UI["29"]["TextSize"] = 30
+UI["29"]["TextSize"] = 14
 UI["29"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
 UI["29"]["TextScaled"] = true
-UI["29"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
+UI["29"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
 UI["29"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["29"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["29"]["BackgroundTransparency"] = 0.25
-UI["29"]["Name"] = [[setmesh]]
+UI["29"]["AnchorPoint"] = Vector2.new(0, 0.5)
+UI["29"]["Size"] = UDim2.new(0.05, 50, 0.05, 50)
+UI["29"]["Name"] = [[Drop]]
 UI["29"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["29"]["Text"] = [[SetMesh]]
-UI["29"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
+UI["29"]["Text"] = [[Drop]]
+UI["29"]["Position"] = UDim2.new(0, 0, 0.5, 0)
 
--- // StarterGui.Btools.Frame.Frame.setmesh.UICorner \\ --
+-- // StarterGui.Btools.Drop.UICorner \\ --
 UI["2a"] = Instance.new("UICorner", UI["29"])
 
 
--- // StarterGui.Btools.Frame.Frame.size \\ --
-UI["2b"] = Instance.new("TextBox", UI["4"])
-UI["2b"]["TextColor3"] = Color3.fromRGB(0, 0, 0)
-UI["2b"]["BorderSizePixel"] = 0
-UI["2b"]["TextWrapped"] = true
-UI["2b"]["TextSize"] = 30
-UI["2b"]["Name"] = [[size]]
-UI["2b"]["TextDirection"] = Enum.TextDirection.LeftToRight
-UI["2b"]["TextScaled"] = true
-UI["2b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255)
-UI["2b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["2b"]["PlaceholderText"] = [[Size/Id2]]
-UI["2b"]["Size"] = UDim2.new(0, 0, 0.111, 0)
-UI["2b"]["Position"] = UDim2.new(1.14795, 0, 0.22657, 0)
-UI["2b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["2b"]["Text"] = [[]]
-UI["2b"]["BackgroundTransparency"] = 0.25
-
--- // StarterGui.Btools.Frame.Frame.size.UICorner \\ --
-UI["2c"] = Instance.new("UICorner", UI["2b"])
+-- // StarterGui.Btools.Drop.UIAspectRatioConstraint \\ --
+UI["2b"] = Instance.new("UIAspectRatioConstraint", UI["29"])
 
 
--- // StarterGui.Btools.Frame.Frame.FindNewPart \\ --
-UI["2d"] = Instance.new("TextButton", UI["4"])
-UI["2d"]["TextWrapped"] = true
-UI["2d"]["BorderSizePixel"] = 0
-UI["2d"]["TextSize"] = 30
-UI["2d"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["2d"]["TextScaled"] = true
-UI["2d"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["2d"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["2d"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["2d"]["BackgroundTransparency"] = 0.25
-UI["2d"]["Name"] = [[FindNewPart]]
-UI["2d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["2d"]["Text"] = [[Find Part]]
-UI["2d"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
-
--- // StarterGui.Btools.Frame.Frame.FindNewPart.UICorner \\ --
-UI["2e"] = Instance.new("UICorner", UI["2d"])
-
-
--- // StarterGui.Btools.Frame.Frame.ResetFind \\ --
-UI["2f"] = Instance.new("TextButton", UI["4"])
-UI["2f"]["TextWrapped"] = true
-UI["2f"]["BorderSizePixel"] = 0
-UI["2f"]["TextSize"] = 30
-UI["2f"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["2f"]["TextScaled"] = true
-UI["2f"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["2f"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["2f"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["2f"]["BackgroundTransparency"] = 0.25
-UI["2f"]["Name"] = [[ResetFind]]
-UI["2f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["2f"]["Text"] = [[Reset Find]]
-UI["2f"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
-
--- // StarterGui.Btools.Frame.Frame.ResetFind.UICorner \\ --
-UI["30"] = Instance.new("UICorner", UI["2f"])
-
-
--- // StarterGui.Btools.Frame.Frame.givetool \\ --
-UI["31"] = Instance.new("TextButton", UI["4"])
-UI["31"]["TextWrapped"] = true
-UI["31"]["BorderSizePixel"] = 0
-UI["31"]["TextSize"] = 30
-UI["31"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["31"]["TextScaled"] = true
-UI["31"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["31"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["31"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["31"]["BackgroundTransparency"] = 0.25
-UI["31"]["Name"] = [[givetool]]
-UI["31"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["31"]["Text"] = [[Get F3X]]
-UI["31"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
-
--- // StarterGui.Btools.Frame.Frame.givetool.UICorner \\ --
-UI["32"] = Instance.new("UICorner", UI["31"])
-
-
--- // StarterGui.Btools.Frame.Frame.unanchor \\ --
-UI["33"] = Instance.new("TextButton", UI["4"])
-UI["33"]["TextWrapped"] = true
-UI["33"]["BorderSizePixel"] = 0
-UI["33"]["TextSize"] = 30
-UI["33"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["33"]["TextScaled"] = true
-UI["33"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["33"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["33"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["33"]["BackgroundTransparency"] = 0.25
-UI["33"]["Name"] = [[unanchor]]
-UI["33"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["33"]["Text"] = [[unanchor]]
-UI["33"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
-
--- // StarterGui.Btools.Frame.Frame.unanchor.UICorner \\ --
-UI["34"] = Instance.new("UICorner", UI["33"])
-
-
--- // StarterGui.Btools.Frame.Frame.Placeholder \\ --
-UI["35"] = Instance.new("TextButton", UI["4"])
-UI["35"]["TextWrapped"] = true
-UI["35"]["BorderSizePixel"] = 0
-UI["35"]["TextSize"] = 30
-UI["35"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["35"]["TextScaled"] = true
-UI["35"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["35"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["35"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["35"]["BackgroundTransparency"] = 0.25
-UI["35"]["Name"] = [[Placeholder]]
-UI["35"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["35"]["Text"] = [[Placeholder]]
-UI["35"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
-
--- // StarterGui.Btools.Frame.Frame.Placeholder.UICorner \\ --
-UI["36"] = Instance.new("UICorner", UI["35"])
-
-
--- // StarterGui.Btools.Frame.Frame.giveA \\ --
-UI["37"] = Instance.new("TextButton", UI["4"])
-UI["37"]["TextWrapped"] = true
-UI["37"]["BorderSizePixel"] = 0
-UI["37"]["TextSize"] = 30
-UI["37"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["37"]["TextScaled"] = true
-UI["37"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["37"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["37"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["37"]["BackgroundTransparency"] = 0.25
-UI["37"]["Name"] = [[giveA]]
-UI["37"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["37"]["Text"] = [[Give accessories]]
-UI["37"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
-
--- // StarterGui.Btools.Frame.Frame.giveA.UICorner \\ --
-UI["38"] = Instance.new("UICorner", UI["37"])
-
-
--- // StarterGui.Btools.Frame.Frame.Placeholder \\ --
-UI["39"] = Instance.new("TextButton", UI["4"])
-UI["39"]["TextWrapped"] = true
-UI["39"]["BorderSizePixel"] = 0
-UI["39"]["TextSize"] = 30
-UI["39"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["39"]["TextScaled"] = true
-UI["39"]["BackgroundColor3"] = Color3.fromRGB(30, 30, 30)
-UI["39"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["39"]["Size"] = UDim2.new(0.2, 0, 0.111, 0)
-UI["39"]["BackgroundTransparency"] = 0.25
-UI["39"]["Name"] = [[Placeholder]]
-UI["39"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["39"]["Text"] = [[Placeholder]]
-UI["39"]["Position"] = UDim2.new(0.02968, 0, 0.23135, 0)
-
--- // StarterGui.Btools.Frame.Frame.Placeholder.UICorner \\ --
-UI["3a"] = Instance.new("UICorner", UI["39"])
-
-
--- // StarterGui.Btools.TextButton \\ --
-UI["3b"] = Instance.new("TextButton", UI["1"])
-UI["3b"]["TextWrapped"] = true
-UI["3b"]["BorderSizePixel"] = 0
-UI["3b"]["TextSize"] = 14
-UI["3b"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
-UI["3b"]["TextScaled"] = true
-UI["3b"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
-UI["3b"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-UI["3b"]["Size"] = UDim2.new(0.10003, 0, 0.12055, 0)
-UI["3b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
-UI["3b"]["Position"] = UDim2.new(-0.00045, 0, 0.36658, 0)
-
--- // StarterGui.Btools.TextButton.UICorner \\ --
-UI["3c"] = Instance.new("UICorner", UI["3b"])
-
+-- // StarterGui.Btools.Drop.UITextSizeConstraint \\ --
+UI["2c"] = Instance.new("UITextSizeConstraint", UI["29"])
+UI["2c"]["MaxTextSize"] = 30
 
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
-local function SCRIPT_8()
-local script = UI["8"]
+local function SCRIPT_5()
+local script = UI["5"]
+	
+	for i, v in script.Parent:GetChildren() do
+		if v:IsA("GuiObject") then
+			Instance.new("UITextSizeConstraint",v).MaxTextSize = 30
+			v.TextScaled = true
+			Instance.new("UICorner",v).CornerRadius = UDim.new(0, 4)
+		end
+	end
+	
 	print("loading script")
 	if not _G.real then
 		wait(3)
@@ -598,12 +561,46 @@ local script = UI["8"]
 		
 	end
 	
+	function name(name1,name2)
+		local name1 = string.lower(name1)
+	
+		local name2 = string.lower(name2)
+		
+		if name1 == name2 then
+			return true
+		end
+		return false
+	end
+	
+	function nameshort(name1,name2)
+		 
+		if name1 == "" then return false end
+		
+		local namelen = string.len(name1)
+		local name1 = string.lower(name1)
+		
+		local name2 = string.lower(name2)
+		local name2 = string.sub(name2,1,namelen)
+	
+		if name1 == name2 then
+			return true
+		end
+		
+		return false
+		
+	end
 	
 	if not _G.real then
-		function chat(text)
-			requestcommand:InvokeServer(text)
+		
+		function send(text)
+			
+			if text then
+				requestcommand:InvokeServer(text)
+			end
+			
 		end
 		randg = require(script.Parent.Parent.Parent.Parent.ModuleScript)
+		coroutine.wrap(send)()
 	end
 	
 	
@@ -638,7 +635,7 @@ local script = UI["8"]
 	local BaseplateBtn = frame.BaseplateBtn
 	local boxbutton = frame.BoxButton
 	local set = frame.SetText
-	local gears = frame.gears
+	local moveall = frame.Move
 	local deletebtn = frame.delete
 	local setname = frame.SetName
 	local bring = frame.Bring
@@ -648,33 +645,37 @@ local script = UI["8"]
 	local gt = frame.givetool
 	local gct = frame.givecurtool
 	local uachr = frame.unanchor
-	local giveA = frame.giveA
+	local uachr2 = frame.unanchor2
+	local achr = frame.anchor
+	local sizeitem = frame.Resize
 	local t1 = {}
 	local t2 = {}
+	local g = script.Parent.Parent
+	local sg = g.Parent
+	local drop = g.Parent.Drop
 	
 	sbox = Instance.new("SelectionBox",script.Parent)
 	sbox.SurfaceTransparency = 0.5
 	sbox.Visible = false
 	sbox.Adornee = nil
-	for i, v in frame:GetChildren() do
-		if v:IsA("GuiObject") then
-			Instance.new("UITextSizeConstraint",v).MaxTextSize = 30
-			v.TextScaled = true
-		end
-	end
+	
 	set.MouseButton1Down:Connect(function()
 		if sbox.Adornee then
 			CloneInstance.Text = tostring(sbox.Adornee)
 		end
 	end)
 	
-	gears.MouseButton1Down:Connect(function()
-		if randg then
-			randg.randomgear(player.Name,10)
-		else
-			randomgear(player.Name,10)
+	moveall.MouseButton1Down:Connect(function()
+	local tablee = {}
+	local add = tonumber(size.Text) or 100
+	for i,v in workspace:GetDescendants() do
+		if v:IsA("BasePart") and not v:IsA("Terrain") and allowed(v) then
+			table.insert(tablee,{["Part"] = v,["CFrame"] = v.CFrame + Vector3.new(0,add,0)})
 		end
+	end
+		MoveParts(tablee)
 	end)
+	
 	boxbutton.MouseButton1Down:Connect(function()
 		sbox.Visible = not sbox.Visible
 	end)
@@ -702,43 +703,53 @@ local script = UI["8"]
 	
 	local UserInputService = game:GetService("UserInputService")
 	
-	local gui = script.Parent.Parent
+	local function drag(gui)
+		
 	
-	local dragging
-	local dragInput
-	local dragStart
-	local startPos
+		local dragging
+		local dragInput
+		local dragStart
+		local startPos
 	
-	local function update(input)
-		local delta = input.Position - dragStart
-		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		local function update(input)
+			local delta = input.Position - dragStart
+			gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		end
+	
+		gui.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+				dragging = true
+				dragStart = input.Position
+				startPos = gui.Position
+	
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragging = false
+					end
+				end)
+			end
+		end)
+	
+		gui.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				dragInput = input
+			end
+		end)
+	
+		UserInputService.InputChanged:Connect(function(input)
+			if input == dragInput and dragging then
+				update(input)
+			end
+		end)
 	end
 	
-	gui.InputBegan:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-			dragging = true
-			dragStart = input.Position
-			startPos = gui.Position
+	if UserInputService.KeyboardEnabled then
+		drop.Visible = false
+	end
 	
-			input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					dragging = false
-				end
-			end)
-		end
-	end)
-	
-	gui.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-			dragInput = input
-		end
-	end)
-	
-	UserInputService.InputChanged:Connect(function(input)
-		if input == dragInput and dragging then
-			update(input)
-		end
-	end)
+	drag(g)
+	drag(g.Parent.TextButton)
+	drag(drop)
 	
 	function SpawnLighting(part)
 		local sb = Instance.new("SelectionBox",part)
@@ -834,6 +845,31 @@ local script = UI["8"]
 	
 	end
 	
+	
+	function allowed(Item)
+		local IsItemClassAllowed = (Item:IsA 'BasePart' and not Item:IsA 'Terrain') or
+			(Item:IsA 'Model' and not Item:IsA 'Workspace') or
+			Item:IsA 'Folder' or
+			Item:IsA 'Smoke' or
+			Item:IsA 'Fire' or
+			Item:IsA 'Sparkles' or
+			Item:IsA 'DataModelMesh' or
+			Item:IsA 'Decal' or
+			Item:IsA 'Texture' or
+			Item:IsA 'Light'
+		if not IsItemClassAllowed then
+			warn("Item",Item.ClassName,"is not allowed")
+			return false
+		end
+		
+		
+		if Item:IsDescendantOf(workspace) then
+			return true
+		end
+	
+		return false
+	
+	end
 	
 	
 	for i,v in player.Backpack:GetDescendants() do
@@ -1248,19 +1284,6 @@ local script = UI["8"]
 		_(args)
 	end
 	
-	function Resize(part,size,cf)
-		local args = {
-			[1] = "SyncResize",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["CFrame"] = cf,
-					["Size"] = size
-				}
-			}
-		}
-		_(args)
-	end
 	
 	
 	
@@ -1376,7 +1399,6 @@ local script = UI["8"]
 			[2] = ...,
 			[3] = workspace:FindFirstChild(parentbox.Text) or workspace
 		}
-		print(args)
 		_(args)
 	end
 	
@@ -1386,6 +1408,17 @@ local script = UI["8"]
 			[1] = "Clone",
 			[2] = ...,
 			[3] = player.Character
+		}
+		print(args)
+		_(args)
+	end
+	
+	function AddClone4(part,parent)
+	
+		local args = {
+			[1] = "Clone",
+			[2] = part,
+			[3] = parent
 		}
 		print(args)
 		_(args)
@@ -1434,25 +1467,24 @@ local script = UI["8"]
 	script.Parent.LockAll.MouseButton1Down:Connect(function()
 		local part = {}
 		for i,v in game.Workspace:GetDescendants() do
-			if v:IsA("BasePart") and not v.Locked then
+			if v:IsA("BasePart") and not v.Locked and allowed(v) then
 				poor = v
 				table.insert(part,v)
 			end
 		end
 		SetLocked2(part)
-		print("Locked "..poor.Name..tostring(poor.Locked))
+		print("Locked "..poor.Name.." "..tostring(part[1].Locked))
 	end)
 	
 	script.Parent.UnlockAll.MouseButton1Down:Connect(function()
 		local part = {}
 		for i,v in game.Workspace:GetDescendants() do
-			if v:IsA("BasePart") and v.Locked then
-				poor = v
+			if v:IsA("BasePart") and v.Locked and allowed(v) then
 				table.insert(part,v)
 			end
 		end
 		SetUnlocked(part)
-		print("Unocked "..poor.Name..tostring(not poor.Locked))
+		print("Unlocked "..poor.Name.." "..tostring(not part[1].Locked))
 	end)
 	
 	local cloneoptiontext = {"Nearest","Multiple","One"}
@@ -1483,27 +1515,41 @@ local script = UI["8"]
 			end
 			print(toilet:GetFullName())
 		else toilet = sbox.Adornee end
-		print("guhid")
+	
 		for i = 1, tonumber(CloneNum.Text) or 1 do
 			table.insert(mods,toilet)
 		end
-		print("lol noob")
-		print(mods)
+	
 		AddClone2(mods)
 	end
-	function Multiple()
+	function Multiples(canmultiply)
 		local part = CloneInstance.Text
 		local mods = {}
+		local many = {}
 		for i,v in workspace:GetDescendants() do
 			if v.Name == CloneInstance.Text then
-				for i = 1, tonumber(CloneNum.Text) or 1 do
+				
+				table.insert(many,v)
+				
+				if canmultiply then
+					for i = 1, tonumber(CloneNum.Text) or 1 do
+						table.insert(mods,v)
+					end
+				else
 					table.insert(mods,v)
 				end
+				
 			end
 		end
-		
+		print(#mods + #many,"yes")
+		return mods
+	end
+	
+	function CloneMultiple()
+		local mods = Multiples(true)
 		AddClone2(mods)
 	end
+	
 	function Nearest(part)
 		local mods = {}
 		local shortestDistance = math.huge
@@ -1516,13 +1562,16 @@ local script = UI["8"]
 				end
 			end
 		end
-		for i = 1, tonumber(CloneNum.Text) do
+		for i = 1, tonumber(CloneNum.Text) or 1 do
 			table.insert(mods,nearestPart)
 		end
 		AddClone2(mods)
 	end
 	script.Parent.CButton.MouseButton1Down:Connect(function()
-		print(cloneoptioncount)
+		local items = getitem(true)
+		AddClone2(items)
+	end)
+	--[[
 		if cloneoptioncount == 0 or  cloneoptioncount == 3 then
 			someone()
 			print("someone")
@@ -1530,12 +1579,10 @@ local script = UI["8"]
 			Nearest()
 			print("nearest")
 		elseif cloneoptioncount == 2 then
-			Multiple()
+			CloneMultiple()
 			print("multiple")
 		end
-	
-	end)
-	
+	]]
 	
 	local be = Instance.new("ObjectValue")
 	local resizepart = nil
@@ -1578,12 +1625,7 @@ local script = UI["8"]
 		baseplate()
 	end)
 	deletebtn.MouseButton1Down:Connect(function()
-		local part = {}
-		for i, v in workspace:GetDescendants() do
-			if v.Name == CloneInstance.Text then
-				table.insert(part,v)
-			end
-		end
+		local part = getitem()
 		DestroyParts(part)
 	end)
 	
@@ -1601,9 +1643,10 @@ local script = UI["8"]
 	
 	function MoveParts(...)
 		local args = {
-			"SyncMove",
-			...
+			[1] = "SyncMove",
+			[2] = ...
 		}
+		
 		_(args)
 	end
 	
@@ -1928,6 +1971,17 @@ local script = UI["8"]
 		return plr
 	end
 	
+	function getcmd(sender,split,cmd,num)
+		if not num then num = 1 end
+		local pos = table.find(split,cmd)
+		local cmd = split[pos]
+		local num = tonumber(num)
+		local tablee = {}
+		for i = 1, num do
+			table.insert(tablee,split[pos + 1 + i])
+		end
+		return unpack(tablee)
+	end
 	
 	no = "no"
 	playernames = {}
@@ -2134,8 +2188,7 @@ local script = UI["8"]
 		local split = string.split(message," ")
 		Quote(sender,message)
 		warn("["..tostring(sender).."]:"..message)
-		local send = tostring(sender)
-	
+		
 	
 		if string.find(message,pf) then
 			for i, v in tools do
@@ -2153,29 +2206,53 @@ local script = UI["8"]
 			toolscmd(split)
 		end
 		if message == "@random" then
-			randomgear(tostring(sender),3)
+		randomgear(tostring(sender),3)
+		
 		elseif message == "noob" then
-			CloneNum.Text = 137060070098844
-			size.Text = 135057085734770
+		CloneNum.Text = 137060070098844
+		size.Text = 135057085734770
+		
 		elseif message == "spongebob"then
-			CloneNum.Text = 5730254628
-			size.Text = 5730254691
+		CloneNum.Text = 5730254628
+		size.Text = 5730254691
+		
 		elseif message == pf.."spongebob all"then
-			spongeboball()
+		spongeboball()
+		
 		elseif message == pf.."patrick all" then
-			patrickall()
+		patrickall()
+		
 		elseif message == pf.."squidward all" then
-			squidwardall()
+		squidwardall()
+		
 		elseif message == ";cmdbar3" then
-			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = true
+		script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = true
+		
 		elseif message == ";uncmdbar3" then
-			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = false
+		script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = false
+		
 		elseif message == "no pad" then
-			lavagiver()
+		lavagiver()
+		
 		elseif message == pf.."border" then
-			spawnborder()
+		spawnborder()
+		
 		elseif message == pf.."unborder" then
-			DestroyPart(workspace.Terrain:FindFirstChild(mainfolder.Name))
+		DestroyPart(workspace.Terrain:FindFirstChild(mainfolder.Name))
+		
+		elseif table.find(split,";size") then
+		local cmd = ";size"
+		local plr = getplr(sender,split,cmd)
+		local size = getcmd(sender,split,cmd)
+		if not workspace[tostring(sender)]:FindFirstChild("UpperTorso") then
+			send(";r15 "..plr.." ;size "..plr.." "..size)
+		else
+			send(";size "..plr.." "..size)
+		end
+		elseif message == "drop" then
+		drop.Visible = true
+		
+		
 		end
 	
 	
@@ -2359,40 +2436,211 @@ local script = UI["8"]
 		end
 	end
 	print("finished")
-	function unanchor ()
+	function anchor1 (bool)
 		local tablee = {}
+		local nb = not bool
+	
 		if string.lower(CloneInstance.Text) == "workspace" then
 			for i, v in workspace:GetDescendants() do
-				if v:IsA("BasePart") and v.Anchored == true then
-					table.insert(tablee,{["Part"] = v,["Anchored"] = false})
+				if v:IsA("BasePart") and v.Anchored == nb and allowed(v) then
+					table.insert(tablee,{["Part"] = v,["Anchored"] = bool})
 				end
 			end
-			SetAnchors(tablee)
 		else
 			for i,b in workspace:GetDescendants() do
 				if string.lower(b.Name) == string.lower(CloneInstance.Text) then
-					if b:IsA("BasePart") and b.Anchored then table.insert(tablee,{["Part"] = b,["Anchored"] = false}) end
+					if b:IsA("BasePart") and b.Anchored == nb and allowed(b) then table.insert(tablee,{["Part"] = b,["Anchored"] = bool}) end
 					for i, v in b:GetDescendants() do
-						if v:IsA("BasePart") and v.Anchored == true then
-							table.insert(tablee,{["Part"] = v,["Anchored"] = false})
+						if v:IsA("BasePart") and v.Anchored == nb then
+							table.insert(tablee,{["Part"] = v,["Anchored"] = bool})
 						end
 					end
 					
 				end
 			end
-			SetAnchors(tablee)
 		end
+	
 		
+		
+		return tablee
 	end
+	
+	function unanchor ()
+		SetAnchors(anchor1(false))
+	end
+	
 	
 	function SetAnchors(...)
 		local args = {
 			[1] = "SyncAnchor",
 			[2] = ...
 		}
+		print(args)
 		_(args)
 	end
+	
+	uachr2.MouseButton1Down:Connect(function()
+		local tablee = anchor1(false)
+		for i, v in tablee do
+			v.Part:Destroy()
+		end
+		SetAnchors(tablee)
+	end)
+	
+	achr.MouseButton1Down:Connect(function()
+		SetAnchors(anchor1(true))
+	end)
+	
+	function resizeitem(item)
+		type(item)
+	end
+	
+	function getitem(canmultiply)
+		
+		local item = {}
+		
+	if cloneoptioncount == 0 or cloneoptioncount == 3 then
+			
+			
+			
+			local toilet
+			
+			if string.len(CloneInstance.Text) >= 2 then
+				toilet = workspace:FindFirstChild(CloneInstance.Text)
+				if not toilet then
+					for i,v in workspace:GetDescendants() do
+						if v.Name == CloneInstance.Text then
+							toilet = v
+							print(toilet)
+							break
+						end
+					end
+				end
+			else toilet = sbox.Adornee end
+			
+			if canmultiply then
+				
+				for i = 1, tonumber(CloneNum.Text) or 1 do
+					table.insert(item,toilet)
+				end
+				
+			else
+				item = {toilet}
+			end
+			
+			
+			
+	elseif cloneoptioncount == 1 then
+			
+			
+			
+			local shortestDistance = math.huge
+			for _, part in pairs(workspace:GetDescendants()) do
+				if part:IsA("BasePart") and nameshort(CloneInstance.Text,part.Name) then  -- Check if it's a part (BasePart includes all physical parts)
+					local distance = (part.Position - char.HumanoidRootPart.Position).Magnitude -- Calculate the distance
+					if distance < shortestDistance then
+						shortestDistance = distance
+						nearestPart = part
+					end
+				end
+			end
+			
+			if canmultiply then
+				for i = 1, tonumber(CloneNum.Text) or 1 do
+					table.insert(item,nearestPart)
+				end
+			else
+				item = {nearestPart}
+			end
+			print(nearestPart)
+			
+	elseif cloneoptioncount == 2 then
+			
+			
+			
+			local part = CloneInstance.Text
+			local many = {}
+			
+			for i,v in workspace:GetDescendants() do
+				if v.Name == CloneInstance.Text then
+	
+					table.insert(many,v)
+	
+					if canmultiply then
+						for i = 1, tonumber(CloneNum.Text) or 1 do
+							table.insert(item,v)
+						end
+					else
+						table.insert(item,v)
+					end
+	
+				end
+			end
+			print(#item + #many,"yes")
+			
+			
+			
+	end
+		
+		for i, v in item do
+			if not allowed(v) then
+				table.remove(item,v)
+				warn(v,"is not allowed")
+			end
+		end
+		
+		return item
+		
+	end
+	
+	function Resize2(item)
+		local args = {
+			[1] = "SyncResize",
+			[2] = item
+			}
+		_(args)
+	end
+	
+	function MeshResize2(...)
+		local args = {
+			[1] = "SyncMesh",
+			[2] = ...,
+		}
+		_(args)
+	end
+	
+	sizeitem.MouseButton1Down:Connect(function()
+		local size = tonumber(size.Text) or 1
+		local item = getitem()
+		local tablee = {}
+		local table2 = {}
+		
+		for i, v in item do
+		if v:IsA("Tool") then v = v:FindFirstChild("Handle") end
+		table.insert(tablee,{["Part"] = v,["CFrame"] = v.CFrame,["Size"] = v.Size * size})
+		
+		local mesh = v:FindFirstChildOfClass("SpecialMesh")
+		print(mesh.Scale)
+		print(mesh.Scale * size)
+		if mesh then
+			table.insert(table2,{["Part"] = v,["Scale"] = mesh.Scale * size})
+		end
+		
+		end
+		
+		Resize2(tablee)
+		MeshResize2(table2)
+	end)
+	
+	drop.MouseButton1Down:Connect(function()
+		local hold = player.Character:FindFirstChildOfClass("Tool")
+		if hold then
+			hold.Parent = workspace
+		end
+	end)
+	
+	
 end
-task.spawn(SCRIPT_8)
+task.spawn(SCRIPT_5)
 
 return UI["1"], require;
