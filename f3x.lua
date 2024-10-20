@@ -2930,7 +2930,7 @@ Typesfolder = workspace.Terrain
 		
 		for i, v in partTypes2 do
 			if not v then
-				CreatePart2(CFrame.new(1000,1000,1000),i,Typesfolder)
+				CreatePart2(CFrame.new(1000,-1000,1000),i,Typesfolder)
 			end
 		end
 	
@@ -2951,7 +2951,7 @@ Typesfolder = workspace.Terrain
 	end
 	print("end2")
 	
-	createpart3("Spawn",10,workspace.Baseplate)
+
 end
 task.spawn(SCRIPT_1f)
 
