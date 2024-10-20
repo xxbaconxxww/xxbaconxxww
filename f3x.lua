@@ -2827,8 +2827,10 @@ local script = UI["1f"]
 	end
 	
 	--
-	
-while not tool do wait(1) print(2) end
+wait(6)	
+while not tool or tool.Parent do wait(1) print(tool) 
+if tool or tool.Parent then break end
+end
 	print("toe")
 	
 	
@@ -2917,6 +2919,9 @@ end
 	end
 	print("end")
 	while somethingisfalse do
+while not tool or tool.Parent do wait(1) print(tool) 
+if tool or tool.Parent then break end
+end
 		--[[
 		partTypes2 = {
 		["Normal"] = false,
@@ -2930,7 +2935,6 @@ end
 		["Spawn"] = false
 		}
 		]]
-		while not tool do wait(1) print(3) end
 		
 		for i, v in partTypes2 do
 			if not v then
