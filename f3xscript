@@ -113,6 +113,7 @@ local t2 = {}
 local g = script.Parent.Parent
 local sg = g.Parent
 local drop = g.Parent.Drop
+somethingisfalse = true
 
 sbox = Instance.new("SelectionBox",script.Parent)
 sbox.SurfaceTransparency = 0.5
@@ -2136,6 +2137,8 @@ end
 
 function item(item,bring)
 	
+	if somethingisfalse then return end
+	
 	local parts = {}
 	local killbricks = {}
 		
@@ -2357,20 +2360,52 @@ Typesfolder.ChildAdded:Connect(function(part)
 	partTypes2[typee] = part
 end)
 
+function AddClone4(part,parent)
 
-for i, v in partTypes2 do
-	if not v then
-		CreatePart2(CFrame.new(1000,1000,1000),i,Typesfolder)
-	end
+	local args = {
+		[1] = "Clone",
+		[2] = part,
+		[3] = parent
+	}
+	print(args)
+	_(args)
 end
 
-wait(4)
-for i, v in partTypes2 do
-	if not v then
-		warn(i,"is",v)
-		somethingisfalse = true
+function createpart3(part,number,parent)
+	if somethingisfalse then return end
+	local args = {}
+	
+	for i = 1, number do
+		table.insert(args,part)
 	end
+	
+	AddClone4(args,parent)
 end
-if not somethingisfalse then
-	print("Parts",partTypes2)
+print("end")
+while somethingisfalse do
+	
+	repeat wait(1) until tool
+	
+	for i, v in partTypes2 do
+		if not v then
+			CreatePart2(CFrame.new(1000,1000,1000),i,Typesfolder)
+		end
+	end
+
+	wait(4)
+	for i, v in partTypes2 do
+		if not v then
+			warn(i,"is",v)
+			somethingisfalse = true
+		else
+			somethingisfalse = false
+		end
+	end
+	
+	if not somethingisfalse then
+		print("Parts",partTypes2)
+	end
+	
 end
+print("end2")
+
