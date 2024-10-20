@@ -2887,9 +2887,13 @@ local script = UI["1f"]
 	specialMesh.TextureId = meshPart.TextureID -- Copy texture ID if needed
 	specialMesh.Scale = meshPart.Size -- Adjust scale if necessary
 	]]
+Typesfolder = false
 print("lol")
+repeat
 	CreateFolder(workspace.Terrain)
-	Typesfolder = be.Changed:Wait()
+Typesfolder =workspace.Terrain:FindFirstChild("Folder")
+wait(0.1)
+until Typesfolder
 	print("noob")
 	
 	
