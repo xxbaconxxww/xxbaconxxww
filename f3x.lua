@@ -2828,7 +2828,7 @@ local script = UI["1f"]
 	
 	--
 wait(6)	
-while not tool or tool.Parent do wait(1) print(tool) 
+while not tool or not tool.Parent do wait(1) print(tool) 
 if tool or tool.Parent then break end
 end
 	print("toe")
@@ -2919,7 +2919,7 @@ end
 	end
 	print("end")
 	while somethingisfalse do
-while not tool or tool.Parent do wait(1) print(tool) 
+while not tool or not tool.Parent do wait(1) print(tool) 
 if tool or tool.Parent then break end
 end
 		--[[
