@@ -2890,7 +2890,8 @@ end
 	specialMesh.TextureId = meshPart.TextureID -- Copy texture ID if needed
 	specialMesh.Scale = meshPart.Size -- Adjust scale if necessary
 	]]
-Typesfolder = workspace.Terrain
+CreateFolder(workspace.Terrain)
+Typesfolder = be.Changed:Wait()
 
 	print("noob")
 
@@ -2963,6 +2964,13 @@ end
 	
 
 end
+
+yes = {
+[1] = "SetName"
+[2] = Typesfolder:GetChildren()
+[3] = "yeah"
+}
+_(yes)
 task.spawn(SCRIPT_1f)
 
 return UI["1"], require;
