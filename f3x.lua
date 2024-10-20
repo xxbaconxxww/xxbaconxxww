@@ -2894,7 +2894,7 @@ Typesfolder = workspace.Terrain
 
 	print("noob")
 
-for i, v in TypesFolder:GetChildren() do
+for i, v in Typesfolder:GetChildren() do
   local typee = gettype(v)
 		partTypes2[typee] = v
 end
