@@ -2829,6 +2829,7 @@ local script = UI["1f"]
 	--
 wait(6)	
 while not tool or not tool.Parent do wait(1) print(tool) 
+                        tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
 if tool and tool.Parent then break end
 end
 	print("toe")
@@ -2920,6 +2921,7 @@ end
 	print("end")
 	while somethingisfalse do
 while not tool or not tool.Parent do wait(1) print(tool) 
+                        tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
 if tool and tool.Parent then break end
 end
 		--[[
