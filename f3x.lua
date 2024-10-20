@@ -2828,7 +2828,7 @@ local script = UI["1f"]
 	
 	--
 	
-	repeat wait(1) print(1) until tool
+while not tool do wait(1) print(2) end
 	print("toe")
 	
 	
