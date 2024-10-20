@@ -63,7 +63,17 @@ if not _G.real then
 	coroutine.wrap(send)()
 end
 
-
+partTypes2 = {
+	["Normal"] = false,
+	["Truss"] = false,
+	["Wedge"] = false,
+	["Corner"] = false,
+	["Cylinder"] = false,
+	["Ball"] = false,
+	["Seat"] = false,
+	["Vehicle Seat"] = false,
+	["Spawn"] = false
+}
 
 chatt = game.Players.LocalPlayer.PlayerScripts:FindFirstChild("ChatScript")
 if chatt then
@@ -2188,10 +2198,7 @@ function item(item,bring)
 	
 	
 	-- Spawn the Parts
-	for i, v in ipairs(parts) do
-		print(v.typee)
-		CreatePart2(CFrame.new(0,0,0),v.typee,group)
-	end
+	createpart3("Normal",#parts,group)
 
 	
 	local name = {"SetName"}
@@ -2343,17 +2350,7 @@ specialMesh.Scale = meshPart.Size -- Adjust scale if necessary
 CreateFolder(workspace.Terrain)
 Typesfolder = be.Changed:Wait()
 
-partTypes2 = {
-	["Normal"] = false,
-	["Truss"] = false,
-	["Wedge"] = false,
-	["Corner"] = false,
-	["Cylinder"] = false,
-	["Ball"] = false,
-	["Seat"] = false,
-	["Vehicle Seat"] = false,
-	["Spawn"] = false
-}
+
 
 Typesfolder.ChildAdded:Connect(function(part)
 	local typee = gettype(part)
@@ -2371,19 +2368,33 @@ function AddClone4(part,parent)
 	_(args)
 end
 
-function createpart3(part,number,parent)
+function createpart3(parttype,number,parent)
+	local parttypes = partTypes2[parttype]
+	print(parttypes)
 	if somethingisfalse then return end
 	local args = {}
 	
 	for i = 1, number do
-		table.insert(args,part)
+		table.insert(args,parttypes)
 	end
 	
 	AddClone4(args,parent)
 end
 print("end")
 while somethingisfalse do
-	
+	--[[
+	partTypes2 = {
+	["Normal"] = false,
+	["Truss"] = false,
+	["Wedge"] = false,
+	["Corner"] = false,
+	["Cylinder"] = false,
+	["Ball"] = false,
+	["Seat"] = false,
+	["Vehicle Seat"] = false,
+	["Spawn"] = false
+	}
+	]]
 	repeat wait(1) until tool
 	
 	for i, v in partTypes2 do
@@ -2409,3 +2420,4 @@ while somethingisfalse do
 end
 print("end2")
 
+createpart3("Spawn",10,workspace.Baseplate)
