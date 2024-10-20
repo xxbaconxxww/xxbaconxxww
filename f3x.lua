@@ -538,7 +538,980 @@ UI["2c"]["MaxTextSize"] = 30
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 local function SCRIPT_1f()
 local script = UI["1f"]
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/refs/heads/main/f3xscript"))()
+	for i, v in script.Parent:GetChildren() do
+	if v:IsA("GuiObject") then
+		Instance.new("UITextSizeConstraint",v).MaxTextSize = 30
+		v.TextScaled = true
+		Instance.new("UICorner",v).CornerRadius = UDim.new(0, 4)
+	end
+end
+
+print("loading script")
+if not _G.real then
+	wait(3)
+end
+randg = nil
+local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
+local requestcommand
+if hdadminclient then
+	
+	requestcommand = hdadminclient.Signals.RequestCommand
+	
+	
+end
+
+function name(name1,name2)
+	local name1 = string.lower(name1)
+
+	local name2 = string.lower(name2)
+	
+	if name1 == name2 then
+		return true
+	end
+	return false
+end
+
+function nameshort(name1,name2)
+	 
+	if name1 == "" then return false end
+	
+	local namelen = string.len(name1)
+	local name1 = string.lower(name1)
+	
+	local name2 = string.lower(name2)
+	local name2 = string.sub(name2,1,namelen)
+
+	if name1 == name2 then
+		return true
+	end
+	
+	return false
+	
+end
+
+if not _G.real then
+	
+	function send(text)
+		
+		if text then
+			requestcommand:InvokeServer(text)
+		end
+		
+	end
+	randg = require(script.Parent.Parent.Parent.Parent.ModuleScript)
+	coroutine.wrap(send)()
+end
+
+partTypes2 = {
+	["Normal"] = false,
+	["Truss"] = false,
+	["Wedge"] = false,
+	["Corner"] = false,
+	["Cylinder"] = false,
+	["Ball"] = false,
+	["Seat"] = false,
+	["Vehicle Seat"] = false,
+	["Spawn"] = false
+}
+
+chatt = game.Players.LocalPlayer.PlayerScripts:FindFirstChild("ChatScript")
+if chatt then
+	Chat = require(game.Players.LocalPlayer.PlayerScripts.ChatScript.ChatMain).MessagePosted
+end
+script.Parent.Parent.Parent.TextButton.MouseButton1Down:Connect(function()
+	script.Parent.Parent.Visible = not script.Parent.Parent.Visible
+end)
+
+local TextBox = script.Parent.CloneNum
+TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+	TextBox.Text = TextBox.Text:gsub('%D+', '');
+end)
+local size = script.Parent.size
+local adminpads = true
+local frame = script.Parent
+local toilet
+local parentbox = frame.parentbox
+local CloneNum = frame.CloneNum
+local CloneInstance = frame.CloneInstance
+local CloneOption = frame.CloneOption
+local TextButton2 = frame.FindTool
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local char = player.Character
+local u = game:GetService("UserInputService")
+local tool
+local btool
+local BaseplateBtn = frame.BaseplateBtn
+local boxbutton = frame.BoxButton
+local set = frame.SetText
+local moveall = frame.Move
+local deletebtn = frame.delete
+local setname = frame.SetName
+local bring = frame.Bring
+local setmesh = frame.setmesh
+local fpart = frame.FindNewPart
+local reset = frame.ResetFind
+local gt = frame.givetool
+local gct = frame.givecurtool
+local uachr = frame.unanchor
+local uachr2 = frame.unanchor2
+local achr = frame.anchor
+local sizeitem = frame.Resize
+local t1 = {}
+local t2 = {}
+local g = script.Parent.Parent
+local sg = g.Parent
+local drop = g.Parent.Drop
+somethingisfalse = true
+
+sbox = Instance.new("SelectionBox",script.Parent)
+sbox.SurfaceTransparency = 0.5
+sbox.Visible = false
+sbox.Adornee = nil
+
+set.MouseButton1Down:Connect(function()
+	if sbox.Adornee then
+		CloneInstance.Text = tostring(sbox.Adornee)
+	end
+end)
+
+moveall.MouseButton1Down:Connect(function()
+local tablee = {}
+local add = tonumber(size.Text) or 100
+for i,v in workspace:GetDescendants() do
+	if v:IsA("BasePart") and not v:IsA("Terrain") and allowed(v) then
+		table.insert(tablee,{["Part"] = v,["CFrame"] = v.CFrame + Vector3.new(0,add,0)})
+	end
+end
+	MoveParts(tablee)
+end)
+
+boxbutton.MouseButton1Down:Connect(function()
+	sbox.Visible = not sbox.Visible
+end)
+
+-- Function to find the last ancestor of class "Tool" or "Model"
+function findmodel(instance)
+	local part = instance
+	while true do
+		
+		local instance = part:FindFirstAncestorOfClass("Tool") or part:FindFirstAncestorOfClass("Model")
+		if instance and not part:IsA("Tool") then
+			part = instance
+		else
+			return part
+		end
+		
+	end
+end
+
+mouse.Button1Down:Connect(function()
+	if not sbox.Visible then return end
+	local part = findmodel(mouse.Target)
+	sbox.Adornee = part
+end)
+
+local UserInputService = game:GetService("UserInputService")
+
+local function drag(gui)
+	
+
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+
+	local function update(input)
+		local delta = input.Position - dragStart
+		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	end
+
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+
+if UserInputService.KeyboardEnabled then
+	drop.Visible = false
+end
+
+drag(g)
+drag(g.Parent.TextButton)
+drag(drop)
+
+function SpawnLighting(part)
+	local sb = Instance.new("SelectionBox",part)
+	sb.Adornee = part
+	sb.LineThickness = 0.01
+	sb.Color3 = Color3.new(0,1,2)
+	sb.SurfaceColor3 = Color3.new(0, 0.588235, 1)
+	sb.SurfaceTransparency = 0.5
+	local particles = {}
+	local function set(property,...)
+		for i,v in particles do
+			v[property] = ...
+		end
+	end
+	local a = Instance.new("Attachment",part)
+	local l1,l2,l3,l4 = 
+		Instance.new("ParticleEmitter",a),
+	Instance.new("ParticleEmitter",a),
+	Instance.new("ParticleEmitter",a),
+	Instance.new("ParticleEmitter",a)
+	l1.Name = "Lighting1"
+	l2.Name = "Lighting2"
+	l3.Name = "Lighting3"
+	l4.Name = "Lighting4"
+	particles = {l1,l2,l3,l4}
+	l1.Texture = 'rbxassetid://16951505034'
+	l2.Texture = 'rbxassetid://16951501423'
+	l3.Texture = 'rbxassetid://16676262776'
+	l4.Texture = 'rbxassetid://16676250078'
+	set("Brightness",5)
+	set("Color",ColorSequence.new(Color3.fromRGB(0,132,255)))
+	set("LightEmission",1)
+	set("LightInfluence",0)
+	set("Size",NumberSequence.new(2,2))
+	set("Squash",NumberSequence.new(0, -0.2, 0, 1, -0.2, 0 ))
+	set("Transparency",NumberSequence.new({
+		NumberSequenceKeypoint.new(0, 1),     -- Time: 0, Value: 1 (Fully transparent)
+		NumberSequenceKeypoint.new(0.25, 0),  -- Time: 0.25, Value: 0 (Fully opaque)
+		NumberSequenceKeypoint.new(1, 0),   -- Time: 0.5, Value: 0 (Fully opaque)
+		NumberSequenceKeypoint.new(1, 1)      -- Time: 1, Value: 1 (Fully transparent)
+	}))
+	l1.Lifetime = NumberRange.new(0.20000000298023224, 0.20000000298023224)
+	l2.Lifetime = NumberRange.new(0.20000000298023224, 0.20000000298023224)
+	l3.Lifetime = NumberRange.new(0.30000001192092896, 0.30000001192092896)
+	l4.Lifetime = NumberRange.new(0.30000001192092896, 0.30000001192092896)
+	set("Rotation",NumberRange.new(-360, 360))
+	set("Speed",NumberRange.new(0, 0))
+	set("SpreadAngle",Vector2.new(-360, 360))
+	l1.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid2x2
+	l2.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid2x2
+	l3.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+	l4.FlipbookLayout = Enum.ParticleFlipbookLayout.Grid4x4
+	set("Acceleration",Vector3.new(0,0,0))
+end
+
+function findf3x()
+	if not tool or not tool.Parent or tool.Parent == workspace then
+		for i,v in player.Backpack:GetDescendants() do
+			if v.Name == "SyncAPI" then
+				tool = v.Parent
+				SpawnLighting(tool.Handle)
+				return
+			end
+		end
+		for i,v in game.ReplicatedStorage:GetDescendants() do
+			if v.Name == "SyncAPI" then
+				tool = v.Parent
+				SpawnLighting(tool.Handle)
+				return
+			end
+		end
+		for i,v in char:GetDescendants() do
+			if v.Name == "SyncAPI" then
+				tool = v.Parent
+				SpawnLighting(tool.Handle)
+				return
+			end
+		end
+	end
+end
+
+function _(args)
+
+	if not tool or not tool.Parent or tool.Parent == workspace then
+		requestcommand:InvokeServer(";btools")
+		task.wait(3)
+		tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
+		SpawnLighting(tool.Handle)
+	end
+
+	remote = tool.SyncAPI.ServerEndpoint
+	remote:InvokeServer(unpack(args))
+
+end
+
+
+function allowed(Item)
+	local IsItemClassAllowed = (Item:IsA 'BasePart' and not Item:IsA 'Terrain') or
+		(Item:IsA 'Model' and not Item:IsA 'Workspace') or
+		Item:IsA 'Folder' or
+		Item:IsA 'Smoke' or
+		Item:IsA 'Fire' or
+		Item:IsA 'Sparkles' or
+		Item:IsA 'DataModelMesh' or
+		Item:IsA 'Decal' or
+		Item:IsA 'Texture' or
+		Item:IsA 'Light'
+	if not IsItemClassAllowed then
+		warn("Item",Item.ClassName,"is not allowed")
+		return false
+	end
+	
+	
+	if Item:IsDescendantOf(workspace) then
+		return true
+	end
+
+	return false
+
+end
+
+
+for i,v in player.Backpack:GetDescendants() do
+	if v.Name == "SyncAPI" then
+		tool = v.Parent
+		SpawnLighting(tool.Handle)
+	end
+end
+for i,v in game.ReplicatedStorage:GetDescendants() do
+	if v.Name == "SyncAPI" then
+		tool = v.Parent
+		SpawnLighting(tool.Handle)
+	end
+end
+for i,v in char:GetDescendants() do
+	if v.Name == "SyncAPI" then
+		tool = v.Parent
+		SpawnLighting(tool.Handle)
+	end
+end
+
+
+TextButton2.MouseButton1Down:Connect(function()
+	findf3x()
+end)
+
+
+
+
+
+
+
+local timealive = 0
+local timeneeded = 5
+
+coroutine.resume(coroutine.create(function()
+	while wait(1) do
+		timealive += 1
+		if timealive == 3 then
+			hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
+			wait(5)
+			tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
+			if tool then
+				SpawnLighting(tool.Handle)
+			end
+		end
+		--[[
+		if timealive % 5 == 0 then
+			if #player.Backpack:GetChildren() == 0 then
+				hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
+				wait(5)
+				findf3x()
+			end
+		end
+		--]]
+	end
+end))
+
+		--[[
+			if not tool or not tool.Parent then
+				hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
+				wait(4)
+				btool = player.Backpack.ChildAdded:ConnectParallel()
+				btool = btool:FindFirstChild("SyncAPI")
+				if btool then
+					tool = btool.Parent
+					SpawnLighting(tool.Handle)
+				end
+			end
+		
+		]]
+
+player.CharacterAdded:Connect(function()
+
+	timealive = 0
+
+end)
+
+
+
+
+
+
+
+function SetCollision(part,boolean)
+	local args = {
+		[1] = "SyncCollision",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["CanCollide"] = boolean
+			}
+		}
+	}
+	_(args)
+end
+
+function SetAnchor(boolean,part)
+	local args = {
+		[1] = "SyncAnchor",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Anchored"] = boolean
+			}
+		}
+	}
+	_(args)
+end
+
+function AddClone(part,parent)
+	local args = {
+		[1] = "Clone",
+		[2] = {
+			["Part"] = part
+		},
+		[3] = parent
+	}
+	_(args)
+end
+
+function CreatePart(cf,parent)
+	local args = {
+		[1] = "CreatePart",
+		[2] = "Normal",
+		[3] = cf,
+		[4] = parent
+	}
+	_(args)
+end
+function DestroyPart(part)
+	local args = {
+		[1] = "Remove",
+		[2] = {
+			[1] = part
+		}
+	}
+	_(args)
+end
+function DestroyParts(part)
+	local args = {
+		[1] = "Remove",
+		[2] = part
+	}
+	_(args)
+end
+function MovePart(part,cf)
+	local args = {
+		[1] = "SyncMove",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["CFrame"] = cf
+			}
+		}
+	}
+	_(args)
+end
+function Resize(part,size,cf)
+	local args = {
+		[1] = "SyncResize",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["CFrame"] = cf,
+				["Size"] = size
+			}
+		}
+	}
+	_(args)
+end
+function AddMesh(part)
+	local args = {
+		[1] = "CreateMeshes",
+		[2] = {
+			[1] = {
+				["Part"] = part
+			}
+		}
+	}
+	_(args)
+end
+
+function SetMesh(part,meshid)
+	local args = {
+		[1] = "SyncMesh",
+		[2] = {
+			["Part"] = part,
+			["MeshId"] = "rbxassetid://"..meshid
+		}
+	}
+	_(args)
+end
+function SetName(part, stringg)
+	local args = {
+		[1] = "SetName",
+		[2] = part,
+		[3] = stringg
+	}
+
+	_(args)
+end
+function SetName2(part, stringg)
+	local args = {
+		[1] = "SetName",
+		[2] = {part},
+		[3] = stringg
+	}
+
+	_(args)
+end
+function MeshResize(part,size)
+	local args = {
+		[1] = "SyncMesh",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Scale"] = size
+			}
+		}
+	}
+	_(args)
+end
+function Weld(part1, part2,lead)
+	local args = {
+		[1] = "CreateWelds",
+		[2] = {
+			[1] = part1,
+			[2] = part2
+		},
+		[3] = lead
+	}
+	_(args)
+
+end
+function SetLocked(part,boolean)
+	local args = {
+		[1] = "SetLocked",
+		[2] = {
+			[1] = part
+		},
+		[3] = boolean
+	}
+	_(args)
+end
+function SetTrans(part,int)
+	local args = {
+		[1] = "SyncMaterial",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Transparency"] = int
+			}
+		}
+	}
+	_(args)
+end
+function CreateSpotlight(part)
+	local args = {
+		[1] = "CreateLights",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["LightType"] = "SpotLight"
+			}
+		}
+	}
+	_(args)
+end
+function SyncLighting(part,brightness)
+	local args = {
+		[1] = "SyncLighting",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["LightType"] = "SpotLight",
+				["Brightness"] = brightness
+			}
+		}
+	}
+	_(args)
+end
+function Color(part,color)
+	local args = {
+		[1] = "SyncColor",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Color"] = color --[[Color3]],
+				["UnionColoring"] = false
+			}
+		}
+	}
+	_(args)
+end
+function SyncTexture(part,asset,side,trans,sptu,sptv)
+	local args = {
+		[1] = "SyncTexture",
+		[2] = {
+			[1] = {
+				["Face"] = Enum.NormalId[side],
+				["Part"] = part,
+				["StudsPerTileV"] = sptv,
+				["StudsPerTileU"] = sptu,
+				["Texture"] = "rbxassetid://".. asset,
+				["TextureType"] = "Texture",
+				["Transparency"] = trans
+			}
+		}
+	}
+	_(args)
+end
+function SyncTexture2(part,asset,side,trans,sptu,sptv)
+	local args = {
+		[1] = "SyncTexture",
+		[2] = {
+			[1] = {
+				["Face"] = Enum.NormalId[side],
+				["Part"] = part,
+				["StudsPerTileV"] = sptv,
+				["StudsPerTileU"] = sptu,
+				["Texture"] = "rbxassetid://".. asset,
+				["TextureType"] = "Texture",
+				["Transparency"] = trans
+			}
+		}
+	}
+	t2 = args
+end
+
+				--[[
+				function Sky(id)
+					e = char.HumanoidRootPart.CFrame.x
+					f = char.HumanoidRootPart.CFrame.y
+					g = char.HumanoidRootPart.CFrame.z
+					CreatePart(CFrame.new(math.floor(e),math.floor(f),math.floor(g)) + Vector3.new(0,6,0),workspace)
+					for i,v in game.Workspace:GetDescendants() do
+						if v:IsA("BasePart") and v.CFrame.x == math.floor(e) and v.CFrame.z == math.floor(g) then
+							--spawn(function()
+							SetName(v,"Sky")
+							AddMesh(v)
+							--end)
+							--spawn(function()
+							SetMesh(v,"8006679977")
+							SetTexture(v,id)
+							--end)
+							MeshResize(v,Vector3.new(50,50,50))
+							SetLocked(v,true)
+						end
+					end
+				end
+				Sky("15913000160")
+				--]]
+-----------------------------------
+
+local player = game.Players.LocalPlayer
+local char = player.Character
+local tool
+for i,v in player:GetDescendants() do
+	if v.Name == "SyncAPI" then
+		tool = v.Parent
+	end
+end
+for i,v in game.ReplicatedStorage:GetDescendants() do
+	if v.Name == "SyncAPI" then
+		tool = v.Parent
+	end
+end
+--craaa
+
+function SetCollision(part,boolean)
+	local args = {
+		[1] = "SyncCollision",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["CanCollide"] = boolean
+			}
+		}
+	}
+	_(args)
+end
+function SetAnchor(boolean,part)
+	local args = {
+		[1] = "SyncAnchor",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Anchored"] = boolean
+			}
+		}
+	}
+	_(args)
+end
+
+function CreatePart(cf,parent)
+	local args = {
+		[1] = "CreatePart",
+		[2] = "Normal",
+		[3] = cf,
+		[4] = parent
+	}
+	_(args)
+end
+
+function CreatePart2(cf,parttype,parent)
+	local args = {
+		[1] = "CreatePart",
+		[2] = parttype,
+		[3] = cf,
+		[4] = parent
+	}
+	_(args)
+end
+
+function DestroyPart(part)
+	local args = {
+		[1] = "Remove",
+		[2] = {
+			[1] = part
+		}
+	}
+	_(args)
+end
+
+
+
+
+function MeshResize(part,size)
+	local args = {
+		[1] = "SyncMesh",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Scale"] = size
+			}
+		}
+	}
+	_(args)
+end
+function Weld(part1, part2,lead)
+	local args = {
+		[1] = "CreateWelds",
+		[2] = {
+			[1] = part1,
+			[2] = part2
+		},
+		[3] = lead
+	}
+	_(args)
+
+end
+
+function SetTrans(part,int)
+	local args = {
+		[1] = "SyncMaterial",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Transparency"] = int
+			}
+		}
+	}
+	_(args)
+end
+function CreateSpotlight(part)
+	local args = {
+		[1] = "CreateLights",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["LightType"] = "SpotLight"
+			}
+		}
+	}
+	_(args)
+end
+function SyncLighting(part,brightness)
+	local args = {
+		[1] = "SyncLighting",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["LightType"] = "SpotLight",
+				["Brightness"] = brightness
+			}
+		}
+	}
+	_(args)
+end
+function Color(part,color)
+	local args = {
+		[1] = "SyncColor",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Color"] = color --[[Color3]],
+				["UnionColoring"] = true
+			}
+		}
+	}
+	_(args)
+end
+function AddTexture(part,side,texture)
+	local args = {
+		[1] = "CreateTextures",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Face"] = side,
+				["TextureType"] = texture,
+			}
+		}
+	}
+
+	_(args)
+end
+
+function AddDecal(part,asset,side)
+	local args = {
+		[1] = "SyncTexture",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Face"] = side,
+				["TextureType"] = "Decal",
+				["Texture"] = "rbxassetid://".. asset
+			}
+		}
+	}
+	_(args)
+end
+
+function AddClone2(...)
+
+	local args = {
+		[1] = "Clone",
+		[2] = ...,
+		[3] = workspace:FindFirstChild(parentbox.Text) or workspace
+	}
+	_(args)
+end
+
+function AddClone3(...)
+
+	local args = {
+		[1] = "Clone",
+		[2] = ...,
+		[3] = player.Character
+	}
+	print(args)
+	_(args)
+end
+
+function AddClone4(part,parent)
+
+	local args = {
+		[1] = "Clone",
+		[2] = part,
+		[3] = parent
+	}
+	print(args)
+	_(args)
+end
+
+function SetLocked2(...)
+	local bool = {}
+	for i = 1, #... do
+		table.insert(bool,true)
+	end
+	local args = {
+		[1] = "SetLocked",
+		[2] = ...,
+		[3] = bool
+	}
+	_(args)
+end
+function SetUnlocked(...)
+	local bool = {}
+	for i = 1, #... do
+		table.insert(bool,false)
+	end
+	local args = {
+		[1] = "SetLocked",
+		[2] = ...,
+		[3] = bool
+	}
+	_(args)
+end
+function AddTexture2(part,side,texture)
+	local args = {
+		[1] = "CreateTextures",
+		[2] = {
+			[1] = {
+				["Part"] = part,
+				["Face"] = side,
+				["TextureType"] = texture,
+			}
+		}
+	}
+
+	t1 = args
+end
+
+poor = ""
+script.Parent.LockAll.MouseButton1Down:Connect(function()
+	local part = {}
+	for i,v in game.Workspace:GetDescendants() do
+		if v:IsA("BasePart") and not v.Locked and allowed(v) then
+			poor = v
+			table.insert(part,v)
+		end
+	end
+	SetLocked2(part)
+	print("Locked "..poor.Name.." "..tostring(part[1].Locked))
+end)
+
+script.Parent.UnlockAll.MouseButton1Down:Connect(function()
+	local part = {}
+	for i,v in game.Workspace:GetDescendants() do
+		if v:IsA("BasePart") and v.Locked and allowed(v) then
+			table.insert(part,v)
+		end
+	end
+	SetUnlocked(part)
+	print("Unlocked "..poor.Name.." "..tostring(not part[1].Locked))
+end)
+
+local cloneoptiontext = {"Nearest","Multiple","One"}
+cloneoptioncount = 0
+CloneOption.MouseButton1Down:Connect(function()
+	cloneoptio
 end
 task.spawn(SCRIPT_1f)
 
