@@ -734,6 +734,17 @@ function CreatePart(cf,parent)
 	}
 	_(args)
 end
+
+function CreatePart2(cf,parttype,parent)
+	local args = {
+		[1] = "CreatePart",
+		[2] = parttype,
+		[3] = cf,
+		[4] = parent
+	}
+	_(args)
+end
+
 function DestroyPart(part)
 	local args = {
 		[1] = "Remove",
@@ -1208,6 +1219,16 @@ end)
 
 
 function CreateFolder(parent)
+	local args ={
+		[1] = "CreateGroup",
+		[2] = "Folder",
+		[3] = parent,
+		[4] = {}
+	}
+	_(args)
+end
+
+function CreateModel(parent)
 	local args ={
 		[1] = "CreateGroup",
 		[2] = "Folder",
@@ -2110,57 +2131,240 @@ function SetName3(part, name)
 end
 
 
-function item(item)
-	local num = 0
-	local parts = {}
+
+
+
+function item(item,bring)
 	
+	local parts = {}
+	local killbricks = {}
+		
 	-- Get Properties
-	for i, v in item:GetDescendants() do
-		if v:IsA("BasePart") then
-			table.insert(parts, {
-				part = v.Name,                       -- Reference to the part itself
-				position = v.CFrame,           -- Position of the part
-				size = v.Size,                   -- Size of the part
-				color = v.Color,                 -- Color of the part (if applicable)
-				transparency = v.Transparency,   -- Transparency of the part
-				material = v.Material,           -- Material of the part
-				reflectance = v.Reflectance,     -- Reflectance of the part
-				anchored = v.Anchored,           -- Whether the part is anchored
-				canCollide = v.CanCollide,       -- Can the part collide with others?
-				parent = v.Parent                -- The parent object of the part
-			})
+	
+	if _G.KillBrick then 
+
+		for i, v in item:GetDescendants() do
+
+			if v:IsA("BasePart") then
+				if v.Parent.Name == "KillBrick" then
+					insertPart(killbricks, v)
+				else
+					insertPart(parts,v)
+				end
+			end
+
 		end
+
+	else
+
+		for i, v in item:GetDescendants() do
+			if v:IsA("BasePart") then
+				insertPart(parts,v)
+			end
+		end
+
 	end
 	
-	
 	-- Create the folder
-	CreateFolder(workspace.Terrain)
-	local folder = be.Changed:Wait()
-	SetName2(folder,item.Name)
+	local group
+	
+	if item:IsA("Folder") then
+		CreateFolder(workspace.Terrain)
+		group = be.Changed:Wait()
+		SetName2(group,item.Name)
+	elseif item:IsA("BasePart") then
+		
+	elseif item:IsA("Model") then
+		CreateModel(workspace.Terrain)
+		group = be.Changed:Wait()
+		SetName2(group,item.Name)
+	else
+		return
+	end
+		
 	
 	
 	-- Spawn the Parts
-	repeat
-		CreatePart(CFrame.new(0,0,0),folder)
-	until #folder:GetChildren() >= #parts
+	for i, v in ipairs(parts) do
+		print(v.typee)
+		CreatePart2(CFrame.new(0,0,0),v.typee,group)
+	end
+
 	
 	local name = {"SetName"}
 		name[2] = {}
 		name[3] = {}
 	local size = {"SyncResize"}
 		size[2] = {}
-	for i, v in folder:GetDescendants() do
+	local color = {"SyncColor"}
+		color[2] = {}
+	local material = {"SyncMaterial"}
+		material[2] = {}
+	local cancollide = {"SyncCollision"}
+		cancollide[2] = {}
+	for i, v in group:GetDescendants() do
 		if v:IsA("BasePart") then
 			local ipart = parts[i]
+			-- Name
 			table.insert(name[2],v)
 			table.insert(name[3],ipart.part)
+			-- Size
 			table.insert(size[2],{["Part"] = v,["CFrame"] = ipart.position ,["Size"] = ipart.size })
+			-- Color
+			table.insert(color[2],{["Part"] = v,["Color"] = ipart.color})
+			-- Material, Transparency
+			table.insert(material[2],{["Part"] = v,["Material"] = ipart.material,["Transparency"] = ipart.transparency})
+			--CanCollide
+			table.insert(cancollide[2],{["Part"] = v,["CanCollide"] = ipart.canCollide})
 		end
 	end
-	_(name)
+	
+	_(cancollide)
+	_(color)
+	_(material)
 	_(size)
+	_(name)
+	
 	
 end
+
+-- Function for getting properties
+
+function gettype(part)
+	
+	local partType  -- Initialize partType
+
+	if part:IsA("Part") then
+		partType = "Normal"
+	elseif part:IsA("TrussPart") then
+		partType = "Truss"
+	elseif part:IsA("WedgePart") then
+		partType = "Wedge"
+	elseif part:IsA("CornerWedgePart") then
+		partType = "Corner"
+	elseif part.Shape == Enum.PartType.Cylinder then
+		partType = "Cylinder"
+	elseif part.Shape == Enum.PartType.Ball then
+		partType = "Ball"
+	elseif part:IsA("Seat") then
+		partType = "Seat"
+	elseif part:IsA("VehicleSeat") then
+		partType = "VehicleSeat"
+	elseif part:IsA("SpawnLocation") then
+		partType = "Spawn"
+	end
+
+	return partType
+
+end
+
+
+function insertPart(tablee, v)
+	table.insert(tablee, {
+		part = v.Name,                   -- Reference to the part name
+		position = v.CFrame,             -- Position (CFrame) of the part
+		size = v.Size,                   -- Size of the part
+		color = v.Color,                 -- Color of the part
+		transparency = v.Transparency,   -- Transparency of the part
+		material = v.Material,           -- Material of the part
+		reflectance = v.Reflectance,     -- Reflectance of the part
+		anchored = v.Anchored,           -- Whether the part is anchored
+		canCollide = v.CanCollide,       -- Can the part collide with others?
+		parent = v.Parent,               -- Parent object of the part
+		typee = gettype(v)                 -- Type of part
+	})
+end
+
+--
+
 repeat wait(1) until tool
 print("toe")
 item(game.ReplicatedStorage.Barrier)
+
+
+function bringfolder(folder)
+
+	local targetPosition = Vector3.new(0, 0, 0)  -- Desired target position (bottom center)
+
+	-- Function to get the bottom center of the folder
+	local function getFolderBottomCenter()
+		local minY = math.huge
+		local totalPosition = Vector3.new(0, 0, 0)
+		local partCount = 0
+
+		for _, v in ipairs(folder:GetDescendants()) do
+			if v:IsA("BasePart") then
+				-- Update the total position for X and Z (to find horizontal center)
+				totalPosition = totalPosition + v.Position
+
+				-- Find the lowest Y value (bottom of the parts)
+				local bottomY = v.Position.Y - (v.Size.Y / 2)
+				if bottomY < minY then
+					minY = bottomY
+				end
+
+				partCount = partCount + 1
+			end
+		end
+
+		if partCount > 0 then
+			local avgXZ = totalPosition / partCount
+			return Vector3.new(avgXZ.X, minY, avgXZ.Z)  -- Return the bottom center (X and Z from average, Y from minY)
+		else
+			return nil  -- Return nil if no parts are found
+		end
+	end
+
+	local currentBottomCenter = getFolderBottomCenter()
+
+	if currentBottomCenter then
+		local offset = targetPosition - currentBottomCenter
+
+		-- Move all parts by the offset
+		for _, v in ipairs(folder:GetDescendants()) do
+			if v:IsA("BasePart") then
+				v.CFrame = v.CFrame + offset
+			end
+		end
+	else
+		print("No parts found in the folder.")
+	end
+end
+
+--[[
+specialMesh.MeshId = meshPart.MeshId -- Copy mesh ID from the original MeshPart
+specialMesh.TextureId = meshPart.TextureID -- Copy texture ID if needed
+specialMesh.Scale = meshPart.Size -- Adjust scale if necessary
+]]
+CreateFolder(workspace.Terrain)
+Typesfolder = be.Changed:Wait()
+
+local partTypes = {
+	["Normal"] = nil,
+	["Truss"] = nil,
+	["Wedge"] = nil,
+	["Corner"] = nil,
+	["Cylinder"] = nil,
+	["Ball"] = nil,
+	["Seat"] = nil,
+	["VehicleSeat"] = nil,
+	["Spawn"] = nil
+}
+
+Typesfolder.ChildAdded:Connect(function(part)
+	local typee = gettype(part)
+	partTypes[typee] = part
+end)
+
+for i, v in partTypes do
+	
+	
+end
+
+
+for m, value in pairs(partTypes) do
+	if value == nil then
+		print(m)
+		CreatePart2(CFrame.new(1000,1000,1000),m,Typesfolder)
+	end
+end
