@@ -2930,7 +2930,7 @@ end
 		["Spawn"] = false
 		}
 		]]
-		repeat wait(1) until tool
+		while not tool do wait(1) print(3) end
 		
 		for i, v in partTypes2 do
 			if not v then
