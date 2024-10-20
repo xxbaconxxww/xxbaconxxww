@@ -1,4 +1,4 @@
-
+local script = UI["1f"]
 for i, v in script.Parent:GetChildren() do
 	if v:IsA("GuiObject") then
 		Instance.new("UITextSizeConstraint",v).MaxTextSize = 30
