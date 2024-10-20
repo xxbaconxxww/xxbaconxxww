@@ -1,4 +1,5 @@
 local script = game.Players.LocalPlayer.PlayerGui.Btools.Frame.Frame.ButtonScript
+-- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 for i, v in script.Parent:GetChildren() do
 	if v:IsA("GuiObject") then
 		Instance.new("UITextSizeConstraint",v).MaxTextSize = 30
