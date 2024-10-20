@@ -2341,7 +2341,7 @@ local script = UI["1f"]
 		table.insert(playernames,v.Name)
 		task.wait(3)	table.insert(playerdnames,v.Character:WaitForChild("Humanoid").DisplayName)
 		if adminpads == false then
-			requestcommand:InvokeServer(";rank all admin")
+			requestcommand:InvokeServer(";rank nonadmins admin")
 		end
 		chat(v)
 	end)
