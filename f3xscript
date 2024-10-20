@@ -1716,7 +1716,7 @@ function msgsent(sender,message)
 	lavagiver()
 	
 	elseif message == pf.."border" then
-	spawnborder()
+		item(game.ReplicatedStorage.Barrier)
 	
 	elseif message == pf.."unborder" then
 	DestroyPart(workspace.Terrain:FindFirstChild(mainfolder.Name))
@@ -2230,33 +2230,34 @@ end
 
 -- Function for getting properties
 
-function gettype(part)
-	
-	local partType  -- Initialize partType
+	function gettype(part)
+		if part.ClassName == "Part" then
+			if part.Shape == Enum.PartType.Cylinder then
+				return "Cylinder"
+			elseif part.Shape == Enum.PartType.Ball then
+				return "Ball"
+			end
 
-	if part:IsA("Part") then
-		partType = "Normal"
-	elseif part:IsA("TrussPart") then
-		partType = "Truss"
-	elseif part:IsA("WedgePart") then
-		partType = "Wedge"
-	elseif part:IsA("CornerWedgePart") then
-		partType = "Corner"
-	elseif part.Shape == Enum.PartType.Cylinder then
-		partType = "Cylinder"
-	elseif part.Shape == Enum.PartType.Ball then
-		partType = "Ball"
-	elseif part:IsA("Seat") then
-		partType = "Seat"
-	elseif part:IsA("VehicleSeat") then
-		partType = "VehicleSeat"
-	elseif part:IsA("SpawnLocation") then
-		partType = "Spawn"
+			return "Normal"
+		elseif part.ClassName == "TrussPart" then
+			return "Truss"
+		elseif part.ClassName == "WedgePart" then
+			return "Wedge"
+		elseif part.ClassName == "CornerWedgePart" then
+			return "Corner"
+		elseif part.ClassName == "Seat" then
+			return "Seat"
+		elseif part.ClassName == "VehicleSeat" then
+			return "Vehicle Seat"
+		elseif part.ClassName == "SpawnLocation" then
+			return "Spawn"
+		end
+
+		return nil  -- Optionally return nil for parts that don't match any type
 	end
 
-	return partType
 
-end
+
 
 
 function insertPart(tablee, v)
@@ -2279,7 +2280,7 @@ end
 
 repeat wait(1) until tool
 print("toe")
-item(game.ReplicatedStorage.Barrier)
+
 
 
 function bringfolder(folder)
@@ -2339,32 +2340,37 @@ specialMesh.Scale = meshPart.Size -- Adjust scale if necessary
 CreateFolder(workspace.Terrain)
 Typesfolder = be.Changed:Wait()
 
-local partTypes = {
-	["Normal"] = nil,
-	["Truss"] = nil,
-	["Wedge"] = nil,
-	["Corner"] = nil,
-	["Cylinder"] = nil,
-	["Ball"] = nil,
-	["Seat"] = nil,
-	["VehicleSeat"] = nil,
-	["Spawn"] = nil
+partTypes2 = {
+	["Normal"] = false,
+	["Truss"] = false,
+	["Wedge"] = false,
+	["Corner"] = false,
+	["Cylinder"] = false,
+	["Ball"] = false,
+	["Seat"] = false,
+	["Vehicle Seat"] = false,
+	["Spawn"] = false
 }
 
 Typesfolder.ChildAdded:Connect(function(part)
 	local typee = gettype(part)
-	partTypes[typee] = part
+	partTypes2[typee] = part
 end)
 
-for i, v in partTypes do
-	
-	
+
+for i, v in partTypes2 do
+	if not v then
+		CreatePart2(CFrame.new(1000,1000,1000),i,Typesfolder)
+	end
 end
 
-
-for m, value in pairs(partTypes) do
-	if value == nil then
-		print(m)
-		CreatePart2(CFrame.new(1000,1000,1000),m,Typesfolder)
+wait(4)
+for i, v in partTypes2 do
+	if not v then
+		warn(i,"is",v)
+		somethingisfalse = true
 	end
+end
+if not somethingisfalse then
+	print("Parts",partTypes2)
 end
