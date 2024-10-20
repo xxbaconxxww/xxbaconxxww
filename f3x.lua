@@ -2890,7 +2890,11 @@ local script = UI["1f"]
 Typesfolder = workspace.Terrain
 
 	print("noob")
-	
+
+for i, v in TypesFolder:GetChildren() do
+  local typee = gettype(v)
+		partTypes2[typee] = v
+end
 	
 	Typesfolder.ChildAdded:Connect(function(part)
 		local typee = gettype(part)
