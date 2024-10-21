@@ -2906,8 +2906,11 @@ local script = UI["1f"]
 		[2] = Typesfolder:GetChildren(),
 		[3] = "yeah",
 	}
-	item(game.ReplicatedStorage:WaitForChild("Boat"))
-	item(game.ReplicatedStorage:WaitForChild("Venom Tycoon"))
+	item(game:GetObjects("rbxassetid://3171550")[1])
+
+-- venom tycoon id is 12658863714
+-- boat is is 3171550
+	item(game:GetObjects("rbxassetid://12658863714")[1])
 	a(yes)
 	
 	if true then return end
