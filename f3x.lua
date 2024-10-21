@@ -1,6 +1,6 @@
 -- // GUI TO LUA \\ --
 -- venom tycoon id is 12658863714
--- idk
+-- boat is is 3171550
 -- // INSTANCES: 44 | SCRIPTS: 1 | MODULES: 0 \\ --
 
 local UI = {}
