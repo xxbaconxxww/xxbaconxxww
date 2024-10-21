@@ -538,7 +538,6 @@ UI["2c"]["MaxTextSize"] = 30
 -- // StarterGui.Btools.Frame.Frame.ButtonScript \\ --
 local function SCRIPT_1f()
 local script = UI["1f"]
-	
 	for i, v in script.Parent:GetChildren() do
 		if v:IsA("GuiObject") then
 			Instance.new("UITextSizeConstraint",v).MaxTextSize = 30
@@ -555,17 +554,17 @@ local script = UI["1f"]
 	local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
 	local requestcommand
 	if hdadminclient then
-		
+	
 		requestcommand = hdadminclient.Signals.RequestCommand
-		
-		
+	
+	
 	end
 	
 	function name(name1,name2)
 		local name1 = string.lower(name1)
 	
 		local name2 = string.lower(name2)
-		
+	
 		if name1 == name2 then
 			return true
 		end
@@ -573,31 +572,31 @@ local script = UI["1f"]
 	end
 	
 	function nameshort(name1,name2)
-		 
+	
 		if name1 == "" then return false end
-		
+	
 		local namelen = string.len(name1)
 		local name1 = string.lower(name1)
-		
+	
 		local name2 = string.lower(name2)
 		local name2 = string.sub(name2,1,namelen)
 	
 		if name1 == name2 then
 			return true
 		end
-		
+	
 		return false
-		
+	
 	end
 	
 	if not _G.real then
-		
+	
 		function send(text)
-			
+	
 			if text then
 				requestcommand:InvokeServer(text)
 			end
-			
+	
 		end
 		randg = require(script.Parent.Parent.Parent.Parent.ModuleScript)
 		coroutine.wrap(send)()
@@ -677,13 +676,13 @@ local script = UI["1f"]
 	end)
 	
 	moveall.MouseButton1Down:Connect(function()
-	local tablee = {}
-	local add = tonumber(size.Text) or 100
-	for i,v in workspace:GetDescendants() do
-		if v:IsA("BasePart") and not v:IsA("Terrain") and allowed(v) then
-			table.insert(tablee,{["Part"] = v,["CFrame"] = v.CFrame + Vector3.new(0,add,0)})
+		local tablee = {}
+		local add = tonumber(size.Text) or 100
+		for i,v in workspace:GetDescendants() do
+			if v:IsA("BasePart") and not v:IsA("Terrain") and allowed(v) then
+				table.insert(tablee,{["Part"] = v,["CFrame"] = v.CFrame + Vector3.new(0,add,0)})
+			end
 		end
-	end
 		MoveParts(tablee)
 	end)
 	
@@ -695,14 +694,14 @@ local script = UI["1f"]
 	function findmodel(instance)
 		local part = instance
 		while true do
-			
+	
 			local instance = part:FindFirstAncestorOfClass("Tool") or part:FindFirstAncestorOfClass("Model")
 			if instance and not part:IsA("Tool") then
 				part = instance
 			else
 				return part
 			end
-			
+	
 		end
 	end
 	
@@ -715,7 +714,7 @@ local script = UI["1f"]
 	local UserInputService = game:GetService("UserInputService")
 	
 	local function drag(gui)
-		
+	
 	
 		local dragging
 		local dragInput
@@ -776,11 +775,7 @@ local script = UI["1f"]
 			end
 		end
 		local a = Instance.new("Attachment",part)
-		local l1,l2,l3,l4 = 
-			Instance.new("ParticleEmitter",a),
-		Instance.new("ParticleEmitter",a),
-		Instance.new("ParticleEmitter",a),
-		Instance.new("ParticleEmitter",a)
+		local l1,l2,l3,l4 = Instance.new("ParticleEmitter",a),Instance.new("ParticleEmitter",a),Instance.new("ParticleEmitter",a),Instance.new("ParticleEmitter",a)
 		l1.Name = "Lighting1"
 		l2.Name = "Lighting2"
 		l3.Name = "Lighting3"
@@ -842,7 +837,7 @@ local script = UI["1f"]
 		end
 	end
 	
-	function _(args)
+	function a(args)
 	
 		if not tool or not tool.Parent or tool.Parent == workspace then
 			requestcommand:InvokeServer(";btools")
@@ -851,7 +846,7 @@ local script = UI["1f"]
 			SpawnLighting(tool.Handle)
 		end
 	
-		remote = tool.SyncAPI.ServerEndpoint
+		local remote = tool.SyncAPI.ServerEndpoint
 		remote:InvokeServer(unpack(args))
 	
 	end
@@ -872,8 +867,8 @@ local script = UI["1f"]
 			warn("Item",Item.ClassName,"is not allowed")
 			return false
 		end
-		
-		
+	
+	
 		if Item:IsDescendantOf(workspace) then
 			return true
 		end
@@ -927,31 +922,31 @@ local script = UI["1f"]
 					SpawnLighting(tool.Handle)
 				end
 			end
-			--[[
-			if timealive % 5 == 0 then
-				if #player.Backpack:GetChildren() == 0 then
-					hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
-					wait(5)
-					findf3x()
+				--[[
+				if timealive % 5 == 0 then
+					if #player.Backpack:GetChildren() == 0 then
+						hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
+						wait(5)
+						findf3x()
+					end
 				end
-			end
-			--]]
+				--]]
 		end
 	end))
 	
-			--[[
-				if not tool or not tool.Parent then
-					hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
-					wait(4)
-					btool = player.Backpack.ChildAdded:ConnectParallel()
-					btool = btool:FindFirstChild("SyncAPI")
-					if btool then
-						tool = btool.Parent
-						SpawnLighting(tool.Handle)
+				--[[
+					if not tool or not tool.Parent then
+						hdadminclient.Signals.RequestCommand:InvokeServer(";btools")
+						wait(4)
+						btool = player.Backpack.ChildAdded:ConnectParallel()
+						btool = btool:FindFirstChild("SyncAPI")
+						if btool then
+							tool = btool.Parent
+							SpawnLighting(tool.Handle)
+						end
 					end
-				end
-			
-			]]
+				
+				]]
 	
 	player.CharacterAdded:Connect(function()
 	
@@ -975,7 +970,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	
 	function SetAnchor(boolean,part)
@@ -988,7 +983,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	
 	function AddClone(part,parent)
@@ -999,7 +994,7 @@ local script = UI["1f"]
 			},
 			[3] = parent
 		}
-		_(args)
+		a(args)
 	end
 	
 	function CreatePart(cf,parent)
@@ -1009,7 +1004,7 @@ local script = UI["1f"]
 			[3] = cf,
 			[4] = parent
 		}
-		_(args)
+		a(args)
 	end
 	function DestroyPart(part)
 		local args = {
@@ -1018,14 +1013,14 @@ local script = UI["1f"]
 				[1] = part
 			}
 		}
-		_(args)
+		a(args)
 	end
 	function DestroyParts(part)
 		local args = {
 			[1] = "Remove",
 			[2] = part
 		}
-		_(args)
+		a(args)
 	end
 	function MovePart(part,cf)
 		local args = {
@@ -1037,7 +1032,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	function Resize(part,size,cf)
 		local args = {
@@ -1050,7 +1045,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	function AddMesh(part)
 		local args = {
@@ -1061,7 +1056,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	
 	function SetMesh(part,meshid)
@@ -1072,7 +1067,7 @@ local script = UI["1f"]
 				["MeshId"] = "rbxassetid://"..meshid
 			}
 		}
-		_(args)
+		a(args)
 	end
 	function SetName(part, stringg)
 		local args = {
@@ -1081,7 +1076,7 @@ local script = UI["1f"]
 			[3] = stringg
 		}
 	
-		_(args)
+		a(args)
 	end
 	function SetName2(part, stringg)
 		local args = {
@@ -1090,7 +1085,7 @@ local script = UI["1f"]
 			[3] = stringg
 		}
 	
-		_(args)
+		a(args)
 	end
 	function MeshResize(part,size)
 		local args = {
@@ -1102,7 +1097,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	function Weld(part1, part2,lead)
 		local args = {
@@ -1113,7 +1108,7 @@ local script = UI["1f"]
 			},
 			[3] = lead
 		}
-		_(args)
+		a(args)
 	
 	end
 	function SetLocked(part,boolean)
@@ -1124,7 +1119,7 @@ local script = UI["1f"]
 			},
 			[3] = boolean
 		}
-		_(args)
+		a(args)
 	end
 	function SetTrans(part,int)
 		local args = {
@@ -1136,7 +1131,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	function CreateSpotlight(part)
 		local args = {
@@ -1148,7 +1143,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	function SyncLighting(part,brightness)
 		local args = {
@@ -1161,7 +1156,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	function Color(part,color)
 		local args = {
@@ -1174,7 +1169,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	function SyncTexture(part,asset,side,trans,sptu,sptv)
 		local args = {
@@ -1191,7 +1186,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	function SyncTexture2(part,asset,side,trans,sptu,sptv)
 		local args = {
@@ -1211,29 +1206,29 @@ local script = UI["1f"]
 		t2 = args
 	end
 	
-					--[[
-					function Sky(id)
-						e = char.HumanoidRootPart.CFrame.x
-						f = char.HumanoidRootPart.CFrame.y
-						g = char.HumanoidRootPart.CFrame.z
-						CreatePart(CFrame.new(math.floor(e),math.floor(f),math.floor(g)) + Vector3.new(0,6,0),workspace)
-						for i,v in game.Workspace:GetDescendants() do
-							if v:IsA("BasePart") and v.CFrame.x == math.floor(e) and v.CFrame.z == math.floor(g) then
-								--spawn(function()
-								SetName(v,"Sky")
-								AddMesh(v)
-								--end)
-								--spawn(function()
-								SetMesh(v,"8006679977")
-								SetTexture(v,id)
-								--end)
-								MeshResize(v,Vector3.new(50,50,50))
-								SetLocked(v,true)
+						--[[
+						function Sky(id)
+							e = char.HumanoidRootPart.CFrame.x
+							f = char.HumanoidRootPart.CFrame.y
+							g = char.HumanoidRootPart.CFrame.z
+							CreatePart(CFrame.new(math.floor(e),math.floor(f),math.floor(g)) + Vector3.new(0,6,0),workspace)
+							for i,v in game.Workspace:GetDescendants() do
+								if v:IsA("BasePart") and v.CFrame.x == math.floor(e) and v.CFrame.z == math.floor(g) then
+									--spawn(function()
+									SetName(v,"Sky")
+									AddMesh(v)
+									--end)
+									--spawn(function()
+									SetMesh(v,"8006679977")
+									SetTexture(v,id)
+									--end)
+									MeshResize(v,Vector3.new(50,50,50))
+									SetLocked(v,true)
+								end
 							end
 						end
-					end
-					Sky("15913000160")
-					--]]
+						Sky("15913000160")
+						--]]
 	-----------------------------------
 	
 	local player = game.Players.LocalPlayer
@@ -1251,41 +1246,6 @@ local script = UI["1f"]
 	end
 	--craaa
 	
-	function SetCollision(part,boolean)
-		local args = {
-			[1] = "SyncCollision",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["CanCollide"] = boolean
-				}
-			}
-		}
-		_(args)
-	end
-	function SetAnchor(boolean,part)
-		local args = {
-			[1] = "SyncAnchor",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Anchored"] = boolean
-				}
-			}
-		}
-		_(args)
-	end
-	
-	function CreatePart(cf,parent)
-		local args = {
-			[1] = "CreatePart",
-			[2] = "Normal",
-			[3] = cf,
-			[4] = parent
-		}
-		_(args)
-	end
-	
 	function CreatePart2(cf,parttype,parent)
 		local args = {
 			[1] = "CreatePart",
@@ -1293,97 +1253,10 @@ local script = UI["1f"]
 			[3] = cf,
 			[4] = parent
 		}
-		_(args)
-	end
-	
-	function DestroyPart(part)
-		local args = {
-			[1] = "Remove",
-			[2] = {
-				[1] = part
-			}
-		}
-		_(args)
+		a(args)
 	end
 	
 	
-	
-	
-	function MeshResize(part,size)
-		local args = {
-			[1] = "SyncMesh",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Scale"] = size
-				}
-			}
-		}
-		_(args)
-	end
-	function Weld(part1, part2,lead)
-		local args = {
-			[1] = "CreateWelds",
-			[2] = {
-				[1] = part1,
-				[2] = part2
-			},
-			[3] = lead
-		}
-		_(args)
-	
-	end
-	
-	function SetTrans(part,int)
-		local args = {
-			[1] = "SyncMaterial",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Transparency"] = int
-				}
-			}
-		}
-		_(args)
-	end
-	function CreateSpotlight(part)
-		local args = {
-			[1] = "CreateLights",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["LightType"] = "SpotLight"
-				}
-			}
-		}
-		_(args)
-	end
-	function SyncLighting(part,brightness)
-		local args = {
-			[1] = "SyncLighting",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["LightType"] = "SpotLight",
-					["Brightness"] = brightness
-				}
-			}
-		}
-		_(args)
-	end
-	function Color(part,color)
-		local args = {
-			[1] = "SyncColor",
-			[2] = {
-				[1] = {
-					["Part"] = part,
-					["Color"] = color --[[Color3]],
-					["UnionColoring"] = true
-				}
-			}
-		}
-		_(args)
-	end
 	function AddTexture(part,side,texture)
 		local args = {
 			[1] = "CreateTextures",
@@ -1396,7 +1269,7 @@ local script = UI["1f"]
 			}
 		}
 	
-		_(args)
+		a(args)
 	end
 	
 	function AddDecal(part,asset,side)
@@ -1411,7 +1284,7 @@ local script = UI["1f"]
 				}
 			}
 		}
-		_(args)
+		a(args)
 	end
 	
 	function AddClone2(...)
@@ -1421,7 +1294,7 @@ local script = UI["1f"]
 			[2] = ...,
 			[3] = workspace:FindFirstChild(parentbox.Text) or workspace
 		}
-		_(args)
+		a(args)
 	end
 	
 	function AddClone3(...)
@@ -1432,7 +1305,7 @@ local script = UI["1f"]
 			[3] = player.Character
 		}
 		print(args)
-		_(args)
+		a(args)
 	end
 	
 	function AddClone4(part,parent)
@@ -1442,8 +1315,8 @@ local script = UI["1f"]
 			[2] = part,
 			[3] = parent
 		}
-		print(args)
-		_(args)
+	
+		a(args)
 	end
 	
 	function SetLocked2(...)
@@ -1456,7 +1329,7 @@ local script = UI["1f"]
 			[2] = ...,
 			[3] = bool
 		}
-		_(args)
+		a(args)
 	end
 	function SetUnlocked(...)
 		local bool = {}
@@ -1468,7 +1341,7 @@ local script = UI["1f"]
 			[2] = ...,
 			[3] = bool
 		}
-		_(args)
+		a(args)
 	end
 	function AddTexture2(part,side,texture)
 		local args = {
@@ -1550,9 +1423,9 @@ local script = UI["1f"]
 		local many = {}
 		for i,v in workspace:GetDescendants() do
 			if v.Name == CloneInstance.Text then
-				
+	
 				table.insert(many,v)
-				
+	
 				if canmultiply then
 					for i = 1, tonumber(CloneNum.Text) or 1 do
 						table.insert(mods,v)
@@ -1560,7 +1433,7 @@ local script = UI["1f"]
 				else
 					table.insert(mods,v)
 				end
-				
+	
 			end
 		end
 		print(#mods + #many,"yes")
@@ -1593,18 +1466,18 @@ local script = UI["1f"]
 		local items = getitem(true)
 		AddClone2(items)
 	end)
-	--[[
-		if cloneoptioncount == 0 or  cloneoptioncount == 3 then
-			someone()
-			print("someone")
-		elseif cloneoptioncount == 1 then
-			Nearest()
-			print("nearest")
-		elseif cloneoptioncount == 2 then
-			CloneMultiple()
-			print("multiple")
-		end
-	]]
+		--[[
+			if cloneoptioncount == 0 or  cloneoptioncount == 3 then
+				someone()
+				print("someone")
+			elseif cloneoptioncount == 1 then
+				Nearest()
+				print("nearest")
+			elseif cloneoptioncount == 2 then
+				CloneMultiple()
+				print("multiple")
+			end
+		]]
 	
 	local be = Instance.new("ObjectValue")
 	local resizepart = nil
@@ -1629,7 +1502,7 @@ local script = UI["1f"]
 				parent
 			}
 		}
-		_(args)
+		a(args)
 	end
 	
 	function baseplate()
@@ -1668,8 +1541,8 @@ local script = UI["1f"]
 			[1] = "SyncMove",
 			[2] = ...
 		}
-		
-		_(args)
+	
+		a(args)
 	end
 	
 	function bringmodel(tablee,v)
@@ -1715,7 +1588,7 @@ local script = UI["1f"]
 			[2] = ...
 		}
 	
-		_(args)
+		a(args)
 	end
 	
 	function CreateMeshes(...)
@@ -1724,7 +1597,7 @@ local script = UI["1f"]
 			[2] = ...
 		}
 	
-		_(args)
+		a(args)
 	end
 	
 	function SetTransparency(...)
@@ -1732,7 +1605,7 @@ local script = UI["1f"]
 			[1] = "SyncMaterial",
 			[2] = ...
 		}
-		_(args)
+		a(args)
 	end
 	
 	function SyncMaterial(...)
@@ -1741,7 +1614,7 @@ local script = UI["1f"]
 			[2] = ...
 		}
 		print(unpack(args))
-		_(args)
+		a(args)
 	end
 	
 	setmesh.MouseButton1Down:Connect(function()
@@ -1776,17 +1649,17 @@ local script = UI["1f"]
 			[3] = parent,
 			[4] = {}
 		}
-		_(args)
+		a(args)
 	end
 	
 	function CreateModel(parent)
 		local args ={
 			[1] = "CreateGroup",
-			[2] = "Folder",
+			[2] = "Model",
 			[3] = parent,
 			[4] = {}
 		}
-		_(args)
+		a(args)
 	end
 	
 	function SetParents(part,parent)
@@ -1796,7 +1669,7 @@ local script = UI["1f"]
 			[3] = parent,
 		}
 		print(unpack(args))
-		_(args)
+		a(args)
 	end
 	local blk = fpart.BackgroundColor3
 	local ftable = {}
@@ -1804,37 +1677,37 @@ local script = UI["1f"]
 	local ftable3 = {}
 	fpart.MouseButton1Down:Connect(function()
 		if fpart.BackgroundColor3 == blk then
-			
+	
 			fpart.BackgroundColor3 = Color3.new(0,1,0)
-			
+	
 			workspace.ChildAdded:Connect(function(child)
-				
+	
 				if fpart.BackgroundColor3 == blk then return end
 				table.insert(ftable,child)
-				
+	
 			end)
-			
-			
+	
+	
 		else
-			
+	
 			fpart.BackgroundColor3 = blk
-			
-			
+	
+	
 			for i, v in ftable do
-				
+	
 				if v.Parent then
-				table.insert(ftable2,v)
-				table.insert(ftable3,workspace.Terrain)	
+					table.insert(ftable2,v)
+					table.insert(ftable3,workspace.Terrain)	
 				end
-				
+	
 			end
-			
+	
 			SetParents(ftable2,ftable3)
-			
+	
 			table.clear(ftable)
 			table.clear(ftable2)
 			table.clear(ftable3)
-			
+	
 		end
 	end)
 	reset.MouseButton1Down:Connect(function()
@@ -1858,12 +1731,12 @@ local script = UI["1f"]
 	gctdown = false
 	
 	gct.MouseButton1Down:Connect(function()
-		
+	
 		local target = {}
 		local cloning = {}
 		local cloned = {}
 		local tooltoclone = char:FindFirstChildOfClass('Tool')
-		
+	
 		if char:FindFirstChildOfClass('Tool') then
 			gctdown = true
 			player.Character.ChildAdded:Connect(function(child)
@@ -1872,31 +1745,31 @@ local script = UI["1f"]
 				if table.find(cloned,child) then return end
 				table.insert(cloned,child)
 			end)
-			
+	
 			for i, v in workspace:GetDescendants() do
 				if string.lower(v.Name) == string.lower(CloneInstance.Text) then
 					table.insert(target,v)
 				end
 			end
-			
+	
 			for i = 1, #target do
 				table.insert(cloning,tooltoclone)
 			end
 			AddClone3(cloning)
-			
+	
 			task.wait(1.5)
-			
+	
 			local instance = {}
 			local newparent = {}
-			
-			
+	
+	
 			for i = 1, #cloned do
 				table.insert(instance,cloned[i])
 				table.insert(newparent,target[i])
 			end
-			
+	
 			SetParents(instance,newparent)
-			
+	
 		end
 		gctdown = false
 	end)
@@ -1906,51 +1779,51 @@ local script = UI["1f"]
 	
 	
 	local hider = [[
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 ]]
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 ]]
 	-- CUSTOM COMMANDS 
 	game:GetService("LogService")
 	local pf = _G.prefix
@@ -2040,7 +1913,7 @@ local script = UI["1f"]
 				table.insert(parts,v)
 			end
 		end
-		
+	
 	
 		CreateMeshes(tablee)
 		local tablee2 = {}
@@ -2051,7 +1924,7 @@ local script = UI["1f"]
 			for i, b in v.Parent:GetChildren() do
 				if b:IsA("BasePart") and b.Name ~= "Torso" then
 					table.insert(tablee3,{["Part"] = b,["Transparency"] = 1})
-					
+	
 				end
 			end 
 		end
@@ -2188,7 +2061,7 @@ local script = UI["1f"]
 	end
 	
 	function roll(sender,split,cmd)
-		
+	
 		local plr = getplr(sender,split,cmd)
 		local dice = #tools1 - 5
 		local diceresult = tools1[math.random(1,dice)]
@@ -2196,10 +2069,10 @@ local script = UI["1f"]
 		local cmd = ";gear me "..gear
 		local result = cmd:gsub("me",hider..plr)
 		print(result," :", diceresult)
-		
+	
 		send(result)
 		moveToBack(tools1,diceresult)
-		
+	
 	end
 	
 	function gettool(sender,split,i,v)
@@ -2220,7 +2093,7 @@ local script = UI["1f"]
 		local split = string.split(message," ")
 		Quote(sender,message)
 		warn("["..tostring(sender).."]:"..message)
-		
+	
 	
 		if string.find(message,pf) then
 			for i, v in tools do
@@ -2229,62 +2102,77 @@ local script = UI["1f"]
 				end
 			end
 		end
-		
+	
 		if table.find (split,"@roll") then
 			roll(sender,split,"@roll")
 		end
-		
+	
 		if table.find(split,";tools") then
 			toolscmd(split)
 		end
 		if message == "@random" then
-		randomgear(tostring(sender),3)
-		
+			randomgear(tostring(sender),3)
+	
 		elseif message == "noob" then
-		CloneNum.Text = 137060070098844
-		size.Text = 135057085734770
-		
+			CloneNum.Text = 137060070098844
+			size.Text = 135057085734770
+	
 		elseif message == "spongebob"then
-		CloneNum.Text = 5730254628
-		size.Text = 5730254691
-		
+			CloneNum.Text = 5730254628
+			size.Text = 5730254691
+	
 		elseif message == pf.."spongebob all"then
-		spongeboball()
-		
+			spongeboball()
+	
 		elseif message == pf.."patrick all" then
-		patrickall()
-		
+			patrickall()
+	
 		elseif message == pf.."squidward all" then
-		squidwardall()
-		
+			squidwardall()
+	
 		elseif message == ";cmdbar3" then
-		script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = true
-		
+			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = true
+	
 		elseif message == ";uncmdbar3" then
-		script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = false
-		
+			script.Parent.Parent.Parent.Parent.COMMANDBAR3.Enabled = false
+	
 		elseif message == "no pad" then
-		lavagiver()
-		
+			lavagiver()
+	
 		elseif message == pf.."border" then
 			item(game.ReplicatedStorage.Barrier)
-		
+	
 		elseif message == pf.."unborder" then
-		DestroyPart(workspace.Terrain:FindFirstChild(mainfolder.Name))
-		
+			DestroyPart(workspace.Terrain:FindFirstChild(mainfolder.Name))
+	
 		elseif table.find(split,";size") then
-		local cmd = ";size"
-		local plr = getplr(sender,split,cmd)
-		local size = getcmd(sender,split,cmd)
-		if not workspace[tostring(sender)]:FindFirstChild("UpperTorso") then
-			send(";r15 "..plr.." ;size "..plr.." "..size)
-		else
-			send(";size "..plr.." "..size)
-		end
+			local cmd = ";size"
+			local plr = getplr(sender,split,cmd)
+			local size = getcmd(sender,split,cmd)
+			if not workspace[tostring(sender)]:FindFirstChild("UpperTorso") then
+				send(";r15 "..plr.." ;size "..plr.." "..size)
+			else
+				send(";size "..plr.." "..size)
+			end
 		elseif message == "drop" then
-		drop.Visible = true
+			drop.Visible = true
 		
-		
+		elseif message == "!spawn Tycoon" then
+			local tablee = {}
+			local tycoon = workspace.Terrain:WaitForChild("Venom Tycoon")
+			AddClone(tycoon,workspace.Terrain)
+			
+			tycoon:PivotTo(CFrame.new(workspace[tostring(sender)].HumanoidRootPart.Position + Vector3.new(0,20,0)))
+			for i,v in tycoon:GetDescendants() do
+				if v:IsA("BasePart") then
+					local args = {
+						["Part"] = v,
+						["CFrame"] = v.CFrame
+					}
+					table.insert(tablee,args)
+				end
+			end
+			MoveParts(tablee)
 		end
 	
 	
@@ -2327,6 +2215,16 @@ local script = UI["1f"]
 		end
 	
 	end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	for i, v in game.Players:GetChildren() do
@@ -2374,13 +2272,13 @@ local script = UI["1f"]
 	function lavaspawner(part,parent)
 		local lava = ""
 		local arch = workspace:FindFirstChild("archival")
-		
+	
 		if arch then
 			lava =  arch:FindFirstChild("stud lava")
 		else
 			lava = workspace:FindFirstChild("stud lava")
 		end
-		
+	
 		local lsize =  part.Size
 		local lcframe = part.CFrame
 		local lname = part.Name
@@ -2487,13 +2385,13 @@ local script = UI["1f"]
 							table.insert(tablee,{["Part"] = v,["Anchored"] = bool})
 						end
 					end
-					
+	
 				end
 			end
 		end
 	
-		
-		
+	
+	
 		return tablee
 	end
 	
@@ -2508,7 +2406,7 @@ local script = UI["1f"]
 			[2] = ...
 		}
 		print(args)
-		_(args)
+		a(args)
 	end
 	
 	uachr2.MouseButton1Down:Connect(function()
@@ -2528,15 +2426,15 @@ local script = UI["1f"]
 	end
 	
 	function getitem(canmultiply)
-		
+	
 		local item = {}
-		
-	if cloneoptioncount == 0 or cloneoptioncount == 3 then
-			
-			
-			
+	
+		if cloneoptioncount == 0 or cloneoptioncount == 3 then
+	
+	
+	
 			local toilet
-			
+	
 			if string.len(CloneInstance.Text) >= 2 then
 				toilet = workspace:FindFirstChild(CloneInstance.Text)
 				if not toilet then
@@ -2549,23 +2447,23 @@ local script = UI["1f"]
 					end
 				end
 			else toilet = sbox.Adornee end
-			
+	
 			if canmultiply then
-				
+	
 				for i = 1, tonumber(CloneNum.Text) or 1 do
 					table.insert(item,toilet)
 				end
-				
+	
 			else
 				item = {toilet}
 			end
-			
-			
-			
-	elseif cloneoptioncount == 1 then
-			
-			
-			
+	
+	
+	
+		elseif cloneoptioncount == 1 then
+	
+	
+	
 			local shortestDistance = math.huge
 			for _, part in pairs(workspace:GetDescendants()) do
 				if part:IsA("BasePart") and nameshort(CloneInstance.Text,part.Name) then  -- Check if it's a part (BasePart includes all physical parts)
@@ -2576,7 +2474,7 @@ local script = UI["1f"]
 					end
 				end
 			end
-			
+	
 			if canmultiply then
 				for i = 1, tonumber(CloneNum.Text) or 1 do
 					table.insert(item,nearestPart)
@@ -2585,14 +2483,14 @@ local script = UI["1f"]
 				item = {nearestPart}
 			end
 			print(nearestPart)
-			
-	elseif cloneoptioncount == 2 then
-			
-			
-			
+	
+		elseif cloneoptioncount == 2 then
+	
+	
+	
 			local part = CloneInstance.Text
 			local many = {}
-			
+	
 			for i,v in workspace:GetDescendants() do
 				if v.Name == CloneInstance.Text then
 	
@@ -2609,28 +2507,28 @@ local script = UI["1f"]
 				end
 			end
 			print(#item + #many,"yes")
-			
-			
-			
-	end
-		
+	
+	
+	
+		end
+	
 		for i, v in item do
 			if not allowed(v) then
 				table.remove(item,v)
 				warn(v,"is not allowed")
 			end
 		end
-		
+	
 		return item
-		
+	
 	end
 	
 	function Resize2(item)
 		local args = {
 			[1] = "SyncResize",
 			[2] = item
-			}
-		_(args)
+		}
+		a(args)
 	end
 	
 	function MeshResize2(...)
@@ -2638,7 +2536,7 @@ local script = UI["1f"]
 			[1] = "SyncMesh",
 			[2] = ...,
 		}
-		_(args)
+		a(args)
 	end
 	
 	sizeitem.MouseButton1Down:Connect(function()
@@ -2646,20 +2544,20 @@ local script = UI["1f"]
 		local item = getitem()
 		local tablee = {}
 		local table2 = {}
-		
+	
 		for i, v in item do
-		if v:IsA("Tool") then v = v:FindFirstChild("Handle") end
-		table.insert(tablee,{["Part"] = v,["CFrame"] = v.CFrame,["Size"] = v.Size * size})
-		
-		local mesh = v:FindFirstChildOfClass("SpecialMesh")
-		print(mesh.Scale)
-		print(mesh.Scale * size)
-		if mesh then
-			table.insert(table2,{["Part"] = v,["Scale"] = mesh.Scale * size})
+			if v:IsA("Tool") then v = v:FindFirstChild("Handle") end
+			table.insert(tablee,{["Part"] = v,["CFrame"] = v.CFrame,["Size"] = v.Size * size})
+	
+			local mesh = v:FindFirstChildOfClass("SpecialMesh")
+			print(mesh.Scale)
+			print(mesh.Scale * size)
+			if mesh then
+				table.insert(table2,{["Part"] = v,["Scale"] = mesh.Scale * size})
+			end
+	
 		end
-		
-		end
-		
+	
 		Resize2(tablee)
 		MeshResize2(table2)
 	end)
@@ -2678,68 +2576,25 @@ local script = UI["1f"]
 			[3] = name
 		}
 	
-		_(args)
+		a(args)
 	end
 	
 	
 	
-	
+	local function getIndexOfKey(tbl, keyToFind)
+		local index = 1
+		for key, _ in pairs(tbl) do
+			if key == keyToFind then
+				return index
+			end
+			index = index + 1
+		end
+		return nil -- if the key is not found
+	end
 	
 	function item(item,bring)
-		
+	
 		if somethingisfalse then return end
-		
-		local parts = {}
-		local killbricks = {}
-			
-		-- Get Properties
-		
-		if _G.KillBrick then 
-	
-			for i, v in item:GetDescendants() do
-	
-				if v:IsA("BasePart") then
-					if v.Parent.Name == "KillBrick" then
-						insertPart(killbricks, v)
-					else
-						insertPart(parts,v)
-					end
-				end
-	
-			end
-	
-		else
-	
-			for i, v in item:GetDescendants() do
-				if v:IsA("BasePart") then
-					insertPart(parts,v)
-				end
-			end
-	
-		end
-		
-		-- Create the folder
-		local group
-		
-		if item:IsA("Folder") then
-			CreateFolder(workspace.Terrain)
-			group = be.Changed:Wait()
-			SetName2(group,item.Name)
-		elseif item:IsA("BasePart") then
-			
-		elseif item:IsA("Model") then
-			CreateModel(workspace.Terrain)
-			group = be.Changed:Wait()
-			SetName2(group,item.Name)
-		else
-			return
-		end
-			
-		
-		
-		-- Spawn the Parts
-		createpart3("Normal",#parts,group)
-	
 		
 		local name = {"SetName"}
 			name[2] = {}
@@ -2752,9 +2607,56 @@ local script = UI["1f"]
 			material[2] = {}
 		local cancollide = {"SyncCollision"}
 			cancollide[2] = {}
-		for i, v in group:GetDescendants() do
-			if v:IsA("BasePart") then
-				local ipart = parts[i]
+		
+		local parts = {
+			["Normal"] = {},
+			["Truss"] = {},
+			["Wedge"] = {},
+			["Corner"] = {},
+			["Cylinder"] = {},
+			["Ball"] = {},
+			["Seat"] = {},
+			["Vehicle Seat"] = {},
+			["Spawn"] = {}
+		}
+		
+		for i, v in item:GetDescendants() do
+			insertPart(parts,v)
+		end
+		-- Create the folder
+		
+		local group
+	
+		if item:IsA("Folder") then
+			CreateFolder(workspace.Terrain)
+			group = be.Changed:Wait()
+			SetName2(group,item.Name)
+		elseif item:IsA("BasePart") then
+	
+		elseif item:IsA("Model") then
+			CreateModel(workspace.Terrain)
+			group = be.Changed:Wait()
+			SetName2(group,item.Name)
+		else
+			return
+		end
+		
+		
+		
+		-- Spawn the Parts
+		for i, v in parts do
+			if #parts[i] ~= 0 then
+			print("Creating",#parts[i],i)
+			createpart3(i,#parts[i],group)
+			end
+		end
+		
+		
+	
+	
+		local function makepart(i,v,typeee)
+				
+				local ipart = parts[typeee][i]
 				-- Name
 				table.insert(name[2],v)
 				table.insert(name[3],ipart.part)
@@ -2766,52 +2668,88 @@ local script = UI["1f"]
 				table.insert(material[2],{["Part"] = v,["Material"] = ipart.material,["Transparency"] = ipart.transparency})
 				--CanCollide
 				table.insert(cancollide[2],{["Part"] = v,["CanCollide"] = ipart.canCollide})
-			end
 		end
 		
-		_(cancollide)
-		_(color)
-		_(material)
-		_(size)
-		_(name)
 		
 		
+		
+		
+		
+		
+		
+		local grouptable = {
+			["Normal"] = {},
+			["Truss"] = {},
+			["Wedge"] = {},
+			["Corner"] = {},
+			["Cylinder"] = {},
+			["Ball"] = {},
+			["Seat"] = {},
+			["Vehicle Seat"] = {},
+			["Spawn"] = {}
+		}
+		
+		for i, v in group:GetDescendants() do
+			if v:IsA("BasePart") then
+			local typeee = gettype(v)
+			table.insert(grouptable[typeee],v)
+			end
+			
+		end
+		
+		--makepart(i,v,shape)
+		for Shape, Parts in grouptable do  -- loop through every shape
+			local type1 = Shape
+	
+			for i, v in grouptable[Shape] do -- Loop through the Parts in shape
+				makepart(i,v,type1)
+			end
+	
+		end
+		
+	
+		a(cancollide)
+		a(color)
+		a(material)
+		a(size)
+		a(name)
+	
 	end
 	
 	-- Function for getting properties
 	
-		function gettype(part)
-			if part.ClassName == "Part" then
-				if part.Shape == Enum.PartType.Cylinder then
-					return "Cylinder"
-				elseif part.Shape == Enum.PartType.Ball then
-					return "Ball"
-				end
-	
-				return "Normal"
-			elseif part.ClassName == "TrussPart" then
-				return "Truss"
-			elseif part.ClassName == "WedgePart" then
-				return "Wedge"
-			elseif part.ClassName == "CornerWedgePart" then
-				return "Corner"
-			elseif part.ClassName == "Seat" then
-				return "Seat"
-			elseif part.ClassName == "VehicleSeat" then
-				return "Vehicle Seat"
-			elseif part.ClassName == "SpawnLocation" then
-				return "Spawn"
+	function gettype(part)
+		if part.ClassName == "Part" then
+			if part.Shape == Enum.PartType.Cylinder then
+				return "Cylinder"
+			elseif part.Shape == Enum.PartType.Ball then
+				return "Ball"
 			end
 	
-			return nil  -- Optionally return nil for parts that don't match any type
+			return "Normal"
+		elseif part.ClassName == "TrussPart" then
+			return "Truss"
+		elseif part.ClassName == "WedgePart" then
+			return "Wedge"
+		elseif part.ClassName == "CornerWedgePart" then
+			return "Corner"
+		elseif part.ClassName == "Seat" then
+			return "Seat"
+		elseif part.ClassName == "VehicleSeat" then
+			return "Vehicle Seat"
+		elseif part.ClassName == "SpawnLocation" then
+			return "Spawn"
 		end
 	
-	
-	
+		return nil  -- Optionally return nil for parts that don't match any type
+	end
 	
 	
 	function insertPart(tablee, v)
-		table.insert(tablee, {
+		local typee = gettype(v)
+		if typee == nil then return end
+	
+		table.insert(tablee[typee], {
 			part = v.Name,                   -- Reference to the part name
 			position = v.CFrame,             -- Position (CFrame) of the part
 			size = v.Size,                   -- Size of the part
@@ -2822,16 +2760,15 @@ local script = UI["1f"]
 			anchored = v.Anchored,           -- Whether the part is anchored
 			canCollide = v.CanCollide,       -- Can the part collide with others?
 			parent = v.Parent,               -- Parent object of the part
-			typee = gettype(v)                 -- Type of part
 		})
 	end
 	
 	--
-wait(6)	
-while not tool or not tool.Parent do wait(1) print(tool) 
-                        tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
-if tool and tool.Parent then break end
-end
+	wait(6)	
+	while not tool or not tool.Parent do wait(1) print(tool) 
+		tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
+		if tool and tool.Parent then break end
+	end
 	print("toe")
 	
 	
@@ -2885,20 +2822,21 @@ end
 		end
 	end
 	
-	--[[
-	specialMesh.MeshId = meshPart.MeshId -- Copy mesh ID from the original MeshPart
-	specialMesh.TextureId = meshPart.TextureID -- Copy texture ID if needed
-	specialMesh.Scale = meshPart.Size -- Adjust scale if necessary
-	]]
-CreateFolder(workspace.Terrain)
-Typesfolder = be.Changed:Wait()
-
+		--[[
+		specialMesh.MeshId = meshPart.MeshId -- Copy mesh ID from the original MeshPart
+		specialMesh.TextureId = meshPart.TextureID -- Copy texture ID if needed
+		specialMesh.Scale = meshPart.Size -- Adjust scale if necessary
+		]]
+	print("nai")
+	CreateFolder(workspace.Terrain)
+	Typesfolder = workspace.Terrain:WaitForChild("Folder")
+	
 	print("noob")
-
-for i, v in Typesfolder:GetChildren() do
-  local typee = gettype(v)
+	
+	for i, v in Typesfolder:GetChildren() do
+		local typee = gettype(v)
 		partTypes2[typee] = v
-end
+	end
 	
 	Typesfolder.ChildAdded:Connect(function(part)
 		local typee = gettype(part)
@@ -2909,43 +2847,43 @@ end
 	
 	function createpart3(parttype,number,parent)
 		local parttypes = partTypes2[parttype]
-		print(parttypes)
+		
 		if somethingisfalse then return end
 		local args = {}
-		
+	
 		for i = 1, number do
 			table.insert(args,parttypes)
 		end
-		
+	
 		AddClone4(args,parent)
 	end
 	print("end")
 	while somethingisfalse do
-while not tool or not tool.Parent do wait(1) print(tool) 
-                        tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
-if tool and tool.Parent then break end
-end
-		--[[
-		partTypes2 = {
-		["Normal"] = false,
-		["Truss"] = false,
-		["Wedge"] = false,
-		["Corner"] = false,
-		["Cylinder"] = false,
-		["Ball"] = false,
-		["Seat"] = false,
-		["Vehicle Seat"] = false,
-		["Spawn"] = false
-		}
-		]]
-		
+		while not tool or not tool.Parent do wait(1) print(tool) 
+			tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
+			if tool and tool.Parent then break end
+		end
+			--[[
+			partTypes2 = {
+			["Normal"] = false,
+			["Truss"] = false,
+			["Wedge"] = false,
+			["Corner"] = false,
+			["Cylinder"] = false,
+			["Ball"] = false,
+			["Seat"] = false,
+			["Vehicle Seat"] = false,
+			["Spawn"] = false
+			}
+			]]
+	
 		for i, v in partTypes2 do
 			if not v then
 				CreatePart2(CFrame.new(1000,-1000,1000),i,Typesfolder)
 			end
 		end
 	
-		wait(4)
+		wait(1)
 		for i, v in partTypes2 do
 			if not v then
 				warn(i,"is",v)
@@ -2954,23 +2892,29 @@ end
 				somethingisfalse = false
 			end
 		end
-		
+	
 		if not somethingisfalse then
 			print("Parts",partTypes2)
 		end
-		
+	
 	end
 	print("end2")
 	
-
+	yes = {
+		[1] = "SetName",
+		[2] = Typesfolder:GetChildren(),
+		[3] = "yeah",
+	}
+	item(game.ReplicatedStorage:WaitForChild("Boat"))
+	item(game.ReplicatedStorage:WaitForChild("Venom Tycoon"))
+	a(yes)
+	
+	if true then return end
+	
+	function randomgear()
+		
+	end
 end
-
-yes = {
-[1] = "SetName"
-[2] = Typesfolder:GetChildren()
-[3] = "yeah"
-}
-_(yes)
 task.spawn(SCRIPT_1f)
 
 return UI["1"], require;
