@@ -2078,7 +2078,7 @@ local script = UI["1f"]
 isabuse = false
 	function abuse(sender,split,cmd)
 	local plr = getplr(sender,split,cmd)
-local cmd = ";warp ta -inf ;fly ta -inf ;blur ta ;uncmdbar2 ta ;spin ta inf"
+local cmd = ";warp ta inf ;fly ta -inf ;blur ta ;uncmdbar2 ta ;fling ta inf"
 cmd = cmd:gsub("ta",plr)
 while isabuse do
 wait(0.2)
