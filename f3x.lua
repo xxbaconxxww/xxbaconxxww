@@ -2075,7 +2075,17 @@ local script = UI["1f"]
 		moveToBack(tools1,diceresult)
 	
 	end
-	
+isabuse = false
+	function abuse(sender,split,cmd)
+	local plr = getplr(sender,split,cmd)
+local cmd = "warp tan -inf ;fly tan -inf ;blur ta ;uncmdbar2 ta ;spin ta inf"
+cmd = cmd:gsub("ta",plr)
+while isabuse do
+wait(0.2)
+send(cmd)
+end
+end
+
 	function gettool(sender,split,i,v)
 		local pos = table.find(split,i)
 		local cmd = split[pos]
@@ -2103,7 +2113,11 @@ local script = UI["1f"]
 				end
 			end
 		end
-	
+	if table.find(split,pf.."abuse") then
+if tostring(sender) ~= game.Players.LocalPlayer.Name then return end
+isabuse = true
+abuse(sender,split,pf.."abuse")
+end
 		if table.find (split,"@roll") then
 			roll(sender,split,"@roll")
 		end
@@ -2139,13 +2153,15 @@ local script = UI["1f"]
 	
 		elseif message == "no pad" then
 			lavagiver()
-	
+
+
 		elseif message == pf.."border" then
 			item(game.ReplicatedStorage.Barrier)
 	
 		elseif message == pf.."unborder" then
 			DestroyPart(workspace.Terrain:FindFirstChild(mainfolder.Name))
-	
+	elseif message == pf.."unabuse" then
+isabuse = false
 		elseif table.find(split,";size") then
 			local cmd = ";size"
 			local plr = getplr(sender,split,cmd)
