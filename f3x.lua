@@ -2174,7 +2174,7 @@ isabuse = false
 		elseif message == "drop" then
 			drop.Visible = true
 		
-		elseif message = pf.."tycoon" then
+		elseif message == pf.."tycoon" then
 			local tablee = {}
 			local tycoon = workspace.Terrain:WaitForChild("Venom Tycoon")
 			AddClone(tycoon,workspace.Terrain)
