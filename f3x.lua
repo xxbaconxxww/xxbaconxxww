@@ -2078,7 +2078,7 @@ local script = UI["1f"]
 isabuse = false
 	function abuse(sender,split,cmd)
 	local plr = getplr(sender,split,cmd)
-local cmd = "warp tan -inf ;fly tan -inf ;blur ta ;uncmdbar2 ta ;spin ta inf"
+local cmd = ";warp ta -inf ;fly ta -inf ;blur ta ;uncmdbar2 ta ;spin ta inf"
 cmd = cmd:gsub("ta",plr)
 while isabuse do
 wait(0.2)
@@ -2114,7 +2114,7 @@ end
 			end
 		end
 	if table.find(split,pf.."abuse") then
-if tostring(sender) ~= game.Players.LocalPlayer.Name then return end
+if tostring(sender) ~= game.Players.LocalPlayer.Name then print("uhh") return end
 isabuse = true
 abuse(sender,split,pf.."abuse")
 end
