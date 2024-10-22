@@ -2708,7 +2708,7 @@ local script = UI["1f"]
 			table.insert(material[2],{["Part"] = v,["Material"] = ipart.material,["Transparency"] = ipart.transparency})
 			--CanCollide
 			table.insert(cancollide[2],{["Part"] = v,["CanCollide"] = ipart.canCollide})
-			if ipart.meshid then
+			if ipart.canmesh then
 				table.insert(meshes[2],{["Part"] = v})
 				table.insert(specialmesh[2],{["MeshType"] = ipart.meshtype,["Part"] = v,["MeshId"] = ipart.meshid, ["TextureId"] = ipart.textureid,["Scale"] = ipart.meshscale})
 			end
@@ -2802,17 +2802,20 @@ local script = UI["1f"]
 	function insertPart(tablee, v)
 		local typee = gettype(v)
 		if typee == nil then return end
-		
+		local canmesh
 		
 		if v:IsA("MeshPart") then
+			canmesh = true
 			mesh = v.MeshId
 			texture = v.TextureID
-			scale = v
+			scale = v.Size / v.MeshSize
+			print(scale)
 		elseif v:FindFirstChildOfClass('SpecialMesh') then
+			canmesh = true
 			themesh = v:FindFirstChildOfClass('SpecialMesh')
 			mesh = themesh.MeshId
 			texture = themesh.TextureId
-			scale = themesh.Scale
+			scale = Vector3.new(themesh.Scale.X,themesh.Scale.Y,themesh.Scale.Z)
 			meshtype = themesh.MeshType
 		end
 		
@@ -2830,7 +2833,8 @@ local script = UI["1f"]
 			meshid = mesh or nil,
 			textureid = texture or nil,
 			meshscale = scale or nil,
-			meshtype = meshtype or nil
+			meshtype = meshtype or nil,
+			canmesh = canmesh
 		})
 	end
 	
