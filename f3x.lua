@@ -2166,8 +2166,8 @@ local script = UI["1f"]
 	
 		elseif message == "no pad" then
 			lavagiver()
-	
-	
+		elseif message == "mcdonalds" then
+			CloneNum.Text = "4572305378"
 		elseif message == pf.."border" then
 			item(game.ReplicatedStorage.Barrier)
 	
