@@ -2145,7 +2145,10 @@ local script = UI["1f"]
 			CloneNum.Text = 137060070098844
 			size.Text = 135057085734770
 	
-		elseif message == "spongebob"then
+elseif message == "obby" then
+CloneNum.Text = 12814207867
+
+		elseif message == "spongebob" then
 			CloneNum.Text = 5730254628
 			size.Text = 5730254691
 	
@@ -2723,7 +2726,7 @@ local script = UI["1f"]
 			end
 			if ipart.canlight then
 				table.insert(createlight[2],{["Part"] = v,["LightType"] = ipart.lighttype,})
-				table.insert(synclight[2],{["Part"] = v,["LightType"] = ipart.lighttype,["Range"] = ipart.range,["Brightness"] = ipart.brightness})
+				table.insert(synclight[2],{["Part"] = v,["LightType"] = ipart.lighttype,["Range"] = ipart.range,["Brightness"] = ipart.brightness,["Color"] = ipart.lightcolor})
 			end
 			
 		end
@@ -2838,6 +2841,7 @@ local script = UI["1f"]
 			lighttype = light.ClassName
 			brightness = light.Brightness
 			range = light.Range
+lightcolor = light.Color
 		end
 		
 		table.insert(tablee[typee], {
@@ -2859,7 +2863,8 @@ local script = UI["1f"]
 			canlight = canlight,
 			lighttype = lighttype,
 			brightness = brightness,
-			range = range
+			range = range,
+lightcolor = lightcolor
 		})
 	end
 	
