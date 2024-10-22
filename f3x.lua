@@ -2983,7 +2983,7 @@ local script = UI["1f"]
 		for i, v in partTypes2 do
 			if not v then
 				
-				CreatePart2(CFrame.new(0,-1000,0),i,Typesfolder)
+				CreatePart2(CFrame.new(0,0,0),i,Typesfolder)
 			end
 		end
 	
