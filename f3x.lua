@@ -3014,7 +3014,6 @@ local script = UI["1f"]
 	}
 	
 	_(yes)
-	item(rs["50"])
 	
 	function waitForChildWithTimeout(parent, timeout)
 		local childAddedConnection
