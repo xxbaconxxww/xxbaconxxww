@@ -1,4 +1,16 @@
-local delete
+local delete = {"Remove"}
+delete[2] = {}
 for i, v in group:GetDescendants() do
+
+local bottom = v.CFrame
+
+                e = bottom.x
+                f = bottom.y
+                g = bottom.z
+local vectorr33 = Vector3.new(math.floor(e),math.floor(f),math.floor(g))
+
+if vectorr33 = Vector3.new(0,0,0) then
+  table.insert(table[2],v)
+end
 
 end
