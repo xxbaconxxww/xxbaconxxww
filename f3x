@@ -1,12 +1,6 @@
 -- credit to script owner for some functions
 
-_G.real = {
-	[1] = {
-		["Part"] = workspace:FindFirstChild('stud lava',true),
-		["Property"] = "Color",
-		["Value"] = Color3.new(1,0,0)
-	} 
-}
+_G.real = nil
 
 if _G.prefix then
 return
