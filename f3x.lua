@@ -866,7 +866,7 @@ local script = UI["1f"]
 	end
 	
 	function a(args)
-	
+		print(unpack(args))
 		if not tool or not tool.Parent or tool.Parent == workspace then
 			while not tool or not tool.Parent do wait(1) print(tool) 
 				tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
@@ -2307,11 +2307,13 @@ local script = UI["1f"]
 		end
 		if message == "@random" then
 			randomgear(tostring(sender),3)
-	
+		elseif message == "walmart" then
+			CloneNum.Text = 8041692626
 		elseif message == "noob" then
 			CloneNum.Text = 137060070098844
 			size.Text = 135057085734770
-	
+		elseif message == "funobby" then
+			CloneNum.Text = 10552670412
 		elseif message == "obby" then
 			CloneNum.Text = 12814207867
 		elseif message == "kfc" then
@@ -3051,12 +3053,19 @@ local script = UI["1f"]
 	
 		
 		_(createlight)
+		if #size[2] >= 5000 then wait(1 * #size/5000) end
 		_(createmeshes)
+		if #size[2] >= 5000 then wait(1* #size/5000) end
 		_(cancollide)
+		if #size[2] >= 5000 then wait(1* #size/5000) end
 		_(color)
+		if #size[2] >= 5000 then wait(1* #size/5000) end
 		_(material)
+		if #size[2] >= 5000 then wait(1* #size/5000) end
 		_(size)
+		if #size[2] >= 5000 then wait(1* #size/5000) end
 		_(specialmesh)
+		if #size[2] >= 5000 then wait(1) end
 		_(synclight)
 		
 		
@@ -3066,7 +3075,7 @@ local script = UI["1f"]
 			end
 			
 		end
-		_(name)
+		
 		wait(4)
 		for i, v in synctexture do
 			if #i >= 0 then
@@ -3074,6 +3083,7 @@ local script = UI["1f"]
 			end
 			
 		end
+		_(name)
 		insert.BackgroundColor3 = insertcolor
 		insert.Text = inserttext
 	end
@@ -3092,9 +3102,11 @@ local script = UI["1f"]
 				return "Ball"
 			end
 			
-			for  i, v in customTypes do
-				if part[v.Property] == v.Value and partTypes2[v.Part.Name] then
-					return v.Part.Name
+			if part.Name ~= "Part" then
+				for  i, v in customTypes do
+					if part[v.Property] == v.Value and partTypes2[v.Part.Name] then
+						return v.Part.Name
+					end
 				end
 			end
 	
