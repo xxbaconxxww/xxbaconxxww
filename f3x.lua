@@ -547,7 +547,7 @@ local script = UI["1f"]
 			Instance.new("UICorner",v).CornerRadius = UDim.new(0, 4)
 		end
 	end
-	
+	local customTypes = {}
 	local insert = frame.ModelInsert
 	inserttext = insert.Text
 	insert.Text = "Loading..."
@@ -560,7 +560,7 @@ local script = UI["1f"]
 	local module = game.ReplicatedStorage:FindFirstChild("CustomTypes")
 	if module then
 		customTypes = require(module)
-	else
+	elseif _G.real then
 		customTypes = _G.real
 	end
 	print(customTypes)
@@ -3000,7 +3000,7 @@ local script = UI["1f"]
 				for l, b in ipart.decals do
 					local sface = tostring(b.face):gsub("Enum.NormalId.","")
 					table.insert(addtexture[sface][2],{["Part"] = v,["Face"] = b.face, ["TextureType"] = "Decal"})
-					
+					table.insert(synctexture[sface][2],{["Part"] = v,["Face"] = b.face, ["TextureType"] = "Decal",["Texture"] = b.texture})
 				end
 			end
 			
@@ -3045,8 +3045,10 @@ local script = UI["1f"]
 			insert.BackgroundColor3 = Color3.new(0,1,0)
 			insert.Text = "Set Properties"
 			insert.MouseButton1Click:Wait()
+			insert.BackgroundColor3 = Color3.new(1,0,0)
+			insert.Text = "Wait"
 		end
-		
+	
 		
 		_(createlight)
 		_(createmeshes)
@@ -3060,15 +3062,17 @@ local script = UI["1f"]
 		
 		for i, v in addtexture do
 			if #i >= 0 then
-				_(v)
+				a(v)
 			end
+			
 		end
 		_(name)
-		wait(0.2)
+		wait(4)
 		for i, v in synctexture do
 			if #i >= 0 then
-				_(v)
+				a(v)
 			end
+			
 		end
 		insert.BackgroundColor3 = insertcolor
 		insert.Text = inserttext
