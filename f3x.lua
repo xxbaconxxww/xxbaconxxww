@@ -3014,7 +3014,26 @@ local script = UI["1f"]
 					table.insert(synctexture[sface][2],{["Part"] = v,["Face"] = b.face,["Transparency"] = b.transparency,["TextureType"] = "Texture",["StudsPerTileU"] = b.studU,["StudsPerTileV"] = b.studV,["Texture"] = b.texture})
 				end
 			end
-			
+			local delete = {"Remove"}
+delete[2] = {}
+
+for i, v in group:GetDescendants() do
+
+local bottomm = v.CFrame
+
+                e = bottomm.x
+                f = bottomm.y
+                g = bottomm.z
+
+local vectorr33 = Vector3.new(math.floor(e),math.floor(f),math.floor(g))
+
+if vectorr33 = Vector3.new(0,0,0) then
+  table.insert(table[2],v)
+end
+
+end
+
+_(remove)
 		end
 	
 		local grouptable = table.clone(partTypes0)
