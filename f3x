@@ -1,6 +1,6 @@
 -- credit to script owner for some functions
 
-_G.real = nil
+_G.real = true
 
 if _G.prefix then
 return
