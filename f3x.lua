@@ -3091,7 +3091,7 @@ local script = UI["1f"]
 local delete = {"Remove"}
 delete[2] = {}
 
-for i, v in ipairs(group:GetDescendants()) do
+for i, v in ipairs(group:GetChildren()) do
     local bottomm = v.CFrame
 
     local e = bottomm.X
