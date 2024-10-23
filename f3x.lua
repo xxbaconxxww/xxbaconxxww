@@ -561,7 +561,7 @@ local script = UI["1f"]
 	if module then
 		customTypes = require(module)
 	elseif _G.real then
-		customTypes = _G.real
+
 	end
 	print(customTypes)
 	
