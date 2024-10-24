@@ -376,7 +376,7 @@ function a(args)
 			wait(1)
 		end
 	end
-	
+
 
 end
 
@@ -1391,7 +1391,7 @@ insert.MouseButton1Click:Connect(function()
 		if not model then
 			warn("Failed to load asset with ID: ", id)
 			item(game.ReplicatedStorage["50"],true)
-		return end
+			return end
 		item(model)
 	end
 end)
@@ -2300,14 +2300,14 @@ function item(item,bring)
 	e = bottom.x
 	f = getFolderBottom(item)
 	g = bottom.z
-	
+
 	local vectorr3 = Vector3.new(math.floor(e),f,math.floor(g))
 	print(vectorr3)
 	if insertbuttonclick and bring then
-	
-			bringfolder(item,vectorr3)
-			moveToFloor(item)
-		
+
+		bringfolder(item,vectorr3)
+		moveToFloor(item)
+
 	end
 
 	if insertbuttonclick then
@@ -2455,13 +2455,13 @@ function item(item,bring)
 		DestroyPart(group)
 		return
 	end
-	
+
 	local en = Enum.NormalId
 	local function makepart(i,v,typeee)
 
 		local ipart = parts[typeee][i]
 		-- Name
-		
+
 		table.insert(name[2],v)
 		if ipart.part then
 			table.insert(name[3],ipart.part)
@@ -2540,27 +2540,27 @@ function item(item,bring)
 	end
 
 
-if #size[2] <= 25000 then
-	_(createlight)
-	_(createmeshes)
-	_(cancollide)
-	_(color)
-	_(material)
-	_(size)
-	_(specialmesh)
-	_(synclight)
-	group.Parent = normal
-else
-	a(color)
-	a(material)
-	a(size)
-	a(createlight)
-	a(createmeshes)
-	a(cancollide)
-	a(specialmesh)
-	a(synclight)
-	group.Parent = normal
-end
+	if #size[2] <= 25000 then
+		_(createlight)
+		_(createmeshes)
+		_(cancollide)
+		_(color)
+		_(material)
+		_(size)
+		_(specialmesh)
+		_(synclight)
+		group.Parent = normal
+	else
+		a(color)
+		a(material)
+		a(size)
+		a(createlight)
+		a(createmeshes)
+		a(cancollide)
+		a(specialmesh)
+		a(synclight)
+		group.Parent = normal
+	end
 
 	for i, v in addtexture do
 		if #i >= 0 then
@@ -2595,12 +2595,12 @@ end
 	_(delete)
 	insert.BackgroundColor3 = insertcolor
 	insert.Text = inserttext
-	
+
 	if not item.Parent then
 		item:Destroy()
 	end
 	local syncmove = {"SyncMove"}
-		syncmove[2] = {}
+	syncmove[2] = {}
 
 	local bottom = getBottomOfPlayer(plr)
 
@@ -2608,8 +2608,8 @@ end
 	f = bottom.y
 	g = bottom.z
 
-	
-	
+
+
 	_(syncmove)
 end
 
