@@ -2448,13 +2448,7 @@ function item(item,bring)
 		end
 	end
 
-	if timeout == -10 then
-		print("Parts are loaded press the button again to set properties")
-	else
-		print("parts are not loaded destroying model")
-		DestroyPart(group)
-		return
-	end
+	
 
 	local en = Enum.NormalId
 	local function makepart(i,v,typeee)
@@ -2529,6 +2523,14 @@ function item(item,bring)
 			end
 		end
 
+	end
+	
+	if timeout == -10 then
+		print("Parts are loaded press the button again to set properties")
+	else
+		print("parts are not loaded destroying model")
+		DestroyPart(group)
+		return
 	end
 
 	if insertbuttonclick then
