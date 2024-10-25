@@ -41,8 +41,11 @@ function name(name1,name2)
 	local name1 = string.lower(name1)
 
 	local name2 = string.lower(name2)
-
+	
 	if name1 == name2 then
+		return true
+	end
+	if name1 == name2.." " then
 		return true
 	end
 	return false
@@ -248,6 +251,21 @@ end
 drag(g)
 drag(g.Parent.TextButton)
 drag(drop)
+
+function tofolder(item)
+	if item:IsA("BasePart") then
+		item.Parent = Instance.new('Folder',item.Parent)
+	elseif item:IsA("Model") then
+		local p = item.Parent
+		for i, v in item:GetChildren() do
+			v.Parent = nil
+		end
+		item:Destroy()
+		for i, v in item:GetChildren() do
+			v.Parent = p
+		end
+	end
+end
 
 function SpawnLighting(part)
 	local sb = Instance.new("SelectionBox",part)
@@ -490,7 +508,7 @@ end)
 
 
 -- Default values for raycasting
-local DEFAULT_RAY_DISTANCE = 400 -- How far down to check for the floor
+local DEFAULT_RAY_DISTANCE = 3000 -- How far down to check for the floor
 local DEFAULT_FLOOR_OFFSET = -0.4 -- Adjust this to raise the object slightly above the floor if needed
 
 -- Function to get the bounding box and center position of the object
@@ -1383,20 +1401,21 @@ insert.MouseButton1Click:Connect(function()
 
 	if _G.real then
 		local model = game:GetObjects("rbxassetid://"..id)[1]
+		if not model then warn("Failed to load asset with ID: ", id) return end
 		model.Parent = game.ReplicatedStorage
-		item(model)
+		
+		item(model,true)
 
 	else
 		local createmodel = game.ReplicatedStorage:FindFirstChild("RemoteFunction")
 		local model = nil
 		if createmodel then
 			model = createmodel:InvokeServer(id)
+			item(model,true)
 		end
 		if not model then
 			warn("Failed to load asset with ID: ", id)
-			item(game.ReplicatedStorage["50"],true)
-			return end
-		item(model)
+		return end
 	end
 end)
 
@@ -1784,7 +1803,7 @@ end
 
 local mainfolder = game.ReplicatedStorage.Barrier
 -- 
-
+objpf = "/"
 function msgsent(sender,message)
 	local split = string.split(message," ")
 	Quote(sender,message)
@@ -1797,7 +1816,11 @@ function msgsent(sender,message)
 				gettool(sender,split,i,v)
 			end
 		end
+	elseif string.sub(message,1,1) == objpf then
+		Object(message,objpf)
 	end
+	
+	
 	if table.find(split,pf.."abuse") then
 		if tostring(sender) ~= game.Players.LocalPlayer.Name then print("uhh") return end
 		isabuse = true
@@ -1812,17 +1835,7 @@ function msgsent(sender,message)
 	end
 	if message == "@random" then
 		randomgear(tostring(sender),3)
-	elseif message == "walmart" then
-		CloneNum.Text = 8041692626
-	elseif message == "noob" then
-		CloneNum.Text = 137060070098844
-		size.Text = 135057085734770
-	elseif message == "funobby" then
-		CloneNum.Text = 10552670412
-	elseif message == "obby" then
-		CloneNum.Text = 12814207867
-	elseif message == "kfc" then
-		CloneNum.Text = 8836463855
+	
 
 	elseif message == "spongebob" then
 		CloneNum.Text = 5730254628
@@ -1865,7 +1878,10 @@ function msgsent(sender,message)
 		end
 	elseif message == "drop" then
 		drop.Visible = true
-
+	elseif message == "noob" then
+		CloneNum.Text = 137060070098844
+		size.Text = 135057085734770
+		
 	elseif message == pf.."tycoon" then
 		local tablee = {}
 		local tycoon = workspace.Terrain:WaitForChild("Venom Tycoon")
@@ -2291,7 +2307,8 @@ end
 
 
 
-function item(item,bring)
+function item(item,brings)
+	-- joe mama
 	if somethingisfalse then return end
 	local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 	local plr = game.Players.LocalPlayer
@@ -2307,7 +2324,8 @@ function item(item,bring)
 
 	local vectorr3 = Vector3.new(math.floor(e),f,math.floor(g))
 	print(vectorr3)
-	if insertbuttonclick and bring then
+	
+	if insertbuttonclick and brings then
 
 		bringfolder(item,vectorr3)
 		moveToFloor(item)
@@ -2394,19 +2412,12 @@ function item(item,bring)
 
 	local group
 
-	if item:IsA("Folder") then
+
 		CreateFolder(workspace.Terrain)
 		group = be.Changed:Wait()
 		SetName2(group,item.Name)
-	elseif item:IsA("BasePart") then
 
-	elseif item:IsA("Model") then
-		CreateModel(workspace.Terrain)
-		group = be.Changed:Wait()
-		SetName2(group,item.Name)
-	else
-		return
-	end
+
 	local normal = group.Parent
 	group.Parent = game.ReplicatedStorage
 
@@ -2420,22 +2431,28 @@ function item(item,bring)
 
 
 	-- creating again just incase it bugs
-	coroutine.resume(coroutine.create(function()
+	task.spawn(function()
 		wait(2)
 		for attempts = 1, 25 do
 			for i, v in parts do
 				if #parts[i] >= #group:GetChildren() + 1 then
 
 					if #parts[i] ~= 0 then
-						print("ATTEMPT:",attempts,"Creating",#parts[i] - #group:GetChildren(),i,"again just incase it bugs parts:",#group:GetChildren())
-						createpart3(i,#parts[i] - #group:GetChildren(),group)
+						if parts[i] == "Normal" then
+							print("ATTEMPT:",attempts,"Creating",#parts[i] - #group:GetChildren(),i,"again just incase it bugs parts:",#group:GetChildren())
+							createpart3(i,#parts[i] - #group:GetChildren(),group)
+						else
+							print("ATTEMPT:",attempts,"Creating",#parts[i],i,"again just incase it bugs parts:",#group:GetChildren())
+							createpart3(i,#parts[i],group)
+						end
+						
 					end
 
 				end
 			end
 			wait(1)
 		end
-	end))
+	end)
 
 	local timeout = 25
 	print("waiting for parts to load")
@@ -2570,11 +2587,11 @@ function item(item,bring)
 
 	for i, v in addtexture do
 		if #i >= 0 then
-			a(v)
+			_(v)
 		end
 
 	end
-
+	wait(1)
 	for i, v in synctexture do
 		if #i >= 0 then
 			_(v)
@@ -2584,20 +2601,14 @@ function item(item,bring)
 	_(name)
 	local delete = {"Remove"}
 	delete[2] = {}
-
-	for i, v in ipairs(group:GetChildren()) do
-		local bottomm = v.CFrame
-
-		local e = bottomm.X
-		local f = bottomm.Y
-		local g = bottomm.Z
-
-		local vectorr33 = Vector3.new(math.floor(e), math.floor(f), math.floor(g))
-
-		if vectorr33 == Vector3.new(0, 0, 0) then
+	
+	for i, v in group:GetChildren() do
+		if v.Name == "yeah" then
 			table.insert(delete[2],{["Part"] = v})
 		end
 	end
+	
+	print("Destroying",#delete,"parts")
 	_(delete)
 	insert.BackgroundColor3 = insertcolor
 	insert.Text = inserttext
@@ -2613,7 +2624,7 @@ function item(item,bring)
 	e = bottom.x
 	f = bottom.y
 	g = bottom.z
-
+	
 
 
 	_(syncmove)
@@ -3045,11 +3056,11 @@ if #customTypes >= 1 then
 end
 
 if not somethingisfalse then
-	print("Parts")
+	print("Parts  ▼  {")
 	for i, v in partTypes2 do
-		print(i,v)
-
+		print('    ["'..i..'"] =',tostring(v)..",")
 	end
+	print(" }")
 end
 
 yes = {
@@ -3067,7 +3078,21 @@ for  i, v in customTypes do
 	end
 end
 print(partTypes0)
-
+local models = {
+	["walmart"] = 8041692626,
+	["funobby"] = 10552670412,
+	["obby"] = 12814207867,
+	["kfc"] = 8836463855,
+	["mm2"] = 6881915737,
+}
+function Object(message,objpf)
+	print("objects")
+	for i,v in models do
+		if name(message,objpf..i)  then
+			CloneNum.Text =  v
+		end
+	end
+end
 if not _G.real then	 return end
 boat = game:GetObjects("rbxassetid://3171550")[1]
 tycoon = game:GetObjects("rbxassetid://12658863714")[1]
