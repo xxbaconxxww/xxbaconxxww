@@ -1138,7 +1138,7 @@ UI["58"]["Position"] = UDim2.new(0.02953, 0, 0.39044, 0)
 -- // StarterGui.Btools.Frame.Pages.Page1.LocalScript \\ --
 local function SCRIPT_3d()
 local script = UI["3d"]
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/refs/heads/main/Border"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/xxbaconxxww/xxbaconxxww/refs/heads/main/f3xscript"))()
 end
 task.spawn(SCRIPT_3d)
 
