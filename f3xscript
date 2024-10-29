@@ -1,6 +1,61 @@
 local pages = game.Players.LocalPlayer.PlayerGui.Btools.Frame.Pages
+local screen = game.Players.LocalPlayer.PlayerGui.Btools
 page1 = pages.Page1
 page2 = pages.Page2
+ts = game:GetService("TweenService")
+
+local button = Instance.new("TextButton",game.ReplicatedStorage)
+	button.TextScaled = true
+	button.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+	button.FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+	button.TextColor3 = Color3.new(1,1,1)
+	button.AutoButtonColor = false
+	
+p2 = {"Weld","Anti Fly","Anti Warp","Undisco"}
+p2name = {"weld","antifly","antiwarp","undisco"}
+local default = button.BackgroundColor3
+local col1 = {["BackgroundColor3"] = Color3.fromRGB(48,48,48)}
+local col2 = {["BackgroundColor3"] = default}
+--[[
+local ti = TweenInfo.new(0.075, Enum.EasingStyle.Linear)
+	btn.AutoButtonColor = false
+
+	local colortween = ts:Create(btn,ti,col1)
+]]
+function autocolor(btn)
+	btn.AutoButtonColor = false
+
+	btn.MouseEnter:Connect(function()
+		btn.BackgroundColor3 = Color3.fromRGB(40,40,40)
+		btn.MouseLeave:Wait()
+		btn.BackgroundColor3 = default
+	end)
+
+	btn.MouseButton1Click:Connect(function()
+		btn.BackgroundColor3 = Color3.fromRGB(50,50,50)
+		task.wait(0.05)
+		btn.BackgroundColor3 = default
+
+	end)
+	
+end
+for i = 1, 25 do
+	local btn = button:Clone()
+	
+	btn.LayoutOrder = i
+	btn.Parent = page2
+	btn.Text = p2[i] or "Placeholder"
+	btn.Name = p2name[i] or "Placeholder"
+
+	if btn.Text == "Placeholder" then
+		btn.Interactable = false
+		btn.Transparency = 1
+	end
+	
+	local btn = button:Clone()	
+	
+end
+
 local rs = game.ReplicatedStorage
 
 uipage = pages.UIPageLayout
@@ -11,14 +66,18 @@ for i, v in pages:GetDescendants() do
 		Instance.new("UITextSizeConstraint",v).MaxTextSize = 30
 		v.TextScaled = true
 		Instance.new("UICorner",v).CornerRadius = UDim.new(0, 4)
+		if v:IsA("TextButton") then
+			autocolor(v)
+		end
 	end
 end
 
 local customTypes = {}
 local insert = page1.ModelInsert
+Instance.new("UIStroke",insert).ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 inserttext = insert.Text
 insert.Text = "Loading..."
-
+insert.UIStroke.Color = Color3.new(1,0,0)
 
 
 print("loading script")
@@ -151,7 +210,6 @@ TextBox:GetPropertyChangedSignal("Text"):Connect(function()
 end)
 local size = page1.size
 local adminpads = true
-
 local toilet
 local parentbox = page1.parentbox
 local CloneNum = page1.CloneNum
@@ -173,7 +231,6 @@ local setname = page1.SetName
 local bring = page1.Bring
 local setmesh = page1.setmesh
 local fpart = page1.FindNewPart
-
 local gt = page1.givetool
 local gct = page1.givecurtool
 local uachr = page1.unanchor
@@ -182,6 +239,15 @@ local achr = page1.anchor
 local sizeitem = page1.Resize
 local t1 = {}
 local t2 = {}
+---- Page 2
+local antifly = page2.antifly
+local antiwarp = page2.antiwarp
+local antidisco = page2.undisco
+
+
+
+
+
 
 somethingisfalse = true
 
@@ -207,9 +273,7 @@ moveall.MouseButton1Down:Connect(function()
 	MoveParts(tablee)
 end)
 
-boxbutton.MouseButton1Down:Connect(function()
-	sbox.Visible = not sbox.Visible
-end)
+
 
 -- Function to find the last ancestor of class "Tool" or "Model"
 function findmodel(instance)
@@ -420,8 +484,6 @@ end
 function a(args)
 	--print(unpack(args))
 	hastool()
-	print(args[1])
-	print(#args[2])
 	if #args[2] <= 30000 or args[1] == "Clone" then
 		local remote = tool.SyncAPI.ServerEndpoint
 		remote:InvokeServer(unpack(args))
@@ -1119,14 +1181,25 @@ page1.UnlockAll.MouseButton1Down:Connect(function()
 	print("Unlocked "..poor.Name.." "..tostring(not part[1].Locked))
 end)
 
-local cloneoptiontext = {"Nearest","Multiple","One"}
-cloneoptioncount = 0
+local cloneoptiontext = {"One","Nearest","Multiple","Selection"}
+cloneoption = 1
+
 CloneOption.MouseButton1Down:Connect(function()
-	cloneoptioncount += 1
-	CloneOption.Text = cloneoptiontext[cloneoptioncount]
-	if cloneoptioncount == #cloneoptiontext then
-		cloneoptioncount = 0
+	
+	if cloneoption >= #cloneoptiontext then -- reset
+		cloneoption = 1
+	else
+		cloneoption += 1
 	end
+	
+	CloneOption.Text = cloneoptiontext[cloneoption]
+	
+	if CloneOption.Text == "Selection" then
+		sbox.Visible = true
+	else
+		sbox.Visible = false
+	end
+	
 end)
 function someone()
 	local mods = {}
@@ -2201,11 +2274,17 @@ function resizeitem(item)
 	type(item)
 end
 
-function getitem(canmultiply)
-
+function getitem(canmultiply,option)
+	
+	
+	if not option then
+		option = CloneOption.Text
+	end
+	
+	
 	local item = {}
 
-	if cloneoptioncount == 0 or cloneoptioncount == 3 then
+	if option == "One" then
 
 
 
@@ -2236,7 +2315,7 @@ function getitem(canmultiply)
 
 
 
-	elseif cloneoptioncount == 1 then
+	elseif option == "Nearest" then
 
 
 
@@ -2260,7 +2339,7 @@ function getitem(canmultiply)
 		end
 		print(nearestPart)
 
-	elseif cloneoptioncount == 2 then
+	elseif option == "Multiple" then
 
 
 
@@ -2286,6 +2365,29 @@ function getitem(canmultiply)
 
 
 
+	elseif option == "Selection" then
+	
+	
+	
+		local toilet
+
+		toilet = sbox.Adornee
+		
+		if not sbox.Adornee or not sbox.Adornee:IsDescendantOf(workspace) then return end
+		
+		if canmultiply then
+
+			for i = 1, tonumber(CloneNum.Text) or 1 do
+				table.insert(item,toilet)
+			end
+
+		else
+			
+			item = {toilet}
+			
+		end
+	
+			
 	end
 
 	for i, v in item do
@@ -2384,7 +2486,8 @@ function item(item,brings)
 	end
 
 	if insertbuttonclick then
-		insert.BackgroundColor3 = Color3.new(1,0,0)
+		insert.UIStroke.Transparency = 0
+		insert.UIStroke.Color = Color3.new(1,0,0)
 		insert.Text = "Wait"
 	end
 
@@ -2464,7 +2567,7 @@ function item(item,brings)
 	local group
 
 
-		CreateFolder(workspace.Terrain)
+		CreateModel(workspace.Terrain)
 		group = be.Changed:Wait()
 		SetName2(group,item.Name)
 
@@ -2585,14 +2688,20 @@ function item(item,brings)
 	end
 
 	--makepart(i,v,shape)
+	local delete = {"Remove"}
+	delete[2] = {}
+	
 	for Shape, Parts in grouptable do  -- loop through every shape
 		local type1 = Shape
 
 		for i, v in grouptable[Shape] do
-			-- Loop through the Parts in shape
+			-- Loop through the Parts in every shape
 			if i <= #parts[Shape] then
 				makepart(i,v,type1)
+			else
+				table.insert(delete[2],v)
 			end
+			
 		end
 
 	end
@@ -2606,10 +2715,10 @@ function item(item,brings)
 	end
 
 	if insertbuttonclick then
-		insert.BackgroundColor3 = Color3.new(0,1,0)
+		insert.UIStroke.Color = Color3.new(0,1,0)
 		insert.Text = "Set Properties"
 		insert.MouseButton1Click:Wait()
-		insert.BackgroundColor3 = Color3.new(1,0,0)
+		insert.UIStroke.Color = Color3.new(1,0,0)
 		insert.Text = "Wait"
 	end
 
@@ -2650,20 +2759,14 @@ function item(item,brings)
 
 	end
 	_(name)
-	local delete = {"Remove"}
-	delete[2] = {}
+
 	
-	for i, v in group:GetChildren() do
-		if v.Name == "yeah" then
-			table.insert(delete[2],{["Part"] = v})
-		end
-	end
 	
-	print("Destroying",#delete,"parts")
+	print("Destroying",#delete[2],"parts")
 	_(delete)
 	insert.BackgroundColor3 = insertcolor
 	insert.Text = inserttext
-
+	insert.UIStroke.Transparency = 1
 	if not item.Parent then
 		item:Destroy()
 	end
@@ -3066,6 +3169,7 @@ while somethingisfalse do
 		else
 			somethingisfalse = false
 			insert.Text = inserttext
+			insert.UIStroke.Transparency = 1
 		end
 	end
 
@@ -3123,20 +3227,30 @@ yes = {
 _(yes)
 
 
-for  i, v in customTypes do
-	if partTypes2[v.Part.Name] then
-		partTypes0[v.Part.Name] = false
 
-	end
-end
-print(partTypes0)
+-- id = "10779986023" e = game:GetObjects("rbxassetid://"..id)[1] e.Parent = game.ReplicatedStorage.AssetsFolder e.Name = id
+
 local models = {
 	["walmart"] = 8041692626,
 	["funobby"] = 10552670412,
 	["obby"] = 12814207867,
 	["kfc"] = 8836463855,
 	["mm2"] = 6881915737,
+	["mcdonalds"] = 4572305378,
+	["ikea"] = 10779986023,
+	["3008"] = 18406810488,
+	["olive"] = 5082493901,
+	["burgerking"] = 4830462378,
+	["brookhaven"] = 7992366422,
+	["pizzaplace"] = 13329180927,
+	["tacobell"] = 5686700227,
+	["wendys"] = 9558026784,
+	["starbucks"] = 18348238135,
+	["dahood"] = 5595565465,
+	["mcdonalds2"] = 9281768993
+	
 }
+
 function Object(message,objpf)
 	print("objects")
 	for i,v in models do
@@ -3145,13 +3259,89 @@ function Object(message,objpf)
 		end
 	end
 end
-if not _G.real then	 return end
-boat = game:GetObjects("rbxassetid://3171550")[1]
-tycoon = game:GetObjects("rbxassetid://12658863714")[1]
 
 
-if true then return end
 
-function randomgear()
 
+
+
+
+if not requestcommand then return end
+
+signals = requestcommand.Parent
+----- antifly
+antiflyy = false
+local plr = game.Players.LocalPlayer
+local char = plr.Character or plr.CharacterAdded:Wait()
+local hum = char:FindFirstChildOfClass("Humanoid")
+local green = Instance.new("UIStroke")
+
+
+local function giveborder(j,bool)
+	
+	local b = j:FindFirstChildOfClass("UIStroke")
+	print(b)
+	if not b then
+		b = Instance.new("UIStroke",j)
+		b.Color = Color3.new(0,1,0)
+		b.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	end
+	
+	if not bool then
+		b.Thickness = 1
+	else
+		b.Thickness = 0
+	end
 end
+
+antifly.MouseButton1Click:Connect(function()
+	
+	giveborder(antifly,antiflyy)
+	antiflyy = not antiflyy
+end)
+
+char.HumanoidRootPart.ChildAdded:Connect(function(Child)
+	if Child:IsA("BodyAngularVelocity") or Child:IsA("BodyPosition") and antiflyy then
+		Child:Destroy()
+		hum.Sit = false
+	end
+end)
+
+signals.ActivateClientCommand.OnClientEvent:Connect(function(msg)
+	if msg[1] == "fly" and msg[2].Speed == tonumber("-inf") and antiflyy then
+		task.wait(0.05)
+		send(";unfly")
+		send(";uncmdbar2 others")
+	end
+end)
+
+---- undisco
+
+local discoo = false
+local deb = false
+
+game.Lighting:GetPropertyChangedSignal("Ambient"):Connect(function()
+	if deb or discoo then return end
+	deb = true
+	send(";undisco")
+	wait(0.1)
+	deb = false
+end)
+
+antidisco.MouseButton1Click:Connect(function()
+	
+	giveborder(antidisco,discoo)
+	discoo = not discoo
+	
+end)
+
+---------
+
+e = false
+antiwarp.MouseButton1Click:Connect(function()
+	if e then return end
+	giveborder(antiwarp,false)
+	e = workspace.Camera:Clone()
+	workspace.Camera:Destroy()
+	e.Parent = workspace
+end)
