@@ -162,6 +162,7 @@ partTypes0 = {
 }
 local g = page1.Parent.Parent
 local sg = g.Parent
+sg.Enabled = true
 local drop = g.Parent.Drop
 partTypes2 = table.clone(partTypes0)
 
@@ -3299,13 +3300,15 @@ antifly.MouseButton1Click:Connect(function()
 	giveborder(antifly,antiflyy)
 	antiflyy = not antiflyy
 end)
-
-char.HumanoidRootPart.ChildAdded:Connect(function(Child)
-	if Child:IsA("BodyAngularVelocity") or Child:IsA("BodyPosition") and antiflyy then
-		Child:Destroy()
-		hum.Sit = false
-	end
+player.CharacterAdded:Connect(function(char)
+	char.HumanoidRootPart.ChildAdded:Connect(function(Child)
+		if Child:IsA("BodyAngularVelocity") or Child:IsA("BodyPosition") and antiflyy then
+			Child:Destroy()
+			hum.Sit = false
+		end
+	end)
 end)
+
 
 signals.ActivateClientCommand.OnClientEvent:Connect(function(msg)
 	if msg[1] == "fly" and msg[2].Speed == tonumber("-inf") and antiflyy then
@@ -3321,7 +3324,7 @@ local discoo = false
 local deb = false
 
 game.Lighting:GetPropertyChangedSignal("Ambient"):Connect(function()
-	if deb or discoo then return end
+	if deb or not discoo then return end
 	deb = true
 	send(";undisco")
 	wait(0.1)
