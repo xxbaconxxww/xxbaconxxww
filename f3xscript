@@ -11,8 +11,8 @@ local button = Instance.new("TextButton",game.ReplicatedStorage)
 	button.TextColor3 = Color3.new(1,1,1)
 	button.AutoButtonColor = false
 	
-p2 = {"Weld","Anti Fly","Anti Warp","Undisco"}
-p2name = {"weld","antifly","antiwarp","undisco"}
+p2 = {"Weld","Anti Fly","Anti Warp","Undisco","anti ;m","Model Insert2"}
+p2name = {"weld","antifly","antiwarp","undisco","antim","modelinsert2"}
 local default = button.BackgroundColor3
 local col1 = {["BackgroundColor3"] = Color3.fromRGB(48,48,48)}
 local col2 = {["BackgroundColor3"] = default}
@@ -92,7 +92,7 @@ elseif _G.real then
 
 end
 print(customTypes)
-
+local custom = _G.custom
 
 randg = nil
 local hdadminclient = game.ReplicatedStorage:FindFirstChild("HDAdminClient")
@@ -149,21 +149,16 @@ if not _G.real then
 	coroutine.wrap(send)()
 end
 
-partTypes0 = {
-	["Normal"] = false,
-	["Truss"] = false,
-	["Wedge"] = false,
-	["Corner"] = false,
-	["Cylinder"] = false,
-	["Ball"] = false,
-	["Seat"] = false,
-	["Vehicle Seat"] = false,
-	["Spawn"] = false
-}
+print(custom)
+
+
+
 local g = page1.Parent.Parent
 local sg = g.Parent
 sg.Enabled = true
 local drop = g.Parent.Drop
+print(custom.partTypes2)
+partTypes0  = custom.partTypes2
 partTypes2 = table.clone(partTypes0)
 
 
@@ -244,8 +239,8 @@ local t2 = {}
 local antifly = page2.antifly
 local antiwarp = page2.antiwarp
 local antidisco = page2.undisco
-
-
+local antim = page2.antim
+local insert2 = page2.modelinsert2
 
 
 
@@ -2461,6 +2456,7 @@ end
 
 
 
+----------------------------------------------------------------
 function item(item,brings)
 	-- joe mama
 	if somethingisfalse then return end
@@ -2478,9 +2474,9 @@ function item(item,brings)
 
 	local vectorr3 = Vector3.new(math.floor(e),f,math.floor(g))
 	print(vectorr3)
-	
-	if insertbuttonclick and brings then
 
+	if insertbuttonclick and brings then
+		print("brings")
 		bringfolder(item,vectorr3)
 		moveToFloor(item,f+100)
 
@@ -2490,6 +2486,10 @@ function item(item,brings)
 		insert.UIStroke.Transparency = 0
 		insert.UIStroke.Color = Color3.new(1,0,0)
 		insert.Text = "Wait"
+		
+		insert2.UIStroke.Transparency = 0
+		insert2.UIStroke.Color = Color3.new(1,0,0)
+		insert2.Text = "Wait"
 	end
 
 
@@ -2544,22 +2544,11 @@ function item(item,brings)
 	end
 
 
-	local parts = {
-		["Normal"] = {},
-		["Truss"] = {},
-		["Wedge"] = {},
-		["Corner"] = {},
-		["Cylinder"] = {},
-		["Ball"] = {},
-		["Seat"] = {},
-		["Vehicle Seat"] = {},
-		["Spawn"] = {}
-	}
-	for  i, v in customTypes do
-		if partTypes2[v.Part.Name] then
-			parts[v.Part.Name] = {}
-		end
+	local parts = table.clone(partTypes0)
+	for i, v in parts do
+		parts[i] = {}
 	end
+
 	for i, v in item:GetDescendants() do
 		insertPart(parts,v)	
 	end
@@ -2568,9 +2557,9 @@ function item(item,brings)
 	local group
 
 
-		CreateModel(workspace.Terrain)
-		group = be.Changed:Wait()
-		SetName2(group,item.Name)
+	CreateModel(workspace.Terrain)
+	group = be.Changed:Wait()
+	SetName2(group,item.Name)
 
 
 	local normal = group.Parent
@@ -2600,7 +2589,7 @@ function item(item,brings)
 							print("ATTEMPT:",attempts,"Creating",#parts[i],i,"again just incase it bugs parts:",#group:GetChildren())
 							createpart3(i,#parts[i],group)
 						end
-						
+
 					end
 
 				end
@@ -2624,7 +2613,7 @@ function item(item,brings)
 		end
 	end
 
-	
+
 
 	local en = Enum.NormalId
 	local function makepart(i,v,typeee)
@@ -2691,7 +2680,7 @@ function item(item,brings)
 	--makepart(i,v,shape)
 	local delete = {"Remove"}
 	delete[2] = {}
-	
+
 	for Shape, Parts in grouptable do  -- loop through every shape
 		local type1 = Shape
 
@@ -2702,11 +2691,11 @@ function item(item,brings)
 			else
 				table.insert(delete[2],v)
 			end
-			
+
 		end
 
 	end
-	
+
 	if timeout == -10 then
 		print("Parts are loaded press the button again to set properties")
 	else
@@ -2716,11 +2705,21 @@ function item(item,brings)
 	end
 
 	if insertbuttonclick then
+		--
 		insert.UIStroke.Color = Color3.new(0,1,0)
 		insert.Text = "Set Properties"
+		
+		insert2.UIStroke.Color = Color3.new(0,1,0)
+		insert2.Text = "idk"
+		
 		insert.MouseButton1Click:Wait()
+		
+		--
 		insert.UIStroke.Color = Color3.new(1,0,0)
 		insert.Text = "Wait"
+		
+		insert2.UIStroke.Color = Color3.new(1,0,0)
+		insert2.Text = "Wait"
 	end
 
 
@@ -2761,13 +2760,16 @@ function item(item,brings)
 	end
 	_(name)
 
-	
-	
+
+
 	print("Destroying",#delete[2],"parts")
 	_(delete)
 	insert.BackgroundColor3 = insertcolor
 	insert.Text = inserttext
 	insert.UIStroke.Transparency = 1
+	insert2.BackgroundColor3 = insertcolor
+	insert2.Text = inserttext
+	insert2.UIStroke.Transparency = 1
 	if not item.Parent then
 		item:Destroy()
 	end
@@ -2779,17 +2781,15 @@ function item(item,brings)
 	e = bottom.x
 	f = bottom.y
 	g = bottom.z
+
+	print(parts)
+
 	
-
-
-	_(syncmove)
 end
 
 -- Function for getting properties
 
-function gettype(part)
-
-
+gettype = function(part)
 
 	if part.ClassName == "Part" then
 		if part.Shape == Enum.PartType.Cylinder then
@@ -2797,20 +2797,18 @@ function gettype(part)
 
 		elseif part.Shape == Enum.PartType.Ball then
 			return "Ball"
+
 		end
 
-		if part.Name ~= "Part" then
-			for  i, v in customTypes do
-				if part[v.Property] == v.Value and partTypes2[v.Part.Name] then
-					return v.Part.Name
-				end
+		if custom then
+			if custom.func1(part) then
+				return custom.customitem.Name,part
 			end
 		end
 
 		return "Normal"
 	elseif part.ClassName == "UnionOperation" then
 		return "Normal"
-
 	elseif part.ClassName == "MeshPart" then
 		return "Normal"
 	elseif part.ClassName == "TrussPart" then
@@ -2829,7 +2827,6 @@ function gettype(part)
 
 	return nil  -- Optionally return nil for parts that don't match any type
 end
-
 
 execution = 0
 function insertPart(tablee, v)
@@ -3001,10 +2998,7 @@ end
 
 --
 
-while not tool or not tool.Parent do wait(1) print(tool) 
-	tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
-	if tool and tool.Parent then break end
-end
+hastool()
 print("toe")
 
 function getFolderBottom(folder)
@@ -3141,23 +3135,9 @@ while somethingisfalse do
 		tool = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
 		if tool and tool.Parent then break end
 	end
-					--[[
-					partTypes2 = {
-					["Normal"] = false,
-					["Truss"] = false,
-					["Wedge"] = false,
-					["Corner"] = false,
-					["Cylinder"] = false,
-					["Ball"] = false,
-					["Seat"] = false,
-					["Vehicle Seat"] = false,
-					["Spawn"] = false
-					}
-					]]
 
 	for i, v in partTypes2 do
 		if not v then
-
 			CreatePart2(CFrame.new(0,0,0),i,Typesfolder)
 		end
 	end
@@ -3174,50 +3154,10 @@ while somethingisfalse do
 		end
 	end
 
-
+	print(" i will crash ur client")
 
 end
 
-if #customTypes >= 1 then
-	for i, v  in customTypes do
-		namee = v.Part.Name 
-		part = workspace:FindFirstChild(namee,true) print(partTypes2["Normal"])
-		if part then
-			table.insert(partTypes2,{[namee] = false}) 
-			AddClone(part,Typesfolder)
-			newpart = Typesfolder:FindFirstChild(namee) 
-			local limit = 0 
-			while not newpart and limit <= 15 do 
-				wait(1) print(partTypes2["Normal"])
-				newpart = Typesfolder:FindFirstChild(namee) 
-				if newpart then break else 
-
-					if not part.Parent then break else
-						AddClone(part,Typesfolder)
-						wait(1)
-						newpart = Typesfolder:FindFirstChild(namee)
-					end
-				end
-
-				limit += 1
-
-			end
-
-			if newpart then
-
-				partTypes2[namee] = newpart
-			end
-		end
-	end	
-end
-
-if not somethingisfalse then
-	print("Parts  ▼  {")
-	for i, v in partTypes2 do
-		print('    ["'..i..'"] =',tostring(v)..",")
-	end
-	print(" }")
-end
 
 yes = {
 	[1] = "SetName",
@@ -3261,7 +3201,7 @@ function Object(message,objpf)
 	end
 end
 
-
+print(" i will crash ur client")
 
 
 
@@ -3347,4 +3287,42 @@ antiwarp.MouseButton1Click:Connect(function()
 	e = workspace.Camera:Clone()
 	workspace.Camera:Destroy()
 	e.Parent = workspace
+	e=true
+end)
+mes = false
+antim.MouseButton1Click:Connect(function()
+	if e then return end
+	giveborder(antim,false)
+	local v = game.Players.LocalPlayer.HDAdminGUIs.MessageContainer
+	v.Visible = not v.Visible
+	e=true
+end)
+
+Instance.new("UIStroke",insert2)
+insert2.UIStroke.Transparency = 1
+insert2.MouseButton1Click:Connect(function()
+	insertbuttonclicked = true
+	
+	if inserttext ~= insert.Text then print("dad") return end
+
+	local id = CloneNum.Text
+
+	if _G.real then
+		local model = game:GetObjects("rbxassetid://"..id)[1]
+		if not model then warn("Failed to load asset with ID: ", id) return end
+		model.Parent = game.ReplicatedStorage
+
+		item(model,false)
+
+	else
+		local createmodel = game.ReplicatedStorage:FindFirstChild("RemoteFunction")
+		local model = nil
+		if createmodel then
+			model = createmodel:InvokeServer(id)
+			item(model,false)
+		end
+		if not model then
+			warn("Failed to load asset with ID: ", id)
+			return end
+	end
 end)
