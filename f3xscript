@@ -3188,7 +3188,8 @@ local models = {
 	["wendys"] = 9558026784,
 	["starbucks"] = 18348238135,
 	["dahood"] = 5595565465,
-	["mcdonalds2"] = 9281768993
+	["mcdonalds2"] = 9281768993,
+	['obbyy'] = 85025692327552
 	
 }
 
