@@ -9,56 +9,36 @@ partTypes0 = {
 	["Vehicle Seat"] = false,
 	["Spawn"] = false
 }
+custom = {}
 
-partTypes2 = table.clone(partTypes0)
+lava = workspace:WaitForChild("stud lava",3) or workspace:FindFirstChild("stud lava",true)
 
-local module = {
-	
-	
-	
-	
-	
-	gettype = function(part)
+if lava then
+	custom = {
+		func1 = function(Part)
+			return #Part:GetChildren() >= 1 and 
+				Part:FindFirstChildOfClass("Script") and 
+				Part.Color == Color3.new(1,0,0)
+		end,
+		part1 = lava
+	}
 
-		if part.ClassName == "Part" then
-			if part.Shape == Enum.PartType.Cylinder then
-				return "Cylinder"
+	partTypes0[custom.part1.Name] = lava
 
-			elseif part.Shape == Enum.PartType.Ball then
-				return "Ball"
-			end
+else
+	custom = {func1 = function(Part)
+		return false
+	end,}
+end
 
-			return "Normal"
-		elseif part.ClassName == "UnionOperation" then
-			return "Normal"
-		elseif part.ClassName == "MeshPart" then
-			return "Normal"
-		elseif part.ClassName == "TrussPart" then
-			return "Truss"
-		elseif part.ClassName == "WedgePart" then
-			return "Wedge"
-		elseif part.ClassName == "CornerWedgePart" then
-			return "Corner"
-		elseif part.ClassName == "Seat" then
-			return "Seat"
-		elseif part.ClassName == "VehicleSeat" then
-			return "Vehicle Seat"
-		elseif part.ClassName == "SpawnLocation" then
-			return "Spawn"
-		end
-
-		return nil  -- Optionally return nil for parts that don't match any type
-	end,
-	
-	CreatePart = function(cf,parttype,parent)
-		local args = {
-			[1] = "CreatePart",
-			[2] = parttype,
-			[3] = cf,
-			[4] = parent
-		}
-		return _(args)
+custom2 = {
+	customitem = custom.part1,
+	partTypes2 = table.clone(partTypes0),
+	func1 = function(Part)
+		return #Part:GetChildren() >= 1 and 
+			Part:FindFirstChildOfClass("Script") and 
+			Part.Color == Color3.new(1,0,0)
 	end
 }
 
-return module
+return custom2
