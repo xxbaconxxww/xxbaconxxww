@@ -284,7 +284,9 @@ task.spawn(function()
 			
 
 			Positiona = nil
-			functions = require(game.ReplicatedStorage.Module.Functions)
+			functions = loadstring(game:HttpGet("https://gist.githubusercontent.com/xxbaconxxww/5de0cb375ead20296fe41b2ad89fb2aa/raw/101380cf2d6a64a0926276f5ceba3e4e8c789912/functions"))()
+
+
 			center = nil
 			value = tool.CurrentItem
 			model = nil
