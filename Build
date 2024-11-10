@@ -1,0 +1,450 @@
+local GridSize = 3
+
+
+function changevisible()
+	frame.Visible = not frame.Visible
+end
+
+local function nameshort(name1, name2)
+	if name1 == "" then return false end
+
+	local namelen = string.len(name1)
+	local name1 = string.lower(name1)
+	local name2 = string.lower(name2)
+	local name2 = string.sub(name2, 1, namelen)
+
+	return name1 == name2
+end
+local match = nil
+-- Function to handle matching logic
+local function checkAndAutofill(textbox)
+	match = nil
+	local matchCount = 0
+	local Items = nil
+	local lastItem = nil
+	for _, v in ipairs(workspace:GetDescendants()) do
+		if nameshort(textbox.Text, v.Name) then
+			
+			if not lastItem then lastItem = v end
+
+			if string.lower(lastItem.Name) ~= string.lower(v.Name) then
+				matchCount = 0
+				break
+			else
+				match = v
+				matchCount = 1
+			end
+			lastItem = v
+		end
+	end
+	
+	if matchCount == 1 then
+		textbox.Text = match.Name
+		textbox:ReleaseFocus() -- Trigger an InputEnded effect by releasing focus
+		if match.Name ~= textbox.Text then
+		
+		end
+	end
+
+end
+
+--Converted with ttyyuu12345's model to script plugin v4
+function sandbox(var,func)
+	local env = getfenv(func)
+	local newenv = setmetatable({},{
+		__index = function(self,k)
+			if k=="script" then
+				return var
+			else
+				return env[k]
+			end
+		end,
+	})
+	setfenv(func,newenv)
+	return func
+end
+cors = {}
+mas = Instance.new("Model",game:GetService("Lighting"))
+Tool0 = Instance.new("Tool")
+LocalScript1 = Instance.new("LocalScript")
+Part2 = Instance.new("Part")
+ObjectValue3 = Instance.new("ObjectValue")
+Part4 = Instance.new("Part")
+Part5 = Instance.new("Part")
+Tool0.Name = "Clone 2"
+Tool0.Parent = mas
+LocalScript1.Name = "shut"
+LocalScript1.Parent = Tool0
+btools = nil
+function hastool()
+	if not btools or not btools.Parent or btools.Parent == workspace then
+		while not btools or not btools.Parent or btools.Parent == workspace do 
+			btools = game.Players.LocalPlayer.Backpack:FindFirstChild('Building Tools') or
+				game.Players.LocalPlayer.Backpack:FindFirstChild('F3X Btools!') or
+				game.Players.LocalPlayer.Character:FindFirstChild('Building Tools') or
+				game.Players.LocalPlayer.Character:FindFirstChild('F3X Btools!')
+			task.wait(1)
+		end
+	end
+	return btools.SyncAPI.ServerEndpoint
+end
+
+
+
+-- // GUI TO LUA \\ --
+
+-- // INSTANCES: 16 | SCRIPTS: 1 | MODULES: 0 \\ --
+
+local UI = {}
+
+-- // StarterPack.Clone 2.GUI \\ --
+UI["1"] = Instance.new("ScreenGui", Tool0)
+UI["1"]["Name"] = [[GUI]]
+UI["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling
+UI["1"]["ResetOnSpawn"] = false
+
+-- // StarterPack.Clone 2.GUI.TextButton \\ --
+UI["2"] = Instance.new("TextButton", UI["1"])
+UI["2"]["TextWrapped"] = true
+UI["2"]["BorderSizePixel"] = 0
+UI["2"]["TextSize"] = 14
+UI["2"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["2"]["TextScaled"] = true
+UI["2"]["BackgroundColor3"] = Color3.fromRGB(50, 50, 50)
+UI["2"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["2"]["Size"] = UDim2.new(0.05, 30, 0.05, 30)
+UI["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["2"]["Text"] = [[Toggle]]
+UI["2"]["Position"] = UDim2.new(0, 0, 1, -123)
+
+-- // StarterPack.Clone 2.GUI.TextButton.UICorner \\ --
+UI["3"] = Instance.new("UICorner", UI["2"])
+
+
+-- // StarterPack.Clone 2.GUI.TextButton.UIAspectRatioConstraint \\ --
+UI["4"] = Instance.new("UIAspectRatioConstraint", UI["2"])
+
+
+-- // StarterPack.Clone 2.GUI.TextButton.UIStroke \\ --
+UI["5"] = Instance.new("UIStroke", UI["2"])
+UI["5"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
+
+-- // StarterPack.Clone 2.GUI.Frame \\ --
+UI["6"] = Instance.new("Frame", UI["1"])
+UI["6"]["BorderSizePixel"] = 0
+UI["6"]["BackgroundColor3"] = Color3.fromRGB(25, 25, 25)
+UI["6"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
+UI["6"]["Size"] = UDim2.new(0.17949, 0, 0.23826, 0)
+UI["6"]["Position"] = UDim2.new(0.5, 0, 0.50663, 0)
+UI["6"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["6"]["BackgroundTransparency"] = 0.3
+
+-- // StarterPack.Clone 2.GUI.Frame.TextBox \\ --
+UI["7"] = Instance.new("TextBox", UI["6"])
+UI["7"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["7"]["PlaceholderColor3"] = Color3.fromRGB(104, 104, 104)
+UI["7"]["BorderSizePixel"] = 0
+UI["7"]["TextWrapped"] = true
+UI["7"]["TextSize"] = 14
+UI["7"]["TextScaled"] = true
+UI["7"]["BackgroundColor3"] = Color3.fromRGB(53, 53, 53)
+UI["7"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+UI["7"]["PlaceholderText"] = [[Instance Name]]
+UI["7"]["Size"] = UDim2.new(0.97168, 0, 0.3, 0)
+UI["7"]["Position"] = UDim2.new(0.01416, 0, 0.22784, 0)
+UI["7"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["7"]["Text"] = [[]]
+UI["7"]["BackgroundTransparency"] = 0.5
+
+-- // StarterPack.Clone 2.GUI.Frame.TextBox.UICorner \\ --
+UI["8"] = Instance.new("UICorner", UI["7"])
+UI["8"]["CornerRadius"] = UDim.new(0, 4)
+
+-- // StarterPack.Clone 2.GUI.Frame.TextBox.UIStroke \\ --
+UI["9"] = Instance.new("UIStroke", UI["7"])
+UI["9"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
+UI["9"]["Thickness"] = 1.7
+UI["9"]["Color"] = Color3.fromRGB(61, 61, 61)
+
+-- // StarterPack.Clone 2.GUI.Frame.UIStroke \\ --
+UI["a"] = Instance.new("UIStroke", UI["6"])
+UI["a"]["Thickness"] = 1.7
+UI["a"]["Color"] = Color3.fromRGB(61, 61, 61)
+
+-- // StarterPack.Clone 2.GUI.Frame.UICorner \\ --
+UI["b"] = Instance.new("UICorner", UI["6"])
+UI["b"]["CornerRadius"] = UDim.new(0, 4)
+
+-- // StarterPack.Clone 2.GUI.Frame.button \\ --
+UI["c"] = Instance.new("TextButton", UI["6"])
+UI["c"]["Active"] = false
+UI["c"]["BorderSizePixel"] = 0
+UI["c"]["TextTransparency"] = 0.3
+UI["c"]["TextColor3"] = Color3.fromRGB(255, 255, 255)
+UI["c"]["BackgroundColor3"] = Color3.fromRGB(16, 16, 16)
+UI["c"]["Selectable"] = false
+UI["c"]["AnchorPoint"] = Vector2.new(0.5, 0.5)
+UI["c"]["Size"] = UDim2.new(0.72812, 0, 0.23826, 0)
+UI["c"]["BackgroundTransparency"] = 0.3
+UI["c"]["Name"] = [[button]]
+UI["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
+UI["c"]["Text"] = [[Select]]
+UI["c"]["Position"] = UDim2.new(0.49823, 0, 0.75025, 0)
+
+-- // StarterPack.Clone 2.GUI.Frame.button.UIStroke \\ --
+UI["d"] = Instance.new("UIStroke", UI["c"])
+UI["d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border
+UI["d"]["Thickness"] = 1.7
+UI["d"]["Color"] = Color3.fromRGB(61, 61, 61)
+
+-- // StarterPack.Clone 2.GUI.Frame.button.UICorner \\ --
+UI["e"] = Instance.new("UICorner", UI["c"])
+UI["e"]["CornerRadius"] = UDim.new(0, 4)
+
+-- // StarterPack.Clone 2.GUI.GUIScript \\ --
+UI["f"] = Instance.new("LocalScript", UI["1"])
+UI["f"]["Name"] = [[GUIScript]]
+
+-- // StarterPack.Clone 2.GUI.SelectionBox \\ --
+UI["10"] = Instance.new("SelectionBox", UI["1"])
+UI["10"]["LineThickness"] = 0.04
+UI["10"]["SurfaceTransparency"] = 0.8
+UI["10"]["SurfaceColor3"] = Color3.fromRGB(255, 255, 255)
+UI["10"]["Color3"] = Color3.fromRGB(181, 181, 181)
+	
+
+Part2.Name = "Handle"
+Part2.Parent = Tool0
+Part2.CFrame = CFrame.new(-1, 1, -1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Part2.Position = Vector3.new(-1, 1, -1)
+Part2.Color = Color3.new(0.627451, 0.372549, 0.207843)
+Part2.Size = Vector3.new(2, 2, 2)
+Part2.BottomSurface = Enum.SurfaceType.Smooth
+Part2.BrickColor = BrickColor.new("Dark orange")
+Part2.Material = Enum.Material.Brick
+Part2.TopSurface = Enum.SurfaceType.Smooth
+Part2.brickColor = BrickColor.new("Dark orange")
+ObjectValue3.Name = "CurrentItem"
+ObjectValue3.Parent = Tool0
+ObjectValue3.Value = nil
+Part4.Name = "Square"
+Part4.Parent = Tool0
+Part4.CFrame = CFrame.new(-78.5, 0.0745000243, -6.5, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Part4.Position = Vector3.new(-78.5, 0.07450002431869507, -6.5)
+Part4.Transparency = 1
+Part4.Size = Vector3.new(3, 3, 3)
+Part4.Anchored = true
+Part4.BottomSurface = Enum.SurfaceType.Smooth
+Part4.CanCollide = false
+Part4.TopSurface = Enum.SurfaceType.Smooth
+Part5.Name = "HitBox"
+Part5.Parent = Part4
+Part5.CFrame = CFrame.new(-78.5, 1.75000012, -6.5, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Part5.Position = Vector3.new(-78.5, 1.7500001192092896, -6.5)
+Part5.Transparency = 1
+Part5.Size = Vector3.new(3, 2.5, 3)
+Part5.Anchored = true
+Part5.BottomSurface = Enum.SurfaceType.Smooth
+Part5.CanCollide = false
+Part5.TopSurface = Enum.SurfaceType.Smooth
+for i,v in pairs(mas:GetChildren()) do
+	v.Parent = game.ReplicatedStorage
+	pcall(function() v:MakeJoints() end)
+end
+mas:Destroy()
+for i,v in pairs(cors) do
+	task.spawn(v)
+end
+
+local tool
+local timealive = 0
+game.Players.LocalPlayer.CharacterAdded:Connect(function()
+	timealive = 0
+end)
+local active
+local b
+
+task.spawn(function()
+	while task.wait(1) do
+		timealive += 1
+		if timealive == 3 then
+			debounce = false
+			tool = Tool0:Clone()
+			tool.Parent = game.Players.LocalPlayer.Backpack
+			value = tool.CurrentItem
+			screen = UI['1']
+			frame = screen.Frame
+			textbox = frame.TextBox
+			btn = frame.button
+			toggle = screen.TextButton
+			SyncAPI = nil
+			ServerEndpoint = nil
+			
+			playergui = game.Players.LocalPlayer.PlayerGui
+			
+
+			Positiona = nil
+			functions = require(game.ReplicatedStorage.Module.Functions)
+			center = nil
+			value = tool.CurrentItem
+			model = nil
+			X,Y,Z = nil,nil,nil
+			active = nil
+			char = game.Players.LocalPlayer.Character
+			newpos = Vector3.new(0,0,0)
+			
+			Square = tool.Square
+			UI['10'].Adornee = Square
+
+			SyncAPI = nil
+			ServerEndpoint = nil
+			plr =game.Players.LocalPlayer
+			playergui = game.Players.LocalPlayer.PlayerGui
+
+			HitBox = Square.HitBox
+
+			tool.Unequipped:Connect(function() active = false end)
+			tool.Equipped:Connect(function() active = true end)
+			tool.Equipped:Connect(function() screen.Parent = playergui end)
+			tool.Unequipped:Connect(function() screen.Parent = tool end)
+
+
+
+			btn.MouseButton1Click:Connect(function()
+				if not match then return end
+				changevisible()
+			    b = match
+				match.Archivable = true
+			end)
+
+			toggle.MouseButton1Click:Connect(function()
+				changevisible()
+			end)
+
+			textbox:GetPropertyChangedSignal("Text"):Connect(function()
+				checkAndAutofill(textbox)
+			end)
+		end
+	end
+end)
+Mouse = game.Players.LocalPlayer:GetMouse()
+uis = game.UserInputService
+
+
+plr =game.Players.LocalPlayer
+local character = plr.Character or plr.CharacterAdded:Wait()
+task.wait(3)
+local newpos, lastpos = plr.Character.HumanoidRootPart.Position , plr.Character.HumanoidRootPart.Position - Vector3.new(0,1,0)
+
+
+maxdistance = 500
+
+function mousemove()
+	if not active then return end
+
+	
+	X = math.floor((Mouse.Hit.X + GridSize / GridSize) / GridSize) * GridSize
+	Y = math.ceil((Mouse.Hit.Y + GridSize / GridSize ) / GridSize) * GridSize - 3
+	Z = math.floor((Mouse.Hit.Z + GridSize / GridSize) / GridSize) * GridSize
+	newpos = Vector3.new(X,Y,Z)
+	local target = Mouse.Target
+
+	if target ~= nil then
+		local Normal = Mouse.TargetSurface
+		if Normal == Enum.NormalId.Bottom then
+			newpos += Vector3.new(0,-3,0)
+		end
+		if Normal == Enum.NormalId.Right then
+			newpos += Vector3.new(3,0,0)
+		end
+		if Normal == Enum.NormalId.Back then
+			newpos += Vector3.new(0,0,3)
+		end
+	end
+
+
+	if lastpos == newpos  then return end
+	if (newpos - plr.Character.HumanoidRootPart.Position).Magnitude >= maxdistance then return end 
+
+
+	Square.Position = newpos + Vector3.new(0,1.5,0)
+	HitBox.Position = newpos + Vector3.new(0,1.5,0)
+	lastpos = newpos
+end
+
+
+
+
+
+
+
+
+function click(targetpos,bool)
+
+	
+	if debounce then error('cannot place item - previous item is loading') end
+	if not bool then
+		local inside = workspace:GetPartsInPart(HitBox, nil, 5)
+		if inside[2] then return end
+	end
+	
+	
+
+	ServerEndpoint = hastool()
+
+	debounce = true
+	if b and b:IsDescendantOf(workspace) then
+		ServerEndpoint:InvokeServer('Clone',{b},workspace)
+		local move = functions.readMove(b,targetpos)
+		ServerEndpoint:InvokeServer(unpack(move))
+		mousemove()
+	end
+	
+	debounce = false
+
+
+end
+
+if uis.TouchEnabled then
+	uis.TouchTap:Connect(function()
+		click(newpos)
+	end)
+else
+	Mouse.Button1Down:Connect(function()
+		click(newpos)
+	end)
+end
+
+Mouse.Move:Connect(mousemove)
+
+
+
+
+
+btoolsgui = plr.PlayerGui:WaitForChild("Building Tools by F3X (UI)",300)
+newpart = btoolsgui:WaitForChild('BTNewPartToolGUI',300)
+
+game.Players.LocalPlayer.ChildAdded:Connect(function()
+	btoolsgui = plr.PlayerGui:WaitForChild("Building Tools by F3X (UI)",300)
+	newpart = btoolsgui:WaitForChild('BTNewPartToolGUI',300)
+
+end)
+
+workspace.ChildAdded:Connect(function(child)
+	
+	if child.ClassName ~= "TrussPart" then return end
+	btoolsgui = plr.PlayerGui:FindFirstChild("Building Tools by F3X (UI)",300)
+	if not btoolsgui then return end
+	newpart = btoolsgui:FindFirstChild('BTNewPartToolGUI',300)
+	
+	if newpart.TypeOption.Dropdown.Options["2"].BackgroundColor3 ~= Color3.fromRGB(0,145,255)   then return end
+	
+	click(
+		Vector3.new	(
+			math.floor((child.Position.X + GridSize / GridSize) / GridSize) * GridSize,
+			math.ceil(child.Position.Y),
+			math.floor((child.Position.Z + GridSize / GridSize) / GridSize) * GridSize
+		)
+		,true)
+	
+end)
