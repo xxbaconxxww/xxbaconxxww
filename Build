@@ -400,8 +400,9 @@ function click(targetpos,bool)
 		local move = functions.readMove(b,targetpos)
 		ServerEndpoint:InvokeServer(unpack(move))
 		mousemove()
+		debounce = false
 	end
-	
+	wait(5)
 	debounce = false
 
 
