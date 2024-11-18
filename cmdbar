@@ -132,7 +132,7 @@ local script = UI["a"]
 
 	local UserInputService = game:GetService("UserInputService")
 	
-	local gui = game.Players.LocalPlayer.PlayerGUI.COMMANDBAR3.Frame.TextLabel.Drag
+	local gui = game.Players.LocalPlayer.PlayerGui.COMMANDBAR3.Frame.TextLabel.Drag
 	local gui2 = gui.Parent
 	local sgui = gui2.Parent
 	local tframe = gui2.textframe
