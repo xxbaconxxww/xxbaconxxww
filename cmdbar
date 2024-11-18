@@ -123,16 +123,17 @@ UI["9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0)
 UI["9"]["Text"] = [[CMDBAR]]
 
 -- // StarterGui.COMMANDBAR3.Frame.TextLabel.Drag \\ --
-UI["a"] = Instance.new("LocalScript", UI["9"])
+UI["a"] = Instance.new("LocalScript")
 UI["a"]["Name"] = [[Drag]]
 
 -- // StarterGui.COMMANDBAR3.Frame.TextLabel.Drag \\ --
 local function SCRIPT_a()
 local script = UI["a"]
+
 	local UserInputService = game:GetService("UserInputService")
 	
-	local gui = script.Parent
-	local gui2 = script.Parent.Parent
+	local gui = game.Players.LocalPlayer.PlayerGUI.COMMANDBAR3.Frame.TextLabel.Drag
+	local gui2 = gui.Parent
 	local sgui = gui2.Parent
 	local tframe = gui2.textframe
 	local cmd = tframe.command.textbox
