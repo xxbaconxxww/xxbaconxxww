@@ -1,0 +1,25 @@
+local player = game.Players.LocalPlayer
+
+for _,playerschar in workspace.InGamePlayers:GetChildren() do
+	if  player.Name ~= playerschar.Name then
+		local bg = Instance.new('BillboardGui',playerschar.HumanoidRootPart)
+		bg.Size = UDim2.new(0,200,0,50)
+		bg.AlwaysOnTop = true
+		local tl = Instance.new('TextLabel',bg)
+		tl.Size = UDim2.new(1,0,1,0)
+		tl.BackgroundTransparency = 1
+		tl.TextColor3 = Color3.new(1,1,1)
+		tl.TextSize = 13
+		tl.FontFace.Bold = true
+		task.spawn(function()
+			while task.wait(1) do
+				local text = ''
+				for _,item in playerschar.Inventory:GetChildren() do
+					text = text..item.Value..' '
+				end
+				tl.Text = text
+			end
+		end)
+		
+	end
+end
