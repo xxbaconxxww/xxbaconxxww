@@ -47,7 +47,8 @@ end
 
 local a
 function highlightall()
-	local items = workspace.CurrentRoom:GetChildren()[1].Items
+	local items = workspace.CurrentRoom:GetChildren()[1]:WaitForChild('Items')
+wait(1)
 	for _,item in items:GetChildren() do
 		highlight(item)
 	end
